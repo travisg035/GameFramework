@@ -1,6 +1,7 @@
 ﻿## HOMEPAGE
 
-- **English** - Coming soon.
+- **Tiếng Việt** - [Xem bên dưới](#giới-thiệu-game-framework)
+- **English** - [See below](#introduction)
 - **简体中文** - [https://gameframework.cn/](https://gameframework.cn/)
   - **QQ 讨论群** 216332935
 
@@ -99,3 +100,49 @@ Game Framework provides the following 19 builtin modules, and more will be devel
 18. **UI** - provides features to manage user interfaces and groups of UIs, such as showing or hiding, activating or deactivating, and depth changing. No matter the user uses the builtin uGUI in Unity or other UI plugins (NGUI, for example), he only needs to subclass 'UIFormLogic' and implement his own UI logic. The UIs could avoid being destroyed instantly after use, and hence be recycled for reuse.
 
 19. **Web Request** - provides features of short connections, supports GET and POST methods to send requests to the server and acquire the response data, and allows the user to send simultaneous requests to different servers.
+
+---
+
+## GIỚI THIỆU GAME FRAMEWORK
+
+Game Framework là một framework phát triển game dựa trên Unity engine, đóng gói các module thường dùng trong quá trình làm game, giúp chuẩn hóa quy trình, tăng tốc độ phát triển và đảm bảo chất lượng sản phẩm.
+
+Trong phiên bản Game Framework hiện tại, bao gồm 19 module tích hợp sẵn sau:
+
+1. **Cấu hình toàn cục (Config)** - Lưu trữ các cấu hình game chỉ đọc (read-only) như tốc độ ban đầu của người chơi, âm lượng mặc định, v.v.
+
+2. **Nút dữ liệu (Data Node)** - Lưu trữ dữ liệu tùy ý dưới dạng cây (tree structure), dùng để quản lý các loại dữ liệu runtime của game.
+
+3. **Bảng dữ liệu (Data Table)** - Cấu hình dữ liệu game dưới dạng bảng (như Microsoft Excel) và nạp dữ liệu thông qua module này. Định dạng bảng có thể tùy biến linh hoạt.
+
+4. **Trình gỡ lỗi (Debugger)** - Hiển thị cửa sổ debugger khi game chạy trong Unity Editor hoặc bản Development build, giúp xem log runtime, thông tin debug. Người dùng có thể tự đăng ký thêm tính năng riêng vào cửa sổ này.
+
+5. **Tải xuống (Download)** - Hỗ trợ tải file, tiếp tục tải ngắt quãng (resume download), và giới hạn số lượng luồng tải đồng thời. Module Resource sẽ tự động gọi module này khi cập nhật tài nguyên.
+
+6. **Thực thể (Entity)** - Quản lý mọi đối tượng được tạo động trong màn chơi game (được định nghĩa là Entity). Hỗ trợ hiển thị/ẩn, gắn kết thực thể (như trang bị vũ khí, thú cưỡi, hoặc nhặt entity khác). Thực thể sau khi dùng có thể tái chế qua Object Pool thay vì Destroy ngay.
+
+7. **Sự kiện (Event)** - Cơ chế lắng nghe và bắn sự kiện (Observer Pattern) trong logic game. Nhiều module trong Game Framework phát sinh sự kiện sau khi hoàn thành thao tác; lắng nghe các sự kiện này giúp giảm thiểu tối đa sự phụ thuộc (decouple) giữa các hệ thống. Người dùng cũng có thể tự định nghĩa sự kiện riêng.
+
+8. **Hệ thống tệp (File System)** - Hệ thống tệp ảo quản lý tập trung các file rời rạc tương tự cơ chế ổ đĩa, tối ưu hóa phân bổ bộ nhớ (GC Alloc) khi tải tài nguyên, hỗ trợ đọc từng phân đoạn (segment) của tài nguyên, tăng đáng kể hiệu năng nạp asset.
+
+9. **Máy trạng thái hữu hạn (FSM)** - Hỗ trợ tạo, vận hành và hủy các Finite State Machine, phù hợp cho logic AI quái vật, trạng thái nhân vật, v.v.
+
+10. **Bản địa hóa (Localization)** - Cung cấp tính năng đa ngôn ngữ. Hỗ trợ dịch văn bản (text) và bản địa hóa mọi loại tài nguyên (audio, texture, hiệu ứng prefab đa ngôn ngữ).
+
+11. **Mạng (Network)** - Hỗ trợ kết nối Socket TCP (hỗ trợ cả IPv4 và IPv6). Cho phép mở nhiều kênh kết nối tới các server khác nhau cùng lúc (ví dụ: vừa kết nối Game Server, vừa kết nối Voice Chat Server). Hỗ trợ tích hợp dễ dàng các thư viện giao thức như ProtoBuf bằng cách kế thừa lớp `Packet`.
+
+12. **Bể đối tượng (Object Pool)** - Cung cấp Object Pool lưu bộ nhớ đệm đối tượng, tránh việc Instantiate và Destroy liên tục gây giật lag (GC spike). Người dùng có thể dễ dàng tạo và quản lý pool riêng.
+
+13. **Quy trình (Procedure)** - FSM xuyên suốt toàn bộ vòng đời (lifecycle) của game. Phân tách trạng thái game bằng Procedure là kiến trúc cốt lõi của Game Framework. Ví dụ: Procedure kiểm tra tài nguyên, cập nhật tài nguyên, kiểm tra server, chọn server, đăng nhập, vào game...
+
+14. **Tài nguyên (Resource)** - Hệ thống tải tài nguyên bất đồng bộ (Async) 100%. Mọi thứ từ DataTable, Text, Prefab, Scene, UI đều tải async để tránh gián đoạn trải nghiệm người chơi. Đi kèm chiến lược giải phóng bộ nhớ tự động, hạn chế tối đa việc phải gọi thủ công `Instantiate` hay `Destroy`.
+
+15. **Màn chơi (Scene)** - Quản lý nạp/hủy scene, hỗ trợ nạp nhiều scene cùng lúc hoặc dỡ bỏ từng scene riêng biệt.
+
+16. **Cài đặt người dùng (Setting)** - Lưu trữ dữ liệu người chơi theo cặp Key-Value, đóng gói `UnityEngine.PlayerPrefs` hoặc ghi trực tiếp xuống tệp trên ổ đĩa.
+
+17. **Âm thanh (Sound)** - Quản lý âm thanh và nhóm âm thanh (Sound Group). Tùy chỉnh âm lượng, âm thanh 2D/3D, hoặc gắn âm thanh đi theo một Entity cụ thể.
+
+18. **Giao diện (UI)** - Quản lý UI Form và nhóm UI Group (hiển thị, ẩn, sắp xếp layer/depth). Tương thích cả uGUI lẫn các plugin khác (như NGUI, FairyGUI), hỗ trợ cache/tái chế UI sau khi đóng.
+
+19. **Yêu cầu Web (Web Request)** - Hỗ trợ gửi request HTTP (GET, POST) tới web server và nhận dữ liệu phản hồi, có thể giới hạn số lượng request chạy song song.
