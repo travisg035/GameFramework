@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 namespace GameFramework
 {
     /// <summary>
-    /// 类型和名称的组合值。
+    /// Type and name pair struct.
     /// </summary>
     [StructLayout(LayoutKind.Auto)]
     internal struct TypeNamePair : IEquatable<TypeNamePair>
@@ -20,19 +20,19 @@ namespace GameFramework
         private readonly string m_Name;
 
         /// <summary>
-        /// 初始化类型和名称的组合值的新实例。
+        /// Initializes a new instance of the TypeNamePair struct.
         /// </summary>
-        /// <param name="type">类型。</param>
+        /// <param name="type">Type.</param>
         public TypeNamePair(Type type)
             : this(type, string.Empty)
         {
         }
 
         /// <summary>
-        /// 初始化类型和名称的组合值的新实例。
+        /// Initializes a new instance of the TypeNamePair struct.
         /// </summary>
-        /// <param name="type">类型。</param>
-        /// <param name="name">名称。</param>
+        /// <param name="type">Type.</param>
+        /// <param name="name">Name.</param>
         public TypeNamePair(Type type, string name)
         {
             if (type == null)
@@ -45,7 +45,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取类型。
+        /// Gets the type.
         /// </summary>
         public Type Type
         {
@@ -56,7 +56,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取名称。
+        /// Gets the name.
         /// </summary>
         public string Name
         {
@@ -67,9 +67,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取类型和名称的组合值字符串。
+        /// Gets the string representation of the type and name pair.
         /// </summary>
-        /// <returns>类型和名称的组合值字符串。</returns>
+        /// <returns>The string representation of the type and name pair.</returns>
         public override string ToString()
         {
             if (m_Type == null)
@@ -82,51 +82,51 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取对象的哈希值。
+        /// Gets the hash code for this instance.
         /// </summary>
-        /// <returns>对象的哈希值。</returns>
+        /// <returns>A hash code for this instance.</returns>
         public override int GetHashCode()
         {
             return m_Type.GetHashCode() ^ m_Name.GetHashCode();
         }
 
         /// <summary>
-        /// 比较对象是否与自身相等。
+        /// Determines whether this instance equals a specified object.
         /// </summary>
-        /// <param name="obj">要比较的对象。</param>
-        /// <returns>被比较的对象是否与自身相等。</returns>
+        /// <param name="obj">The object to compare.</param>
+        /// <returns>true if obj equals this instance; otherwise, false.</returns>
         public override bool Equals(object obj)
         {
             return obj is TypeNamePair && Equals((TypeNamePair)obj);
         }
 
         /// <summary>
-        /// 比较对象是否与自身相等。
+        /// Determines whether this instance equals another TypeNamePair.
         /// </summary>
-        /// <param name="value">要比较的对象。</param>
-        /// <returns>被比较的对象是否与自身相等。</returns>
+        /// <param name="value">The TypeNamePair to compare.</param>
+        /// <returns>true if value equals this instance; otherwise, false.</returns>
         public bool Equals(TypeNamePair value)
         {
             return m_Type == value.m_Type && m_Name == value.m_Name;
         }
 
         /// <summary>
-        /// 判断两个对象是否相等。
+        /// Determines whether two TypeNamePair instances are equal.
         /// </summary>
-        /// <param name="a">值 a。</param>
-        /// <param name="b">值 b。</param>
-        /// <returns>两个对象是否相等。</returns>
+        /// <param name="a">First value.</param>
+        /// <param name="b">Second value.</param>
+        /// <returns>true if the two instances are equal; otherwise, false.</returns>
         public static bool operator ==(TypeNamePair a, TypeNamePair b)
         {
             return a.Equals(b);
         }
 
         /// <summary>
-        /// 判断两个对象是否不相等。
+        /// Determines whether two TypeNamePair instances are not equal.
         /// </summary>
-        /// <param name="a">值 a。</param>
-        /// <param name="b">值 b。</param>
-        /// <returns>两个对象是否不相等。</returns>
+        /// <param name="a">First value.</param>
+        /// <param name="b">Second value.</param>
+        /// <returns>true if the two instances are not equal; otherwise, false.</returns>
         public static bool operator !=(TypeNamePair a, TypeNamePair b)
         {
             return !(a == b);

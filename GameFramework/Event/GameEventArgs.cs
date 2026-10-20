@@ -8,7 +8,7 @@
 namespace GameFramework.Event
 {
     /// <summary>
-    /// 游戏逻辑事件基类。
+    /// Base class for game logic event.
     /// </summary>
     public abstract class GameEventArgs : BaseEventArgs
     {

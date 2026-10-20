@@ -8,12 +8,12 @@
 namespace GameFramework.Sound
 {
     /// <summary>
-    /// 播放声音失败事件。
+    /// Play sound failure event.
     /// </summary>
     public sealed class PlaySoundFailureEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化播放声音失败事件的新实例。
+        /// Initializes a new instance of the <see cref="PlaySoundFailureEventArgs"/> class.
         /// </summary>
         public PlaySoundFailureEventArgs()
         {
@@ -27,7 +27,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取声音的序列编号。
+        /// Gets the serial ID of the sound.
         /// </summary>
         public int SerialId
         {
@@ -36,7 +36,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取声音资源名称。
+        /// Gets the sound asset name.
         /// </summary>
         public string SoundAssetName
         {
@@ -45,7 +45,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取声音组名称。
+        /// Gets the sound group name.
         /// </summary>
         public string SoundGroupName
         {
@@ -54,7 +54,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取播放声音参数。
+        /// Gets the play sound parameters.
         /// </summary>
         public PlaySoundParams PlaySoundParams
         {
@@ -63,7 +63,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取错误码。
+        /// Gets the error code.
         /// </summary>
         public PlaySoundErrorCode ErrorCode
         {
@@ -72,7 +72,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -81,7 +81,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -90,16 +90,16 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 创建播放声音失败事件。
+        /// Creates a play sound failure event.
         /// </summary>
-        /// <param name="serialId">声音的序列编号。</param>
-        /// <param name="soundAssetName">声音资源名称。</param>
-        /// <param name="soundGroupName">声音组名称。</param>
-        /// <param name="playSoundParams">播放声音参数。</param>
-        /// <param name="errorCode">错误码。</param>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的播放声音失败事件。</returns>
+        /// <param name="serialId">The serial ID of the sound.</param>
+        /// <param name="soundAssetName">The sound asset name.</param>
+        /// <param name="soundGroupName">The sound group name.</param>
+        /// <param name="playSoundParams">The play sound parameters.</param>
+        /// <param name="errorCode">The error code.</param>
+        /// <param name="errorMessage">The error message.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The created play sound failure event.</returns>
         public static PlaySoundFailureEventArgs Create(int serialId, string soundAssetName, string soundGroupName, PlaySoundParams playSoundParams, PlaySoundErrorCode errorCode, string errorMessage, object userData)
         {
             PlaySoundFailureEventArgs playSoundFailureEventArgs = ReferencePool.Acquire<PlaySoundFailureEventArgs>();
@@ -114,7 +114,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 清理播放声音失败事件。
+        /// Clears the play sound failure event.
         /// </summary>
         public override void Clear()
         {

@@ -8,7 +8,7 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载场景回调函数集。
+    /// Load scene callback set.
     /// </summary>
     public sealed class LoadSceneCallbacks
     {
@@ -18,73 +18,73 @@ namespace GameFramework.Resource
         private readonly LoadSceneDependencyAssetCallback m_LoadSceneDependencyAssetCallback;
 
         /// <summary>
-        /// 初始化加载场景回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadSceneCallbacks"/> class.
         /// </summary>
-        /// <param name="loadSceneSuccessCallback">加载场景成功回调函数。</param>
+        /// <param name="loadSceneSuccessCallback">The load scene success callback method.</param>
         public LoadSceneCallbacks(LoadSceneSuccessCallback loadSceneSuccessCallback)
             : this(loadSceneSuccessCallback, null, null, null)
         {
         }
 
         /// <summary>
-        /// 初始化加载场景回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadSceneCallbacks"/> class.
         /// </summary>
-        /// <param name="loadSceneSuccessCallback">加载场景成功回调函数。</param>
-        /// <param name="loadSceneFailureCallback">加载场景失败回调函数。</param>
+        /// <param name="loadSceneSuccessCallback">The load scene success callback method.</param>
+        /// <param name="loadSceneFailureCallback">The load scene failure callback method.</param>
         public LoadSceneCallbacks(LoadSceneSuccessCallback loadSceneSuccessCallback, LoadSceneFailureCallback loadSceneFailureCallback)
             : this(loadSceneSuccessCallback, loadSceneFailureCallback, null, null)
         {
         }
 
         /// <summary>
-        /// 初始化加载场景回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadSceneCallbacks"/> class.
         /// </summary>
-        /// <param name="loadSceneSuccessCallback">加载场景成功回调函数。</param>
-        /// <param name="loadSceneUpdateCallback">加载场景更新回调函数。</param>
+        /// <param name="loadSceneSuccessCallback">The load scene success callback method.</param>
+        /// <param name="loadSceneUpdateCallback">The load scene update callback method.</param>
         public LoadSceneCallbacks(LoadSceneSuccessCallback loadSceneSuccessCallback, LoadSceneUpdateCallback loadSceneUpdateCallback)
             : this(loadSceneSuccessCallback, null, loadSceneUpdateCallback, null)
         {
         }
 
         /// <summary>
-        /// 初始化加载场景回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadSceneCallbacks"/> class.
         /// </summary>
-        /// <param name="loadSceneSuccessCallback">加载场景成功回调函数。</param>
-        /// <param name="loadSceneDependencyAssetCallback">加载场景时加载依赖资源回调函数。</param>
+        /// <param name="loadSceneSuccessCallback">The load scene success callback method.</param>
+        /// <param name="loadSceneDependencyAssetCallback">The load scene dependency asset callback method.</param>
         public LoadSceneCallbacks(LoadSceneSuccessCallback loadSceneSuccessCallback, LoadSceneDependencyAssetCallback loadSceneDependencyAssetCallback)
             : this(loadSceneSuccessCallback, null, null, loadSceneDependencyAssetCallback)
         {
         }
 
         /// <summary>
-        /// 初始化加载场景回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadSceneCallbacks"/> class.
         /// </summary>
-        /// <param name="loadSceneSuccessCallback">加载场景成功回调函数。</param>
-        /// <param name="loadSceneFailureCallback">加载场景失败回调函数。</param>
-        /// <param name="loadSceneUpdateCallback">加载场景更新回调函数。</param>
+        /// <param name="loadSceneSuccessCallback">The load scene success callback method.</param>
+        /// <param name="loadSceneFailureCallback">The load scene failure callback method.</param>
+        /// <param name="loadSceneUpdateCallback">The load scene update callback method.</param>
         public LoadSceneCallbacks(LoadSceneSuccessCallback loadSceneSuccessCallback, LoadSceneFailureCallback loadSceneFailureCallback, LoadSceneUpdateCallback loadSceneUpdateCallback)
             : this(loadSceneSuccessCallback, loadSceneFailureCallback, loadSceneUpdateCallback, null)
         {
         }
 
         /// <summary>
-        /// 初始化加载场景回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadSceneCallbacks"/> class.
         /// </summary>
-        /// <param name="loadSceneSuccessCallback">加载场景成功回调函数。</param>
-        /// <param name="loadSceneFailureCallback">加载场景失败回调函数。</param>
-        /// <param name="loadSceneDependencyAssetCallback">加载场景时加载依赖资源回调函数。</param>
+        /// <param name="loadSceneSuccessCallback">The load scene success callback method.</param>
+        /// <param name="loadSceneFailureCallback">The load scene failure callback method.</param>
+        /// <param name="loadSceneDependencyAssetCallback">The load scene dependency asset callback method.</param>
         public LoadSceneCallbacks(LoadSceneSuccessCallback loadSceneSuccessCallback, LoadSceneFailureCallback loadSceneFailureCallback, LoadSceneDependencyAssetCallback loadSceneDependencyAssetCallback)
             : this(loadSceneSuccessCallback, loadSceneFailureCallback, null, loadSceneDependencyAssetCallback)
         {
         }
 
         /// <summary>
-        /// 初始化加载场景回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadSceneCallbacks"/> class.
         /// </summary>
-        /// <param name="loadSceneSuccessCallback">加载场景成功回调函数。</param>
-        /// <param name="loadSceneFailureCallback">加载场景失败回调函数。</param>
-        /// <param name="loadSceneUpdateCallback">加载场景更新回调函数。</param>
-        /// <param name="loadSceneDependencyAssetCallback">加载场景时加载依赖资源回调函数。</param>
+        /// <param name="loadSceneSuccessCallback">The load scene success callback method.</param>
+        /// <param name="loadSceneFailureCallback">The load scene failure callback method.</param>
+        /// <param name="loadSceneUpdateCallback">The load scene update callback method.</param>
+        /// <param name="loadSceneDependencyAssetCallback">The load scene dependency asset callback method.</param>
         public LoadSceneCallbacks(LoadSceneSuccessCallback loadSceneSuccessCallback, LoadSceneFailureCallback loadSceneFailureCallback, LoadSceneUpdateCallback loadSceneUpdateCallback, LoadSceneDependencyAssetCallback loadSceneDependencyAssetCallback)
         {
             if (loadSceneSuccessCallback == null)
@@ -99,7 +99,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载场景成功回调函数。
+        /// Gets the load scene success callback method.
         /// </summary>
         public LoadSceneSuccessCallback LoadSceneSuccessCallback
         {
@@ -110,7 +110,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载场景失败回调函数。
+        /// Gets the load scene failure callback method.
         /// </summary>
         public LoadSceneFailureCallback LoadSceneFailureCallback
         {
@@ -121,7 +121,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载场景更新回调函数。
+        /// Gets the load scene update callback method.
         /// </summary>
         public LoadSceneUpdateCallback LoadSceneUpdateCallback
         {
@@ -132,7 +132,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载场景时加载依赖资源回调函数。
+        /// Gets the load scene dependency asset callback method.
         /// </summary>
         public LoadSceneDependencyAssetCallback LoadSceneDependencyAssetCallback
         {

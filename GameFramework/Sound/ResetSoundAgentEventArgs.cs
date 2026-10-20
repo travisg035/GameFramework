@@ -8,21 +8,21 @@
 namespace GameFramework.Sound
 {
     /// <summary>
-    /// 重置声音代理事件。
+    /// Reset sound agent event.
     /// </summary>
     public sealed class ResetSoundAgentEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化重置声音代理事件的新实例。
+        /// Initializes a new instance of the <see cref="ResetSoundAgentEventArgs"/> class.
         /// </summary>
         public ResetSoundAgentEventArgs()
         {
         }
 
         /// <summary>
-        /// 创建重置声音代理事件。
+        /// Creates a reset sound agent event.
         /// </summary>
-        /// <returns>创建的重置声音代理事件。</returns>
+        /// <returns>The created reset sound agent event.</returns>
         public static ResetSoundAgentEventArgs Create()
         {
             ResetSoundAgentEventArgs resetSoundAgentEventArgs = ReferencePool.Acquire<ResetSoundAgentEventArgs>();
@@ -30,7 +30,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 清理重置声音代理事件。
+        /// Clears the reset sound agent event.
         /// </summary>
         public override void Clear()
         {

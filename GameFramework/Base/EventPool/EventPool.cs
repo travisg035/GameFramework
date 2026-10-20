@@ -11,9 +11,9 @@ using System.Collections.Generic;
 namespace GameFramework
 {
     /// <summary>
-    /// 事件池。
+    /// Event pool.
     /// </summary>
-    /// <typeparam name="T">事件类型。</typeparam>
+    /// <typeparam name="T">Event type.</typeparam>
     internal sealed partial class EventPool<T> where T : BaseEventArgs
     {
         private readonly GameFrameworkMultiDictionary<int, EventHandler<T>> m_EventHandlers;
@@ -24,9 +24,9 @@ namespace GameFramework
         private EventHandler<T> m_DefaultHandler;
 
         /// <summary>
-        /// 初始化事件池的新实例。
+        /// Initializes a new instance of the EventPool class.
         /// </summary>
-        /// <param name="mode">事件池模式。</param>
+        /// <param name="mode">Event pool mode.</param>
         public EventPool(EventPoolMode mode)
         {
             m_EventHandlers = new GameFrameworkMultiDictionary<int, EventHandler<T>>();
@@ -38,7 +38,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取事件处理函数的数量。
+        /// Gets the number of event handlers.
         /// </summary>
         public int EventHandlerCount
         {
@@ -49,7 +49,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取事件数量。
+        /// Gets the number of events.
         /// </summary>
         public int EventCount
         {
@@ -60,10 +60,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 事件池轮询。
+        /// Event pool update.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         public void Update(float elapseSeconds, float realElapseSeconds)
         {
             lock (m_Events)
@@ -78,7 +78,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 关闭并清理事件池。
+        /// Shutdown and cleanup the event pool.
         /// </summary>
         public void Shutdown()
         {
@@ -90,7 +90,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 清理事件。
+        /// Clears events.
         /// </summary>
         public void Clear()
         {
@@ -101,10 +101,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取事件处理函数的数量。
+        /// Gets the number of event handlers for the specified event id.
         /// </summary>
-        /// <param name="id">事件类型编号。</param>
-        /// <returns>事件处理函数的数量。</returns>
+        /// <param name="id">Event type id.</param>
+        /// <returns>The number of event handlers.</returns>
         public int Count(int id)
         {
             GameFrameworkLinkedListRange<EventHandler<T>> range = default(GameFrameworkLinkedListRange<EventHandler<T>>);
@@ -117,11 +117,11 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 检查是否存在事件处理函数。
+        /// Checks whether the event handler exists.
         /// </summary>
-        /// <param name="id">事件类型编号。</param>
-        /// <param name="handler">要检查的事件处理函数。</param>
-        /// <returns>是否存在事件处理函数。</returns>
+        /// <param name="id">Event type id.</param>
+        /// <param name="handler">Event handler to check.</param>
+        /// <returns>Whether the event handler exists.</returns>
         public bool Check(int id, EventHandler<T> handler)
         {
             if (handler == null)
@@ -133,10 +133,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 订阅事件处理函数。
+        /// Subscribes to an event handler.
         /// </summary>
-        /// <param name="id">事件类型编号。</param>
-        /// <param name="handler">要订阅的事件处理函数。</param>
+        /// <param name="id">Event type id.</param>
+        /// <param name="handler">Event handler to subscribe.</param>
         public void Subscribe(int id, EventHandler<T> handler)
         {
             if (handler == null)
@@ -163,10 +163,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 取消订阅事件处理函数。
+        /// Unsubscribes from an event handler.
         /// </summary>
-        /// <param name="id">事件类型编号。</param>
-        /// <param name="handler">要取消订阅的事件处理函数。</param>
+        /// <param name="id">Event type id.</param>
+        /// <param name="handler">Event handler to unsubscribe.</param>
         public void Unsubscribe(int id, EventHandler<T> handler)
         {
             if (handler == null)
@@ -202,19 +202,19 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 设置默认事件处理函数。
+        /// Sets the default event handler.
         /// </summary>
-        /// <param name="handler">要设置的默认事件处理函数。</param>
+        /// <param name="handler">Default event handler to set.</param>
         public void SetDefaultHandler(EventHandler<T> handler)
         {
             m_DefaultHandler = handler;
         }
 
         /// <summary>
-        /// 抛出事件，这个操作是线程安全的，即使不在主线程中抛出，也可保证在主线程中回调事件处理函数，但事件会在抛出后的下一帧分发。
+        /// Fires an event. This operation is thread-safe; handlers will be called on the main thread, but dispatched in the next frame.
         /// </summary>
-        /// <param name="sender">事件源。</param>
-        /// <param name="e">事件参数。</param>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Event arguments.</param>
         public void Fire(object sender, T e)
         {
             if (e == null)
@@ -230,10 +230,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 抛出事件立即模式，这个操作不是线程安全的，事件会立刻分发。
+        /// Fires an event immediately. This operation is not thread-safe and the event will be dispatched immediately.
         /// </summary>
-        /// <param name="sender">事件源。</param>
-        /// <param name="e">事件参数。</param>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Event arguments.</param>
         public void FireNow(object sender, T e)
         {
             if (e == null)
@@ -245,10 +245,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 处理事件结点。
+        /// Handles event node.
         /// </summary>
-        /// <param name="sender">事件源。</param>
-        /// <param name="e">事件参数。</param>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Event arguments.</param>
         private void HandleEvent(object sender, T e)
         {
             bool noHandlerException = false;

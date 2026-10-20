@@ -10,19 +10,19 @@ using System;
 namespace GameFramework
 {
     /// <summary>
-    /// 游戏框架中包含事件数据的类的基类。
+    /// Base class for game framework event data classes.
     /// </summary>
     public abstract class GameFrameworkEventArgs : EventArgs, IReference
     {
         /// <summary>
-        /// 初始化游戏框架中包含事件数据的类的新实例。
+        /// Initializes a new instance of the game framework event data class.
         /// </summary>
         public GameFrameworkEventArgs()
         {
         }
 
         /// <summary>
-        /// 清理引用。
+        /// Clear references.
         /// </summary>
         public abstract void Clear();
     }

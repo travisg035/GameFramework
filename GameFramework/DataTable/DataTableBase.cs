@@ -11,7 +11,7 @@ using System;
 namespace GameFramework.DataTable
 {
     /// <summary>
-    /// 数据表基类。
+    /// Data table base class.
     /// </summary>
     public abstract class DataTableBase : IDataProvider<DataTableBase>
     {
@@ -19,7 +19,7 @@ namespace GameFramework.DataTable
         private readonly DataProvider<DataTableBase> m_DataProvider;
 
         /// <summary>
-        /// 初始化数据表基类的新实例。
+        /// Initializes a new instance of the DataTableBase class.
         /// </summary>
         public DataTableBase()
             : this(null)
@@ -27,9 +27,9 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 初始化数据表基类的新实例。
+        /// Initializes a new instance of the DataTableBase class.
         /// </summary>
-        /// <param name="name">数据表名称。</param>
+        /// <param name="name">Data table name.</param>
         public DataTableBase(string name)
         {
             m_Name = name ?? string.Empty;
@@ -37,7 +37,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取数据表名称。
+        /// Gets the data table name.
         /// </summary>
         public string Name
         {
@@ -48,7 +48,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取数据表完整名称。
+        /// Gets the data table full name.
         /// </summary>
         public string FullName
         {
@@ -59,7 +59,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取数据表行的类型。
+        /// Gets the data table row type.
         /// </summary>
         public abstract Type Type
         {
@@ -67,7 +67,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取数据表行数。
+        /// Gets the count of data table rows.
         /// </summary>
         public abstract int Count
         {
@@ -75,7 +75,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 读取数据表成功事件。
+        /// Read data table success event.
         /// </summary>
         public event EventHandler<ReadDataSuccessEventArgs> ReadDataSuccess
         {
@@ -90,7 +90,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 读取数据表失败事件。
+        /// Read data table failure event.
         /// </summary>
         public event EventHandler<ReadDataFailureEventArgs> ReadDataFailure
         {
@@ -105,7 +105,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 读取数据表更新事件。
+        /// Read data table update event.
         /// </summary>
         public event EventHandler<ReadDataUpdateEventArgs> ReadDataUpdate
         {
@@ -120,7 +120,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 读取数据表时加载依赖资源事件。
+        /// Read data table dependency asset event.
         /// </summary>
         public event EventHandler<ReadDataDependencyAssetEventArgs> ReadDataDependencyAsset
         {
@@ -135,169 +135,169 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 读取数据表。
+        /// Reads data table.
         /// </summary>
-        /// <param name="dataTableAssetName">数据表资源名称。</param>
+        /// <param name="dataTableAssetName">Data table asset name.</param>
         public void ReadData(string dataTableAssetName)
         {
             m_DataProvider.ReadData(dataTableAssetName);
         }
 
         /// <summary>
-        /// 读取数据表。
+        /// Reads data table.
         /// </summary>
-        /// <param name="dataTableAssetName">数据表资源名称。</param>
-        /// <param name="priority">加载数据表资源的优先级。</param>
+        /// <param name="dataTableAssetName">Data table asset name.</param>
+        /// <param name="priority">Priority for loading the data table asset.</param>
         public void ReadData(string dataTableAssetName, int priority)
         {
             m_DataProvider.ReadData(dataTableAssetName, priority);
         }
 
         /// <summary>
-        /// 读取数据表。
+        /// Reads data table.
         /// </summary>
-        /// <param name="dataTableAssetName">数据表资源名称。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="dataTableAssetName">Data table asset name.</param>
+        /// <param name="userData">Custom user data.</param>
         public void ReadData(string dataTableAssetName, object userData)
         {
             m_DataProvider.ReadData(dataTableAssetName, userData);
         }
 
         /// <summary>
-        /// 读取数据表。
+        /// Reads data table.
         /// </summary>
-        /// <param name="dataTableAssetName">数据表资源名称。</param>
-        /// <param name="priority">加载数据表资源的优先级。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="dataTableAssetName">Data table asset name.</param>
+        /// <param name="priority">Priority for loading the data table asset.</param>
+        /// <param name="userData">Custom user data.</param>
         public void ReadData(string dataTableAssetName, int priority, object userData)
         {
             m_DataProvider.ReadData(dataTableAssetName, priority, userData);
         }
 
         /// <summary>
-        /// 解析数据表。
+        /// Parses data table.
         /// </summary>
-        /// <param name="dataTableString">要解析的数据表字符串。</param>
-        /// <returns>是否解析数据表成功。</returns>
+        /// <param name="dataTableString">The data table string to parse.</param>
+        /// <returns>Whether the data table was parsed successfully.</returns>
         public bool ParseData(string dataTableString)
         {
             return m_DataProvider.ParseData(dataTableString);
         }
 
         /// <summary>
-        /// 解析数据表。
+        /// Parses data table.
         /// </summary>
-        /// <param name="dataTableString">要解析的数据表字符串。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否解析数据表成功。</returns>
+        /// <param name="dataTableString">The data table string to parse.</param>
+        /// <param name="userData">Custom user data.</param>
+        /// <returns>Whether the data table was parsed successfully.</returns>
         public bool ParseData(string dataTableString, object userData)
         {
             return m_DataProvider.ParseData(dataTableString, userData);
         }
 
         /// <summary>
-        /// 解析数据表。
+        /// Parses data table.
         /// </summary>
-        /// <param name="dataTableBytes">要解析的数据表二进制流。</param>
-        /// <returns>是否解析数据表成功。</returns>
+        /// <param name="dataTableBytes">The data table binary bytes to parse.</param>
+        /// <returns>Whether the data table was parsed successfully.</returns>
         public bool ParseData(byte[] dataTableBytes)
         {
             return m_DataProvider.ParseData(dataTableBytes);
         }
 
         /// <summary>
-        /// 解析数据表。
+        /// Parses data table.
         /// </summary>
-        /// <param name="dataTableBytes">要解析的数据表二进制流。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否解析数据表成功。</returns>
+        /// <param name="dataTableBytes">The data table binary bytes to parse.</param>
+        /// <param name="userData">Custom user data.</param>
+        /// <returns>Whether the data table was parsed successfully.</returns>
         public bool ParseData(byte[] dataTableBytes, object userData)
         {
             return m_DataProvider.ParseData(dataTableBytes, userData);
         }
 
         /// <summary>
-        /// 解析数据表。
+        /// Parses data table.
         /// </summary>
-        /// <param name="dataTableBytes">要解析的数据表二进制流。</param>
-        /// <param name="startIndex">数据表二进制流的起始位置。</param>
-        /// <param name="length">数据表二进制流的长度。</param>
-        /// <returns>是否解析数据表成功。</returns>
+        /// <param name="dataTableBytes">The data table binary bytes to parse.</param>
+        /// <param name="startIndex">The start index of the data table binary bytes.</param>
+        /// <param name="length">The length of the data table binary bytes.</param>
+        /// <returns>Whether the data table was parsed successfully.</returns>
         public bool ParseData(byte[] dataTableBytes, int startIndex, int length)
         {
             return m_DataProvider.ParseData(dataTableBytes, startIndex, length);
         }
 
         /// <summary>
-        /// 解析数据表。
+        /// Parses data table.
         /// </summary>
-        /// <param name="dataTableBytes">要解析的数据表二进制流。</param>
-        /// <param name="startIndex">数据表二进制流的起始位置。</param>
-        /// <param name="length">数据表二进制流的长度。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否解析数据表成功。</returns>
+        /// <param name="dataTableBytes">The data table binary bytes to parse.</param>
+        /// <param name="startIndex">The start index of the data table binary bytes.</param>
+        /// <param name="length">The length of the data table binary bytes.</param>
+        /// <param name="userData">Custom user data.</param>
+        /// <returns>Whether the data table was parsed successfully.</returns>
         public bool ParseData(byte[] dataTableBytes, int startIndex, int length, object userData)
         {
             return m_DataProvider.ParseData(dataTableBytes, startIndex, length, userData);
         }
 
         /// <summary>
-        /// 检查是否存在数据表行。
+        /// Checks whether a data table row exists.
         /// </summary>
-        /// <param name="id">数据表行的编号。</param>
-        /// <returns>是否存在数据表行。</returns>
+        /// <param name="id">The data table row id.</param>
+        /// <returns>Whether the data table row exists.</returns>
         public abstract bool HasDataRow(int id);
 
         /// <summary>
-        /// 增加数据表行。
+        /// Adds a data table row.
         /// </summary>
-        /// <param name="dataRowString">要解析的数据表行字符串。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否增加数据表行成功。</returns>
+        /// <param name="dataRowString">The data row string to parse.</param>
+        /// <param name="userData">Custom user data.</param>
+        /// <returns>Whether the data table row was added successfully.</returns>
         public abstract bool AddDataRow(string dataRowString, object userData);
 
         /// <summary>
-        /// 增加数据表行。
+        /// Adds a data table row.
         /// </summary>
-        /// <param name="dataRowBytes">要解析的数据表行二进制流。</param>
-        /// <param name="startIndex">数据表行二进制流的起始位置。</param>
-        /// <param name="length">数据表行二进制流的长度。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否增加数据表行成功。</returns>
+        /// <param name="dataRowBytes">The data row binary bytes to parse.</param>
+        /// <param name="startIndex">The start index of the data row binary bytes.</param>
+        /// <param name="length">The length of the data row binary bytes.</param>
+        /// <param name="userData">Custom user data.</param>
+        /// <returns>Whether the data table row was added successfully.</returns>
         public abstract bool AddDataRow(byte[] dataRowBytes, int startIndex, int length, object userData);
 
         /// <summary>
-        /// 移除指定数据表行。
+        /// Removes the specified data table row.
         /// </summary>
-        /// <param name="id">要移除数据表行的编号。</param>
-        /// <returns>是否移除数据表行成功。</returns>
+        /// <param name="id">The id of the data table row to remove.</param>
+        /// <returns>Whether the data table row was removed successfully.</returns>
         public abstract bool RemoveDataRow(int id);
 
         /// <summary>
-        /// 清空所有数据表行。
+        /// Removes all data table rows.
         /// </summary>
         public abstract void RemoveAllDataRows();
 
         /// <summary>
-        /// 设置资源管理器。
+        /// Sets the resource manager.
         /// </summary>
-        /// <param name="resourceManager">资源管理器。</param>
+        /// <param name="resourceManager">The resource manager.</param>
         internal void SetResourceManager(IResourceManager resourceManager)
         {
             m_DataProvider.SetResourceManager(resourceManager);
         }
 
         /// <summary>
-        /// 设置数据提供者辅助器。
+        /// Sets the data provider helper.
         /// </summary>
-        /// <param name="dataProviderHelper">数据提供者辅助器。</param>
+        /// <param name="dataProviderHelper">The data provider helper.</param>
         internal void SetDataProviderHelper(IDataProviderHelper<DataTableBase> dataProviderHelper)
         {
             m_DataProvider.SetDataProviderHelper(dataProviderHelper);
         }
 
         /// <summary>
-        /// 关闭并清理数据表。
+        /// Shuts down and cleans up the data table.
         /// </summary>
         internal abstract void Shutdown();
     }

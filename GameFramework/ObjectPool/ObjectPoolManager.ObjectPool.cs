@@ -13,9 +13,9 @@ namespace GameFramework.ObjectPool
     internal sealed partial class ObjectPoolManager : GameFrameworkModule, IObjectPoolManager
     {
         /// <summary>
-        /// 对象池。
+        /// Object pool.
         /// </summary>
-        /// <typeparam name="T">对象类型。</typeparam>
+        /// <typeparam name="T">The object type.</typeparam>
         private sealed class ObjectPool<T> : ObjectPoolBase, IObjectPool<T> where T : ObjectBase
         {
             private readonly GameFrameworkMultiDictionary<string, Object<T>> m_Objects;
@@ -31,14 +31,14 @@ namespace GameFramework.ObjectPool
             private float m_AutoReleaseTime;
 
             /// <summary>
-            /// 初始化对象池的新实例。
+            /// Initializes a new instance of the ObjectPool class.
             /// </summary>
-            /// <param name="name">对象池名称。</param>
-            /// <param name="allowMultiSpawn">是否允许对象被多次获取。</param>
-            /// <param name="autoReleaseInterval">对象池自动释放可释放对象的间隔秒数。</param>
-            /// <param name="capacity">对象池的容量。</param>
-            /// <param name="expireTime">对象池对象过期秒数。</param>
-            /// <param name="priority">对象池的优先级。</param>
+            /// <param name="name">The object pool name.</param>
+            /// <param name="allowMultiSpawn">Whether the object is allowed to be spawned multiple times.</param>
+            /// <param name="autoReleaseInterval">The interval in seconds for automatically releasing releasable objects in the object pool.</param>
+            /// <param name="capacity">The capacity of the object pool.</param>
+            /// <param name="expireTime">The expire time in seconds for objects in the object pool.</param>
+            /// <param name="priority">The priority of the object pool.</param>
             public ObjectPool(string name, bool allowMultiSpawn, float autoReleaseInterval, int capacity, float expireTime, int priority)
                 : base(name)
             {
@@ -56,7 +56,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取对象池对象类型。
+            /// Gets the object type of the object pool.
             /// </summary>
             public override Type ObjectType
             {
@@ -67,7 +67,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取对象池中对象的数量。
+            /// Gets the count of objects in the object pool.
             /// </summary>
             public override int Count
             {
@@ -78,7 +78,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取对象池中能被释放的对象的数量。
+            /// Gets the count of releasable objects in the object pool.
             /// </summary>
             public override int CanReleaseCount
             {
@@ -90,7 +90,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取是否允许对象被多次获取。
+            /// Gets whether the object is allowed to be spawned multiple times.
             /// </summary>
             public override bool AllowMultiSpawn
             {
@@ -101,7 +101,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取或设置对象池自动释放可释放对象的间隔秒数。
+            /// Gets or sets the interval in seconds for automatically releasing releasable objects in the object pool.
             /// </summary>
             public override float AutoReleaseInterval
             {
@@ -116,7 +116,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取或设置对象池的容量。
+            /// Gets or sets the capacity of the object pool.
             /// </summary>
             public override int Capacity
             {
@@ -142,7 +142,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取或设置对象池对象过期秒数。
+            /// Gets or sets the expire time in seconds for objects in the object pool.
             /// </summary>
             public override float ExpireTime
             {
@@ -169,7 +169,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取或设置对象池的优先级。
+            /// Gets or sets the priority of the object pool.
             /// </summary>
             public override int Priority
             {
@@ -184,10 +184,10 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 创建对象。
+            /// Registers an object.
             /// </summary>
-            /// <param name="obj">对象。</param>
-            /// <param name="spawned">对象是否已被获取。</param>
+            /// <param name="obj">The object to register.</param>
+            /// <param name="spawned">Whether the object has been spawned.</param>
             public void Register(T obj, bool spawned)
             {
                 if (obj == null)
@@ -206,19 +206,19 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 检查对象。
+            /// Checks whether an object can be spawned.
             /// </summary>
-            /// <returns>要检查的对象是否存在。</returns>
+            /// <returns>Whether the object to check exists.</returns>
             public bool CanSpawn()
             {
                 return CanSpawn(string.Empty);
             }
 
             /// <summary>
-            /// 检查对象。
+            /// Checks whether an object can be spawned.
             /// </summary>
-            /// <param name="name">对象名称。</param>
-            /// <returns>要检查的对象是否存在。</returns>
+            /// <param name="name">The object name.</param>
+            /// <returns>Whether the object to check exists.</returns>
             public bool CanSpawn(string name)
             {
                 if (name == null)
@@ -242,19 +242,19 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取对象。
+            /// Spawns an object.
             /// </summary>
-            /// <returns>要获取的对象。</returns>
+            /// <returns>The spawned object.</returns>
             public T Spawn()
             {
                 return Spawn(string.Empty);
             }
 
             /// <summary>
-            /// 获取对象。
+            /// Spawns an object.
             /// </summary>
-            /// <param name="name">对象名称。</param>
-            /// <returns>要获取的对象。</returns>
+            /// <param name="name">The object name.</param>
+            /// <returns>The spawned object.</returns>
             public T Spawn(string name)
             {
                 if (name == null)
@@ -278,9 +278,9 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 回收对象。
+            /// Unspawns an object.
             /// </summary>
-            /// <param name="obj">要回收的对象。</param>
+            /// <param name="obj">The object to unspawn.</param>
             public void Unspawn(T obj)
             {
                 if (obj == null)
@@ -292,9 +292,9 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 回收对象。
+            /// Unspawns an object.
             /// </summary>
-            /// <param name="target">要回收的对象。</param>
+            /// <param name="target">The target object to unspawn.</param>
             public void Unspawn(object target)
             {
                 if (target == null)
@@ -318,10 +318,10 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 设置对象是否被加锁。
+            /// Sets whether the object is locked.
             /// </summary>
-            /// <param name="obj">要设置被加锁的对象。</param>
-            /// <param name="locked">是否被加锁。</param>
+            /// <param name="obj">The object to set locked.</param>
+            /// <param name="locked">Whether it is locked.</param>
             public void SetLocked(T obj, bool locked)
             {
                 if (obj == null)
@@ -333,10 +333,10 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 设置对象是否被加锁。
+            /// Sets whether the object is locked.
             /// </summary>
-            /// <param name="target">要设置被加锁的对象。</param>
-            /// <param name="locked">是否被加锁。</param>
+            /// <param name="target">The target object to set locked.</param>
+            /// <param name="locked">Whether it is locked.</param>
             public void SetLocked(object target, bool locked)
             {
                 if (target == null)
@@ -356,10 +356,10 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 设置对象的优先级。
+            /// Sets the priority of the object.
             /// </summary>
-            /// <param name="obj">要设置优先级的对象。</param>
-            /// <param name="priority">优先级。</param>
+            /// <param name="obj">The object to set priority.</param>
+            /// <param name="priority">Priority.</param>
             public void SetPriority(T obj, int priority)
             {
                 if (obj == null)
@@ -371,10 +371,10 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 设置对象的优先级。
+            /// Sets the priority of the object.
             /// </summary>
-            /// <param name="target">要设置优先级的对象。</param>
-            /// <param name="priority">优先级。</param>
+            /// <param name="target">The target object to set priority.</param>
+            /// <param name="priority">Priority.</param>
             public void SetPriority(object target, int priority)
             {
                 if (target == null)
@@ -394,10 +394,10 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 释放对象。
+            /// Releases an object.
             /// </summary>
-            /// <param name="obj">要释放的对象。</param>
-            /// <returns>释放对象是否成功。</returns>
+            /// <param name="obj">The object to release.</param>
+            /// <returns>Whether the object was released successfully.</returns>
             public bool ReleaseObject(T obj)
             {
                 if (obj == null)
@@ -409,10 +409,10 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 释放对象。
+            /// Releases an object.
             /// </summary>
-            /// <param name="target">要释放的对象。</param>
-            /// <returns>释放对象是否成功。</returns>
+            /// <param name="target">The target object to release.</param>
+            /// <returns>Whether the object was released successfully.</returns>
             public bool ReleaseObject(object target)
             {
                 if (target == null)
@@ -440,7 +440,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 释放对象池中的可释放对象。
+            /// Releases releasable objects in the object pool.
             /// </summary>
             public override void Release()
             {
@@ -448,28 +448,28 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 释放对象池中的可释放对象。
+            /// Releases releasable objects in the object pool.
             /// </summary>
-            /// <param name="toReleaseCount">尝试释放对象数量。</param>
+            /// <param name="toReleaseCount">The count of objects to attempt to release.</param>
             public override void Release(int toReleaseCount)
             {
                 Release(toReleaseCount, m_DefaultReleaseObjectFilterCallback);
             }
 
             /// <summary>
-            /// 释放对象池中的可释放对象。
+            /// Releases releasable objects in the object pool.
             /// </summary>
-            /// <param name="releaseObjectFilterCallback">释放对象筛选函数。</param>
+            /// <param name="releaseObjectFilterCallback">Release object filter callback.</param>
             public void Release(ReleaseObjectFilterCallback<T> releaseObjectFilterCallback)
             {
                 Release(Count - m_Capacity, releaseObjectFilterCallback);
             }
 
             /// <summary>
-            /// 释放对象池中的可释放对象。
+            /// Releases releasable objects in the object pool.
             /// </summary>
-            /// <param name="toReleaseCount">尝试释放对象数量。</param>
-            /// <param name="releaseObjectFilterCallback">释放对象筛选函数。</param>
+            /// <param name="toReleaseCount">The count of objects to attempt to release.</param>
+            /// <param name="releaseObjectFilterCallback">Release object filter callback.</param>
             public void Release(int toReleaseCount, ReleaseObjectFilterCallback<T> releaseObjectFilterCallback)
             {
                 if (releaseObjectFilterCallback == null)
@@ -503,7 +503,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 释放对象池中的所有未使用对象。
+            /// Releases all unused objects in the object pool.
             /// </summary>
             public override void ReleaseAllUnused()
             {
@@ -516,9 +516,9 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取所有对象信息。
+            /// Gets all object information.
             /// </summary>
-            /// <returns>所有对象信息。</returns>
+            /// <returns>All object information.</returns>
             public override ObjectInfo[] GetAllObjectInfos()
             {
                 List<ObjectInfo> results = new List<ObjectInfo>();

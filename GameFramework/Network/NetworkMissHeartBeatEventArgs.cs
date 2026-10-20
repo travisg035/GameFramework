@@ -8,12 +8,12 @@
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络心跳包丢失事件。
+    /// Network miss heartbeat event.
     /// </summary>
     public sealed class NetworkMissHeartBeatEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化网络心跳包丢失事件的新实例。
+        /// Initializes a new instance of the NetworkMissHeartBeatEventArgs class.
         /// </summary>
         public NetworkMissHeartBeatEventArgs()
         {
@@ -22,7 +22,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取网络频道。
+        /// Gets the network channel.
         /// </summary>
         public INetworkChannel NetworkChannel
         {
@@ -31,7 +31,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取心跳包已丢失次数。
+        /// Gets the number of missed heartbeats.
         /// </summary>
         public int MissCount
         {
@@ -40,11 +40,11 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 创建网络心跳包丢失事件。
+        /// Creates a network miss heartbeat event.
         /// </summary>
-        /// <param name="networkChannel">网络频道。</param>
-        /// <param name="missCount">心跳包已丢失次数。</param>
-        /// <returns>创建的网络心跳包丢失事件。</returns>
+        /// <param name="networkChannel">Network channel.</param>
+        /// <param name="missCount">Number of missed heartbeats.</param>
+        /// <returns>The created network miss heartbeat event.</returns>
         public static NetworkMissHeartBeatEventArgs Create(INetworkChannel networkChannel, int missCount)
         {
             NetworkMissHeartBeatEventArgs networkMissHeartBeatEventArgs = ReferencePool.Acquire<NetworkMissHeartBeatEventArgs>();
@@ -54,7 +54,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 清理网络心跳包丢失事件。
+        /// Clears the network miss heartbeat event.
         /// </summary>
         public override void Clear()
         {

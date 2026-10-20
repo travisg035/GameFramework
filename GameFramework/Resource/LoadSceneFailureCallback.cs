@@ -8,11 +8,11 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载场景失败回调函数。
+    /// Load scene failure callback method.
     /// </summary>
-    /// <param name="sceneAssetName">要加载的场景资源名称。</param>
-    /// <param name="status">加载场景状态。</param>
-    /// <param name="errorMessage">错误信息。</param>
-    /// <param name="userData">用户自定义数据。</param>
+    /// <param name="sceneAssetName">The asset name of the scene to load.</param>
+    /// <param name="status">The load resource status.</param>
+    /// <param name="errorMessage">The error message.</param>
+    /// <param name="userData">User-defined data.</param>
     public delegate void LoadSceneFailureCallback(string sceneAssetName, LoadResourceStatus status, string errorMessage, object userData);
 }

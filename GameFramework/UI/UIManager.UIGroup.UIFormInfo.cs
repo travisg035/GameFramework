@@ -12,7 +12,7 @@ namespace GameFramework.UI
         private sealed partial class UIGroup : IUIGroup
         {
             /// <summary>
-            /// 界面组界面信息。
+            /// UI group UI form information.
             /// </summary>
             private sealed class UIFormInfo : IReference
             {

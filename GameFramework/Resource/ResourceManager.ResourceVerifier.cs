@@ -15,7 +15,7 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 资源校验器。
+        /// Resource verifier.
         /// </summary>
         private sealed partial class ResourceVerifier
         {
@@ -35,9 +35,9 @@ namespace GameFramework.Resource
             public GameFrameworkAction<bool> ResourceVerifyComplete;
 
             /// <summary>
-            /// 初始化资源校验器的新实例。
+            /// Initializes a new instance of the ResourceVerifier class.
             /// </summary>
-            /// <param name="resourceManager">资源管理器。</param>
+            /// <param name="resourceManager">The resource manager.</param>
             public ResourceVerifier(ResourceManager resourceManager)
             {
                 m_ResourceManager = resourceManager;
@@ -55,10 +55,10 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 资源校验器轮询。
+            /// Resource verifier update.
             /// </summary>
-            /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-            /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+            /// <param name="elapseSeconds">Logical elapsed time in seconds.</param>
+            /// <param name="realElapseSeconds">Real elapsed time in seconds.</param>
             public void Update(float elapseSeconds, float realElapseSeconds)
             {
                 if (!m_LoadReadWriteVersionListComplete)
@@ -108,7 +108,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 关闭并清理资源校验器。
+            /// Shutdowns and cleans up the resource verifier.
             /// </summary>
             public void Shutdown()
             {
@@ -120,9 +120,9 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 校验资源。
+            /// Verifies resources.
             /// </summary>
-            /// <param name="verifyResourceLengthPerFrame">每帧至少校验资源的大小，以字节为单位。</param>
+            /// <param name="verifyResourceLengthPerFrame">Minimum length of resources to verify per frame in bytes.</param>
             public void VerifyResources(int verifyResourceLengthPerFrame)
             {
                 if (verifyResourceLengthPerFrame < 0)

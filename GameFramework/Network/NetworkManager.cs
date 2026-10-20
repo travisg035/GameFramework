@@ -12,7 +12,7 @@ using System.Net.Sockets;
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络管理器。
+    /// Network manager.
     /// </summary>
     internal sealed partial class NetworkManager : GameFrameworkModule, INetworkManager
     {
@@ -25,7 +25,7 @@ namespace GameFramework.Network
         private EventHandler<NetworkCustomErrorEventArgs> m_NetworkCustomErrorEventHandler;
 
         /// <summary>
-        /// 初始化网络管理器的新实例。
+        /// Initializes a new instance of the NetworkManager class.
         /// </summary>
         public NetworkManager()
         {
@@ -38,7 +38,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取网络频道数量。
+        /// Gets the number of network channels.
         /// </summary>
         public int NetworkChannelCount
         {
@@ -49,7 +49,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 网络连接成功事件。
+        /// Network connected event.
         /// </summary>
         public event EventHandler<NetworkConnectedEventArgs> NetworkConnected
         {
@@ -64,7 +64,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 网络连接关闭事件。
+        /// Network closed event.
         /// </summary>
         public event EventHandler<NetworkClosedEventArgs> NetworkClosed
         {
@@ -79,7 +79,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 网络心跳包丢失事件。
+        /// Network miss heartbeat event.
         /// </summary>
         public event EventHandler<NetworkMissHeartBeatEventArgs> NetworkMissHeartBeat
         {
@@ -94,7 +94,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 网络错误事件。
+        /// Network error event.
         /// </summary>
         public event EventHandler<NetworkErrorEventArgs> NetworkError
         {
@@ -109,7 +109,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 用户自定义网络错误事件。
+        /// Network custom error event.
         /// </summary>
         public event EventHandler<NetworkCustomErrorEventArgs> NetworkCustomError
         {
@@ -124,10 +124,10 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 网络管理器轮询。
+        /// Updates the network manager.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
             foreach (KeyValuePair<string, NetworkChannelBase> networkChannel in m_NetworkChannels)
@@ -137,7 +137,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 关闭并清理网络管理器。
+        /// Shuts down and cleans up the network manager.
         /// </summary>
         internal override void Shutdown()
         {
@@ -156,20 +156,20 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 检查是否存在网络频道。
+        /// Checks whether the network channel exists.
         /// </summary>
-        /// <param name="name">网络频道名称。</param>
-        /// <returns>是否存在网络频道。</returns>
+        /// <param name="name">The network channel name.</param>
+        /// <returns>Whether the network channel exists.</returns>
         public bool HasNetworkChannel(string name)
         {
             return m_NetworkChannels.ContainsKey(name ?? string.Empty);
         }
 
         /// <summary>
-        /// 获取网络频道。
+        /// Gets a network channel.
         /// </summary>
-        /// <param name="name">网络频道名称。</param>
-        /// <returns>要获取的网络频道。</returns>
+        /// <param name="name">The network channel name.</param>
+        /// <returns>The network channel to get.</returns>
         public INetworkChannel GetNetworkChannel(string name)
         {
             NetworkChannelBase networkChannel = null;
@@ -182,9 +182,9 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取所有网络频道。
+        /// Gets all network channels.
         /// </summary>
-        /// <returns>所有网络频道。</returns>
+        /// <returns>All network channels.</returns>
         public INetworkChannel[] GetAllNetworkChannels()
         {
             int index = 0;
@@ -198,9 +198,9 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取所有网络频道。
+        /// Gets all network channels.
         /// </summary>
-        /// <param name="results">所有网络频道。</param>
+        /// <param name="results">All network channels.</param>
         public void GetAllNetworkChannels(List<INetworkChannel> results)
         {
             if (results == null)
@@ -216,12 +216,12 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 创建网络频道。
+        /// Creates a network channel.
         /// </summary>
-        /// <param name="name">网络频道名称。</param>
-        /// <param name="serviceType">网络服务类型。</param>
-        /// <param name="networkChannelHelper">网络频道辅助器。</param>
-        /// <returns>要创建的网络频道。</returns>
+        /// <param name="name">The network channel name.</param>
+        /// <param name="serviceType">Network service type.</param>
+        /// <param name="networkChannelHelper">The network channel helper.</param>
+        /// <returns>The created network channel.</returns>
         public INetworkChannel CreateNetworkChannel(string name, ServiceType serviceType, INetworkChannelHelper networkChannelHelper)
         {
             if (networkChannelHelper == null)
@@ -264,10 +264,10 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 销毁网络频道。
+        /// Destroys a network channel.
         /// </summary>
-        /// <param name="name">网络频道名称。</param>
-        /// <returns>是否销毁网络频道成功。</returns>
+        /// <param name="name">The network channel name.</param>
+        /// <returns>Whether the network channel was destroyed successfully.</returns>
         public bool DestroyNetworkChannel(string name)
         {
             NetworkChannelBase networkChannel = null;

@@ -8,9 +8,9 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 使用可更新模式并应用资源包资源完成时的回调函数。
+    /// Callback method invoked when applying resources from a resource pack completes in updatable mode.
     /// </summary>
-    /// <param name="resourcePackPath">应用的资源包路径。</param>
-    /// <param name="result">应用资源包资源结果，全部成功为 true，否则为 false。</param>
+    /// <param name="resourcePackPath">The resource pack path being applied.</param>
+    /// <param name="result">The resource pack application result; true if all succeeded, otherwise false.</param>
     public delegate void ApplyResourcesCompleteCallback(string resourcePackPath, bool result);
 }

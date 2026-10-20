@@ -8,10 +8,10 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源更新回调函数。
+    /// Load asset update callback method.
     /// </summary>
-    /// <param name="assetName">要加载的资源名称。</param>
-    /// <param name="progress">加载资源进度。</param>
-    /// <param name="userData">用户自定义数据。</param>
+    /// <param name="assetName">The name of the asset to load.</param>
+    /// <param name="progress">The asset loading progress.</param>
+    /// <param name="userData">User-defined data.</param>
     public delegate void LoadAssetUpdateCallback(string assetName, float progress, object userData);
 }

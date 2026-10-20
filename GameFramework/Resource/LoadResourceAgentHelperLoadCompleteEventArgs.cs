@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源代理辅助器异步加载资源完成事件。
+    /// Load resource agent helper asynchronous load asset complete event.
     /// </summary>
     public sealed class LoadResourceAgentHelperLoadCompleteEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化加载资源代理辅助器异步加载资源完成事件的新实例。
+        /// Initializes a new instance of the <see cref="LoadResourceAgentHelperLoadCompleteEventArgs"/> class.
         /// </summary>
         public LoadResourceAgentHelperLoadCompleteEventArgs()
         {
@@ -21,7 +21,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载的资源。
+        /// Gets the loaded asset.
         /// </summary>
         public object Asset
         {
@@ -30,10 +30,10 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建加载资源代理辅助器异步加载资源完成事件。
+        /// Creates a new load resource agent helper asynchronous load asset complete event.
         /// </summary>
-        /// <param name="asset">加载的资源。</param>
-        /// <returns>创建的加载资源代理辅助器异步加载资源完成事件。</returns>
+        /// <param name="asset">The loaded asset.</param>
+        /// <returns>The created load resource agent helper asynchronous load asset complete event.</returns>
         public static LoadResourceAgentHelperLoadCompleteEventArgs Create(object asset)
         {
             LoadResourceAgentHelperLoadCompleteEventArgs loadResourceAgentHelperLoadCompleteEventArgs = ReferencePool.Acquire<LoadResourceAgentHelperLoadCompleteEventArgs>();
@@ -42,7 +42,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理加载资源代理辅助器异步加载资源完成事件。
+        /// Clears the load resource agent helper asynchronous load asset complete event.
         /// </summary>
         public override void Clear()
         {

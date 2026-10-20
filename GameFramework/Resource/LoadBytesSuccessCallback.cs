@@ -8,11 +8,11 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载数据流成功回调函数。
+    /// Load bytes success callback method.
     /// </summary>
-    /// <param name="fileUri">文件路径。</param>
-    /// <param name="bytes">数据流。</param>
-    /// <param name="duration">加载持续时间。</param>
-    /// <param name="userData">用户自定义数据。</param>
+    /// <param name="fileUri">The file URI.</param>
+    /// <param name="bytes">The loaded byte array.</param>
+    /// <param name="duration">The loading duration in seconds.</param>
+    /// <param name="userData">User-defined data.</param>
     public delegate void LoadBytesSuccessCallback(string fileUri, byte[] bytes, float duration, object userData);
 }

@@ -8,12 +8,12 @@
 namespace GameFramework.Scene
 {
     /// <summary>
-    /// 加载场景时加载依赖资源事件。
+    /// Event fired when loading a dependency asset while loading a scene.
     /// </summary>
     public sealed class LoadSceneDependencyAssetEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化加载场景时加载依赖资源事件的新实例。
+        /// Initializes a new instance of the LoadSceneDependencyAssetEventArgs class.
         /// </summary>
         public LoadSceneDependencyAssetEventArgs()
         {
@@ -25,7 +25,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取场景资源名称。
+        /// Gets the scene asset name.
         /// </summary>
         public string SceneAssetName
         {
@@ -34,7 +34,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取被加载的依赖资源名称。
+        /// Gets the name of the dependency asset being loaded.
         /// </summary>
         public string DependencyAssetName
         {
@@ -43,7 +43,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取当前已加载依赖资源数量。
+        /// Gets the number of dependency assets currently loaded.
         /// </summary>
         public int LoadedCount
         {
@@ -52,7 +52,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取总共加载依赖资源数量。
+        /// Gets the total number of dependency assets to load.
         /// </summary>
         public int TotalCount
         {
@@ -61,7 +61,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -70,14 +70,14 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 创建场景时加载依赖资源事件。
+        /// Creates a load scene dependency asset event.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="dependencyAssetName">被加载的依赖资源名称。</param>
-        /// <param name="loadedCount">当前已加载依赖资源数量。</param>
-        /// <param name="totalCount">总共加载依赖资源数量。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的场景时加载依赖资源事件。</returns>
+        /// <param name="sceneAssetName">Scene asset name.</param>
+        /// <param name="dependencyAssetName">Name of the dependency asset being loaded.</param>
+        /// <param name="loadedCount">Number of dependency assets currently loaded.</param>
+        /// <param name="totalCount">Total number of dependency assets to load.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created load scene dependency asset event.</returns>
         public static LoadSceneDependencyAssetEventArgs Create(string sceneAssetName, string dependencyAssetName, int loadedCount, int totalCount, object userData)
         {
             LoadSceneDependencyAssetEventArgs loadSceneDependencyAssetEventArgs = ReferencePool.Acquire<LoadSceneDependencyAssetEventArgs>();
@@ -90,7 +90,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 清理场景时加载依赖资源事件。
+        /// Clears the load scene dependency asset event.
         /// </summary>
         public override void Clear()
         {

@@ -8,12 +8,12 @@
 namespace GameFramework.Scene
 {
     /// <summary>
-    /// 卸载场景成功事件。
+    /// Unload scene success event.
     /// </summary>
     public sealed class UnloadSceneSuccessEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化卸载场景成功事件的新实例。
+        /// Initializes a new instance of the UnloadSceneSuccessEventArgs class.
         /// </summary>
         public UnloadSceneSuccessEventArgs()
         {
@@ -22,7 +22,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取场景资源名称。
+        /// Gets the scene asset name.
         /// </summary>
         public string SceneAssetName
         {
@@ -31,7 +31,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -40,11 +40,11 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 创建卸载场景成功事件。
+        /// Creates an unload scene success event.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的卸载场景成功事件。</returns>
+        /// <param name="sceneAssetName">Scene asset name.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created unload scene success event.</returns>
         public static UnloadSceneSuccessEventArgs Create(string sceneAssetName, object userData)
         {
             UnloadSceneSuccessEventArgs unloadSceneSuccessEventArgs = ReferencePool.Acquire<UnloadSceneSuccessEventArgs>();
@@ -54,7 +54,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 清理卸载场景成功事件。
+        /// Clears the unload scene success event.
         /// </summary>
         public override void Clear()
         {

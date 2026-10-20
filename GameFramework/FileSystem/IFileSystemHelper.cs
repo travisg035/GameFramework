@@ -8,17 +8,17 @@
 namespace GameFramework.FileSystem
 {
     /// <summary>
-    /// 文件系统辅助器接口。
+    /// File system helper interface.
     /// </summary>
     public interface IFileSystemHelper
     {
         /// <summary>
-        /// 创建文件系统流。
+        /// Create a file system stream.
         /// </summary>
-        /// <param name="fullPath">要加载的文件系统的完整路径。</param>
-        /// <param name="access">要加载的文件系统的访问方式。</param>
-        /// <param name="createNew">是否创建新的文件系统流。</param>
-        /// <returns>创建的文件系统流。</returns>
+        /// <param name="fullPath">The full path of the file system to load.</param>
+        /// <param name="access">The access mode of the file system to load.</param>
+        /// <param name="createNew">Whether to create a new file system stream.</param>
+        /// <returns>The created file system stream.</returns>
         FileSystemStream CreateFileSystemStream(string fullPath, FileSystemAccess access, bool createNew);
     }
 }

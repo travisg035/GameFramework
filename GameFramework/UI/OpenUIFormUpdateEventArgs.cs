@@ -8,12 +8,12 @@
 namespace GameFramework.UI
 {
     /// <summary>
-    /// 打开界面更新事件。
+    /// Open UI form update event.
     /// </summary>
     public sealed class OpenUIFormUpdateEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化打开界面更新事件的新实例。
+        /// Initializes a new instance of the OpenUIFormUpdateEventArgs class.
         /// </summary>
         public OpenUIFormUpdateEventArgs()
         {
@@ -26,7 +26,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面序列编号。
+        /// Gets the serial ID of the UI form.
         /// </summary>
         public int SerialId
         {
@@ -35,7 +35,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面资源名称。
+        /// Gets the UI form asset name.
         /// </summary>
         public string UIFormAssetName
         {
@@ -44,7 +44,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面组名称。
+        /// Gets the UI group name.
         /// </summary>
         public string UIGroupName
         {
@@ -53,7 +53,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取是否暂停被覆盖的界面。
+        /// Gets whether to pause the covered UI form.
         /// </summary>
         public bool PauseCoveredUIForm
         {
@@ -62,7 +62,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取打开界面进度。
+        /// Gets the open UI form progress.
         /// </summary>
         public float Progress
         {
@@ -71,7 +71,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -80,15 +80,15 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 创建打开界面更新事件。
+        /// Creates an open UI form update event.
         /// </summary>
-        /// <param name="serialId">界面序列编号。</param>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
-        /// <param name="progress">打开界面进度。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的打开界面更新事件。</returns>
+        /// <param name="serialId">The serial ID of the UI form.</param>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="pauseCoveredUIForm">Whether to pause the covered UI form.</param>
+        /// <param name="progress">The open UI form progress.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The created open UI form update event.</returns>
         public static OpenUIFormUpdateEventArgs Create(int serialId, string uiFormAssetName, string uiGroupName, bool pauseCoveredUIForm, float progress, object userData)
         {
             OpenUIFormUpdateEventArgs openUIFormUpdateEventArgs = ReferencePool.Acquire<OpenUIFormUpdateEventArgs>();
@@ -102,7 +102,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 清理打开界面更新事件。
+        /// Clears the open UI form update event.
         /// </summary>
         public override void Clear()
         {

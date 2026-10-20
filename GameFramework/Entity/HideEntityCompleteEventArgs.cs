@@ -8,12 +8,12 @@
 namespace GameFramework.Entity
 {
     /// <summary>
-    /// 隐藏实体完成事件。
+    /// Hide entity complete event.
     /// </summary>
     public sealed class HideEntityCompleteEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化隐藏实体完成事件的新实例。
+        /// Initializes a new instance of the HideEntityCompleteEventArgs class.
         /// </summary>
         public HideEntityCompleteEventArgs()
         {
@@ -24,7 +24,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体编号。
+        /// Gets the entity id.
         /// </summary>
         public int EntityId
         {
@@ -33,7 +33,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体资源名称。
+        /// Gets the entity asset name.
         /// </summary>
         public string EntityAssetName
         {
@@ -42,7 +42,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体所属的实体组。
+        /// Gets the entity group to which the entity belongs.
         /// </summary>
         public IEntityGroup EntityGroup
         {
@@ -51,7 +51,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -60,13 +60,13 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 创建隐藏实体完成事件。
+        /// Creates a hide entity complete event.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroup">实体所属的实体组。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的隐藏实体完成事件。</returns>
+        /// <param name="entityId">Entity id.</param>
+        /// <param name="entityAssetName">Entity asset name.</param>
+        /// <param name="entityGroup">The entity group to which the entity belongs.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created hide entity complete event.</returns>
         public static HideEntityCompleteEventArgs Create(int entityId, string entityAssetName, IEntityGroup entityGroup, object userData)
         {
             HideEntityCompleteEventArgs hideEntityCompleteEventArgs = ReferencePool.Acquire<HideEntityCompleteEventArgs>();
@@ -78,7 +78,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 清理隐藏实体完成事件。
+        /// Clears the hide entity complete event.
         /// </summary>
         public override void Clear()
         {

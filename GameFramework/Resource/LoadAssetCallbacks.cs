@@ -8,7 +8,7 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源回调函数集。
+    /// Load asset callback set.
     /// </summary>
     public sealed class LoadAssetCallbacks
     {
@@ -18,73 +18,73 @@ namespace GameFramework.Resource
         private readonly LoadAssetDependencyAssetCallback m_LoadAssetDependencyAssetCallback;
 
         /// <summary>
-        /// 初始化加载资源回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadAssetCallbacks"/> class.
         /// </summary>
-        /// <param name="loadAssetSuccessCallback">加载资源成功回调函数。</param>
+        /// <param name="loadAssetSuccessCallback">The load asset success callback method.</param>
         public LoadAssetCallbacks(LoadAssetSuccessCallback loadAssetSuccessCallback)
             : this(loadAssetSuccessCallback, null, null, null)
         {
         }
 
         /// <summary>
-        /// 初始化加载资源回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadAssetCallbacks"/> class.
         /// </summary>
-        /// <param name="loadAssetSuccessCallback">加载资源成功回调函数。</param>
-        /// <param name="loadAssetFailureCallback">加载资源失败回调函数。</param>
+        /// <param name="loadAssetSuccessCallback">The load asset success callback method.</param>
+        /// <param name="loadAssetFailureCallback">The load asset failure callback method.</param>
         public LoadAssetCallbacks(LoadAssetSuccessCallback loadAssetSuccessCallback, LoadAssetFailureCallback loadAssetFailureCallback)
             : this(loadAssetSuccessCallback, loadAssetFailureCallback, null, null)
         {
         }
 
         /// <summary>
-        /// 初始化加载资源回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadAssetCallbacks"/> class.
         /// </summary>
-        /// <param name="loadAssetSuccessCallback">加载资源成功回调函数。</param>
-        /// <param name="loadAssetUpdateCallback">加载资源更新回调函数。</param>
+        /// <param name="loadAssetSuccessCallback">The load asset success callback method.</param>
+        /// <param name="loadAssetUpdateCallback">The load asset update callback method.</param>
         public LoadAssetCallbacks(LoadAssetSuccessCallback loadAssetSuccessCallback, LoadAssetUpdateCallback loadAssetUpdateCallback)
             : this(loadAssetSuccessCallback, null, loadAssetUpdateCallback, null)
         {
         }
 
         /// <summary>
-        /// 初始化加载资源回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadAssetCallbacks"/> class.
         /// </summary>
-        /// <param name="loadAssetSuccessCallback">加载资源成功回调函数。</param>
-        /// <param name="loadAssetDependencyAssetCallback">加载资源时加载依赖资源回调函数。</param>
+        /// <param name="loadAssetSuccessCallback">The load asset success callback method.</param>
+        /// <param name="loadAssetDependencyAssetCallback">The load asset dependency asset callback method.</param>
         public LoadAssetCallbacks(LoadAssetSuccessCallback loadAssetSuccessCallback, LoadAssetDependencyAssetCallback loadAssetDependencyAssetCallback)
             : this(loadAssetSuccessCallback, null, null, loadAssetDependencyAssetCallback)
         {
         }
 
         /// <summary>
-        /// 初始化加载资源回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadAssetCallbacks"/> class.
         /// </summary>
-        /// <param name="loadAssetSuccessCallback">加载资源成功回调函数。</param>
-        /// <param name="loadAssetFailureCallback">加载资源失败回调函数。</param>
-        /// <param name="loadAssetUpdateCallback">加载资源更新回调函数。</param>
+        /// <param name="loadAssetSuccessCallback">The load asset success callback method.</param>
+        /// <param name="loadAssetFailureCallback">The load asset failure callback method.</param>
+        /// <param name="loadAssetUpdateCallback">The load asset update callback method.</param>
         public LoadAssetCallbacks(LoadAssetSuccessCallback loadAssetSuccessCallback, LoadAssetFailureCallback loadAssetFailureCallback, LoadAssetUpdateCallback loadAssetUpdateCallback)
             : this(loadAssetSuccessCallback, loadAssetFailureCallback, loadAssetUpdateCallback, null)
         {
         }
 
         /// <summary>
-        /// 初始化加载资源回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadAssetCallbacks"/> class.
         /// </summary>
-        /// <param name="loadAssetSuccessCallback">加载资源成功回调函数。</param>
-        /// <param name="loadAssetFailureCallback">加载资源失败回调函数。</param>
-        /// <param name="loadAssetDependencyAssetCallback">加载资源时加载依赖资源回调函数。</param>
+        /// <param name="loadAssetSuccessCallback">The load asset success callback method.</param>
+        /// <param name="loadAssetFailureCallback">The load asset failure callback method.</param>
+        /// <param name="loadAssetDependencyAssetCallback">The load asset dependency asset callback method.</param>
         public LoadAssetCallbacks(LoadAssetSuccessCallback loadAssetSuccessCallback, LoadAssetFailureCallback loadAssetFailureCallback, LoadAssetDependencyAssetCallback loadAssetDependencyAssetCallback)
             : this(loadAssetSuccessCallback, loadAssetFailureCallback, null, loadAssetDependencyAssetCallback)
         {
         }
 
         /// <summary>
-        /// 初始化加载资源回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadAssetCallbacks"/> class.
         /// </summary>
-        /// <param name="loadAssetSuccessCallback">加载资源成功回调函数。</param>
-        /// <param name="loadAssetFailureCallback">加载资源失败回调函数。</param>
-        /// <param name="loadAssetUpdateCallback">加载资源更新回调函数。</param>
-        /// <param name="loadAssetDependencyAssetCallback">加载资源时加载依赖资源回调函数。</param>
+        /// <param name="loadAssetSuccessCallback">The load asset success callback method.</param>
+        /// <param name="loadAssetFailureCallback">The load asset failure callback method.</param>
+        /// <param name="loadAssetUpdateCallback">The load asset update callback method.</param>
+        /// <param name="loadAssetDependencyAssetCallback">The load asset dependency asset callback method.</param>
         public LoadAssetCallbacks(LoadAssetSuccessCallback loadAssetSuccessCallback, LoadAssetFailureCallback loadAssetFailureCallback, LoadAssetUpdateCallback loadAssetUpdateCallback, LoadAssetDependencyAssetCallback loadAssetDependencyAssetCallback)
         {
             if (loadAssetSuccessCallback == null)
@@ -99,7 +99,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载资源成功回调函数。
+        /// Gets the load asset success callback method.
         /// </summary>
         public LoadAssetSuccessCallback LoadAssetSuccessCallback
         {
@@ -110,7 +110,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载资源失败回调函数。
+        /// Gets the load asset failure callback method.
         /// </summary>
         public LoadAssetFailureCallback LoadAssetFailureCallback
         {
@@ -121,7 +121,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载资源更新回调函数。
+        /// Gets the load asset update callback method.
         /// </summary>
         public LoadAssetUpdateCallback LoadAssetUpdateCallback
         {
@@ -132,7 +132,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载资源时加载依赖资源回调函数。
+        /// Gets the load asset dependency asset callback method.
         /// </summary>
         public LoadAssetDependencyAssetCallback LoadAssetDependencyAssetCallback
         {

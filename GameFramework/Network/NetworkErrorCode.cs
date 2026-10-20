@@ -8,52 +8,52 @@
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络错误码。
+    /// Network error code.
     /// </summary>
     public enum NetworkErrorCode : byte
     {
         /// <summary>
-        /// 未知错误。
+        /// Unknown error.
         /// </summary>
         Unknown = 0,
 
         /// <summary>
-        /// 地址族错误。
+        /// Address family error.
         /// </summary>
         AddressFamilyError,
 
         /// <summary>
-        /// Socket 错误。
+        /// Socket error.
         /// </summary>
         SocketError,
 
         /// <summary>
-        /// 连接错误。
+        /// Connect error.
         /// </summary>
         ConnectError,
 
         /// <summary>
-        /// 发送错误。
+        /// Send error.
         /// </summary>
         SendError,
 
         /// <summary>
-        /// 接收错误。
+        /// Receive error.
         /// </summary>
         ReceiveError,
 
         /// <summary>
-        /// 序列化错误。
+        /// Serialize error.
         /// </summary>
         SerializeError,
 
         /// <summary>
-        /// 反序列化消息包头错误。
+        /// Deserialize packet header error.
         /// </summary>
         DeserializePacketHeaderError,
 
         /// <summary>
-        /// 反序列化消息包错误。
+        /// Deserialize packet error.
         /// </summary>
         DeserializePacketError
     }

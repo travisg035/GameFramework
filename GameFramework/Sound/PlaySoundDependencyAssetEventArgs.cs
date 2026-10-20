@@ -8,12 +8,12 @@
 namespace GameFramework.Sound
 {
     /// <summary>
-    /// 播放声音时加载依赖资源事件。
+    /// Play sound dependency asset event.
     /// </summary>
     public sealed class PlaySoundDependencyAssetEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化播放声音时加载依赖资源事件的新实例。
+        /// Initializes a new instance of the <see cref="PlaySoundDependencyAssetEventArgs"/> class.
         /// </summary>
         public PlaySoundDependencyAssetEventArgs()
         {
@@ -28,7 +28,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取声音的序列编号。
+        /// Gets the serial ID of the sound.
         /// </summary>
         public int SerialId
         {
@@ -37,7 +37,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取声音资源名称。
+        /// Gets the sound asset name.
         /// </summary>
         public string SoundAssetName
         {
@@ -46,7 +46,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取声音组名称。
+        /// Gets the sound group name.
         /// </summary>
         public string SoundGroupName
         {
@@ -55,7 +55,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取播放声音参数。
+        /// Gets the play sound parameters.
         /// </summary>
         public PlaySoundParams PlaySoundParams
         {
@@ -64,7 +64,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取被加载的依赖资源名称。
+        /// Gets the name of the dependency asset being loaded.
         /// </summary>
         public string DependencyAssetName
         {
@@ -73,7 +73,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取当前已加载依赖资源数量。
+        /// Gets the number of dependency assets currently loaded.
         /// </summary>
         public int LoadedCount
         {
@@ -82,7 +82,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取总共加载依赖资源数量。
+        /// Gets the total number of dependency assets to load.
         /// </summary>
         public int TotalCount
         {
@@ -91,7 +91,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -100,17 +100,17 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 创建播放声音时加载依赖资源事件。
+        /// Creates a play sound dependency asset event.
         /// </summary>
-        /// <param name="serialId">声音的序列编号。</param>
-        /// <param name="soundAssetName">声音资源名称。</param>
-        /// <param name="soundGroupName">声音组名称。</param>
-        /// <param name="playSoundParams">播放声音参数。</param>
-        /// <param name="dependencyAssetName">被加载的依赖资源名称。</param>
-        /// <param name="loadedCount">当前已加载依赖资源数量。</param>
-        /// <param name="totalCount">总共加载依赖资源数量。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的播放声音时加载依赖资源事件。</returns>
+        /// <param name="serialId">The serial ID of the sound.</param>
+        /// <param name="soundAssetName">The sound asset name.</param>
+        /// <param name="soundGroupName">The sound group name.</param>
+        /// <param name="playSoundParams">The play sound parameters.</param>
+        /// <param name="dependencyAssetName">The name of the dependency asset being loaded.</param>
+        /// <param name="loadedCount">The number of dependency assets currently loaded.</param>
+        /// <param name="totalCount">The total number of dependency assets to load.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The created play sound dependency asset event.</returns>
         public static PlaySoundDependencyAssetEventArgs Create(int serialId, string soundAssetName, string soundGroupName, PlaySoundParams playSoundParams, string dependencyAssetName, int loadedCount, int totalCount, object userData)
         {
             PlaySoundDependencyAssetEventArgs playSoundDependencyAssetEventArgs = ReferencePool.Acquire<PlaySoundDependencyAssetEventArgs>();
@@ -126,7 +126,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 清理播放声音时加载依赖资源事件。
+        /// Clears the play sound dependency asset event.
         /// </summary>
         public override void Clear()
         {

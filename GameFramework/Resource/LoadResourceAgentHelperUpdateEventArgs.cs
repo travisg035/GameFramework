@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源代理辅助器更新事件。
+    /// Load resource agent helper update event.
     /// </summary>
     public sealed class LoadResourceAgentHelperUpdateEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化加载资源代理辅助器更新事件的新实例。
+        /// Initializes a new instance of the <see cref="LoadResourceAgentHelperUpdateEventArgs"/> class.
         /// </summary>
         public LoadResourceAgentHelperUpdateEventArgs()
         {
@@ -22,7 +22,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取进度类型。
+        /// Gets the progress type.
         /// </summary>
         public LoadResourceProgress Type
         {
@@ -31,7 +31,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取进度。
+        /// Gets the progress.
         /// </summary>
         public float Progress
         {
@@ -40,11 +40,11 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建加载资源代理辅助器更新事件。
+        /// Creates a new load resource agent helper update event.
         /// </summary>
-        /// <param name="type">进度类型。</param>
-        /// <param name="progress">进度。</param>
-        /// <returns>创建的加载资源代理辅助器更新事件。</returns>
+        /// <param name="type">The progress type.</param>
+        /// <param name="progress">The progress value.</param>
+        /// <returns>The created load resource agent helper update event.</returns>
         public static LoadResourceAgentHelperUpdateEventArgs Create(LoadResourceProgress type, float progress)
         {
             LoadResourceAgentHelperUpdateEventArgs loadResourceAgentHelperUpdateEventArgs = ReferencePool.Acquire<LoadResourceAgentHelperUpdateEventArgs>();
@@ -54,7 +54,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理加载资源代理辅助器更新事件。
+        /// Clears the load resource agent helper update event.
         /// </summary>
         public override void Clear()
         {

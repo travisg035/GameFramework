@@ -14,7 +14,7 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 资源初始化器。
+        /// Resource initializer.
         /// </summary>
         private sealed class ResourceIniter
         {
@@ -25,9 +25,9 @@ namespace GameFramework.Resource
             public GameFrameworkAction ResourceInitComplete;
 
             /// <summary>
-            /// 初始化资源初始化器的新实例。
+            /// Initializes a new instance of the ResourceIniter class.
             /// </summary>
-            /// <param name="resourceManager">资源管理器。</param>
+            /// <param name="resourceManager">The resource manager.</param>
             public ResourceIniter(ResourceManager resourceManager)
             {
                 m_ResourceManager = resourceManager;
@@ -38,14 +38,14 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 关闭并清理资源初始化器。
+            /// Shuts down and cleans up the resource initializer.
             /// </summary>
             public void Shutdown()
             {
             }
 
             /// <summary>
-            /// 初始化资源。
+            /// Initializes resources.
             /// </summary>
             public void InitResources(string currentVariant)
             {

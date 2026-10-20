@@ -8,9 +8,9 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 版本资源列表更新成功回调函数。
+    /// Update version list success callback.
     /// </summary>
-    /// <param name="downloadPath">版本资源列表更新后存放路径。</param>
-    /// <param name="downloadUri">版本资源列表更新地址。</param>
+    /// <param name="downloadPath">The download path where the updated version list is stored.</param>
+    /// <param name="downloadUri">The URI for updating the version list.</param>
     public delegate void UpdateVersionListSuccessCallback(string downloadPath, string downloadUri);
 }

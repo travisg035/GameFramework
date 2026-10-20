@@ -8,12 +8,12 @@
 namespace GameFramework.Entity
 {
     /// <summary>
-    /// 显示实体时加载依赖资源事件。
+    /// Event fired when loading a dependency asset while showing an entity.
     /// </summary>
     public sealed class ShowEntityDependencyAssetEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化显示实体时加载依赖资源事件的新实例。
+        /// Initializes a new instance of the ShowEntityDependencyAssetEventArgs class.
         /// </summary>
         public ShowEntityDependencyAssetEventArgs()
         {
@@ -27,7 +27,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体编号。
+        /// Gets the entity id.
         /// </summary>
         public int EntityId
         {
@@ -36,7 +36,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体资源名称。
+        /// Gets the entity asset name.
         /// </summary>
         public string EntityAssetName
         {
@@ -45,7 +45,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体组名称。
+        /// Gets the entity group name.
         /// </summary>
         public string EntityGroupName
         {
@@ -54,7 +54,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取被加载的依赖资源名称。
+        /// Gets the name of the dependency asset being loaded.
         /// </summary>
         public string DependencyAssetName
         {
@@ -63,7 +63,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取当前已加载依赖资源数量。
+        /// Gets the number of dependency assets currently loaded.
         /// </summary>
         public int LoadedCount
         {
@@ -72,7 +72,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取总共加载依赖资源数量。
+        /// Gets the total number of dependency assets to load.
         /// </summary>
         public int TotalCount
         {
@@ -81,7 +81,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -90,16 +90,16 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 创建显示实体时加载依赖资源事件。
+        /// Creates a show entity dependency asset event.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <param name="dependencyAssetName">被加载的依赖资源名称。</param>
-        /// <param name="loadedCount">当前已加载依赖资源数量。</param>
-        /// <param name="totalCount">总共加载依赖资源数量。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的显示实体时加载依赖资源事件。</returns>
+        /// <param name="entityId">Entity id.</param>
+        /// <param name="entityAssetName">Entity asset name.</param>
+        /// <param name="entityGroupName">Entity group name.</param>
+        /// <param name="dependencyAssetName">Name of the dependency asset being loaded.</param>
+        /// <param name="loadedCount">Number of dependency assets currently loaded.</param>
+        /// <param name="totalCount">Total number of dependency assets to load.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created show entity dependency asset event.</returns>
         public static ShowEntityDependencyAssetEventArgs Create(int entityId, string entityAssetName, string entityGroupName, string dependencyAssetName, int loadedCount, int totalCount, object userData)
         {
             ShowEntityDependencyAssetEventArgs showEntityDependencyAssetEventArgs = ReferencePool.Acquire<ShowEntityDependencyAssetEventArgs>();
@@ -114,7 +114,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 清理显示实体时加载依赖资源事件。
+        /// Clears the show entity dependency asset event.
         /// </summary>
         public override void Clear()
         {

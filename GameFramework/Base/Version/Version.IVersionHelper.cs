@@ -10,12 +10,12 @@ namespace GameFramework
     public static partial class Version
     {
         /// <summary>
-        /// 版本号辅助器接口。
+        /// Version helper interface.
         /// </summary>
         public interface IVersionHelper
         {
             /// <summary>
-            /// 获取游戏版本号。
+            /// Gets the game version.
             /// </summary>
             string GameVersion
             {
@@ -23,7 +23,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取内部游戏版本号。
+            /// Gets the internal game version.
             /// </summary>
             int InternalGameVersion
             {

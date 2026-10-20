@@ -12,9 +12,9 @@ using System.Runtime.InteropServices;
 namespace GameFramework
 {
     /// <summary>
-    /// 游戏框架链表范围。
+    /// Game framework linked list range.
     /// </summary>
-    /// <typeparam name="T">指定链表范围的元素类型。</typeparam>
+    /// <typeparam name="T">The type of elements in the linked list range.</typeparam>
     [StructLayout(LayoutKind.Auto)]
     public struct GameFrameworkLinkedListRange<T> : IEnumerable<T>, IEnumerable
     {
@@ -22,10 +22,10 @@ namespace GameFramework
         private readonly LinkedListNode<T> m_Terminal;
 
         /// <summary>
-        /// 初始化游戏框架链表范围的新实例。
+        /// Initializes a new instance of the GameFrameworkLinkedListRange struct.
         /// </summary>
-        /// <param name="first">链表范围的开始结点。</param>
-        /// <param name="terminal">链表范围的终结标记结点。</param>
+        /// <param name="first">The first node of the linked list range.</param>
+        /// <param name="terminal">The terminal marker node of the linked list range.</param>
         public GameFrameworkLinkedListRange(LinkedListNode<T> first, LinkedListNode<T> terminal)
         {
             if (first == null || terminal == null || first == terminal)
@@ -38,7 +38,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取链表范围是否有效。
+        /// Gets whether the linked list range is valid.
         /// </summary>
         public bool IsValid
         {
@@ -49,7 +49,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取链表范围的开始结点。
+        /// Gets the first node of the linked list range.
         /// </summary>
         public LinkedListNode<T> First
         {
@@ -60,7 +60,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取链表范围的终结标记结点。
+        /// Gets the terminal marker node of the linked list range.
         /// </summary>
         public LinkedListNode<T> Terminal
         {
@@ -71,7 +71,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取链表范围的结点数量。
+        /// Gets the number of nodes in the linked list range.
         /// </summary>
         public int Count
         {
@@ -93,10 +93,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 检查是否包含指定值。
+        /// Determines whether the linked list range contains a specific value.
         /// </summary>
-        /// <param name="value">要检查的值。</param>
-        /// <returns>是否包含指定值。</returns>
+        /// <param name="value">The value to locate.</param>
+        /// <returns>true if value is found; otherwise, false.</returns>
         public bool Contains(T value)
         {
             for (LinkedListNode<T> current = m_First; current != null && current != m_Terminal; current = current.Next)
@@ -111,34 +111,34 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 返回循环访问集合的枚举数。
+        /// Returns an enumerator that iterates through the collection.
         /// </summary>
-        /// <returns>循环访问集合的枚举数。</returns>
+        /// <returns>An enumerator that iterates through the collection.</returns>
         public Enumerator GetEnumerator()
         {
             return new Enumerator(this);
         }
 
         /// <summary>
-        /// 返回循环访问集合的枚举数。
+        /// Returns an enumerator that iterates through the collection.
         /// </summary>
-        /// <returns>循环访问集合的枚举数。</returns>
+        /// <returns>An enumerator that iterates through the collection.</returns>
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             return GetEnumerator();
         }
 
         /// <summary>
-        /// 返回循环访问集合的枚举数。
+        /// Returns an enumerator that iterates through the collection.
         /// </summary>
-        /// <returns>循环访问集合的枚举数。</returns>
+        /// <returns>An enumerator that iterates through the collection.</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
         /// <summary>
-        /// 循环访问集合的枚举数。
+        /// Enumerates the elements of a linked list range.
         /// </summary>
         [StructLayout(LayoutKind.Auto)]
         public struct Enumerator : IEnumerator<T>, IEnumerator
@@ -160,7 +160,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取当前结点。
+            /// Gets the current node value.
             /// </summary>
             public T Current
             {
@@ -171,7 +171,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取当前的枚举数。
+            /// Gets the current enumerator value.
             /// </summary>
             object IEnumerator.Current
             {
@@ -182,16 +182,16 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 清理枚举数。
+            /// Disposes the enumerator.
             /// </summary>
             public void Dispose()
             {
             }
 
             /// <summary>
-            /// 获取下一个结点。
+            /// Advances the enumerator to the next element of the linked list range.
             /// </summary>
-            /// <returns>返回下一个结点。</returns>
+            /// <returns>true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.</returns>
             public bool MoveNext()
             {
                 if (m_Current == null || m_Current == m_GameFrameworkLinkedListRange.m_Terminal)
@@ -205,7 +205,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 重置枚举数。
+            /// Resets the enumerator.
             /// </summary>
             void IEnumerator.Reset()
             {

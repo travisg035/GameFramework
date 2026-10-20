@@ -8,7 +8,7 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 版本资源列表更新回调函数集。
+    /// Update version list callbacks.
     /// </summary>
     public sealed class UpdateVersionListCallbacks
     {
@@ -16,19 +16,19 @@ namespace GameFramework.Resource
         private readonly UpdateVersionListFailureCallback m_UpdateVersionListFailureCallback;
 
         /// <summary>
-        /// 初始化版本资源列表更新回调函数集的新实例。
+        /// Initializes a new instance of the UpdateVersionListCallbacks class.
         /// </summary>
-        /// <param name="updateVersionListSuccessCallback">版本资源列表更新成功回调函数。</param>
+        /// <param name="updateVersionListSuccessCallback">Update version list success callback.</param>
         public UpdateVersionListCallbacks(UpdateVersionListSuccessCallback updateVersionListSuccessCallback)
             : this(updateVersionListSuccessCallback, null)
         {
         }
 
         /// <summary>
-        /// 初始化版本资源列表更新回调函数集的新实例。
+        /// Initializes a new instance of the UpdateVersionListCallbacks class.
         /// </summary>
-        /// <param name="updateVersionListSuccessCallback">版本资源列表更新成功回调函数。</param>
-        /// <param name="updateVersionListFailureCallback">版本资源列表更新失败回调函数。</param>
+        /// <param name="updateVersionListSuccessCallback">Update version list success callback.</param>
+        /// <param name="updateVersionListFailureCallback">Update version list failure callback.</param>
         public UpdateVersionListCallbacks(UpdateVersionListSuccessCallback updateVersionListSuccessCallback, UpdateVersionListFailureCallback updateVersionListFailureCallback)
         {
             if (updateVersionListSuccessCallback == null)
@@ -41,7 +41,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取版本资源列表更新成功回调函数。
+        /// Gets the update version list success callback.
         /// </summary>
         public UpdateVersionListSuccessCallback UpdateVersionListSuccessCallback
         {
@@ -52,7 +52,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取版本资源列表更新失败回调函数。
+        /// Gets the update version list failure callback.
         /// </summary>
         public UpdateVersionListFailureCallback UpdateVersionListFailureCallback
         {

@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源应用成功事件。
+    /// Resource apply success event.
     /// </summary>
     public sealed class ResourceApplySuccessEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化资源应用成功事件的新实例。
+        /// Initializes a new instance of the <see cref="ResourceApplySuccessEventArgs"/> class.
         /// </summary>
         public ResourceApplySuccessEventArgs()
         {
@@ -25,7 +25,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源名称。
+        /// Gets the resource name.
         /// </summary>
         public string Name
         {
@@ -34,7 +34,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源应用后存放路径。
+        /// Gets the destination path where the resource is stored after applying.
         /// </summary>
         public string ApplyPath
         {
@@ -43,7 +43,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源包路径。
+        /// Gets the resource pack path.
         /// </summary>
         public string ResourcePackPath
         {
@@ -52,7 +52,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源大小。
+        /// Gets the resource length.
         /// </summary>
         public int Length
         {
@@ -61,7 +61,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取压缩后大小。
+        /// Gets the compressed resource length.
         /// </summary>
         public int CompressedLength
         {
@@ -70,14 +70,14 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建资源应用成功事件。
+        /// Creates a new resource apply success event.
         /// </summary>
-        /// <param name="name">资源名称。</param>
-        /// <param name="applyPath">资源应用后存放路径。</param>
-        /// <param name="resourcePackPath">资源包路径。</param>
-        /// <param name="length">资源大小。</param>
-        /// <param name="compressedLength">压缩后大小。</param>
-        /// <returns>创建的资源应用成功事件。</returns>
+        /// <param name="name">The resource name.</param>
+        /// <param name="applyPath">The destination path where the resource is stored after applying.</param>
+        /// <param name="resourcePackPath">The resource pack path.</param>
+        /// <param name="length">The resource length.</param>
+        /// <param name="compressedLength">The compressed resource length.</param>
+        /// <returns>The created resource apply success event.</returns>
         public static ResourceApplySuccessEventArgs Create(string name, string applyPath, string resourcePackPath, int length, int compressedLength)
         {
             ResourceApplySuccessEventArgs resourceApplySuccessEventArgs = ReferencePool.Acquire<ResourceApplySuccessEventArgs>();
@@ -90,7 +90,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理资源应用成功事件。
+        /// Clears the resource apply success event.
         /// </summary>
         public override void Clear()
         {

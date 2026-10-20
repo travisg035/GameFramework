@@ -12,7 +12,7 @@ namespace GameFramework.FileSystem
     internal sealed partial class FileSystem : IFileSystem
     {
         /// <summary>
-        /// 块数据。
+        /// Block data.
         /// </summary>
         [StructLayout(LayoutKind.Sequential)]
         private struct BlockData

@@ -10,19 +10,19 @@ using System;
 namespace GameFramework
 {
     /// <summary>
-    /// 变量。
+    /// Variable base class.
     /// </summary>
     public abstract class Variable : IReference
     {
         /// <summary>
-        /// 初始化变量的新实例。
+        /// Initializes a new instance of the Variable class.
         /// </summary>
         public Variable()
         {
         }
 
         /// <summary>
-        /// 获取变量类型。
+        /// Gets the variable type.
         /// </summary>
         public abstract Type Type
         {
@@ -30,19 +30,19 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取变量值。
+        /// Gets the variable value.
         /// </summary>
-        /// <returns>变量值。</returns>
+        /// <returns>The variable value.</returns>
         public abstract object GetValue();
 
         /// <summary>
-        /// 设置变量值。
+        /// Sets the variable value.
         /// </summary>
-        /// <param name="value">变量值。</param>
+        /// <param name="value">The variable value.</param>
         public abstract void SetValue(object value);
 
         /// <summary>
-        /// 清理变量值。
+        /// Clears the variable value.
         /// </summary>
         public abstract void Clear();
     }

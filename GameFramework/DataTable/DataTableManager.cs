@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace GameFramework.DataTable
 {
     /// <summary>
-    /// 数据表管理器。
+    /// Data table manager.
     /// </summary>
     internal sealed partial class DataTableManager : GameFrameworkModule, IDataTableManager
     {
@@ -22,7 +22,7 @@ namespace GameFramework.DataTable
         private IDataTableHelper m_DataTableHelper;
 
         /// <summary>
-        /// 初始化数据表管理器的新实例。
+        /// Initializes a new instance of the DataTableManager class.
         /// </summary>
         public DataTableManager()
         {
@@ -33,7 +33,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取数据表数量。
+        /// Gets the count of data tables.
         /// </summary>
         public int Count
         {
@@ -44,7 +44,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取缓冲二进制流的大小。
+        /// Gets the cached bytes size.
         /// </summary>
         public int CachedBytesSize
         {
@@ -55,16 +55,16 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 数据表管理器轮询。
+        /// Polls the data table manager.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed time in seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed time in seconds.</param>
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
         }
 
         /// <summary>
-        /// 关闭并清理数据表管理器。
+        /// Shuts down and cleans up the data table manager.
         /// </summary>
         internal override void Shutdown()
         {
@@ -77,9 +77,9 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 设置资源管理器。
+        /// Sets the resource manager.
         /// </summary>
-        /// <param name="resourceManager">资源管理器。</param>
+        /// <param name="resourceManager">The resource manager.</param>
         public void SetResourceManager(IResourceManager resourceManager)
         {
             if (resourceManager == null)
@@ -91,9 +91,9 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 设置数据表数据提供者辅助器。
+        /// Sets the data table data provider helper.
         /// </summary>
-        /// <param name="dataProviderHelper">数据表数据提供者辅助器。</param>
+        /// <param name="dataProviderHelper">The data table data provider helper.</param>
         public void SetDataProviderHelper(IDataProviderHelper<DataTableBase> dataProviderHelper)
         {
             if (dataProviderHelper == null)
@@ -105,9 +105,9 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 设置数据表辅助器。
+        /// Sets the data table helper.
         /// </summary>
-        /// <param name="dataTableHelper">数据表辅助器。</param>
+        /// <param name="dataTableHelper">The data table helper.</param>
         public void SetDataTableHelper(IDataTableHelper dataTableHelper)
         {
             if (dataTableHelper == null)
@@ -119,16 +119,16 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 确保二进制流缓存分配足够大小的内存并缓存。
+        /// Ensures the cached bytes size is large enough.
         /// </summary>
-        /// <param name="ensureSize">要确保二进制流缓存分配内存的大小。</param>
+        /// <param name="ensureSize">The size to ensure.</param>
         public void EnsureCachedBytesSize(int ensureSize)
         {
             DataProvider<DataTableBase>.EnsureCachedBytesSize(ensureSize);
         }
 
         /// <summary>
-        /// 释放缓存的二进制流。
+        /// Frees the cached bytes.
         /// </summary>
         public void FreeCachedBytes()
         {
@@ -136,20 +136,20 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 是否存在数据表。
+        /// Checks whether the specified data table exists.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <returns>是否存在数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <returns>Whether the specified data table exists.</returns>
         public bool HasDataTable<T>() where T : IDataRow
         {
             return InternalHasDataTable(new TypeNamePair(typeof(T)));
         }
 
         /// <summary>
-        /// 是否存在数据表。
+        /// Checks whether the specified data table exists.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <returns>是否存在数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <returns>Whether the specified data table exists.</returns>
         public bool HasDataTable(Type dataRowType)
         {
             if (dataRowType == null)
@@ -166,22 +166,22 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 是否存在数据表。
+        /// Checks whether the specified data table exists.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>是否存在数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <param name="name">The data table name.</param>
+        /// <returns>Whether the specified data table exists.</returns>
         public bool HasDataTable<T>(string name) where T : IDataRow
         {
             return InternalHasDataTable(new TypeNamePair(typeof(T), name));
         }
 
         /// <summary>
-        /// 是否存在数据表。
+        /// Checks whether the specified data table exists.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>是否存在数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <param name="name">The data table name.</param>
+        /// <returns>Whether the specified data table exists.</returns>
         public bool HasDataTable(Type dataRowType, string name)
         {
             if (dataRowType == null)
@@ -198,20 +198,20 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取数据表。
+        /// Gets the specified data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <returns>要获取的数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <returns>The specified data table.</returns>
         public IDataTable<T> GetDataTable<T>() where T : IDataRow
         {
             return (IDataTable<T>)InternalGetDataTable(new TypeNamePair(typeof(T)));
         }
 
         /// <summary>
-        /// 获取数据表。
+        /// Gets the specified data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <returns>要获取的数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <returns>The specified data table.</returns>
         public DataTableBase GetDataTable(Type dataRowType)
         {
             if (dataRowType == null)
@@ -228,22 +228,22 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取数据表。
+        /// Gets the specified data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>要获取的数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <param name="name">The data table name.</param>
+        /// <returns>The specified data table.</returns>
         public IDataTable<T> GetDataTable<T>(string name) where T : IDataRow
         {
             return (IDataTable<T>)InternalGetDataTable(new TypeNamePair(typeof(T), name));
         }
 
         /// <summary>
-        /// 获取数据表。
+        /// Gets the specified data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>要获取的数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <param name="name">The data table name.</param>
+        /// <returns>The specified data table.</returns>
         public DataTableBase GetDataTable(Type dataRowType, string name)
         {
             if (dataRowType == null)
@@ -260,9 +260,9 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取所有数据表。
+        /// Gets all data tables.
         /// </summary>
-        /// <returns>所有数据表。</returns>
+        /// <returns>All data tables.</returns>
         public DataTableBase[] GetAllDataTables()
         {
             int index = 0;
@@ -276,9 +276,9 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取所有数据表。
+        /// Gets all data tables.
         /// </summary>
-        /// <param name="results">所有数据表。</param>
+        /// <param name="results">The list to store all data tables.</param>
         public void GetAllDataTables(List<DataTableBase> results)
         {
             if (results == null)
@@ -294,31 +294,31 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 创建数据表。
+        /// Creates a data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <returns>要创建的数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <returns>The created data table.</returns>
         public IDataTable<T> CreateDataTable<T>() where T : class, IDataRow, new()
         {
             return CreateDataTable<T>(string.Empty);
         }
 
         /// <summary>
-        /// 创建数据表。
+        /// Creates a data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <returns>要创建的数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <returns>The created data table.</returns>
         public DataTableBase CreateDataTable(Type dataRowType)
         {
             return CreateDataTable(dataRowType, string.Empty);
         }
 
         /// <summary>
-        /// 创建数据表。
+        /// Creates a data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>要创建的数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <param name="name">The data table name.</param>
+        /// <returns>The created data table.</returns>
         public IDataTable<T> CreateDataTable<T>(string name) where T : class, IDataRow, new()
         {
             if (m_ResourceManager == null)
@@ -345,11 +345,11 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 创建数据表。
+        /// Creates a data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>要创建的数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <param name="name">The data table name.</param>
+        /// <returns>The created data table.</returns>
         public DataTableBase CreateDataTable(Type dataRowType, string name)
         {
             if (m_ResourceManager == null)
@@ -387,19 +387,20 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         public bool DestroyDataTable<T>() where T : IDataRow
         {
             return InternalDestroyDataTable(new TypeNamePair(typeof(T)));
         }
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <returns>是否销毁数据表成功。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         public bool DestroyDataTable(Type dataRowType)
         {
             if (dataRowType == null)
@@ -416,21 +417,22 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <param name="name">数据表名称。</param>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <param name="name">The data table name.</param>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         public bool DestroyDataTable<T>(string name) where T : IDataRow
         {
             return InternalDestroyDataTable(new TypeNamePair(typeof(T), name));
         }
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>是否销毁数据表成功。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <param name="name">The data table name.</param>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         public bool DestroyDataTable(Type dataRowType, string name)
         {
             if (dataRowType == null)
@@ -447,11 +449,11 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <param name="dataTable">要销毁的数据表。</param>
-        /// <returns>是否销毁数据表成功。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <param name="dataTable">The data table to destroy.</param>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         public bool DestroyDataTable<T>(IDataTable<T> dataTable) where T : IDataRow
         {
             if (dataTable == null)
@@ -463,10 +465,10 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <param name="dataTable">要销毁的数据表。</param>
-        /// <returns>是否销毁数据表成功。</returns>
+        /// <param name="dataTable">The data table to destroy.</param>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         public bool DestroyDataTable(DataTableBase dataTable)
         {
             if (dataTable == null)

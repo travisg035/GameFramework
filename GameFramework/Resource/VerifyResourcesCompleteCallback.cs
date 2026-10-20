@@ -8,8 +8,8 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 使用可更新模式并校验资源完成时的回调函数。
+    /// Callback method invoked when verifying resources completes in updatable mode.
     /// </summary>
-    /// <param name="result">校验资源结果，全部成功为 true，否则为 false。</param>
+    /// <param name="result">The resource verification result; true if all succeeded, otherwise false.</param>
     public delegate void VerifyResourcesCompleteCallback(bool result);
 }

@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 使用可更新模式并检查资源完成时的回调函数。
+    /// Callback method invoked when checking resources completes in updatable mode.
     /// </summary>
-    /// <param name="movedCount">已移动的资源数量。</param>
-    /// <param name="removedCount">已移除的资源数量。</param>
-    /// <param name="updateCount">可更新的资源数量。</param>
-    /// <param name="updateTotalLength">可更新的资源总大小。</param>
-    /// <param name="updateTotalCompressedLength">可更新的压缩后总大小。</param>
+    /// <param name="movedCount">The count of moved resources.</param>
+    /// <param name="removedCount">The count of removed resources.</param>
+    /// <param name="updateCount">The count of updatable resources.</param>
+    /// <param name="updateTotalLength">The total length of updatable resources.</param>
+    /// <param name="updateTotalCompressedLength">The total compressed length of updatable resources.</param>
     public delegate void CheckResourcesCompleteCallback(int movedCount, int removedCount, int updateCount, long updateTotalLength, long updateTotalCompressedLength);
 }

@@ -8,12 +8,12 @@
 namespace GameFramework.UI
 {
     /// <summary>
-    /// 界面接口。
+    /// UI form interface.
     /// </summary>
     public interface IUIForm
     {
         /// <summary>
-        /// 获取界面序列编号。
+        /// Gets the serial ID of the UI form.
         /// </summary>
         int SerialId
         {
@@ -21,7 +21,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面资源名称。
+        /// Gets the UI form asset name.
         /// </summary>
         string UIFormAssetName
         {
@@ -29,7 +29,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面实例。
+        /// Gets the UI form instance.
         /// </summary>
         object Handle
         {
@@ -37,7 +37,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面所属的界面组。
+        /// Gets the UI group that the UI form belongs to.
         /// </summary>
         IUIGroup UIGroup
         {
@@ -45,7 +45,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面在界面组中的深度。
+        /// Gets the depth of the UI form in the UI group.
         /// </summary>
         int DepthInUIGroup
         {
@@ -53,7 +53,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取是否暂停被覆盖的界面。
+        /// Gets whether to pause the covered UI form.
         /// </summary>
         bool PauseCoveredUIForm
         {
@@ -61,72 +61,72 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 初始化界面。
+        /// Initializes the UI form.
         /// </summary>
-        /// <param name="serialId">界面序列编号。</param>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroup">界面所属的界面组。</param>
-        /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
-        /// <param name="isNewInstance">是否是新实例。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="serialId">The serial ID of the UI form.</param>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroup">The UI group that the UI form belongs to.</param>
+        /// <param name="pauseCoveredUIForm">Whether to pause the covered UI form.</param>
+        /// <param name="isNewInstance">Whether it is a new instance.</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnInit(int serialId, string uiFormAssetName, IUIGroup uiGroup, bool pauseCoveredUIForm, bool isNewInstance, object userData);
 
         /// <summary>
-        /// 界面回收。
+        /// Recycles the UI form.
         /// </summary>
         void OnRecycle();
 
         /// <summary>
-        /// 界面打开。
+        /// Opens the UI form.
         /// </summary>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnOpen(object userData);
 
         /// <summary>
-        /// 界面关闭。
+        /// Closes the UI form.
         /// </summary>
-        /// <param name="isShutdown">是否是关闭界面管理器时触发。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="isShutdown">Whether it is triggered when shutting down the UI manager.</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnClose(bool isShutdown, object userData);
 
         /// <summary>
-        /// 界面暂停。
+        /// Pauses the UI form.
         /// </summary>
         void OnPause();
 
         /// <summary>
-        /// 界面暂停恢复。
+        /// Resumes the UI form from pause.
         /// </summary>
         void OnResume();
 
         /// <summary>
-        /// 界面遮挡。
+        /// Covers the UI form.
         /// </summary>
         void OnCover();
 
         /// <summary>
-        /// 界面遮挡恢复。
+        /// Reveals the UI form from cover.
         /// </summary>
         void OnReveal();
 
         /// <summary>
-        /// 界面激活。
+        /// Refocuses the UI form.
         /// </summary>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnRefocus(object userData);
 
         /// <summary>
-        /// 界面轮询。
+        /// Polling the UI form.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         void OnUpdate(float elapseSeconds, float realElapseSeconds);
 
         /// <summary>
-        /// 界面深度改变。
+        /// UI form depth changed.
         /// </summary>
-        /// <param name="uiGroupDepth">界面组深度。</param>
-        /// <param name="depthInUIGroup">界面在界面组中的深度。</param>
+        /// <param name="uiGroupDepth">The depth of the UI group.</param>
+        /// <param name="depthInUIGroup">The depth of the UI form in the UI group.</param>
         void OnDepthChanged(int uiGroupDepth, int depthInUIGroup);
     }
 }

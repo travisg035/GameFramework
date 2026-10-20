@@ -12,7 +12,7 @@ namespace GameFramework.Entity
     internal sealed partial class EntityManager : GameFrameworkModule, IEntityManager
     {
         /// <summary>
-        /// 实体实例对象。
+        /// Entity instance object.
         /// </summary>
         private sealed class EntityInstanceObject : ObjectBase
         {

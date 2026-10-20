@@ -8,14 +8,14 @@
 namespace GameFramework.Download
 {
     /// <summary>
-    /// 下载代理辅助器更新数据流事件。
+    /// Download agent helper update bytes event.
     /// </summary>
     public sealed class DownloadAgentHelperUpdateBytesEventArgs : GameFrameworkEventArgs
     {
         private byte[] m_Bytes;
 
         /// <summary>
-        /// 初始化下载代理辅助器更新数据流事件的新实例。
+        /// Initializes a new instance of the DownloadAgentHelperUpdateBytesEventArgs class.
         /// </summary>
         public DownloadAgentHelperUpdateBytesEventArgs()
         {
@@ -25,7 +25,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取数据流的偏移。
+        /// Gets the offset in the bytes.
         /// </summary>
         public int Offset
         {
@@ -34,7 +34,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取数据流的长度。
+        /// Gets the length of the bytes.
         /// </summary>
         public int Length
         {
@@ -43,12 +43,12 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 创建下载代理辅助器更新数据流事件。
+        /// Creates a download agent helper update bytes event.
         /// </summary>
-        /// <param name="bytes">下载的数据流。</param>
-        /// <param name="offset">数据流的偏移。</param>
-        /// <param name="length">数据流的长度。</param>
-        /// <returns>创建的下载代理辅助器更新数据流事件。</returns>
+        /// <param name="bytes">Downloaded bytes.</param>
+        /// <param name="offset">Offset in the bytes.</param>
+        /// <param name="length">Length of the bytes.</param>
+        /// <returns>The created download agent helper update bytes event.</returns>
         public static DownloadAgentHelperUpdateBytesEventArgs Create(byte[] bytes, int offset, int length)
         {
             if (bytes == null)
@@ -74,7 +74,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 清理下载代理辅助器更新数据流事件。
+        /// Clears the download agent helper update bytes event.
         /// </summary>
         public override void Clear()
         {
@@ -84,7 +84,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取下载的数据流。
+        /// Gets the downloaded bytes.
         /// </summary>
         public byte[] GetBytes()
         {

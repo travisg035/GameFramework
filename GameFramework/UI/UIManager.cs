@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace GameFramework.UI
 {
     /// <summary>
-    /// 界面管理器。
+    /// UI manager.
     /// </summary>
     internal sealed partial class UIManager : GameFrameworkModule, IUIManager
     {
@@ -35,7 +35,7 @@ namespace GameFramework.UI
         private EventHandler<CloseUIFormCompleteEventArgs> m_CloseUIFormCompleteEventHandler;
 
         /// <summary>
-        /// 初始化界面管理器的新实例。
+        /// Initializes a new instance of the UIManager class.
         /// </summary>
         public UIManager()
         {
@@ -58,7 +58,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面组数量。
+        /// Gets the count of UI groups.
         /// </summary>
         public int UIGroupCount
         {
@@ -69,7 +69,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取或设置界面实例对象池自动释放可释放对象的间隔秒数。
+        /// Gets or sets the interval in seconds for automatically releasing releasable objects in the UI form instance object pool.
         /// </summary>
         public float InstanceAutoReleaseInterval
         {
@@ -84,7 +84,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取或设置界面实例对象池的容量。
+        /// Gets or sets the capacity of the UI form instance object pool.
         /// </summary>
         public int InstanceCapacity
         {
@@ -99,7 +99,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取或设置界面实例对象池对象过期秒数。
+        /// Gets or sets the expire time in seconds for objects in the UI form instance object pool.
         /// </summary>
         public float InstanceExpireTime
         {
@@ -114,7 +114,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取或设置界面实例对象池的优先级。
+        /// Gets or sets the priority of the UI form instance object pool.
         /// </summary>
         public int InstancePriority
         {
@@ -129,7 +129,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 打开界面成功事件。
+        /// Open UI form success event.
         /// </summary>
         public event EventHandler<OpenUIFormSuccessEventArgs> OpenUIFormSuccess
         {
@@ -144,7 +144,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 打开界面失败事件。
+        /// Open UI form failure event.
         /// </summary>
         public event EventHandler<OpenUIFormFailureEventArgs> OpenUIFormFailure
         {
@@ -159,7 +159,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 打开界面更新事件。
+        /// Open UI form update event.
         /// </summary>
         public event EventHandler<OpenUIFormUpdateEventArgs> OpenUIFormUpdate
         {
@@ -174,7 +174,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 打开界面时加载依赖资源事件。
+        /// Open UI form dependency asset event.
         /// </summary>
         public event EventHandler<OpenUIFormDependencyAssetEventArgs> OpenUIFormDependencyAsset
         {
@@ -189,7 +189,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 关闭界面完成事件。
+        /// Close UI form complete event.
         /// </summary>
         public event EventHandler<CloseUIFormCompleteEventArgs> CloseUIFormComplete
         {
@@ -204,10 +204,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 界面管理器轮询。
+        /// Updates the UI manager.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
             while (m_RecycleQueue.Count > 0)
@@ -224,7 +224,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 关闭并清理界面管理器。
+        /// Shuts down and cleans up the UI manager.
         /// </summary>
         internal override void Shutdown()
         {
@@ -237,9 +237,9 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 设置对象池管理器。
+        /// Sets the object pool manager.
         /// </summary>
-        /// <param name="objectPoolManager">对象池管理器。</param>
+        /// <param name="objectPoolManager">The object pool manager.</param>
         public void SetObjectPoolManager(IObjectPoolManager objectPoolManager)
         {
             if (objectPoolManager == null)
@@ -252,9 +252,9 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 设置资源管理器。
+        /// Sets the resource manager.
         /// </summary>
-        /// <param name="resourceManager">资源管理器。</param>
+        /// <param name="resourceManager">The resource manager.</param>
         public void SetResourceManager(IResourceManager resourceManager)
         {
             if (resourceManager == null)
@@ -266,9 +266,9 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 设置界面辅助器。
+        /// Sets the UI form helper.
         /// </summary>
-        /// <param name="uiFormHelper">界面辅助器。</param>
+        /// <param name="uiFormHelper">The UI form helper.</param>
         public void SetUIFormHelper(IUIFormHelper uiFormHelper)
         {
             if (uiFormHelper == null)
@@ -280,10 +280,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 是否存在界面组。
+        /// Checks whether the UI group exists.
         /// </summary>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <returns>是否存在界面组。</returns>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <returns>Whether the UI group exists.</returns>
         public bool HasUIGroup(string uiGroupName)
         {
             if (string.IsNullOrEmpty(uiGroupName))
@@ -295,10 +295,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面组。
+        /// Gets a UI group.
         /// </summary>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <returns>要获取的界面组。</returns>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <returns>The UI group to get.</returns>
         public IUIGroup GetUIGroup(string uiGroupName)
         {
             if (string.IsNullOrEmpty(uiGroupName))
@@ -316,9 +316,9 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取所有界面组。
+        /// Gets all UI groups.
         /// </summary>
-        /// <returns>所有界面组。</returns>
+        /// <returns>All UI groups.</returns>
         public IUIGroup[] GetAllUIGroups()
         {
             int index = 0;
@@ -332,9 +332,9 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取所有界面组。
+        /// Gets all UI groups.
         /// </summary>
-        /// <param name="results">所有界面组。</param>
+        /// <param name="results">All UI groups.</param>
         public void GetAllUIGroups(List<IUIGroup> results)
         {
             if (results == null)
@@ -350,23 +350,23 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 增加界面组。
+        /// Adds a UI group.
         /// </summary>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="uiGroupHelper">界面组辅助器。</param>
-        /// <returns>是否增加界面组成功。</returns>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="uiGroupHelper">The UI group helper.</param>
+        /// <returns>Whether the UI group was added successfully.</returns>
         public bool AddUIGroup(string uiGroupName, IUIGroupHelper uiGroupHelper)
         {
             return AddUIGroup(uiGroupName, 0, uiGroupHelper);
         }
 
         /// <summary>
-        /// 增加界面组。
+        /// Adds a UI group.
         /// </summary>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="uiGroupDepth">界面组深度。</param>
-        /// <param name="uiGroupHelper">界面组辅助器。</param>
-        /// <returns>是否增加界面组成功。</returns>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="uiGroupDepth">The UI group depth.</param>
+        /// <param name="uiGroupHelper">The UI group helper.</param>
+        /// <returns>Whether the UI group was added successfully.</returns>
         public bool AddUIGroup(string uiGroupName, int uiGroupDepth, IUIGroupHelper uiGroupHelper)
         {
             if (string.IsNullOrEmpty(uiGroupName))
@@ -390,10 +390,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 是否存在界面。
+        /// Checks whether the UI form exists.
         /// </summary>
-        /// <param name="serialId">界面序列编号。</param>
-        /// <returns>是否存在界面。</returns>
+        /// <param name="serialId">The serial ID of the UI form.</param>
+        /// <returns>Whether the UI form exists.</returns>
         public bool HasUIForm(int serialId)
         {
             foreach (KeyValuePair<string, UIGroup> uiGroup in m_UIGroups)
@@ -408,10 +408,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 是否存在界面。
+        /// Checks whether the UI form exists.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <returns>是否存在界面。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <returns>Whether the UI form exists.</returns>
         public bool HasUIForm(string uiFormAssetName)
         {
             if (string.IsNullOrEmpty(uiFormAssetName))
@@ -431,10 +431,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面。
+        /// Gets a UI form.
         /// </summary>
-        /// <param name="serialId">界面序列编号。</param>
-        /// <returns>要获取的界面。</returns>
+        /// <param name="serialId">The serial ID of the UI form.</param>
+        /// <returns>The UI form to get.</returns>
         public IUIForm GetUIForm(int serialId)
         {
             foreach (KeyValuePair<string, UIGroup> uiGroup in m_UIGroups)
@@ -450,10 +450,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面。
+        /// Gets a UI form.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <returns>要获取的界面。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <returns>The UI form to get.</returns>
         public IUIForm GetUIForm(string uiFormAssetName)
         {
             if (string.IsNullOrEmpty(uiFormAssetName))
@@ -474,10 +474,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面。
+        /// Gets UI forms.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <returns>要获取的界面。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <returns>The UI forms to get.</returns>
         public IUIForm[] GetUIForms(string uiFormAssetName)
         {
             if (string.IsNullOrEmpty(uiFormAssetName))
@@ -495,10 +495,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面。
+        /// Gets UI forms.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="results">要获取的界面。</param>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="results">The UI forms to get.</param>
         public void GetUIForms(string uiFormAssetName, List<IUIForm> results)
         {
             if (string.IsNullOrEmpty(uiFormAssetName))
@@ -519,9 +519,9 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取所有已加载的界面。
+        /// Gets all loaded UI forms.
         /// </summary>
-        /// <returns>所有已加载的界面。</returns>
+        /// <returns>All loaded UI forms.</returns>
         public IUIForm[] GetAllLoadedUIForms()
         {
             List<IUIForm> results = new List<IUIForm>();
@@ -534,9 +534,9 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取所有已加载的界面。
+        /// Gets all loaded UI forms.
         /// </summary>
-        /// <param name="results">所有已加载的界面。</param>
+        /// <param name="results">All loaded UI forms.</param>
         public void GetAllLoadedUIForms(List<IUIForm> results)
         {
             if (results == null)
@@ -552,9 +552,9 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取所有正在加载界面的序列编号。
+        /// Gets the serial IDs of all loading UI forms.
         /// </summary>
-        /// <returns>所有正在加载界面的序列编号。</returns>
+        /// <returns>The serial IDs of all loading UI forms.</returns>
         public int[] GetAllLoadingUIFormSerialIds()
         {
             int index = 0;
@@ -568,9 +568,9 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取所有正在加载界面的序列编号。
+        /// Gets the serial IDs of all loading UI forms.
         /// </summary>
-        /// <param name="results">所有正在加载界面的序列编号。</param>
+        /// <param name="results">The serial IDs of all loading UI forms.</param>
         public void GetAllLoadingUIFormSerialIds(List<int> results)
         {
             if (results == null)
@@ -586,20 +586,20 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 是否正在加载界面。
+        /// Checks whether the UI form is loading.
         /// </summary>
-        /// <param name="serialId">界面序列编号。</param>
-        /// <returns>是否正在加载界面。</returns>
+        /// <param name="serialId">The serial ID of the UI form.</param>
+        /// <returns>Whether the UI form is loading.</returns>
         public bool IsLoadingUIForm(int serialId)
         {
             return m_UIFormsBeingLoaded.ContainsKey(serialId);
         }
 
         /// <summary>
-        /// 是否正在加载界面。
+        /// Checks whether the UI form is loading.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <returns>是否正在加载界面。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <returns>Whether the UI form is loading.</returns>
         public bool IsLoadingUIForm(string uiFormAssetName)
         {
             if (string.IsNullOrEmpty(uiFormAssetName))
@@ -611,10 +611,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 是否是合法的界面。
+        /// Checks whether the UI form is valid.
         /// </summary>
-        /// <param name="uiForm">界面。</param>
-        /// <returns>界面是否合法。</returns>
+        /// <param name="uiForm">The UI form.</param>
+        /// <returns>Whether the UI form is valid.</returns>
         public bool IsValidUIForm(IUIForm uiForm)
         {
             if (uiForm == null)
@@ -626,100 +626,100 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 打开界面。
+        /// Opens a UI form.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <returns>界面的序列编号。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <returns>The serial ID of the UI form.</returns>
         public int OpenUIForm(string uiFormAssetName, string uiGroupName)
         {
             return OpenUIForm(uiFormAssetName, uiGroupName, Constant.DefaultPriority, false, null);
         }
 
         /// <summary>
-        /// 打开界面。
+        /// Opens a UI form.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="priority">加载界面资源的优先级。</param>
-        /// <returns>界面的序列编号。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="priority">The priority of loading the UI form asset.</param>
+        /// <returns>The serial ID of the UI form.</returns>
         public int OpenUIForm(string uiFormAssetName, string uiGroupName, int priority)
         {
             return OpenUIForm(uiFormAssetName, uiGroupName, priority, false, null);
         }
 
         /// <summary>
-        /// 打开界面。
+        /// Opens a UI form.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
-        /// <returns>界面的序列编号。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="pauseCoveredUIForm">Whether to pause the covered UI form.</param>
+        /// <returns>The serial ID of the UI form.</returns>
         public int OpenUIForm(string uiFormAssetName, string uiGroupName, bool pauseCoveredUIForm)
         {
             return OpenUIForm(uiFormAssetName, uiGroupName, Constant.DefaultPriority, pauseCoveredUIForm, null);
         }
 
         /// <summary>
-        /// 打开界面。
+        /// Opens a UI form.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>界面的序列编号。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The serial ID of the UI form.</returns>
         public int OpenUIForm(string uiFormAssetName, string uiGroupName, object userData)
         {
             return OpenUIForm(uiFormAssetName, uiGroupName, Constant.DefaultPriority, false, userData);
         }
 
         /// <summary>
-        /// 打开界面。
+        /// Opens a UI form.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="priority">加载界面资源的优先级。</param>
-        /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
-        /// <returns>界面的序列编号。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="priority">The priority of loading the UI form asset.</param>
+        /// <param name="pauseCoveredUIForm">Whether to pause the covered UI form.</param>
+        /// <returns>The serial ID of the UI form.</returns>
         public int OpenUIForm(string uiFormAssetName, string uiGroupName, int priority, bool pauseCoveredUIForm)
         {
             return OpenUIForm(uiFormAssetName, uiGroupName, priority, pauseCoveredUIForm, null);
         }
 
         /// <summary>
-        /// 打开界面。
+        /// Opens a UI form.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="priority">加载界面资源的优先级。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>界面的序列编号。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="priority">The priority of loading the UI form asset.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The serial ID of the UI form.</returns>
         public int OpenUIForm(string uiFormAssetName, string uiGroupName, int priority, object userData)
         {
             return OpenUIForm(uiFormAssetName, uiGroupName, priority, false, userData);
         }
 
         /// <summary>
-        /// 打开界面。
+        /// Opens a UI form.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>界面的序列编号。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="pauseCoveredUIForm">Whether to pause the covered UI form.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The serial ID of the UI form.</returns>
         public int OpenUIForm(string uiFormAssetName, string uiGroupName, bool pauseCoveredUIForm, object userData)
         {
             return OpenUIForm(uiFormAssetName, uiGroupName, Constant.DefaultPriority, pauseCoveredUIForm, userData);
         }
 
         /// <summary>
-        /// 打开界面。
+        /// Opens a UI form.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="priority">加载界面资源的优先级。</param>
-        /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>界面的序列编号。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="priority">The priority of loading the UI form asset.</param>
+        /// <param name="pauseCoveredUIForm">Whether to pause the covered UI form.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The serial ID of the UI form.</returns>
         public int OpenUIForm(string uiFormAssetName, string uiGroupName, int priority, bool pauseCoveredUIForm, object userData)
         {
             if (m_ResourceManager == null)
@@ -764,19 +764,19 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 关闭界面。
+        /// Closes a UI form.
         /// </summary>
-        /// <param name="serialId">要关闭界面的序列编号。</param>
+        /// <param name="serialId">The serial ID of the UI form to close.</param>
         public void CloseUIForm(int serialId)
         {
             CloseUIForm(serialId, null);
         }
 
         /// <summary>
-        /// 关闭界面。
+        /// Closes a UI form.
         /// </summary>
-        /// <param name="serialId">要关闭界面的序列编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="serialId">The serial ID of the UI form to close.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void CloseUIForm(int serialId, object userData)
         {
             if (IsLoadingUIForm(serialId))
@@ -796,19 +796,19 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 关闭界面。
+        /// Closes a UI form.
         /// </summary>
-        /// <param name="uiForm">要关闭的界面。</param>
+        /// <param name="uiForm">The UI form to close.</param>
         public void CloseUIForm(IUIForm uiForm)
         {
             CloseUIForm(uiForm, null);
         }
 
         /// <summary>
-        /// 关闭界面。
+        /// Closes a UI form.
         /// </summary>
-        /// <param name="uiForm">要关闭的界面。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="uiForm">The UI form to close.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void CloseUIForm(IUIForm uiForm, object userData)
         {
             if (uiForm == null)
@@ -837,7 +837,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 关闭所有已加载的界面。
+        /// Closes all loaded UI forms.
         /// </summary>
         public void CloseAllLoadedUIForms()
         {
@@ -845,9 +845,9 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 关闭所有已加载的界面。
+        /// Closes all loaded UI forms.
         /// </summary>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="userData">The user-defined data.</param>
         public void CloseAllLoadedUIForms(object userData)
         {
             IUIForm[] uiForms = GetAllLoadedUIForms();
@@ -863,7 +863,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 关闭所有正在加载的界面。
+        /// Closes all loading UI forms.
         /// </summary>
         public void CloseAllLoadingUIForms()
         {
@@ -876,19 +876,19 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 激活界面。
+        /// Refocuses a UI form.
         /// </summary>
-        /// <param name="uiForm">要激活的界面。</param>
+        /// <param name="uiForm">The UI form to refocus.</param>
         public void RefocusUIForm(IUIForm uiForm)
         {
             RefocusUIForm(uiForm, null);
         }
 
         /// <summary>
-        /// 激活界面。
+        /// Refocuses a UI form.
         /// </summary>
-        /// <param name="uiForm">要激活的界面。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="uiForm">The UI form to refocus.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void RefocusUIForm(IUIForm uiForm, object userData)
         {
             if (uiForm == null)
@@ -908,10 +908,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 设置界面实例是否被加锁。
+        /// Sets whether the UI form instance is locked.
         /// </summary>
-        /// <param name="uiFormInstance">要设置是否被加锁的界面实例。</param>
-        /// <param name="locked">界面实例是否被加锁。</param>
+        /// <param name="uiFormInstance">The UI form instance to set whether it is locked.</param>
+        /// <param name="locked">Whether the UI form instance is locked.</param>
         public void SetUIFormInstanceLocked(object uiFormInstance, bool locked)
         {
             if (uiFormInstance == null)
@@ -923,10 +923,10 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 设置界面实例的优先级。
+        /// Sets the priority of the UI form instance.
         /// </summary>
-        /// <param name="uiFormInstance">要设置优先级的界面实例。</param>
-        /// <param name="priority">界面实例优先级。</param>
+        /// <param name="uiFormInstance">The UI form instance to set priority.</param>
+        /// <param name="priority">The priority of the UI form instance.</param>
         public void SetUIFormInstancePriority(object uiFormInstance, int priority)
         {
             if (uiFormInstance == null)

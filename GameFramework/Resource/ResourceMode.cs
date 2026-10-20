@@ -8,27 +8,27 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源模式。
+    /// Resource mode.
     /// </summary>
     public enum ResourceMode : byte
     {
         /// <summary>
-        /// 未指定。
+        /// Unspecified.
         /// </summary>
         Unspecified = 0,
 
         /// <summary>
-        /// 单机模式。
+        /// Package mode.
         /// </summary>
         Package,
 
         /// <summary>
-        /// 预下载的可更新模式。
+        /// Updatable mode (download before playing).
         /// </summary>
         Updatable,
 
         /// <summary>
-        /// 使用时下载的可更新模式。
+        /// Updatable while playing mode (download on demand).
         /// </summary>
         UpdatableWhilePlaying
     }

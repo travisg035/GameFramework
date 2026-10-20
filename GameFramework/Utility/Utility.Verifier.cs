@@ -13,7 +13,7 @@ namespace GameFramework
     public static partial class Utility
     {
         /// <summary>
-        /// 校验相关的实用函数。
+        /// Verifier utility functions.
         /// </summary>
         public static partial class Verifier
         {
@@ -22,10 +22,10 @@ namespace GameFramework
             private static readonly Crc32 s_Algorithm = new Crc32();
 
             /// <summary>
-            /// 计算二进制流的 CRC32。
+            /// Calculates the CRC32 of the binary bytes.
             /// </summary>
-            /// <param name="bytes">指定的二进制流。</param>
-            /// <returns>计算后的 CRC32。</returns>
+            /// <param name="bytes">The specified binary bytes.</param>
+            /// <returns>The calculated CRC32.</returns>
             public static int GetCrc32(byte[] bytes)
             {
                 if (bytes == null)
@@ -37,12 +37,12 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 计算二进制流的 CRC32。
+            /// Calculates the CRC32 of the binary bytes.
             /// </summary>
-            /// <param name="bytes">指定的二进制流。</param>
-            /// <param name="offset">二进制流的偏移。</param>
-            /// <param name="length">二进制流的长度。</param>
-            /// <returns>计算后的 CRC32。</returns>
+            /// <param name="bytes">The specified binary bytes.</param>
+            /// <param name="offset">The offset of the binary bytes.</param>
+            /// <param name="length">The length of the binary bytes.</param>
+            /// <returns>The calculated CRC32.</returns>
             public static int GetCrc32(byte[] bytes, int offset, int length)
             {
                 if (bytes == null)
@@ -62,10 +62,10 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 计算二进制流的 CRC32。
+            /// Calculates the CRC32 of the stream.
             /// </summary>
-            /// <param name="stream">指定的二进制流。</param>
-            /// <returns>计算后的 CRC32。</returns>
+            /// <param name="stream">The specified stream.</param>
+            /// <returns>The calculated CRC32.</returns>
             public static int GetCrc32(Stream stream)
             {
                 if (stream == null)
@@ -93,31 +93,31 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取 CRC32 数值的二进制数组。
+            /// Gets the CRC32 bytes.
             /// </summary>
-            /// <param name="crc32">CRC32 数值。</param>
-            /// <returns>CRC32 数值的二进制数组。</returns>
+            /// <param name="crc32">The CRC32 value.</param>
+            /// <returns>The CRC32 bytes.</returns>
             public static byte[] GetCrc32Bytes(int crc32)
             {
                 return new byte[] { (byte)((crc32 >> 24) & 0xff), (byte)((crc32 >> 16) & 0xff), (byte)((crc32 >> 8) & 0xff), (byte)(crc32 & 0xff) };
             }
 
             /// <summary>
-            /// 获取 CRC32 数值的二进制数组。
+            /// Gets the CRC32 bytes.
             /// </summary>
-            /// <param name="crc32">CRC32 数值。</param>
-            /// <param name="bytes">要存放结果的数组。</param>
+            /// <param name="crc32">The CRC32 value.</param>
+            /// <param name="bytes">The array to store the result.</param>
             public static void GetCrc32Bytes(int crc32, byte[] bytes)
             {
                 GetCrc32Bytes(crc32, bytes, 0);
             }
 
             /// <summary>
-            /// 获取 CRC32 数值的二进制数组。
+            /// Gets the CRC32 bytes.
             /// </summary>
-            /// <param name="crc32">CRC32 数值。</param>
-            /// <param name="bytes">要存放结果的数组。</param>
-            /// <param name="offset">CRC32 数值的二进制数组在结果数组内的起始位置。</param>
+            /// <param name="crc32">The CRC32 value.</param>
+            /// <param name="bytes">The array to store the result.</param>
+            /// <param name="offset">The start index of the CRC32 bytes in the result array.</param>
             public static void GetCrc32Bytes(int crc32, byte[] bytes, int offset)
             {
                 if (bytes == null)

@@ -16,7 +16,7 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 资源更新器。
+        /// Resource updater.
         /// </summary>
         private sealed partial class ResourceUpdater
         {
@@ -56,9 +56,9 @@ namespace GameFramework.Resource
             public GameFrameworkAction ResourceUpdateAllComplete;
 
             /// <summary>
-            /// 初始化资源更新器的新实例。
+            /// Initializes a new instance of the ResourceUpdater class.
             /// </summary>
-            /// <param name="resourceManager">资源管理器。</param>
+            /// <param name="resourceManager">The resource manager.</param>
             public ResourceUpdater(ResourceManager resourceManager)
             {
                 m_ResourceManager = resourceManager;
@@ -95,7 +95,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取或设置每更新多少字节的资源，重新生成一次版本资源列表。
+            /// Gets or sets the length of updated resources in bytes required to regenerate the version list.
             /// </summary>
             public int GenerateReadWriteVersionListLength
             {
@@ -110,7 +110,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取正在应用的资源包路径。
+            /// Gets the path of the resource pack being applied.
             /// </summary>
             public string ApplyingResourcePackPath
             {
@@ -121,7 +121,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取等待应用资源数量。
+            /// Gets the number of resources waiting to be applied.
             /// </summary>
             public int ApplyWaitingCount
             {
@@ -132,7 +132,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取或设置资源更新重试次数。
+            /// Gets or sets the retry count for resource updates.
             /// </summary>
             public int UpdateRetryCount
             {
@@ -147,7 +147,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取正在更新的资源组。
+            /// Gets the resource group being updated.
             /// </summary>
             public IResourceGroup UpdatingResourceGroup
             {
@@ -158,7 +158,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取等待更新资源数量。
+            /// Gets the number of resources waiting to be updated.
             /// </summary>
             public int UpdateWaitingCount
             {
@@ -169,7 +169,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取使用时下载的等待更新资源数量。
+            /// Gets the number of resources waiting to be updated during playback.
             /// </summary>
             public int UpdateWaitingWhilePlayingCount
             {
@@ -180,7 +180,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取候选更新资源数量。
+            /// Gets the number of candidate update resources.
             /// </summary>
             public int UpdateCandidateCount
             {
@@ -191,10 +191,10 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 资源更新器轮询。
+            /// Resource updater update.
             /// </summary>
-            /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-            /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+            /// <param name="elapseSeconds">Logical elapsed time in seconds.</param>
+            /// <param name="realElapseSeconds">Real elapsed time in seconds.</param>
             public void Update(float elapseSeconds, float realElapseSeconds)
             {
                 if (m_ApplyingResourcePackStream != null)
@@ -245,7 +245,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 关闭并清理资源更新器。
+            /// Shuts down and cleans up the resource updater.
             /// </summary>
             public void Shutdown()
             {
@@ -263,9 +263,9 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 设置下载管理器。
+            /// Sets the download manager.
             /// </summary>
-            /// <param name="downloadManager">下载管理器。</param>
+            /// <param name="downloadManager">The download manager.</param>
             public void SetDownloadManager(IDownloadManager downloadManager)
             {
                 if (downloadManager == null)
@@ -281,25 +281,25 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 增加资源更新。
+            /// Adds a resource update.
             /// </summary>
-            /// <param name="resourceName">资源名称。</param>
-            /// <param name="fileSystemName">资源所在的文件系统名称。</param>
-            /// <param name="loadType">资源加载方式。</param>
-            /// <param name="length">资源大小。</param>
-            /// <param name="hashCode">资源哈希值。</param>
-            /// <param name="compressedLength">压缩后大小。</param>
-            /// <param name="compressedHashCode">压缩后哈希值。</param>
-            /// <param name="resourcePath">资源路径。</param>
+            /// <param name="resourceName">The resource name.</param>
+            /// <param name="fileSystemName">The file system name containing the resource.</param>
+            /// <param name="loadType">The resource load type.</param>
+            /// <param name="length">The resource length.</param>
+            /// <param name="hashCode">The resource hash code.</param>
+            /// <param name="compressedLength">The compressed resource length.</param>
+            /// <param name="compressedHashCode">The compressed resource hash code.</param>
+            /// <param name="resourcePath">The resource path.</param>
             public void AddResourceUpdate(ResourceName resourceName, string fileSystemName, LoadType loadType, int length, int hashCode, int compressedLength, int compressedHashCode, string resourcePath)
             {
                 m_UpdateCandidateInfo.Add(resourceName, new UpdateInfo(resourceName, fileSystemName, loadType, length, hashCode, compressedLength, compressedHashCode, resourcePath));
             }
 
             /// <summary>
-            /// 检查资源完成。
+            /// Check resource complete.
             /// </summary>
-            /// <param name="needGenerateReadWriteVersionList">是否需要生成读写区版本资源列表。</param>
+            /// <param name="needGenerateReadWriteVersionList">Whether to generate the read-write area version list.</param>
             public void CheckResourceComplete(bool needGenerateReadWriteVersionList)
             {
                 m_CheckResourcesComplete = true;
@@ -310,9 +310,9 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 应用指定资源包的资源。
+            /// Applies resources from the specified resource pack.
             /// </summary>
-            /// <param name="resourcePackPath">要应用的资源包路径。</param>
+            /// <param name="resourcePackPath">The path of the resource pack to apply.</param>
             public void ApplyResources(string resourcePackPath)
             {
                 if (!m_CheckResourcesComplete)
@@ -396,9 +396,9 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 更新指定资源组的资源。
+            /// Updates resources in the specified resource group.
             /// </summary>
-            /// <param name="resourceGroup">要更新的资源组。</param>
+            /// <param name="resourceGroup">The resource group to update.</param>
             public void UpdateResources(ResourceGroup resourceGroup)
             {
                 if (m_DownloadManager == null)
@@ -450,7 +450,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 停止更新资源。
+            /// Stops updating resources.
             /// </summary>
             public void StopUpdateResources()
             {
@@ -479,9 +479,9 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 更新指定资源。
+            /// Updates the specified resource.
             /// </summary>
-            /// <param name="resourceName">要更新的资源名称。</param>
+            /// <param name="resourceName">The name of the resource to update.</param>
             public void UpdateResource(ResourceName resourceName)
             {
                 if (m_DownloadManager == null)

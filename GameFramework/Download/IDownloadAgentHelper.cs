@@ -10,56 +10,56 @@ using System;
 namespace GameFramework.Download
 {
     /// <summary>
-    /// 下载代理辅助器接口。
+    /// Download agent helper interface.
     /// </summary>
     public interface IDownloadAgentHelper
     {
         /// <summary>
-        /// 下载代理辅助器更新数据流事件。
+        /// Download agent helper update bytes event.
         /// </summary>
         event EventHandler<DownloadAgentHelperUpdateBytesEventArgs> DownloadAgentHelperUpdateBytes;
 
         /// <summary>
-        /// 下载代理辅助器更新数据大小事件。
+        /// Download agent helper update length event.
         /// </summary>
         event EventHandler<DownloadAgentHelperUpdateLengthEventArgs> DownloadAgentHelperUpdateLength;
 
         /// <summary>
-        /// 下载代理辅助器完成事件。
+        /// Download agent helper complete event.
         /// </summary>
         event EventHandler<DownloadAgentHelperCompleteEventArgs> DownloadAgentHelperComplete;
 
         /// <summary>
-        /// 下载代理辅助器错误事件。
+        /// Download agent helper error event.
         /// </summary>
         event EventHandler<DownloadAgentHelperErrorEventArgs> DownloadAgentHelperError;
 
         /// <summary>
-        /// 通过下载代理辅助器下载指定地址的数据。
+        /// Downloads data from the specified URI through the download agent helper.
         /// </summary>
-        /// <param name="downloadUri">下载地址。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="downloadUri">Download URI.</param>
+        /// <param name="userData">User-defined data.</param>
         void Download(string downloadUri, object userData);
 
         /// <summary>
-        /// 通过下载代理辅助器下载指定地址的数据。
+        /// Downloads data from the specified URI through the download agent helper.
         /// </summary>
-        /// <param name="downloadUri">下载地址。</param>
-        /// <param name="fromPosition">下载数据起始位置。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="downloadUri">Download URI.</param>
+        /// <param name="fromPosition">The start position of the download data.</param>
+        /// <param name="userData">User-defined data.</param>
         void Download(string downloadUri, long fromPosition, object userData);
 
         /// <summary>
-        /// 通过下载代理辅助器下载指定地址的数据。
+        /// Downloads data from the specified URI through the download agent helper.
         /// </summary>
-        /// <param name="downloadUri">下载地址。</param>
-        /// <param name="fromPosition">下载数据起始位置。</param>
-        /// <param name="toPosition">下载数据结束位置。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="downloadUri">Download URI.</param>
+        /// <param name="fromPosition">The start position of the download data.</param>
+        /// <param name="toPosition">The end position of the download data.</param>
+        /// <param name="userData">User-defined data.</param>
         void Download(string downloadUri, long fromPosition, long toPosition, object userData);
 
         /// <summary>
-        /// 重置下载代理辅助器。
+        /// Resets the download agent helper.
         /// </summary>
         void Reset();
     }

@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 namespace GameFramework.FileSystem
 {
     /// <summary>
-    /// 文件系统。
+    /// File system.
     /// </summary>
     internal sealed partial class FileSystem : IFileSystem
     {
@@ -43,11 +43,11 @@ namespace GameFramework.FileSystem
         private int m_FileDataOffset;
 
         /// <summary>
-        /// 初始化文件系统的新实例。
+        /// Initializes a new instance of the FileSystem class.
         /// </summary>
-        /// <param name="fullPath">文件系统完整路径。</param>
-        /// <param name="access">文件系统访问方式。</param>
-        /// <param name="stream">文件系统流。</param>
+        /// <param name="fullPath">The full path of the file system.</param>
+        /// <param name="access">The access mode of the file system.</param>
+        /// <param name="stream">The file system stream.</param>
         private FileSystem(string fullPath, FileSystemAccess access, FileSystemStream stream)
         {
             if (string.IsNullOrEmpty(fullPath))
@@ -84,7 +84,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件系统完整路径。
+        /// Gets the full path of the file system.
         /// </summary>
         public string FullPath
         {
@@ -95,7 +95,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件系统访问方式。
+        /// Gets the access mode of the file system.
         /// </summary>
         public FileSystemAccess Access
         {
@@ -106,7 +106,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件数量。
+        /// Gets the file count.
         /// </summary>
         public int FileCount
         {
@@ -117,7 +117,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取最大文件数量。
+        /// Gets the maximum file count.
         /// </summary>
         public int MaxFileCount
         {
@@ -128,14 +128,14 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 创建文件系统。
+        /// Creates a file system.
         /// </summary>
-        /// <param name="fullPath">要创建的文件系统的完整路径。</param>
-        /// <param name="access">要创建的文件系统的访问方式。</param>
-        /// <param name="stream">要创建的文件系统的文件系统流。</param>
-        /// <param name="maxFileCount">要创建的文件系统的最大文件数量。</param>
-        /// <param name="maxBlockCount">要创建的文件系统的最大块数据数量。</param>
-        /// <returns>创建的文件系统。</returns>
+        /// <param name="fullPath">The full path of the file system to create.</param>
+        /// <param name="access">The access mode of the file system to create.</param>
+        /// <param name="stream">The file system stream of the file system to create.</param>
+        /// <param name="maxFileCount">The maximum file count of the file system to create.</param>
+        /// <param name="maxBlockCount">The maximum block count of the file system to create.</param>
+        /// <returns>The created file system.</returns>
         public static FileSystem Create(string fullPath, FileSystemAccess access, FileSystemStream stream, int maxFileCount, int maxBlockCount)
         {
             if (maxFileCount <= 0)
@@ -172,12 +172,12 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 加载文件系统。
+        /// Loads a file system.
         /// </summary>
-        /// <param name="fullPath">要加载的文件系统的完整路径。</param>
-        /// <param name="access">要加载的文件系统的访问方式。</param>
-        /// <param name="stream">要加载的文件系统的文件系统流。</param>
-        /// <returns>加载的文件系统。</returns>
+        /// <param name="fullPath">The full path of the file system to load.</param>
+        /// <param name="access">The access mode of the file system to load.</param>
+        /// <param name="stream">The file system stream of the file system to load.</param>
+        /// <returns>The loaded file system.</returns>
         public static FileSystem Load(string fullPath, FileSystemAccess access, FileSystemStream stream)
         {
             FileSystem fileSystem = new FileSystem(fullPath, access, stream);
@@ -233,7 +233,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 关闭并清理文件系统。
+        /// Shuts down and cleans up the file system.
         /// </summary>
         public void Shutdown()
         {
@@ -252,10 +252,10 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件信息。
+        /// Gets the file info.
         /// </summary>
-        /// <param name="name">要获取文件信息的文件名称。</param>
-        /// <returns>获取的文件信息。</returns>
+        /// <param name="name">The name of the file whose info is to be obtained.</param>
+        /// <returns>The file info.</returns>
         public FileInfo GetFileInfo(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -274,9 +274,9 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取所有文件信息。
+        /// Gets all file infos.
         /// </summary>
-        /// <returns>获取的所有文件信息。</returns>
+        /// <returns>All file infos.</returns>
         public FileInfo[] GetAllFileInfos()
         {
             int index = 0;
@@ -291,9 +291,9 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取所有文件信息。
+        /// Gets all file infos.
         /// </summary>
-        /// <param name="results">获取的所有文件信息。</param>
+        /// <param name="results">All file infos.</param>
         public void GetAllFileInfos(List<FileInfo> results)
         {
             if (results == null)
@@ -310,10 +310,10 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 检查是否存在指定文件。
+        /// Checks whether the specified file exists.
         /// </summary>
-        /// <param name="name">要检查的文件名称。</param>
-        /// <returns>是否存在指定文件。</returns>
+        /// <param name="name">The name of the file to check.</param>
+        /// <returns>Whether the specified file exists.</returns>
         public bool HasFile(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -325,10 +325,10 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 读取指定文件。
+        /// Reads the specified file.
         /// </summary>
-        /// <param name="name">要读取的文件名称。</param>
-        /// <returns>存储读取文件内容的二进制流。</returns>
+        /// <param name="name">The name of the file to read.</param>
+        /// <returns>The byte array containing the read file content.</returns>
         public byte[] ReadFile(string name)
         {
             if (m_Access != FileSystemAccess.Read && m_Access != FileSystemAccess.ReadWrite)
@@ -359,11 +359,11 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 读取指定文件。
+        /// Reads the specified file.
         /// </summary>
-        /// <param name="name">要读取的文件名称。</param>
-        /// <param name="buffer">存储读取文件内容的二进制流。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file to read.</param>
+        /// <param name="buffer">The byte array to store the read file content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFile(string name, byte[] buffer)
         {
             if (buffer == null)
@@ -375,12 +375,12 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 读取指定文件。
+        /// Reads the specified file.
         /// </summary>
-        /// <param name="name">要读取的文件名称。</param>
-        /// <param name="buffer">存储读取文件内容的二进制流。</param>
-        /// <param name="startIndex">存储读取文件内容的二进制流的起始位置。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file to read.</param>
+        /// <param name="buffer">The byte array to store the read file content.</param>
+        /// <param name="startIndex">The starting position in the byte array to store the read file content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFile(string name, byte[] buffer, int startIndex)
         {
             if (buffer == null)
@@ -392,13 +392,13 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 读取指定文件。
+        /// Reads the specified file.
         /// </summary>
-        /// <param name="name">要读取的文件名称。</param>
-        /// <param name="buffer">存储读取文件内容的二进制流。</param>
-        /// <param name="startIndex">存储读取文件内容的二进制流的起始位置。</param>
-        /// <param name="length">存储读取文件内容的二进制流的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file to read.</param>
+        /// <param name="buffer">The byte array to store the read file content.</param>
+        /// <param name="startIndex">The starting position in the byte array to store the read file content.</param>
+        /// <param name="length">The length of the byte array to store the read file content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFile(string name, byte[] buffer, int startIndex, int length)
         {
             if (m_Access != FileSystemAccess.Read && m_Access != FileSystemAccess.ReadWrite)
@@ -442,11 +442,11 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 读取指定文件。
+        /// Reads the specified file.
         /// </summary>
-        /// <param name="name">要读取的文件名称。</param>
-        /// <param name="stream">存储读取文件内容的二进制流。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file to read.</param>
+        /// <param name="stream">The stream to store the read file content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFile(string name, Stream stream)
         {
             if (m_Access != FileSystemAccess.Read && m_Access != FileSystemAccess.ReadWrite)
@@ -486,23 +486,23 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>存储读取文件片段内容的二进制流。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The byte array containing the read file segment content.</returns>
         public byte[] ReadFileSegment(string name, int length)
         {
             return ReadFileSegment(name, 0, length);
         }
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="offset">要读取片段的偏移。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>存储读取文件片段内容的二进制流。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="offset">The offset of the segment to read.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The byte array containing the read file segment content.</returns>
         public byte[] ReadFileSegment(string name, int offset, int length)
         {
             if (m_Access != FileSystemAccess.Read && m_Access != FileSystemAccess.ReadWrite)
@@ -553,11 +553,11 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFileSegment(string name, byte[] buffer)
         {
             if (buffer == null)
@@ -569,37 +569,37 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFileSegment(string name, byte[] buffer, int length)
         {
             return ReadFileSegment(name, 0, buffer, 0, length);
         }
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <param name="startIndex">存储读取文件片段内容的二进制流的起始位置。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <param name="startIndex">The starting position in the byte array to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFileSegment(string name, byte[] buffer, int startIndex, int length)
         {
             return ReadFileSegment(name, 0, buffer, startIndex, length);
         }
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="offset">要读取片段的偏移。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="offset">The offset of the segment to read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFileSegment(string name, int offset, byte[] buffer)
         {
             if (buffer == null)
@@ -611,27 +611,27 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="offset">要读取片段的偏移。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="offset">The offset of the segment to read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFileSegment(string name, int offset, byte[] buffer, int length)
         {
             return ReadFileSegment(name, offset, buffer, 0, length);
         }
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="offset">要读取片段的偏移。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <param name="startIndex">存储读取文件片段内容的二进制流的起始位置。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="offset">The offset of the segment to read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <param name="startIndex">The starting position in the byte array to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFileSegment(string name, int offset, byte[] buffer, int startIndex, int length)
         {
             if (m_Access != FileSystemAccess.Read && m_Access != FileSystemAccess.ReadWrite)
@@ -686,25 +686,25 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="stream">存储读取文件片段内容的二进制流。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="stream">The stream to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFileSegment(string name, Stream stream, int length)
         {
             return ReadFileSegment(name, 0, stream, length);
         }
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="offset">要读取片段的偏移。</param>
-        /// <param name="stream">存储读取文件片段内容的二进制流。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="offset">The offset of the segment to read.</param>
+        /// <param name="stream">The stream to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         public int ReadFileSegment(string name, int offset, Stream stream, int length)
         {
             if (m_Access != FileSystemAccess.Read && m_Access != FileSystemAccess.ReadWrite)
@@ -764,11 +764,11 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 写入指定文件。
+        /// Writes the specified file.
         /// </summary>
-        /// <param name="name">要写入的文件名称。</param>
-        /// <param name="buffer">存储写入文件内容的二进制流。</param>
-        /// <returns>是否写入指定文件成功。</returns>
+        /// <param name="name">The name of the file to write.</param>
+        /// <param name="buffer">The byte array containing the file content to write.</param>
+        /// <returns>Whether the file was written successfully.</returns>
         public bool WriteFile(string name, byte[] buffer)
         {
             if (buffer == null)
@@ -780,12 +780,12 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 写入指定文件。
+        /// Writes the specified file.
         /// </summary>
-        /// <param name="name">要写入的文件名称。</param>
-        /// <param name="buffer">存储写入文件内容的二进制流。</param>
-        /// <param name="startIndex">存储写入文件内容的二进制流的起始位置。</param>
-        /// <returns>是否写入指定文件成功。</returns>
+        /// <param name="name">The name of the file to write.</param>
+        /// <param name="buffer">The byte array containing the file content to write.</param>
+        /// <param name="startIndex">The starting position in the byte array of the file content to write.</param>
+        /// <returns>Whether the file was written successfully.</returns>
         public bool WriteFile(string name, byte[] buffer, int startIndex)
         {
             if (buffer == null)
@@ -797,13 +797,13 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 写入指定文件。
+        /// Writes the specified file.
         /// </summary>
-        /// <param name="name">要写入的文件名称。</param>
-        /// <param name="buffer">存储写入文件内容的二进制流。</param>
-        /// <param name="startIndex">存储写入文件内容的二进制流的起始位置。</param>
-        /// <param name="length">存储写入文件内容的二进制流的长度。</param>
-        /// <returns>是否写入指定文件成功。</returns>
+        /// <param name="name">The name of the file to write.</param>
+        /// <param name="buffer">The byte array containing the file content to write.</param>
+        /// <param name="startIndex">The starting position in the byte array of the file content to write.</param>
+        /// <param name="length">The length of the byte array of the file content to write.</param>
+        /// <returns>Whether the file was written successfully.</returns>
         public bool WriteFile(string name, byte[] buffer, int startIndex, int length)
         {
             if (m_Access != FileSystemAccess.Write && m_Access != FileSystemAccess.ReadWrite)
@@ -861,11 +861,11 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 写入指定文件。
+        /// Writes the specified file.
         /// </summary>
-        /// <param name="name">要写入的文件名称。</param>
-        /// <param name="stream">存储写入文件内容的二进制流。</param>
-        /// <returns>是否写入指定文件成功。</returns>
+        /// <param name="name">The name of the file to write.</param>
+        /// <param name="stream">The stream containing the file content to write.</param>
+        /// <returns>Whether the file was written successfully.</returns>
         public bool WriteFile(string name, Stream stream)
         {
             if (m_Access != FileSystemAccess.Write && m_Access != FileSystemAccess.ReadWrite)
@@ -924,11 +924,11 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 写入指定文件。
+        /// Writes the specified file.
         /// </summary>
-        /// <param name="name">要写入的文件名称。</param>
-        /// <param name="filePath">存储写入文件内容的文件路径。</param>
-        /// <returns>是否写入指定文件成功。</returns>
+        /// <param name="name">The name of the file to write.</param>
+        /// <param name="filePath">The file path containing the file content to write.</param>
+        /// <returns>Whether the file was written successfully.</returns>
         public bool WriteFile(string name, string filePath)
         {
             if (string.IsNullOrEmpty(filePath))
@@ -948,11 +948,11 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 将指定文件另存为物理文件。
+        /// Saves the specified file as a physical file.
         /// </summary>
-        /// <param name="name">要另存为的文件名称。</param>
-        /// <param name="filePath">存储写入文件内容的文件路径。</param>
-        /// <returns>是否将指定文件另存为物理文件成功。</returns>
+        /// <param name="name">The name of the file to save as a physical file.</param>
+        /// <param name="filePath">The file path to store the saved file content.</param>
+        /// <returns>Whether the file was saved as a physical file successfully.</returns>
         public bool SaveAsFile(string name, string filePath)
         {
             if (m_Access != FileSystemAccess.Read && m_Access != FileSystemAccess.ReadWrite)
@@ -1001,11 +1001,11 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 重命名指定文件。
+        /// Renames the specified file.
         /// </summary>
-        /// <param name="oldName">要重命名的文件名称。</param>
-        /// <param name="newName">重命名后的文件名称。</param>
-        /// <returns>是否重命名指定文件成功。</returns>
+        /// <param name="oldName">The old name of the file to rename.</param>
+        /// <param name="newName">The new name of the file.</param>
+        /// <returns>Whether the file was renamed successfully.</returns>
         public bool RenameFile(string oldName, string newName)
         {
             if (m_Access != FileSystemAccess.Write && m_Access != FileSystemAccess.ReadWrite)
@@ -1055,10 +1055,10 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 删除指定文件。
+        /// Deletes the specified file.
         /// </summary>
-        /// <param name="name">要删除的文件名称。</param>
-        /// <returns>是否删除指定文件成功。</returns>
+        /// <param name="name">The name of the file to delete.</param>
+        /// <returns>Whether the file was deleted successfully.</returns>
         public bool DeleteFile(string name)
         {
             if (m_Access != FileSystemAccess.Write && m_Access != FileSystemAccess.ReadWrite)

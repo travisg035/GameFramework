@@ -8,12 +8,12 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 读取数据更新事件。
+    /// Read data update event.
     /// </summary>
     public sealed class ReadDataUpdateEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化读取数据更新事件的新实例。
+        /// Initializes a new instance of the ReadDataUpdateEventArgs class.
         /// </summary>
         public ReadDataUpdateEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取内容资源名称。
+        /// Gets the data asset name.
         /// </summary>
         public string DataAssetName
         {
@@ -32,7 +32,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取读取数据进度。
+        /// Gets the read data progress.
         /// </summary>
         public float Progress
         {
@@ -41,7 +41,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -50,12 +50,12 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 创建读取数据更新事件。
+        /// Creates a read data update event.
         /// </summary>
-        /// <param name="dataAssetName">内容资源名称。</param>
-        /// <param name="progress">读取数据进度。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的读取数据更新事件。</returns>
+        /// <param name="dataAssetName">Data asset name.</param>
+        /// <param name="progress">Read data progress.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created read data update event.</returns>
         public static ReadDataUpdateEventArgs Create(string dataAssetName, float progress, object userData)
         {
             ReadDataUpdateEventArgs loadDataUpdateEventArgs = ReferencePool.Acquire<ReadDataUpdateEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 清理读取数据更新事件。
+        /// Clears the read data update event.
         /// </summary>
         public override void Clear()
         {

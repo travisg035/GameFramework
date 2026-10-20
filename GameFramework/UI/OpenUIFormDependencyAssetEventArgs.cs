@@ -8,12 +8,12 @@
 namespace GameFramework.UI
 {
     /// <summary>
-    /// 打开界面时加载依赖资源事件。
+    /// Open UI form dependency asset event.
     /// </summary>
     public sealed class OpenUIFormDependencyAssetEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化打开界面时加载依赖资源事件的新实例。
+        /// Initializes a new instance of the OpenUIFormDependencyAssetEventArgs class.
         /// </summary>
         public OpenUIFormDependencyAssetEventArgs()
         {
@@ -28,7 +28,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面序列编号。
+        /// Gets the serial ID of the UI form.
         /// </summary>
         public int SerialId
         {
@@ -37,7 +37,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面资源名称。
+        /// Gets the UI form asset name.
         /// </summary>
         public string UIFormAssetName
         {
@@ -46,7 +46,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面组名称。
+        /// Gets the UI group name.
         /// </summary>
         public string UIGroupName
         {
@@ -55,7 +55,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取是否暂停被覆盖的界面。
+        /// Gets whether to pause the covered UI form.
         /// </summary>
         public bool PauseCoveredUIForm
         {
@@ -64,7 +64,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取被加载的依赖资源名称。
+        /// Gets the name of the dependency asset being loaded.
         /// </summary>
         public string DependencyAssetName
         {
@@ -73,7 +73,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取当前已加载依赖资源数量。
+        /// Gets the number of dependency assets currently loaded.
         /// </summary>
         public int LoadedCount
         {
@@ -82,7 +82,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取总共加载依赖资源数量。
+        /// Gets the total number of dependency assets to load.
         /// </summary>
         public int TotalCount
         {
@@ -91,7 +91,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -100,17 +100,17 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 创建打开界面时加载依赖资源事件。
+        /// Creates an open UI form dependency asset event.
         /// </summary>
-        /// <param name="serialId">界面序列编号。</param>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroupName">界面组名称。</param>
-        /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
-        /// <param name="dependencyAssetName">被加载的依赖资源名称。</param>
-        /// <param name="loadedCount">当前已加载依赖资源数量。</param>
-        /// <param name="totalCount">总共加载依赖资源数量。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的打开界面时加载依赖资源事件。</returns>
+        /// <param name="serialId">The serial ID of the UI form.</param>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroupName">The UI group name.</param>
+        /// <param name="pauseCoveredUIForm">Whether to pause the covered UI form.</param>
+        /// <param name="dependencyAssetName">The name of the dependency asset being loaded.</param>
+        /// <param name="loadedCount">The number of dependency assets currently loaded.</param>
+        /// <param name="totalCount">The total number of dependency assets to load.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The created open UI form dependency asset event.</returns>
         public static OpenUIFormDependencyAssetEventArgs Create(int serialId, string uiFormAssetName, string uiGroupName, bool pauseCoveredUIForm, string dependencyAssetName, int loadedCount, int totalCount, object userData)
         {
             OpenUIFormDependencyAssetEventArgs openUIFormDependencyAssetEventArgs = ReferencePool.Acquire<OpenUIFormDependencyAssetEventArgs>();
@@ -126,7 +126,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 清理打开界面时加载依赖资源事件。
+        /// Clears the open UI form dependency asset event.
         /// </summary>
         public override void Clear()
         {

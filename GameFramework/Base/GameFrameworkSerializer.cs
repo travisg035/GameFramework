@@ -11,9 +11,9 @@ using System.IO;
 namespace GameFramework
 {
     /// <summary>
-    /// 游戏框架序列化器基类。
+    /// Base class for game framework serializer.
     /// </summary>
-    /// <typeparam name="T">要序列化的数据类型。</typeparam>
+    /// <typeparam name="T">The type of data to serialize.</typeparam>
     public abstract class GameFrameworkSerializer<T>
     {
         private readonly Dictionary<byte, SerializeCallback> m_SerializeCallbacks;
@@ -22,7 +22,7 @@ namespace GameFramework
         private byte m_LatestSerializeCallbackVersion;
 
         /// <summary>
-        /// 初始化游戏框架序列化器基类的新实例。
+        /// Initializes a new instance of the GameFrameworkSerializer class.
         /// </summary>
         public GameFrameworkSerializer()
         {
@@ -33,34 +33,34 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 序列化回调函数。
+        /// Serialize callback.
         /// </summary>
-        /// <param name="stream">目标流。</param>
-        /// <param name="data">要序列化的数据。</param>
-        /// <returns>是否序列化数据成功。</returns>
+        /// <param name="stream">Target stream.</param>
+        /// <param name="data">Data to serialize.</param>
+        /// <returns>Whether the data was serialized successfully.</returns>
         public delegate bool SerializeCallback(Stream stream, T data);
 
         /// <summary>
-        /// 反序列化回调函数。
+        /// Deserialize callback.
         /// </summary>
-        /// <param name="stream">指定流。</param>
-        /// <returns>反序列化的数据。</returns>
+        /// <param name="stream">Source stream.</param>
+        /// <returns>Deserialized data.</returns>
         public delegate T DeserializeCallback(Stream stream);
 
         /// <summary>
-        /// 尝试从指定流获取指定键的值回调函数。
+        /// Callback for attempting to get the value of a specified key from the specified stream.
         /// </summary>
-        /// <param name="stream">指定流。</param>
-        /// <param name="key">指定键。</param>
-        /// <param name="value">指定键的值。</param>
-        /// <returns>是否从指定流获取指定键的值成功。</returns>
+        /// <param name="stream">Source stream.</param>
+        /// <param name="key">Specified key.</param>
+        /// <param name="value">Value of the specified key.</param>
+        /// <returns>Whether the value was successfully retrieved.</returns>
         public delegate bool TryGetValueCallback(Stream stream, string key, out object value);
 
         /// <summary>
-        /// 注册序列化回调函数。
+        /// Registers a serialize callback.
         /// </summary>
-        /// <param name="version">序列化回调函数的版本。</param>
-        /// <param name="callback">序列化回调函数。</param>
+        /// <param name="version">Version of the serialize callback.</param>
+        /// <param name="callback">Serialize callback.</param>
         public void RegisterSerializeCallback(byte version, SerializeCallback callback)
         {
             if (callback == null)
@@ -76,10 +76,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 注册反序列化回调函数。
+        /// Registers a deserialize callback.
         /// </summary>
-        /// <param name="version">反序列化回调函数的版本。</param>
-        /// <param name="callback">反序列化回调函数。</param>
+        /// <param name="version">Version of the deserialize callback.</param>
+        /// <param name="callback">Deserialize callback.</param>
         public void RegisterDeserializeCallback(byte version, DeserializeCallback callback)
         {
             if (callback == null)
@@ -91,10 +91,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 注册尝试从指定流获取指定键的值回调函数。
+        /// Registers a try get value callback.
         /// </summary>
-        /// <param name="version">尝试从指定流获取指定键的值回调函数的版本。</param>
-        /// <param name="callback">尝试从指定流获取指定键的值回调函数。</param>
+        /// <param name="version">Version of the try get value callback.</param>
+        /// <param name="callback">Try get value callback.</param>
         public void RegisterTryGetValueCallback(byte version, TryGetValueCallback callback)
         {
             if (callback == null)
@@ -106,11 +106,11 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 序列化数据到目标流中。
+        /// Serializes data to the target stream.
         /// </summary>
-        /// <param name="stream">目标流。</param>
-        /// <param name="data">要序列化的数据。</param>
-        /// <returns>是否序列化数据成功。</returns>
+        /// <param name="stream">Target stream.</param>
+        /// <param name="data">Data to serialize.</param>
+        /// <returns>Whether the data was serialized successfully.</returns>
         public bool Serialize(Stream stream, T data)
         {
             if (m_SerializeCallbacks.Count <= 0)
@@ -122,12 +122,12 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 序列化数据到目标流中。
+        /// Serializes data to the target stream using the specified version.
         /// </summary>
-        /// <param name="stream">目标流。</param>
-        /// <param name="data">要序列化的数据。</param>
-        /// <param name="version">序列化回调函数的版本。</param>
-        /// <returns>是否序列化数据成功。</returns>
+        /// <param name="stream">Target stream.</param>
+        /// <param name="data">Data to serialize.</param>
+        /// <param name="version">Version of the serialize callback.</param>
+        /// <returns>Whether the data was serialized successfully.</returns>
         public bool Serialize(Stream stream, T data, byte version)
         {
             byte[] header = GetHeader();
@@ -145,10 +145,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 从指定流反序列化数据。
+        /// Deserializes data from the specified stream.
         /// </summary>
-        /// <param name="stream">指定流。</param>
-        /// <returns>反序列化的数据。</returns>
+        /// <param name="stream">Source stream.</param>
+        /// <returns>Deserialized data.</returns>
         public T Deserialize(Stream stream)
         {
             byte[] header = GetHeader();
@@ -171,12 +171,12 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 尝试从指定流获取指定键的值。
+        /// Attempts to get the value of the specified key from the stream.
         /// </summary>
-        /// <param name="stream">指定流。</param>
-        /// <param name="key">指定键。</param>
-        /// <param name="value">指定键的值。</param>
-        /// <returns>是否从指定流获取指定键的值成功。</returns>
+        /// <param name="stream">Source stream.</param>
+        /// <param name="key">Specified key.</param>
+        /// <param name="value">Output value of the specified key.</param>
+        /// <returns>Whether the value was successfully retrieved.</returns>
         public bool TryGetValue(Stream stream, string key, out object value)
         {
             value = null;
@@ -200,9 +200,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取数据头标识。
+        /// Gets the header identifier.
         /// </summary>
-        /// <returns>数据头标识。</returns>
+        /// <returns>Header identifier bytes.</returns>
         protected abstract byte[] GetHeader();
     }
 }

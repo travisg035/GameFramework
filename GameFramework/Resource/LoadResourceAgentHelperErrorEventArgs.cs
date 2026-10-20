@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源代理辅助器错误事件。
+    /// Load resource agent helper error event.
     /// </summary>
     public sealed class LoadResourceAgentHelperErrorEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化加载资源代理辅助器错误事件的新实例。
+        /// Initializes a new instance of the <see cref="LoadResourceAgentHelperErrorEventArgs"/> class.
         /// </summary>
         public LoadResourceAgentHelperErrorEventArgs()
         {
@@ -22,7 +22,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载资源状态。
+        /// Gets the load resource status.
         /// </summary>
         public LoadResourceStatus Status
         {
@@ -31,7 +31,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -40,11 +40,11 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建加载资源代理辅助器错误事件。
+        /// Creates a new load resource agent helper error event.
         /// </summary>
-        /// <param name="status">加载资源状态。</param>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <returns>创建的加载资源代理辅助器错误事件。</returns>
+        /// <param name="status">The load resource status.</param>
+        /// <param name="errorMessage">The error message.</param>
+        /// <returns>The created load resource agent helper error event.</returns>
         public static LoadResourceAgentHelperErrorEventArgs Create(LoadResourceStatus status, string errorMessage)
         {
             LoadResourceAgentHelperErrorEventArgs loadResourceAgentHelperErrorEventArgs = ReferencePool.Acquire<LoadResourceAgentHelperErrorEventArgs>();
@@ -54,7 +54,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理加载资源代理辅助器错误事件。
+        /// Clears the load resource agent helper error event.
         /// </summary>
         public override void Clear()
         {

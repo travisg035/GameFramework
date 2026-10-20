@@ -15,7 +15,7 @@ namespace GameFramework.Resource
         private sealed partial class ResourceLoader
         {
             /// <summary>
-            /// 资源对象。
+            /// Asset object.
             /// </summary>
             private sealed class AssetObject : ObjectBase
             {

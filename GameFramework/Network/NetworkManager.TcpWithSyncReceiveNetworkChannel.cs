@@ -14,7 +14,7 @@ namespace GameFramework.Network
     internal sealed partial class NetworkManager : GameFrameworkModule, INetworkManager
     {
         /// <summary>
-        /// 使用同步接收的 TCP 网络频道。
+        /// TCP network channel with synchronous receive.
         /// </summary>
         private sealed class TcpWithSyncReceiveNetworkChannel : NetworkChannelBase
         {
@@ -22,10 +22,10 @@ namespace GameFramework.Network
             private readonly AsyncCallback m_SendCallback;
 
             /// <summary>
-            /// 初始化网络频道的新实例。
+            /// Initializes a new instance of the TcpWithSyncReceiveNetworkChannel class.
             /// </summary>
-            /// <param name="name">网络频道名称。</param>
-            /// <param name="networkChannelHelper">网络频道辅助器。</param>
+            /// <param name="name">The network channel name.</param>
+            /// <param name="networkChannelHelper">The network channel helper.</param>
             public TcpWithSyncReceiveNetworkChannel(string name, INetworkChannelHelper networkChannelHelper)
                 : base(name, networkChannelHelper)
             {
@@ -34,7 +34,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取网络服务类型。
+            /// Gets the network service type.
             /// </summary>
             public override ServiceType ServiceType
             {
@@ -45,11 +45,11 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 连接到远程主机。
+            /// Connects to the remote host.
             /// </summary>
-            /// <param name="ipAddress">远程主机的 IP 地址。</param>
-            /// <param name="port">远程主机的端口号。</param>
-            /// <param name="userData">用户自定义数据。</param>
+            /// <param name="ipAddress">Remote host IP address.</param>
+            /// <param name="port">Remote host port.</param>
+            /// <param name="userData">User-defined data.</param>
             public override void Connect(IPAddress ipAddress, int port, object userData)
             {
                 base.Connect(ipAddress, port, userData);

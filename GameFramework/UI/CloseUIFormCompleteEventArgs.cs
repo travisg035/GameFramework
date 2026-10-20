@@ -8,12 +8,12 @@
 namespace GameFramework.UI
 {
     /// <summary>
-    /// 关闭界面完成事件。
+    /// Close UI form complete event.
     /// </summary>
     public sealed class CloseUIFormCompleteEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化关闭界面完成事件的新实例。
+        /// Initializes a new instance of the CloseUIFormCompleteEventArgs class.
         /// </summary>
         public CloseUIFormCompleteEventArgs()
         {
@@ -24,7 +24,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面序列编号。
+        /// Gets the serial ID of the UI form.
         /// </summary>
         public int SerialId
         {
@@ -33,7 +33,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面资源名称。
+        /// Gets the UI form asset name.
         /// </summary>
         public string UIFormAssetName
         {
@@ -42,7 +42,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面所属的界面组。
+        /// Gets the UI group that the UI form belongs to.
         /// </summary>
         public IUIGroup UIGroup
         {
@@ -51,7 +51,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -60,13 +60,13 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 创建关闭界面完成事件。
+        /// Creates a close UI form complete event.
         /// </summary>
-        /// <param name="serialId">界面序列编号。</param>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="uiGroup">界面所属的界面组。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的关闭界面完成事件。</returns>
+        /// <param name="serialId">The serial ID of the UI form.</param>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="uiGroup">The UI group that the UI form belongs to.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The created close UI form complete event.</returns>
         public static CloseUIFormCompleteEventArgs Create(int serialId, string uiFormAssetName, IUIGroup uiGroup, object userData)
         {
             CloseUIFormCompleteEventArgs closeUIFormCompleteEventArgs = ReferencePool.Acquire<CloseUIFormCompleteEventArgs>();
@@ -78,7 +78,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 清理关闭界面完成事件。
+        /// Clears the close UI form complete event.
         /// </summary>
         public override void Clear()
         {

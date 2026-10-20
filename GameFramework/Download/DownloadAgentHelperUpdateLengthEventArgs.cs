@@ -8,12 +8,12 @@
 namespace GameFramework.Download
 {
     /// <summary>
-    /// 下载代理辅助器更新数据大小事件。
+    /// Download agent helper update length event.
     /// </summary>
     public sealed class DownloadAgentHelperUpdateLengthEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化下载代理辅助器更新数据大小事件的新实例。
+        /// Initializes a new instance of the DownloadAgentHelperUpdateLengthEventArgs class.
         /// </summary>
         public DownloadAgentHelperUpdateLengthEventArgs()
         {
@@ -21,7 +21,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取下载的增量数据大小。
+        /// Gets the delta length of the downloaded data.
         /// </summary>
         public int DeltaLength
         {
@@ -30,10 +30,10 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 创建下载代理辅助器更新数据大小事件。
+        /// Creates a download agent helper update length event.
         /// </summary>
-        /// <param name="deltaLength">下载的增量数据大小。</param>
-        /// <returns>创建的下载代理辅助器更新数据大小事件。</returns>
+        /// <param name="deltaLength">Delta length of the downloaded data.</param>
+        /// <returns>The created download agent helper update length event.</returns>
         public static DownloadAgentHelperUpdateLengthEventArgs Create(int deltaLength)
         {
             if (deltaLength <= 0)
@@ -47,7 +47,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 清理下载代理辅助器更新数据大小事件。
+        /// Clears the download agent helper update length event.
         /// </summary>
         public override void Clear()
         {

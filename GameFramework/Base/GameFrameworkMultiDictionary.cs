@@ -12,17 +12,17 @@ using System.Runtime.InteropServices;
 namespace GameFramework
 {
     /// <summary>
-    /// 游戏框架多值字典类。
+    /// Game framework multi-value dictionary class.
     /// </summary>
-    /// <typeparam name="TKey">指定多值字典的主键类型。</typeparam>
-    /// <typeparam name="TValue">指定多值字典的值类型。</typeparam>
+    /// <typeparam name="TKey">The key type of the multi-value dictionary.</typeparam>
+    /// <typeparam name="TValue">The value type of the multi-value dictionary.</typeparam>
     public sealed class GameFrameworkMultiDictionary<TKey, TValue> : IEnumerable<KeyValuePair<TKey, GameFrameworkLinkedListRange<TValue>>>, IEnumerable
     {
         private readonly GameFrameworkLinkedList<TValue> m_LinkedList;
         private readonly Dictionary<TKey, GameFrameworkLinkedListRange<TValue>> m_Dictionary;
 
         /// <summary>
-        /// 初始化游戏框架多值字典类的新实例。
+        /// Initializes a new instance of the GameFrameworkMultiDictionary class.
         /// </summary>
         public GameFrameworkMultiDictionary()
         {
@@ -31,7 +31,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取多值字典中实际包含的主键数量。
+        /// Gets the number of primary keys actually contained in the multi-value dictionary.
         /// </summary>
         public int Count
         {
@@ -42,10 +42,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取多值字典中指定主键的范围。
+        /// Gets the range of the specified primary key in the multi-value dictionary.
         /// </summary>
-        /// <param name="key">指定的主键。</param>
-        /// <returns>指定主键的范围。</returns>
+        /// <param name="key">The specified primary key.</param>
+        /// <returns>The range of the specified primary key.</returns>
         public GameFrameworkLinkedListRange<TValue> this[TKey key]
         {
             get
@@ -57,7 +57,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 清理多值字典。
+        /// Clears the multi-value dictionary.
         /// </summary>
         public void Clear()
         {
@@ -66,21 +66,21 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 检查多值字典中是否包含指定主键。
+        /// Determines whether the multi-value dictionary contains the specified key.
         /// </summary>
-        /// <param name="key">要检查的主键。</param>
-        /// <returns>多值字典中是否包含指定主键。</returns>
+        /// <param name="key">The key to check.</param>
+        /// <returns>Whether the multi-value dictionary contains the specified key.</returns>
         public bool Contains(TKey key)
         {
             return m_Dictionary.ContainsKey(key);
         }
 
         /// <summary>
-        /// 检查多值字典中是否包含指定值。
+        /// Determines whether the multi-value dictionary contains the specified key-value pair.
         /// </summary>
-        /// <param name="key">要检查的主键。</param>
-        /// <param name="value">要检查的值。</param>
-        /// <returns>多值字典中是否包含指定值。</returns>
+        /// <param name="key">The key to check.</param>
+        /// <param name="value">The value to check.</param>
+        /// <returns>Whether the multi-value dictionary contains the specified key-value pair.</returns>
         public bool Contains(TKey key, TValue value)
         {
             GameFrameworkLinkedListRange<TValue> range = default(GameFrameworkLinkedListRange<TValue>);
@@ -93,21 +93,21 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 尝试获取多值字典中指定主键的范围。
+        /// Attempts to get the range of the specified key in the multi-value dictionary.
         /// </summary>
-        /// <param name="key">指定的主键。</param>
-        /// <param name="range">指定主键的范围。</param>
-        /// <returns>是否获取成功。</returns>
+        /// <param name="key">The specified key.</param>
+        /// <param name="range">The output range of the specified key.</param>
+        /// <returns>Whether the range was successfully retrieved.</returns>
         public bool TryGetValue(TKey key, out GameFrameworkLinkedListRange<TValue> range)
         {
             return m_Dictionary.TryGetValue(key, out range);
         }
 
         /// <summary>
-        /// 向指定的主键增加指定的值。
+        /// Adds a specified value to the specified key.
         /// </summary>
-        /// <param name="key">指定的主键。</param>
-        /// <param name="value">指定的值。</param>
+        /// <param name="key">The specified key.</param>
+        /// <param name="value">The specified value.</param>
         public void Add(TKey key, TValue value)
         {
             GameFrameworkLinkedListRange<TValue> range = default(GameFrameworkLinkedListRange<TValue>);
@@ -124,11 +124,11 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 从指定的主键中移除指定的值。
+        /// Removes the specified value from the specified key.
         /// </summary>
-        /// <param name="key">指定的主键。</param>
-        /// <param name="value">指定的值。</param>
-        /// <returns>是否移除成功。</returns>
+        /// <param name="key">The specified key.</param>
+        /// <param name="value">The specified value.</param>
+        /// <returns>Whether the value was successfully removed.</returns>
         public bool Remove(TKey key, TValue value)
         {
             GameFrameworkLinkedListRange<TValue> range = default(GameFrameworkLinkedListRange<TValue>);
@@ -162,10 +162,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 从指定的主键中移除所有的值。
+        /// Removes all values associated with the specified key.
         /// </summary>
-        /// <param name="key">指定的主键。</param>
-        /// <returns>是否移除成功。</returns>
+        /// <param name="key">The specified key.</param>
+        /// <returns>Whether the key and its values were successfully removed.</returns>
         public bool RemoveAll(TKey key)
         {
             GameFrameworkLinkedListRange<TValue> range = default(GameFrameworkLinkedListRange<TValue>);
@@ -188,34 +188,34 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 返回循环访问集合的枚举数。
+        /// Returns an enumerator that iterates through the collection.
         /// </summary>
-        /// <returns>循环访问集合的枚举数。</returns>
+        /// <returns>An enumerator that iterates through the collection.</returns>
         public Enumerator GetEnumerator()
         {
             return new Enumerator(m_Dictionary);
         }
 
         /// <summary>
-        /// 返回循环访问集合的枚举数。
+        /// Returns an enumerator that iterates through the collection.
         /// </summary>
-        /// <returns>循环访问集合的枚举数。</returns>
+        /// <returns>An enumerator that iterates through the collection.</returns>
         IEnumerator<KeyValuePair<TKey, GameFrameworkLinkedListRange<TValue>>> IEnumerable<KeyValuePair<TKey, GameFrameworkLinkedListRange<TValue>>>.GetEnumerator()
         {
             return GetEnumerator();
         }
 
         /// <summary>
-        /// 返回循环访问集合的枚举数。
+        /// Returns an enumerator that iterates through the collection.
         /// </summary>
-        /// <returns>循环访问集合的枚举数。</returns>
+        /// <returns>An enumerator that iterates through the collection.</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
         /// <summary>
-        /// 循环访问集合的枚举数。
+        /// Enumerates the elements of a multi-value dictionary.
         /// </summary>
         [StructLayout(LayoutKind.Auto)]
         public struct Enumerator : IEnumerator<KeyValuePair<TKey, GameFrameworkLinkedListRange<TValue>>>, IEnumerator
@@ -233,7 +233,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取当前结点。
+            /// Gets the element at the current position of the enumerator.
             /// </summary>
             public KeyValuePair<TKey, GameFrameworkLinkedListRange<TValue>> Current
             {
@@ -244,7 +244,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取当前的枚举数。
+            /// Gets the current enumerator value.
             /// </summary>
             object IEnumerator.Current
             {
@@ -255,7 +255,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 清理枚举数。
+            /// Disposes the enumerator.
             /// </summary>
             public void Dispose()
             {
@@ -263,16 +263,16 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取下一个结点。
+            /// Advances the enumerator to the next element of the multi-value dictionary.
             /// </summary>
-            /// <returns>返回下一个结点。</returns>
+            /// <returns>true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.</returns>
             public bool MoveNext()
             {
                 return m_Enumerator.MoveNext();
             }
 
             /// <summary>
-            /// 重置枚举数。
+            /// Sets the enumerator to its initial position, which is before the first element in the collection.
             /// </summary>
             void IEnumerator.Reset()
             {

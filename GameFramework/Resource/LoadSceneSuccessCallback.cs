@@ -8,10 +8,10 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载场景成功回调函数。
+    /// Load scene success callback method.
     /// </summary>
-    /// <param name="sceneAssetName">要加载的场景资源名称。</param>
-    /// <param name="duration">加载持续时间。</param>
-    /// <param name="userData">用户自定义数据。</param>
+    /// <param name="sceneAssetName">The asset name of the scene to load.</param>
+    /// <param name="duration">The loading duration in seconds.</param>
+    /// <param name="userData">User-defined data.</param>
     public delegate void LoadSceneSuccessCallback(string sceneAssetName, float duration, object userData);
 }

@@ -8,7 +8,7 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载数据流回调函数集。
+    /// Load bytes callback set.
     /// </summary>
     public sealed class LoadBytesCallbacks
     {
@@ -16,19 +16,19 @@ namespace GameFramework.Resource
         private readonly LoadBytesFailureCallback m_LoadBytesFailureCallback;
 
         /// <summary>
-        /// 初始化加载数据流回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadBytesCallbacks"/> class.
         /// </summary>
-        /// <param name="loadBinarySuccessCallback">加载数据流成功回调函数。</param>
-        public LoadBytesCallbacks(LoadBytesSuccessCallback loadBinarySuccessCallback)
-            : this(loadBinarySuccessCallback, null)
+        /// <param name="loadBytesSuccessCallback">The load bytes success callback method.</param>
+        public LoadBytesCallbacks(LoadBytesSuccessCallback loadBytesSuccessCallback)
+            : this(loadBytesSuccessCallback, null)
         {
         }
 
         /// <summary>
-        /// 初始化加载数据流回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadBytesCallbacks"/> class.
         /// </summary>
-        /// <param name="loadBytesSuccessCallback">加载数据流成功回调函数。</param>
-        /// <param name="loadBytesFailureCallback">加载数据流失败回调函数。</param>
+        /// <param name="loadBytesSuccessCallback">The load bytes success callback method.</param>
+        /// <param name="loadBytesFailureCallback">The load bytes failure callback method.</param>
         public LoadBytesCallbacks(LoadBytesSuccessCallback loadBytesSuccessCallback, LoadBytesFailureCallback loadBytesFailureCallback)
         {
             if (loadBytesSuccessCallback == null)
@@ -41,7 +41,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载数据流成功回调函数。
+        /// Gets the load bytes success callback method.
         /// </summary>
         public LoadBytesSuccessCallback LoadBytesSuccessCallback
         {
@@ -52,7 +52,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载数据流失败回调函数。
+        /// Gets the load bytes failure callback method.
         /// </summary>
         public LoadBytesFailureCallback LoadBytesFailureCallback
         {

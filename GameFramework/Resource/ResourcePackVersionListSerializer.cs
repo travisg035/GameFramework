@@ -8,23 +8,23 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源包版本资源列表序列化器。
+    /// Resource pack version list serializer.
     /// </summary>
     public sealed class ResourcePackVersionListSerializer : GameFrameworkSerializer<ResourcePackVersionList>
     {
         private static readonly byte[] Header = new byte[] { (byte)'G', (byte)'F', (byte)'K' };
 
         /// <summary>
-        /// 初始化资源包版本资源列表序列化器的新实例。
+        /// Initializes a new instance of the ResourcePackVersionListSerializer class.
         /// </summary>
         public ResourcePackVersionListSerializer()
         {
         }
 
         /// <summary>
-        /// 获取资源包版本资源列表头标识。
+        /// Gets the resource pack version list header.
         /// </summary>
-        /// <returns>资源包版本资源列表头标识。</returns>
+        /// <returns>Resource pack version list header.</returns>
         protected override byte[] GetHeader()
         {
             return Header;

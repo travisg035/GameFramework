@@ -15,7 +15,7 @@ namespace GameFramework.Network
     internal sealed partial class NetworkManager : GameFrameworkModule, INetworkManager
     {
         /// <summary>
-        /// 网络频道基类。
+        /// Network channel base class.
         /// </summary>
         private abstract class NetworkChannelBase : INetworkChannel, IDisposable
         {
@@ -44,10 +44,10 @@ namespace GameFramework.Network
             public GameFrameworkAction<NetworkChannelBase, object> NetworkChannelCustomError;
 
             /// <summary>
-            /// 初始化网络频道基类的新实例。
+            /// Initializes a new instance of the NetworkChannelBase class.
             /// </summary>
-            /// <param name="name">网络频道名称。</param>
-            /// <param name="networkChannelHelper">网络频道辅助器。</param>
+            /// <param name="name">The network channel name.</param>
+            /// <param name="networkChannelHelper">The network channel helper.</param>
             public NetworkChannelBase(string name, INetworkChannelHelper networkChannelHelper)
             {
                 m_Name = name ?? string.Empty;
@@ -76,7 +76,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取网络频道名称。
+            /// Gets the network channel name.
             /// </summary>
             public string Name
             {
@@ -87,7 +87,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取网络频道所使用的 Socket。
+            /// Gets the socket used by the network channel.
             /// </summary>
             public Socket Socket
             {
@@ -98,7 +98,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取是否已连接。
+            /// Gets whether it is connected.
             /// </summary>
             public bool Connected
             {
@@ -114,7 +114,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取网络服务类型。
+            /// Gets the network service type.
             /// </summary>
             public abstract ServiceType ServiceType
             {
@@ -122,7 +122,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取网络地址类型。
+            /// Gets the network address family.
             /// </summary>
             public AddressFamily AddressFamily
             {
@@ -133,7 +133,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取要发送的消息包数量。
+            /// Gets the number of packets to be sent.
             /// </summary>
             public int SendPacketCount
             {
@@ -144,7 +144,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取累计发送的消息包数量。
+            /// Gets the cumulative number of packets sent.
             /// </summary>
             public int SentPacketCount
             {
@@ -155,7 +155,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取已接收未处理的消息包数量。
+            /// Gets the number of received unprocessed packets.
             /// </summary>
             public int ReceivePacketCount
             {
@@ -166,7 +166,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取累计已接收的消息包数量。
+            /// Gets the cumulative number of packets received.
             /// </summary>
             public int ReceivedPacketCount
             {
@@ -177,7 +177,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取或设置当收到消息包时是否重置心跳流逝时间。
+            /// Gets or sets whether to reset the heartbeat elapsed time when receiving a packet.
             /// </summary>
             public bool ResetHeartBeatElapseSecondsWhenReceivePacket
             {
@@ -192,7 +192,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取丢失心跳的次数。
+            /// Gets the number of missed heartbeats.
             /// </summary>
             public int MissHeartBeatCount
             {
@@ -203,7 +203,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取或设置心跳间隔时长，以秒为单位。
+            /// Gets or sets the heartbeat interval in seconds.
             /// </summary>
             public float HeartBeatInterval
             {
@@ -218,7 +218,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 获取心跳等待时长，以秒为单位。
+            /// Gets the heartbeat elapsed time in seconds.
             /// </summary>
             public float HeartBeatElapseSeconds
             {
@@ -229,10 +229,10 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 网络频道轮询。
+            /// Network channel polling.
             /// </summary>
-            /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-            /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+            /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+            /// <param name="realElapseSeconds">Real elapsed seconds.</param>
             public virtual void Update(float elapseSeconds, float realElapseSeconds)
             {
                 if (m_Socket == null || !m_Active)
@@ -281,7 +281,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 关闭网络频道。
+            /// Shuts down the network channel.
             /// </summary>
             public virtual void Shutdown()
             {
@@ -291,9 +291,9 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 注册网络消息包处理函数。
+            /// Registers a packet handler.
             /// </summary>
-            /// <param name="handler">要注册的网络消息包处理函数。</param>
+            /// <param name="handler">The packet handler to register.</param>
             public void RegisterHandler(IPacketHandler handler)
             {
                 if (handler == null)
@@ -305,30 +305,30 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 设置默认事件处理函数。
+            /// Sets the default event handler.
             /// </summary>
-            /// <param name="handler">要设置的默认事件处理函数。</param>
+            /// <param name="handler">The default event handler to set.</param>
             public void SetDefaultHandler(EventHandler<Packet> handler)
             {
                 m_ReceivePacketPool.SetDefaultHandler(handler);
             }
 
             /// <summary>
-            /// 连接到远程主机。
+            /// Connects to the remote host.
             /// </summary>
-            /// <param name="ipAddress">远程主机的 IP 地址。</param>
-            /// <param name="port">远程主机的端口号。</param>
+            /// <param name="ipAddress">Remote host IP address.</param>
+            /// <param name="port">Remote host port.</param>
             public void Connect(IPAddress ipAddress, int port)
             {
                 Connect(ipAddress, port, null);
             }
 
             /// <summary>
-            /// 连接到远程主机。
+            /// Connects to the remote host.
             /// </summary>
-            /// <param name="ipAddress">远程主机的 IP 地址。</param>
-            /// <param name="port">远程主机的端口号。</param>
-            /// <param name="userData">用户自定义数据。</param>
+            /// <param name="ipAddress">Remote host IP address.</param>
+            /// <param name="port">Remote host port.</param>
+            /// <param name="userData">User-defined data.</param>
             public virtual void Connect(IPAddress ipAddress, int port, object userData)
             {
                 if (m_Socket != null)
@@ -363,7 +363,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 关闭连接并释放所有相关资源。
+            /// Closes the connection and releases all related resources.
             /// </summary>
             public void Close()
             {
@@ -412,10 +412,10 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 向远程主机发送消息包。
+            /// Sends a packet to the remote host.
             /// </summary>
-            /// <typeparam name="T">消息包类型。</typeparam>
-            /// <param name="packet">要发送的消息包。</param>
+            /// <typeparam name="T">Packet type.</typeparam>
+            /// <param name="packet">Packet to send.</param>
             public void Send<T>(T packet) where T : Packet
             {
                 if (m_Socket == null)
@@ -461,7 +461,7 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 释放资源。
+            /// Releases all resources used by the NetworkChannelBase.
             /// </summary>
             public void Dispose()
             {
@@ -470,9 +470,9 @@ namespace GameFramework.Network
             }
 
             /// <summary>
-            /// 释放资源。
+            /// Releases unmanaged and - optionally - managed resources.
             /// </summary>
-            /// <param name="disposing">释放资源标记。</param>
+            /// <param name="disposing">True to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
             private void Dispose(bool disposing)
             {
                 if (m_Disposed)

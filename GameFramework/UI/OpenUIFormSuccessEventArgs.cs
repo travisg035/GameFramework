@@ -8,12 +8,12 @@
 namespace GameFramework.UI
 {
     /// <summary>
-    /// 打开界面成功事件。
+    /// Open UI form success event.
     /// </summary>
     public sealed class OpenUIFormSuccessEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化打开界面成功事件的新实例。
+        /// Initializes a new instance of the OpenUIFormSuccessEventArgs class.
         /// </summary>
         public OpenUIFormSuccessEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取打开成功的界面。
+        /// Gets the opened UI form.
         /// </summary>
         public IUIForm UIForm
         {
@@ -32,7 +32,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取加载持续时间。
+        /// Gets the loading duration.
         /// </summary>
         public float Duration
         {
@@ -41,7 +41,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -50,12 +50,12 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 创建打开界面成功事件。
+        /// Creates an open UI form success event.
         /// </summary>
-        /// <param name="uiForm">加载成功的界面。</param>
-        /// <param name="duration">加载持续时间。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的打开界面成功事件。</returns>
+        /// <param name="uiForm">The opened UI form.</param>
+        /// <param name="duration">The loading duration.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The created open UI form success event.</returns>
         public static OpenUIFormSuccessEventArgs Create(IUIForm uiForm, float duration, object userData)
         {
             OpenUIFormSuccessEventArgs openUIFormSuccessEventArgs = ReferencePool.Acquire<OpenUIFormSuccessEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 清理打开界面成功事件。
+        /// Clears the open UI form success event.
         /// </summary>
         public override void Clear()
         {

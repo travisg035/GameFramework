@@ -16,7 +16,7 @@ namespace GameFramework.Resource
             private sealed partial class CheckInfo
             {
                 /// <summary>
-                /// 远程资源状态信息。
+                /// Remote version information.
                 /// </summary>
                 [StructLayout(LayoutKind.Auto)]
                 private struct RemoteVersionInfo

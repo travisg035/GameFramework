@@ -8,12 +8,12 @@
 namespace GameFramework.Scene
 {
     /// <summary>
-    /// 加载场景失败事件。
+    /// Load scene failure event.
     /// </summary>
     public sealed class LoadSceneFailureEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化加载场景失败事件的新实例。
+        /// Initializes a new instance of the LoadSceneFailureEventArgs class.
         /// </summary>
         public LoadSceneFailureEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取场景资源名称。
+        /// Gets the scene asset name.
         /// </summary>
         public string SceneAssetName
         {
@@ -32,7 +32,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -41,7 +41,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -50,12 +50,12 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 创建加载场景失败事件。
+        /// Creates a load scene failure event.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的加载场景失败事件。</returns>
+        /// <param name="sceneAssetName">Scene asset name.</param>
+        /// <param name="errorMessage">Error message.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created load scene failure event.</returns>
         public static LoadSceneFailureEventArgs Create(string sceneAssetName, string errorMessage, object userData)
         {
             LoadSceneFailureEventArgs loadSceneFailureEventArgs = ReferencePool.Acquire<LoadSceneFailureEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 清理加载场景失败事件。
+        /// Clears the load scene failure event.
         /// </summary>
         public override void Clear()
         {

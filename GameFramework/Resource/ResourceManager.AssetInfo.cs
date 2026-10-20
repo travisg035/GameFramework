@@ -10,7 +10,7 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 资源信息。
+        /// Asset information.
         /// </summary>
         private sealed class AssetInfo
         {
@@ -19,11 +19,11 @@ namespace GameFramework.Resource
             private readonly string[] m_DependencyAssetNames;
 
             /// <summary>
-            /// 初始化资源信息的新实例。
+            /// Initializes a new instance of the AssetInfo class.
             /// </summary>
-            /// <param name="assetName">资源名称。</param>
-            /// <param name="resourceName">所在资源名称。</param>
-            /// <param name="dependencyAssetNames">依赖资源名称。</param>
+            /// <param name="assetName">The asset name.</param>
+            /// <param name="resourceName">The resource name containing the asset.</param>
+            /// <param name="dependencyAssetNames">The dependency asset names.</param>
             public AssetInfo(string assetName, ResourceName resourceName, string[] dependencyAssetNames)
             {
                 m_AssetName = assetName;
@@ -32,7 +32,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源名称。
+            /// Gets the asset name.
             /// </summary>
             public string AssetName
             {
@@ -43,7 +43,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取所在资源名称。
+            /// Gets the resource name containing the asset.
             /// </summary>
             public ResourceName ResourceName
             {
@@ -54,9 +54,9 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取依赖资源名称。
+            /// Gets the dependency asset names.
             /// </summary>
-            /// <returns>依赖资源名称。</returns>
+            /// <returns>The dependency asset names.</returns>
             public string[] GetDependencyAssetNames()
             {
                 return m_DependencyAssetNames;

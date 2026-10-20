@@ -8,12 +8,12 @@
 namespace GameFramework.WebRequest
 {
     /// <summary>
-    /// Web 请求代理辅助器错误事件。
+    /// Web request agent helper error event.
     /// </summary>
     public sealed class WebRequestAgentHelperErrorEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化 Web 请求代理辅助器错误事件的新实例。
+        /// Initializes a new instance of the WebRequestAgentHelperErrorEventArgs class.
         /// </summary>
         public WebRequestAgentHelperErrorEventArgs()
         {
@@ -21,7 +21,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -30,10 +30,10 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 创建 Web 请求代理辅助器错误事件。
+        /// Creates a web request agent helper error event.
         /// </summary>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <returns>创建的 Web 请求代理辅助器错误事件。</returns>
+        /// <param name="errorMessage">Error message.</param>
+        /// <returns>The created web request agent helper error event.</returns>
         public static WebRequestAgentHelperErrorEventArgs Create(string errorMessage)
         {
             WebRequestAgentHelperErrorEventArgs webRequestAgentHelperErrorEventArgs = ReferencePool.Acquire<WebRequestAgentHelperErrorEventArgs>();
@@ -42,7 +42,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 清理 Web 请求代理辅助器错误事件。
+        /// Clears the web request agent helper error event.
         /// </summary>
         public override void Clear()
         {

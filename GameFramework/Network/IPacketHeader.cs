@@ -8,12 +8,12 @@
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络消息包头接口。
+    /// Packet header interface.
     /// </summary>
     public interface IPacketHeader
     {
         /// <summary>
-        /// 获取网络消息包长度。
+        /// Gets the packet length.
         /// </summary>
         int PacketLength
         {

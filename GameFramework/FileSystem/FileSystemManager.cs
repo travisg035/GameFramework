@@ -12,7 +12,7 @@ using System.IO;
 namespace GameFramework.FileSystem
 {
     /// <summary>
-    /// 文件系统管理器。
+    /// File system manager.
     /// </summary>
     internal sealed class FileSystemManager : GameFrameworkModule, IFileSystemManager
     {
@@ -21,7 +21,7 @@ namespace GameFramework.FileSystem
         private IFileSystemHelper m_FileSystemHelper;
 
         /// <summary>
-        /// 初始化文件系统管理器的新实例。
+        /// Initializes a new instance of the FileSystemManager class.
         /// </summary>
         public FileSystemManager()
         {
@@ -30,9 +30,9 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取游戏框架模块优先级。
+        /// Gets the priority of the game framework module.
         /// </summary>
-        /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
+        /// <remarks>Modules with higher priority will be polled first and shut down later.</remarks>
         internal override int Priority
         {
             get
@@ -42,7 +42,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件系统数量。
+        /// Gets the count of file systems.
         /// </summary>
         public int Count
         {
@@ -53,16 +53,16 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 文件系统管理器轮询。
+        /// Polls the file system manager.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
         }
 
         /// <summary>
-        /// 关闭并清理文件系统管理器。
+        /// Shuts down and cleans up the file system manager.
         /// </summary>
         internal override void Shutdown()
         {
@@ -77,9 +77,9 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 设置文件系统辅助器。
+        /// Sets the file system helper.
         /// </summary>
-        /// <param name="fileSystemHelper">文件系统辅助器。</param>
+        /// <param name="fileSystemHelper">The file system helper.</param>
         public void SetFileSystemHelper(IFileSystemHelper fileSystemHelper)
         {
             if (fileSystemHelper == null)
@@ -91,10 +91,10 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 检查是否存在文件系统。
+        /// Checks whether a file system exists.
         /// </summary>
-        /// <param name="fullPath">要检查的文件系统的完整路径。</param>
-        /// <returns>是否存在文件系统。</returns>
+        /// <param name="fullPath">The full path of the file system to check.</param>
+        /// <returns>Whether the file system exists.</returns>
         public bool HasFileSystem(string fullPath)
         {
             if (string.IsNullOrEmpty(fullPath))
@@ -106,10 +106,10 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件系统。
+        /// Gets a file system.
         /// </summary>
-        /// <param name="fullPath">要获取的文件系统的完整路径。</param>
-        /// <returns>获取的文件系统。</returns>
+        /// <param name="fullPath">The full path of the file system to get.</param>
+        /// <returns>The file system to get.</returns>
         public IFileSystem GetFileSystem(string fullPath)
         {
             if (string.IsNullOrEmpty(fullPath))
@@ -127,13 +127,13 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 创建文件系统。
+        /// Creates a file system.
         /// </summary>
-        /// <param name="fullPath">要创建的文件系统的完整路径。</param>
-        /// <param name="access">要创建的文件系统的访问方式。</param>
-        /// <param name="maxFileCount">要创建的文件系统的最大文件数量。</param>
-        /// <param name="maxBlockCount">要创建的文件系统的最大块数据数量。</param>
-        /// <returns>创建的文件系统。</returns>
+        /// <param name="fullPath">The full path of the file system to create.</param>
+        /// <param name="access">The access mode of the file system to create.</param>
+        /// <param name="maxFileCount">The maximum file count of the file system to create.</param>
+        /// <param name="maxBlockCount">The maximum block count of the file system to create.</param>
+        /// <returns>The created file system.</returns>
         public IFileSystem CreateFileSystem(string fullPath, FileSystemAccess access, int maxFileCount, int maxBlockCount)
         {
             if (m_FileSystemHelper == null)
@@ -179,11 +179,11 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 加载文件系统。
+        /// Loads a file system.
         /// </summary>
-        /// <param name="fullPath">要加载的文件系统的完整路径。</param>
-        /// <param name="access">要加载的文件系统的访问方式。</param>
-        /// <returns>加载的文件系统。</returns>
+        /// <param name="fullPath">The full path of the file system to load.</param>
+        /// <param name="access">The access mode of the file system to load.</param>
+        /// <returns>The loaded file system.</returns>
         public IFileSystem LoadFileSystem(string fullPath, FileSystemAccess access)
         {
             if (m_FileSystemHelper == null)
@@ -225,10 +225,10 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 销毁文件系统。
+        /// Destroys a file system.
         /// </summary>
-        /// <param name="fileSystem">要销毁的文件系统。</param>
-        /// <param name="deletePhysicalFile">是否删除文件系统对应的物理文件。</param>
+        /// <param name="fileSystem">The file system to destroy.</param>
+        /// <param name="deletePhysicalFile">Whether to delete the physical file corresponding to the file system.</param>
         public void DestroyFileSystem(IFileSystem fileSystem, bool deletePhysicalFile)
         {
             if (fileSystem == null)
@@ -247,9 +247,9 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取所有文件系统集合。
+        /// Gets all file systems.
         /// </summary>
-        /// <returns>获取的所有文件系统集合。</returns>
+        /// <returns>All file systems.</returns>
         public IFileSystem[] GetAllFileSystems()
         {
             int index = 0;
@@ -263,9 +263,9 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取所有文件系统集合。
+        /// Gets all file systems.
         /// </summary>
-        /// <param name="results">获取的所有文件系统集合。</param>
+        /// <param name="results">All file systems.</param>
         public void GetAllFileSystems(List<IFileSystem> results)
         {
             if (results == null)

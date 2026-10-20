@@ -11,12 +11,12 @@ using System.Collections.Generic;
 namespace GameFramework.Download
 {
     /// <summary>
-    /// 下载管理器接口。
+    /// Download manager interface.
     /// </summary>
     public interface IDownloadManager
     {
         /// <summary>
-        /// 获取或设置下载是否被暂停。
+        /// Gets or sets whether download is paused.
         /// </summary>
         bool Paused
         {
@@ -25,7 +25,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取下载代理总数量。
+        /// Gets the total number of download agents.
         /// </summary>
         int TotalAgentCount
         {
@@ -33,7 +33,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取可用下载代理数量。
+        /// Gets the number of free download agents.
         /// </summary>
         int FreeAgentCount
         {
@@ -41,7 +41,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取工作中下载代理数量。
+        /// Gets the number of working download agents.
         /// </summary>
         int WorkingAgentCount
         {
@@ -49,7 +49,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取等待下载任务数量。
+        /// Gets the number of waiting download tasks.
         /// </summary>
         int WaitingTaskCount
         {
@@ -57,7 +57,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取或设置将缓冲区写入磁盘的临界大小。
+        /// Gets or sets the threshold size in bytes for flushing the buffer to disk.
         /// </summary>
         int FlushSize
         {
@@ -66,7 +66,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取或设置下载超时时长，以秒为单位。
+        /// Gets or sets the download timeout in seconds.
         /// </summary>
         float Timeout
         {
@@ -75,7 +75,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取当前下载速度。
+        /// Gets the current download speed.
         /// </summary>
         float CurrentSpeed
         {
@@ -83,158 +83,158 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 下载开始事件。
+        /// Download start event.
         /// </summary>
         event EventHandler<DownloadStartEventArgs> DownloadStart;
 
         /// <summary>
-        /// 下载更新事件。
+        /// Download update event.
         /// </summary>
         event EventHandler<DownloadUpdateEventArgs> DownloadUpdate;
 
         /// <summary>
-        /// 下载成功事件。
+        /// Download success event.
         /// </summary>
         event EventHandler<DownloadSuccessEventArgs> DownloadSuccess;
 
         /// <summary>
-        /// 下载失败事件。
+        /// Download failure event.
         /// </summary>
         event EventHandler<DownloadFailureEventArgs> DownloadFailure;
 
         /// <summary>
-        /// 增加下载代理辅助器。
+        /// Adds a download agent helper.
         /// </summary>
-        /// <param name="downloadAgentHelper">要增加的下载代理辅助器。</param>
+        /// <param name="downloadAgentHelper">The download agent helper to add.</param>
         void AddDownloadAgentHelper(IDownloadAgentHelper downloadAgentHelper);
 
         /// <summary>
-        /// 根据下载任务的序列编号获取下载任务的信息。
+        /// Gets the download task information by serial ID.
         /// </summary>
-        /// <param name="serialId">要获取信息的下载任务的序列编号。</param>
-        /// <returns>下载任务的信息。</returns>
+        /// <param name="serialId">The serial ID of the download task to get information.</param>
+        /// <returns>The download task information.</returns>
         TaskInfo GetDownloadInfo(int serialId);
 
         /// <summary>
-        /// 根据下载任务的标签获取下载任务的信息。
+        /// Gets the download task information by tag.
         /// </summary>
-        /// <param name="tag">要获取信息的下载任务的标签。</param>
-        /// <returns>下载任务的信息。</returns>
+        /// <param name="tag">The tag of the download task to get information.</param>
+        /// <returns>The download task information.</returns>
         TaskInfo[] GetDownloadInfos(string tag);
 
         /// <summary>
-        /// 根据下载任务的标签获取下载任务的信息。
+        /// Gets the download task information by tag.
         /// </summary>
-        /// <param name="tag">要获取信息的下载任务的标签。</param>
-        /// <param name="results">下载任务的信息。</param>
+        /// <param name="tag">The tag of the download task to get information.</param>
+        /// <param name="results">The download task information.</param>
         void GetDownloadInfos(string tag, List<TaskInfo> results);
 
         /// <summary>
-        /// 获取所有下载任务的信息。
+        /// Gets all download task information.
         /// </summary>
-        /// <returns>所有下载任务的信息。</returns>
+        /// <returns>All download task information.</returns>
         TaskInfo[] GetAllDownloadInfos();
 
         /// <summary>
-        /// 获取所有下载任务的信息。
+        /// Gets all download task information.
         /// </summary>
-        /// <param name="results">所有下载任务的信息。</param>
+        /// <param name="results">All download task information.</param>
         void GetAllDownloadInfos(List<TaskInfo> results);
 
         /// <summary>
-        /// 增加下载任务。
+        /// Adds a download task.
         /// </summary>
-        /// <param name="downloadPath">下载后存放路径。</param>
-        /// <param name="downloadUri">原始下载地址。</param>
-        /// <returns>新增下载任务的序列编号。</returns>
+        /// <param name="downloadPath">Download path.</param>
+        /// <param name="downloadUri">Original download URI.</param>
+        /// <returns>The serial ID of the added download task.</returns>
         int AddDownload(string downloadPath, string downloadUri);
 
         /// <summary>
-        /// 增加下载任务。
+        /// Adds a download task.
         /// </summary>
-        /// <param name="downloadPath">下载后存放路径。</param>
-        /// <param name="downloadUri">原始下载地址。</param>
-        /// <param name="tag">下载任务的标签。</param>
-        /// <returns>新增下载任务的序列编号。</returns>
+        /// <param name="downloadPath">Download path.</param>
+        /// <param name="downloadUri">Original download URI.</param>
+        /// <param name="tag">Download task tag.</param>
+        /// <returns>The serial ID of the added download task.</returns>
         int AddDownload(string downloadPath, string downloadUri, string tag);
 
         /// <summary>
-        /// 增加下载任务。
+        /// Adds a download task.
         /// </summary>
-        /// <param name="downloadPath">下载后存放路径。</param>
-        /// <param name="downloadUri">原始下载地址。</param>
-        /// <param name="priority">下载任务的优先级。</param>
-        /// <returns>新增下载任务的序列编号。</returns>
+        /// <param name="downloadPath">Download path.</param>
+        /// <param name="downloadUri">Original download URI.</param>
+        /// <param name="priority">Download task priority.</param>
+        /// <returns>The serial ID of the added download task.</returns>
         int AddDownload(string downloadPath, string downloadUri, int priority);
 
         /// <summary>
-        /// 增加下载任务。
+        /// Adds a download task.
         /// </summary>
-        /// <param name="downloadPath">下载后存放路径。</param>
-        /// <param name="downloadUri">原始下载地址。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>新增下载任务的序列编号。</returns>
+        /// <param name="downloadPath">Download path.</param>
+        /// <param name="downloadUri">Original download URI.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The serial ID of the added download task.</returns>
         int AddDownload(string downloadPath, string downloadUri, object userData);
 
         /// <summary>
-        /// 增加下载任务。
+        /// Adds a download task.
         /// </summary>
-        /// <param name="downloadPath">下载后存放路径。</param>
-        /// <param name="downloadUri">原始下载地址。</param>
-        /// <param name="tag">下载任务的标签。</param>
-        /// <param name="priority">下载任务的优先级。</param>
-        /// <returns>新增下载任务的序列编号。</returns>
+        /// <param name="downloadPath">Download path.</param>
+        /// <param name="downloadUri">Original download URI.</param>
+        /// <param name="tag">Download task tag.</param>
+        /// <param name="priority">Download task priority.</param>
+        /// <returns>The serial ID of the added download task.</returns>
         int AddDownload(string downloadPath, string downloadUri, string tag, int priority);
 
         /// <summary>
-        /// 增加下载任务。
+        /// Adds a download task.
         /// </summary>
-        /// <param name="downloadPath">下载后存放路径。</param>
-        /// <param name="downloadUri">原始下载地址。</param>
-        /// <param name="tag">下载任务的标签。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>新增下载任务的序列编号。</returns>
+        /// <param name="downloadPath">Download path.</param>
+        /// <param name="downloadUri">Original download URI.</param>
+        /// <param name="tag">Download task tag.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The serial ID of the added download task.</returns>
         int AddDownload(string downloadPath, string downloadUri, string tag, object userData);
 
         /// <summary>
-        /// 增加下载任务。
+        /// Adds a download task.
         /// </summary>
-        /// <param name="downloadPath">下载后存放路径。</param>
-        /// <param name="downloadUri">原始下载地址。</param>
-        /// <param name="priority">下载任务的优先级。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>新增下载任务的序列编号。</returns>
+        /// <param name="downloadPath">Download path.</param>
+        /// <param name="downloadUri">Original download URI.</param>
+        /// <param name="priority">Download task priority.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The serial ID of the added download task.</returns>
         int AddDownload(string downloadPath, string downloadUri, int priority, object userData);
 
         /// <summary>
-        /// 增加下载任务。
+        /// Adds a download task.
         /// </summary>
-        /// <param name="downloadPath">下载后存放路径。</param>
-        /// <param name="downloadUri">原始下载地址。</param>
-        /// <param name="tag">下载任务的标签。</param>
-        /// <param name="priority">下载任务的优先级。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>新增下载任务的序列编号。</returns>
+        /// <param name="downloadPath">Download path.</param>
+        /// <param name="downloadUri">Original download URI.</param>
+        /// <param name="tag">Download task tag.</param>
+        /// <param name="priority">Download task priority.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The serial ID of the added download task.</returns>
         int AddDownload(string downloadPath, string downloadUri, string tag, int priority, object userData);
 
         /// <summary>
-        /// 根据下载任务的序列编号移除下载任务。
+        /// Removes a download task by serial ID.
         /// </summary>
-        /// <param name="serialId">要移除下载任务的序列编号。</param>
-        /// <returns>是否移除下载任务成功。</returns>
+        /// <param name="serialId">The serial ID of the download task to remove.</param>
+        /// <returns>Whether the download task was removed successfully.</returns>
         bool RemoveDownload(int serialId);
 
         /// <summary>
-        /// 根据下载任务的标签移除下载任务。
+        /// Removes download tasks by tag.
         /// </summary>
-        /// <param name="tag">要移除下载任务的标签。</param>
-        /// <returns>移除下载任务的数量。</returns>
+        /// <param name="tag">The tag of the download tasks to remove.</param>
+        /// <returns>The number of removed download tasks.</returns>
         int RemoveDownloads(string tag);
 
         /// <summary>
-        /// 移除所有下载任务。
+        /// Removes all download tasks.
         /// </summary>
-        /// <returns>移除下载任务的数量。</returns>
+        /// <returns>The number of removed download tasks.</returns>
         int RemoveAllDownloads();
     }
 }

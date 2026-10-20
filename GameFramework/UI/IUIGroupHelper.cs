@@ -8,14 +8,14 @@
 namespace GameFramework.UI
 {
     /// <summary>
-    /// 界面组辅助器接口。
+    /// UI group helper interface.
     /// </summary>
     public interface IUIGroupHelper
     {
         /// <summary>
-        /// 设置界面组深度。
+        /// Sets the UI group depth.
         /// </summary>
-        /// <param name="depth">界面组深度。</param>
+        /// <param name="depth">The UI group depth.</param>
         void SetDepth(int depth);
     }
 }

@@ -12,12 +12,12 @@ using System.Collections.Generic;
 namespace GameFramework.DataTable
 {
     /// <summary>
-    /// 数据表管理器接口。
+    /// Data table manager interface.
     /// </summary>
     public interface IDataTableManager
     {
         /// <summary>
-        /// 获取数据表数量。
+        /// Gets the count of data tables.
         /// </summary>
         int Count
         {
@@ -25,7 +25,7 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 获取缓冲二进制流的大小。
+        /// Gets the cached bytes size.
         /// </summary>
         int CachedBytesSize
         {
@@ -33,179 +33,179 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 设置资源管理器。
+        /// Sets the resource manager.
         /// </summary>
-        /// <param name="resourceManager">资源管理器。</param>
+        /// <param name="resourceManager">The resource manager.</param>
         void SetResourceManager(IResourceManager resourceManager);
 
         /// <summary>
-        /// 设置数据表数据提供者辅助器。
+        /// Sets the data table data provider helper.
         /// </summary>
-        /// <param name="dataProviderHelper">数据表数据提供者辅助器。</param>
+        /// <param name="dataProviderHelper">The data table data provider helper.</param>
         void SetDataProviderHelper(IDataProviderHelper<DataTableBase> dataProviderHelper);
 
         /// <summary>
-        /// 设置数据表辅助器。
+        /// Sets the data table helper.
         /// </summary>
-        /// <param name="dataTableHelper">数据表辅助器。</param>
+        /// <param name="dataTableHelper">The data table helper.</param>
         void SetDataTableHelper(IDataTableHelper dataTableHelper);
 
         /// <summary>
-        /// 确保二进制流缓存分配足够大小的内存并缓存。
+        /// Ensures the cached bytes size is large enough.
         /// </summary>
-        /// <param name="ensureSize">要确保二进制流缓存分配内存的大小。</param>
+        /// <param name="ensureSize">The size to ensure.</param>
         void EnsureCachedBytesSize(int ensureSize);
 
         /// <summary>
-        /// 释放缓存的二进制流。
+        /// Frees the cached bytes.
         /// </summary>
         void FreeCachedBytes();
 
         /// <summary>
-        /// 是否存在数据表。
+        /// Checks whether the specified data table exists.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <returns>是否存在数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <returns>Whether the specified data table exists.</returns>
         bool HasDataTable<T>() where T : IDataRow;
 
         /// <summary>
-        /// 是否存在数据表。
+        /// Checks whether the specified data table exists.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <returns>是否存在数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <returns>Whether the specified data table exists.</returns>
         bool HasDataTable(Type dataRowType);
 
         /// <summary>
-        /// 是否存在数据表。
+        /// Checks whether the specified data table exists.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>是否存在数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <param name="name">The data table name.</param>
+        /// <returns>Whether the specified data table exists.</returns>
         bool HasDataTable<T>(string name) where T : IDataRow;
 
         /// <summary>
-        /// 是否存在数据表。
+        /// Checks whether the specified data table exists.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>是否存在数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <param name="name">The data table name.</param>
+        /// <returns>Whether the specified data table exists.</returns>
         bool HasDataTable(Type dataRowType, string name);
 
         /// <summary>
-        /// 获取数据表。
+        /// Gets the specified data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <returns>要获取的数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <returns>The specified data table.</returns>
         IDataTable<T> GetDataTable<T>() where T : IDataRow;
 
         /// <summary>
-        /// 获取数据表。
+        /// Gets the specified data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <returns>要获取的数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <returns>The specified data table.</returns>
         DataTableBase GetDataTable(Type dataRowType);
 
         /// <summary>
-        /// 获取数据表。
+        /// Gets the specified data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>要获取的数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <param name="name">The data table name.</param>
+        /// <returns>The specified data table.</returns>
         IDataTable<T> GetDataTable<T>(string name) where T : IDataRow;
 
         /// <summary>
-        /// 获取数据表。
+        /// Gets the specified data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>要获取的数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <param name="name">The data table name.</param>
+        /// <returns>The specified data table.</returns>
         DataTableBase GetDataTable(Type dataRowType, string name);
 
         /// <summary>
-        /// 获取所有数据表。
+        /// Gets all data tables.
         /// </summary>
-        /// <returns>所有数据表。</returns>
+        /// <returns>All data tables.</returns>
         DataTableBase[] GetAllDataTables();
 
         /// <summary>
-        /// 获取所有数据表。
+        /// Gets all data tables.
         /// </summary>
-        /// <param name="results">所有数据表。</param>
+        /// <param name="results">The list to store all data tables.</param>
         void GetAllDataTables(List<DataTableBase> results);
 
         /// <summary>
-        /// 创建数据表。
+        /// Creates a data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <returns>要创建的数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <returns>The created data table.</returns>
         IDataTable<T> CreateDataTable<T>() where T : class, IDataRow, new();
 
         /// <summary>
-        /// 创建数据表。
+        /// Creates a data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <returns>要创建的数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <returns>The created data table.</returns>
         DataTableBase CreateDataTable(Type dataRowType);
 
         /// <summary>
-        /// 创建数据表。
+        /// Creates a data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>要创建的数据表。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <param name="name">The data table name.</param>
+        /// <returns>The created data table.</returns>
         IDataTable<T> CreateDataTable<T>(string name) where T : class, IDataRow, new();
 
         /// <summary>
-        /// 创建数据表。
+        /// Creates a data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>要创建的数据表。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <param name="name">The data table name.</param>
+        /// <returns>The created data table.</returns>
         DataTableBase CreateDataTable(Type dataRowType, string name);
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <returns>是否销毁数据表成功。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         bool DestroyDataTable<T>() where T : IDataRow;
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <returns>是否销毁数据表成功。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         bool DestroyDataTable(Type dataRowType);
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>是否销毁数据表成功。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <param name="name">The data table name.</param>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         bool DestroyDataTable<T>(string name) where T : IDataRow;
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <param name="dataRowType">数据表行的类型。</param>
-        /// <param name="name">数据表名称。</param>
-        /// <returns>是否销毁数据表成功。</returns>
+        /// <param name="dataRowType">The type of the data table row.</param>
+        /// <param name="name">The data table name.</param>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         bool DestroyDataTable(Type dataRowType, string name);
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
-        /// <param name="dataTable">要销毁的数据表。</param>
-        /// <returns>是否销毁数据表成功。</returns>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
+        /// <param name="dataTable">The data table to destroy.</param>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         bool DestroyDataTable<T>(IDataTable<T> dataTable) where T : IDataRow;
 
         /// <summary>
-        /// 销毁数据表。
+        /// Destroys a data table.
         /// </summary>
-        /// <param name="dataTable">要销毁的数据表。</param>
-        /// <returns>是否销毁数据表成功。</returns>
+        /// <param name="dataTable">The data table to destroy.</param>
+        /// <returns>Whether the data table was destroyed successfully.</returns>
         bool DestroyDataTable(DataTableBase dataTable);
     }
 }

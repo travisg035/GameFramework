@@ -8,14 +8,14 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 游戏框架模块抽象类。
+    /// Abstract base class for game framework modules.
     /// </summary>
     internal abstract class GameFrameworkModule
     {
         /// <summary>
-        /// 获取游戏框架模块优先级。
+        /// Gets the priority of the game framework module.
         /// </summary>
-        /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
+        /// <remarks>Modules with higher priority will be polled first and shut down later.</remarks>
         internal virtual int Priority
         {
             get
@@ -25,14 +25,14 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 游戏框架模块轮询。
+        /// Polling the game framework module.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         internal abstract void Update(float elapseSeconds, float realElapseSeconds);
 
         /// <summary>
-        /// 关闭并清理游戏框架模块。
+        /// Shutdown and cleanup the game framework module.
         /// </summary>
         internal abstract void Shutdown();
     }

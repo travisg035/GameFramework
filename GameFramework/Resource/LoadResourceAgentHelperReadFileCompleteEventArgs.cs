@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源代理辅助器异步将资源文件转换为加载对象完成事件。
+    /// Load resource agent helper asynchronous read file to resource complete event.
     /// </summary>
     public sealed class LoadResourceAgentHelperReadFileCompleteEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化加载资源代理辅助器异步将资源文件转换为加载对象完成事件的新实例。
+        /// Initializes a new instance of the <see cref="LoadResourceAgentHelperReadFileCompleteEventArgs"/> class.
         /// </summary>
         public LoadResourceAgentHelperReadFileCompleteEventArgs()
         {
@@ -21,7 +21,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载对象。
+        /// Gets the loaded resource object.
         /// </summary>
         public object Resource
         {
@@ -30,10 +30,10 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建加载资源代理辅助器异步将资源文件转换为加载对象完成事件。
+        /// Creates a new load resource agent helper asynchronous read file to resource complete event.
         /// </summary>
-        /// <param name="resource">资源对象。</param>
-        /// <returns>创建的加载资源代理辅助器异步将资源文件转换为加载对象完成事件。</returns>
+        /// <param name="resource">The loaded resource object.</param>
+        /// <returns>The created load resource agent helper asynchronous read file to resource complete event.</returns>
         public static LoadResourceAgentHelperReadFileCompleteEventArgs Create(object resource)
         {
             LoadResourceAgentHelperReadFileCompleteEventArgs loadResourceAgentHelperReadFileCompleteEventArgs = ReferencePool.Acquire<LoadResourceAgentHelperReadFileCompleteEventArgs>();
@@ -42,7 +42,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理加载资源代理辅助器异步将资源文件转换为加载对象完成事件。
+        /// Clears the load resource agent helper asynchronous read file to resource complete event.
         /// </summary>
         public override void Clear()
         {

@@ -12,15 +12,15 @@ namespace GameFramework
     public static partial class Utility
     {
         /// <summary>
-        /// 路径相关的实用函数。
+        /// Path utility functions.
         /// </summary>
         public static class Path
         {
             /// <summary>
-            /// 获取规范的路径。
+            /// Gets the regular path.
             /// </summary>
-            /// <param name="path">要规范的路径。</param>
-            /// <returns>规范的路径。</returns>
+            /// <param name="path">The path to normalize.</param>
+            /// <returns>The regular path.</returns>
             public static string GetRegularPath(string path)
             {
                 if (path == null)
@@ -32,10 +32,10 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取远程格式的路径（带有file:// 或 http:// 前缀）。
+            /// Gets the remote path (prefixed with file:// or http://).
             /// </summary>
-            /// <param name="path">原始路径。</param>
-            /// <returns>远程格式路径。</returns>
+            /// <param name="path">The original path.</param>
+            /// <returns>The remote path.</returns>
             public static string GetRemotePath(string path)
             {
                 string regularPath = GetRegularPath(path);
@@ -48,10 +48,10 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 移除空文件夹。
+            /// Removes empty directory.
             /// </summary>
-            /// <param name="directoryName">要处理的文件夹名称。</param>
-            /// <returns>是否移除空文件夹成功。</returns>
+            /// <param name="directoryName">The directory name to process.</param>
+            /// <returns>Whether the empty directory was removed successfully.</returns>
             public static bool RemoveEmptyDirectory(string directoryName)
             {
                 if (string.IsNullOrEmpty(directoryName))
@@ -66,7 +66,7 @@ namespace GameFramework
                         return false;
                     }
 
-                    // 不使用 SearchOption.AllDirectories，以便于在可能产生异常的环境下删除尽可能多的目录
+                    // Do not use SearchOption.AllDirectories to delete as many directories as possible in environments where exceptions may occur
                     string[] subDirectoryNames = Directory.GetDirectories(directoryName, "*");
                     int subDirectoryCount = subDirectoryNames.Length;
                     foreach (string subDirectoryName in subDirectoryNames)

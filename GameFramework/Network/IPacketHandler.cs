@@ -8,12 +8,12 @@
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络消息包处理器接口。
+    /// Packet handler interface.
     /// </summary>
     public interface IPacketHandler
     {
         /// <summary>
-        /// 获取网络消息包协议编号。
+        /// Gets the packet protocol ID.
         /// </summary>
         int Id
         {
@@ -21,10 +21,10 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 网络消息包处理函数。
+        /// Packet handler method.
         /// </summary>
-        /// <param name="sender">网络消息包源。</param>
-        /// <param name="packet">网络消息包内容。</param>
+        /// <param name="sender">Packet source.</param>
+        /// <param name="packet">Packet content.</param>
         void Handle(object sender, Packet packet);
     }
 }

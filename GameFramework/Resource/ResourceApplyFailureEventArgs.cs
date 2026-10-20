@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源应用失败事件。
+    /// Resource apply failure event.
     /// </summary>
     public sealed class ResourceApplyFailureEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化资源应用失败事件的新实例。
+        /// Initializes a new instance of the <see cref="ResourceApplyFailureEventArgs"/> class.
         /// </summary>
         public ResourceApplyFailureEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源名称。
+        /// Gets the resource name.
         /// </summary>
         public string Name
         {
@@ -32,7 +32,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源包路径。
+        /// Gets the resource pack path.
         /// </summary>
         public string ResourcePackPath
         {
@@ -41,7 +41,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -50,12 +50,12 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建资源应用失败事件。
+        /// Creates a new resource apply failure event.
         /// </summary>
-        /// <param name="name">资源名称。</param>
-        /// <param name="resourcePackPath">资源包路径。</param>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <returns>创建的资源应用失败事件。</returns>
+        /// <param name="name">The resource name.</param>
+        /// <param name="resourcePackPath">The resource pack path.</param>
+        /// <param name="errorMessage">The error message.</param>
+        /// <returns>The created resource apply failure event.</returns>
         public static ResourceApplyFailureEventArgs Create(string name, string resourcePackPath, string errorMessage)
         {
             ResourceApplyFailureEventArgs resourceApplyFailureEventArgs = ReferencePool.Acquire<ResourceApplyFailureEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理资源应用失败事件。
+        /// Clears the resource apply failure event.
         /// </summary>
         public override void Clear()
         {

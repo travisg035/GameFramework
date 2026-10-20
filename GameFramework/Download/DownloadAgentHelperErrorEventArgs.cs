@@ -8,12 +8,12 @@
 namespace GameFramework.Download
 {
     /// <summary>
-    /// 下载代理辅助器错误事件。
+    /// Download agent helper error event.
     /// </summary>
     public sealed class DownloadAgentHelperErrorEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化下载代理辅助器错误事件的新实例。
+        /// Initializes a new instance of the DownloadAgentHelperErrorEventArgs class.
         /// </summary>
         public DownloadAgentHelperErrorEventArgs()
         {
@@ -22,7 +22,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取是否需要删除正在下载的文件。
+        /// Gets whether to delete the file currently being downloaded.
         /// </summary>
         public bool DeleteDownloading
         {
@@ -31,7 +31,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -40,11 +40,11 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 创建下载代理辅助器错误事件。
+        /// Creates a download agent helper error event.
         /// </summary>
-        /// <param name="deleteDownloading">是否需要删除正在下载的文件。</param>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <returns>创建的下载代理辅助器错误事件。</returns>
+        /// <param name="deleteDownloading">Whether to delete the file currently being downloaded.</param>
+        /// <param name="errorMessage">Error message.</param>
+        /// <returns>The created download agent helper error event.</returns>
         public static DownloadAgentHelperErrorEventArgs Create(bool deleteDownloading, string errorMessage)
         {
             DownloadAgentHelperErrorEventArgs downloadAgentHelperErrorEventArgs = ReferencePool.Acquire<DownloadAgentHelperErrorEventArgs>();
@@ -54,7 +54,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 清理下载代理辅助器错误事件。
+        /// Clears the download agent helper error event.
         /// </summary>
         public override void Clear()
         {

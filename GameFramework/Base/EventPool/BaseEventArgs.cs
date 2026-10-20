@@ -8,12 +8,12 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 事件基类。
+    /// Event base class.
     /// </summary>
     public abstract class BaseEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 获取类型编号。
+        /// Gets the event type id.
         /// </summary>
         public abstract int Id
         {

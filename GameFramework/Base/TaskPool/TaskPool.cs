@@ -10,9 +10,9 @@ using System.Collections.Generic;
 namespace GameFramework
 {
     /// <summary>
-    /// 任务池。
+    /// Task pool.
     /// </summary>
-    /// <typeparam name="T">任务类型。</typeparam>
+    /// <typeparam name="T">Task type.</typeparam>
     internal sealed class TaskPool<T> where T : TaskBase
     {
         private readonly Stack<ITaskAgent<T>> m_FreeAgents;
@@ -21,7 +21,7 @@ namespace GameFramework
         private bool m_Paused;
 
         /// <summary>
-        /// 初始化任务池的新实例。
+        /// Initializes a new instance of the task pool.
         /// </summary>
         public TaskPool()
         {
@@ -32,7 +32,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取或设置任务池是否被暂停。
+        /// Gets or sets whether the task pool is paused.
         /// </summary>
         public bool Paused
         {
@@ -47,7 +47,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务代理总数量。
+        /// Gets the total number of task agents.
         /// </summary>
         public int TotalAgentCount
         {
@@ -58,7 +58,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取可用任务代理数量。
+        /// Gets the number of free task agents.
         /// </summary>
         public int FreeAgentCount
         {
@@ -69,7 +69,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取工作中任务代理数量。
+        /// Gets the number of working task agents.
         /// </summary>
         public int WorkingAgentCount
         {
@@ -80,7 +80,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取等待任务数量。
+        /// Gets the number of waiting tasks.
         /// </summary>
         public int WaitingTaskCount
         {
@@ -91,10 +91,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 任务池轮询。
+        /// Updates the task pool per frame.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         public void Update(float elapseSeconds, float realElapseSeconds)
         {
             if (m_Paused)
@@ -107,7 +107,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 关闭并清理任务池。
+        /// Shutdowns and cleans up the task pool.
         /// </summary>
         public void Shutdown()
         {
@@ -120,9 +120,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 增加任务代理。
+        /// Adds a task agent.
         /// </summary>
-        /// <param name="agent">要增加的任务代理。</param>
+        /// <param name="agent">The task agent to add.</param>
         public void AddAgent(ITaskAgent<T> agent)
         {
             if (agent == null)
@@ -135,10 +135,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 根据任务的序列编号获取任务的信息。
+        /// Gets task information by task serial ID.
         /// </summary>
-        /// <param name="serialId">要获取信息的任务的序列编号。</param>
-        /// <returns>任务的信息。</returns>
+        /// <param name="serialId">The serial ID of the task to get information.</param>
+        /// <returns>Task information.</returns>
         public TaskInfo GetTaskInfo(int serialId)
         {
             foreach (ITaskAgent<T> workingAgent in m_WorkingAgents)
@@ -162,10 +162,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 根据任务的标签获取任务的信息。
+        /// Gets task information by task tag.
         /// </summary>
-        /// <param name="tag">要获取信息的任务的标签。</param>
-        /// <returns>任务的信息。</returns>
+        /// <param name="tag">The tag of the task to get information.</param>
+        /// <returns>Task information.</returns>
         public TaskInfo[] GetTaskInfos(string tag)
         {
             List<TaskInfo> results = new List<TaskInfo>();
@@ -174,10 +174,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 根据任务的标签获取任务的信息。
+        /// Gets task information by task tag.
         /// </summary>
-        /// <param name="tag">要获取信息的任务的标签。</param>
-        /// <param name="results">任务的信息。</param>
+        /// <param name="tag">The tag of the task to get information.</param>
+        /// <param name="results">Task information.</param>
         public void GetTaskInfos(string tag, List<TaskInfo> results)
         {
             if (results == null)
@@ -205,9 +205,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取所有任务的信息。
+        /// Gets task information of all tasks.
         /// </summary>
-        /// <returns>所有任务的信息。</returns>
+        /// <returns>Task information of all tasks.</returns>
         public TaskInfo[] GetAllTaskInfos()
         {
             int index = 0;
@@ -227,9 +227,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取所有任务的信息。
+        /// Gets task information of all tasks.
         /// </summary>
-        /// <param name="results">所有任务的信息。</param>
+        /// <param name="results">Task information of all tasks.</param>
         public void GetAllTaskInfos(List<TaskInfo> results)
         {
             if (results == null)
@@ -251,9 +251,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 增加任务。
+        /// Adds a task.
         /// </summary>
-        /// <param name="task">要增加的任务。</param>
+        /// <param name="task">The task to add.</param>
         public void AddTask(T task)
         {
             LinkedListNode<T> current = m_WaitingTasks.Last;
@@ -278,10 +278,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 根据任务的序列编号移除任务。
+        /// Removes a task by serial ID.
         /// </summary>
-        /// <param name="serialId">要移除任务的序列编号。</param>
-        /// <returns>是否移除任务成功。</returns>
+        /// <param name="serialId">The serial ID of the task to remove.</param>
+        /// <returns>Whether the task was removed successfully.</returns>
         public bool RemoveTask(int serialId)
         {
             foreach (T task in m_WaitingTasks)
@@ -316,10 +316,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 根据任务的标签移除任务。
+        /// Removes tasks by task tag.
         /// </summary>
-        /// <param name="tag">要移除任务的标签。</param>
-        /// <returns>移除任务的数量。</returns>
+        /// <param name="tag">The tag of the task to remove.</param>
+        /// <returns>The number of removed tasks.</returns>
         public int RemoveTasks(string tag)
         {
             int count = 0;
@@ -361,9 +361,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 移除所有任务。
+        /// Removes all tasks.
         /// </summary>
-        /// <returns>移除任务的数量。</returns>
+        /// <returns>The number of removed tasks.</returns>
         public int RemoveAllTasks()
         {
             int count = m_WaitingTasks.Count + m_WorkingAgents.Count;

@@ -15,7 +15,7 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 资源检查器。
+        /// Resource checker.
         /// </summary>
         private sealed partial class ResourceChecker
         {
@@ -31,9 +31,9 @@ namespace GameFramework.Resource
             public GameFrameworkAction<int, int, int, long, long> ResourceCheckComplete;
 
             /// <summary>
-            /// 初始化资源检查器的新实例。
+            /// Initializes a new instance of the ResourceChecker class.
             /// </summary>
-            /// <param name="resourceManager">资源管理器。</param>
+            /// <param name="resourceManager">The resource manager.</param>
             public ResourceChecker(ResourceManager resourceManager)
             {
                 m_ResourceManager = resourceManager;
@@ -49,7 +49,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 关闭并清理资源检查器。
+            /// Shutdowns and cleans up the resource checker.
             /// </summary>
             public void Shutdown()
             {
@@ -57,10 +57,10 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 检查资源。
+            /// Checks resources.
             /// </summary>
-            /// <param name="currentVariant">当前使用的变体。</param>
-            /// <param name="ignoreOtherVariant">是否忽略处理其它变体的资源，若不忽略，将会移除其它变体的资源。</param>
+            /// <param name="currentVariant">The currently used variant.</param>
+            /// <param name="ignoreOtherVariant">Whether to ignore resources of other variants; if false, resources of other variants will be removed.</param>
             public void CheckResources(string currentVariant, bool ignoreOtherVariant)
             {
                 if (m_ResourceManager.m_ResourceHelper == null)

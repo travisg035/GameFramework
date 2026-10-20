@@ -8,30 +8,30 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源辅助器接口。
+    /// Resource helper interface.
     /// </summary>
     public interface IResourceHelper
     {
         /// <summary>
-        /// 直接从指定文件路径加载数据流。
+        /// Directly loads binary bytes from the specified file path.
         /// </summary>
-        /// <param name="fileUri">文件路径。</param>
-        /// <param name="loadBytesCallbacks">加载数据流回调函数集。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="fileUri">The file path.</param>
+        /// <param name="loadBytesCallbacks">The load bytes callbacks.</param>
+        /// <param name="userData">The user-defined data.</param>
         void LoadBytes(string fileUri, LoadBytesCallbacks loadBytesCallbacks, object userData);
 
         /// <summary>
-        /// 卸载场景。
+        /// Unloads a scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="unloadSceneCallbacks">卸载场景回调函数集。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <param name="unloadSceneCallbacks">The unload scene callbacks.</param>
+        /// <param name="userData">The user-defined data.</param>
         void UnloadScene(string sceneAssetName, UnloadSceneCallbacks unloadSceneCallbacks, object userData);
 
         /// <summary>
-        /// 释放资源。
+        /// Releases a resource.
         /// </summary>
-        /// <param name="objectToRelease">要释放的资源。</param>
+        /// <param name="objectToRelease">The resource object to release.</param>
         void Release(object objectToRelease);
     }
 }

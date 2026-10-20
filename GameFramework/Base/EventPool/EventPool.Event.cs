@@ -10,7 +10,7 @@ namespace GameFramework
     internal sealed partial class EventPool<T> where T : BaseEventArgs
     {
         /// <summary>
-        /// 事件结点。
+        /// Event node.
         /// </summary>
         private sealed class Event : IReference
         {

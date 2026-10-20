@@ -8,7 +8,7 @@
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络消息包基类。
+    /// Packet base class.
     /// </summary>
     public abstract class Packet : BaseEventArgs
     {

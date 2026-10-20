@@ -10,12 +10,12 @@ using System.Collections.Generic;
 namespace GameFramework.UI
 {
     /// <summary>
-    /// 界面组接口。
+    /// UI group interface.
     /// </summary>
     public interface IUIGroup
     {
         /// <summary>
-        /// 获取界面组名称。
+        /// Gets the UI group name.
         /// </summary>
         string Name
         {
@@ -23,7 +23,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取或设置界面组深度。
+        /// Gets or sets the UI group depth.
         /// </summary>
         int Depth
         {
@@ -32,7 +32,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取或设置界面组是否暂停。
+        /// Gets or sets whether the UI group is paused.
         /// </summary>
         bool Pause
         {
@@ -41,7 +41,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面组中界面数量。
+        /// Gets the count of UI forms in the UI group.
         /// </summary>
         int UIFormCount
         {
@@ -49,7 +49,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取当前界面。
+        /// Gets the current UI form.
         /// </summary>
         IUIForm CurrentUIForm
         {
@@ -57,7 +57,7 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 获取界面组辅助器。
+        /// Gets the UI group helper.
         /// </summary>
         IUIGroupHelper Helper
         {
@@ -65,57 +65,57 @@ namespace GameFramework.UI
         }
 
         /// <summary>
-        /// 界面组中是否存在界面。
+        /// Checks whether the UI form exists in the UI group.
         /// </summary>
-        /// <param name="serialId">界面序列编号。</param>
-        /// <returns>界面组中是否存在界面。</returns>
+        /// <param name="serialId">The serial ID of the UI form.</param>
+        /// <returns>Whether the UI form exists in the UI group.</returns>
         bool HasUIForm(int serialId);
 
         /// <summary>
-        /// 界面组中是否存在界面。
+        /// Checks whether the UI form exists in the UI group.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <returns>界面组中是否存在界面。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <returns>Whether the UI form exists in the UI group.</returns>
         bool HasUIForm(string uiFormAssetName);
 
         /// <summary>
-        /// 从界面组中获取界面。
+        /// Gets a UI form from the UI group.
         /// </summary>
-        /// <param name="serialId">界面序列编号。</param>
-        /// <returns>要获取的界面。</returns>
+        /// <param name="serialId">The serial ID of the UI form.</param>
+        /// <returns>The UI form to get.</returns>
         IUIForm GetUIForm(int serialId);
 
         /// <summary>
-        /// 从界面组中获取界面。
+        /// Gets a UI form from the UI group.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <returns>要获取的界面。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <returns>The UI form to get.</returns>
         IUIForm GetUIForm(string uiFormAssetName);
 
         /// <summary>
-        /// 从界面组中获取界面。
+        /// Gets UI forms from the UI group.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <returns>要获取的界面。</returns>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <returns>The UI forms to get.</returns>
         IUIForm[] GetUIForms(string uiFormAssetName);
 
         /// <summary>
-        /// 从界面组中获取界面。
+        /// Gets UI forms from the UI group.
         /// </summary>
-        /// <param name="uiFormAssetName">界面资源名称。</param>
-        /// <param name="results">要获取的界面。</param>
+        /// <param name="uiFormAssetName">The UI form asset name.</param>
+        /// <param name="results">The UI forms to get.</param>
         void GetUIForms(string uiFormAssetName, List<IUIForm> results);
 
         /// <summary>
-        /// 从界面组中获取所有界面。
+        /// Gets all UI forms from the UI group.
         /// </summary>
-        /// <returns>界面组中的所有界面。</returns>
+        /// <returns>All UI forms in the UI group.</returns>
         IUIForm[] GetAllUIForms();
 
         /// <summary>
-        /// 从界面组中获取所有界面。
+        /// Gets all UI forms from the UI group.
         /// </summary>
-        /// <param name="results">界面组中的所有界面。</param>
+        /// <param name="results">All UI forms in the UI group.</param>
         void GetAllUIForms(List<IUIForm> results);
     }
 }

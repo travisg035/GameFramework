@@ -8,7 +8,7 @@
 namespace GameFramework.Entity
 {
     /// <summary>
-    /// 实体组辅助器接口。
+    /// Entity group helper interface.
     /// </summary>
     public interface IEntityGroupHelper
     {

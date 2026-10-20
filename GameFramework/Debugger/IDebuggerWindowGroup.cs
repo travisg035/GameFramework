@@ -8,12 +8,12 @@
 namespace GameFramework.Debugger
 {
     /// <summary>
-    /// 调试器窗口组接口。
+    /// Debugger window group interface.
     /// </summary>
     public interface IDebuggerWindowGroup : IDebuggerWindow
     {
         /// <summary>
-        /// 获取调试器窗口数量。
+        /// Gets the number of debugger windows.
         /// </summary>
         int DebuggerWindowCount
         {
@@ -21,7 +21,7 @@ namespace GameFramework.Debugger
         }
 
         /// <summary>
-        /// 获取或设置当前选中的调试器窗口索引。
+        /// Gets or sets the index of the selected debugger window.
         /// </summary>
         int SelectedIndex
         {
@@ -30,7 +30,7 @@ namespace GameFramework.Debugger
         }
 
         /// <summary>
-        /// 获取当前选中的调试器窗口。
+        /// Gets the currently selected debugger window.
         /// </summary>
         IDebuggerWindow SelectedWindow
         {
@@ -38,22 +38,22 @@ namespace GameFramework.Debugger
         }
 
         /// <summary>
-        /// 获取调试组的调试器窗口名称集合。
+        /// Gets the debugger window names in the debugger window group.
         /// </summary>
         string[] GetDebuggerWindowNames();
 
         /// <summary>
-        /// 获取调试器窗口。
+        /// Gets a debugger window.
         /// </summary>
-        /// <param name="path">调试器窗口路径。</param>
-        /// <returns>要获取的调试器窗口。</returns>
+        /// <param name="path">Debugger window path.</param>
+        /// <returns>The debugger window to get.</returns>
         IDebuggerWindow GetDebuggerWindow(string path);
 
         /// <summary>
-        /// 注册调试器窗口。
+        /// Registers a debugger window.
         /// </summary>
-        /// <param name="path">调试器窗口路径。</param>
-        /// <param name="debuggerWindow">要注册的调试器窗口。</param>
+        /// <param name="path">Debugger window path.</param>
+        /// <param name="debuggerWindow">The debugger window to register.</param>
         void RegisterDebuggerWindow(string path, IDebuggerWindow debuggerWindow);
     }
 }

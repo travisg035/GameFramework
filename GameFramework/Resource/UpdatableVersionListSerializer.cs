@@ -8,23 +8,23 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 可更新模式版本资源列表序列化器。
+    /// Updatable version list serializer.
     /// </summary>
     public sealed class UpdatableVersionListSerializer : GameFrameworkSerializer<UpdatableVersionList>
     {
         private static readonly byte[] Header = new byte[] { (byte)'G', (byte)'F', (byte)'U' };
 
         /// <summary>
-        /// 初始化可更新模式版本资源列表序列化器的新实例。
+        /// Initializes a new instance of the UpdatableVersionListSerializer class.
         /// </summary>
         public UpdatableVersionListSerializer()
         {
         }
 
         /// <summary>
-        /// 获取可更新模式版本资源列表头标识。
+        /// Gets the updatable version list header.
         /// </summary>
-        /// <returns>可更新模式版本资源列表头标识。</returns>
+        /// <returns>Updatable version list header.</returns>
         protected override byte[] GetHeader()
         {
             return Header;

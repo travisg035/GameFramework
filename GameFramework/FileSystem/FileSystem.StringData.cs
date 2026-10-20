@@ -13,7 +13,7 @@ namespace GameFramework.FileSystem
     internal sealed partial class FileSystem : IFileSystem
     {
         /// <summary>
-        /// 字符串数据。
+        /// String data.
         /// </summary>
         [StructLayout(LayoutKind.Sequential)]
         private struct StringData

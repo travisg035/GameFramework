@@ -8,12 +8,12 @@
 namespace GameFramework.Entity
 {
     /// <summary>
-    /// 实体接口。
+    /// Entity interface.
     /// </summary>
     public interface IEntity
     {
         /// <summary>
-        /// 获取实体编号。
+        /// Gets the entity id.
         /// </summary>
         int Id
         {
@@ -21,7 +21,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体资源名称。
+        /// Gets the entity asset name.
         /// </summary>
         string EntityAssetName
         {
@@ -29,7 +29,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体实例。
+        /// Gets the entity instance.
         /// </summary>
         object Handle
         {
@@ -37,7 +37,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体所属的实体组。
+        /// Gets the entity group to which the entity belongs.
         /// </summary>
         IEntityGroup EntityGroup
         {
@@ -45,66 +45,66 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 实体初始化。
+        /// Initializes the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroup">实体所属的实体组。</param>
-        /// <param name="isNewInstance">是否是新实例。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="entityGroup">The entity group to which the entity belongs.</param>
+        /// <param name="isNewInstance">Whether it is a new instance.</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnInit(int entityId, string entityAssetName, IEntityGroup entityGroup, bool isNewInstance, object userData);
 
         /// <summary>
-        /// 实体回收。
+        /// Recycles the entity.
         /// </summary>
         void OnRecycle();
 
         /// <summary>
-        /// 实体显示。
+        /// Shows the entity.
         /// </summary>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnShow(object userData);
 
         /// <summary>
-        /// 实体隐藏。
+        /// Hides the entity.
         /// </summary>
-        /// <param name="isShutdown">是否是关闭实体管理器时触发。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="isShutdown">Whether it is triggered when shutting down the entity manager.</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnHide(bool isShutdown, object userData);
 
         /// <summary>
-        /// 实体附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntity">附加的子实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntity">The attached child entity.</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnAttached(IEntity childEntity, object userData);
 
         /// <summary>
-        /// 实体解除子实体。
+        /// Detaches a child entity.
         /// </summary>
-        /// <param name="childEntity">解除的子实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntity">The detached child entity.</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnDetached(IEntity childEntity, object userData);
 
         /// <summary>
-        /// 实体附加子实体。
+        /// Attaches to a parent entity.
         /// </summary>
-        /// <param name="parentEntity">被附加的父实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="parentEntity">The parent entity to attach to.</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnAttachTo(IEntity parentEntity, object userData);
 
         /// <summary>
-        /// 实体解除子实体。
+        /// Detaches from a parent entity.
         /// </summary>
-        /// <param name="parentEntity">被解除的父实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="parentEntity">The parent entity to detach from.</param>
+        /// <param name="userData">The user-defined data.</param>
         void OnDetachFrom(IEntity parentEntity, object userData);
 
         /// <summary>
-        /// 实体轮询。
+        /// Polling the entity.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         void OnUpdate(float elapseSeconds, float realElapseSeconds);
     }
 }

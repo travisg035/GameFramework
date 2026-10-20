@@ -11,18 +11,18 @@ using System.IO;
 namespace GameFramework.FileSystem
 {
     /// <summary>
-    /// 通用文件系统流。
+    /// Common file system stream.
     /// </summary>
     public sealed class CommonFileSystemStream : FileSystemStream, IDisposable
     {
         private readonly FileStream m_FileStream;
 
         /// <summary>
-        /// 初始化通用文件系统流的新实例。
+        /// Initializes a new instance of the CommonFileSystemStream class.
         /// </summary>
-        /// <param name="fullPath">要加载的文件系统的完整路径。</param>
-        /// <param name="access">要加载的文件系统的访问方式。</param>
-        /// <param name="createNew">是否创建新的文件系统流。</param>
+        /// <param name="fullPath">The full path of the file system to load.</param>
+        /// <param name="access">The access mode of the file system to load.</param>
+        /// <param name="createNew">Whether to create a new file system stream.</param>
         public CommonFileSystemStream(string fullPath, FileSystemAccess access, bool createNew)
         {
             if (string.IsNullOrEmpty(fullPath))
@@ -50,7 +50,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取或设置文件系统流位置。
+        /// Gets or sets the file system stream position.
         /// </summary>
         protected internal override long Position
         {
@@ -65,7 +65,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件系统流长度。
+        /// Gets the file system stream length.
         /// </summary>
         protected internal override long Length
         {
@@ -76,67 +76,67 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 设置文件系统流长度。
+        /// Sets the file system stream length.
         /// </summary>
-        /// <param name="length">要设置的文件系统流的长度。</param>
+        /// <param name="length">The file system stream length to set.</param>
         protected internal override void SetLength(long length)
         {
             m_FileStream.SetLength(length);
         }
 
         /// <summary>
-        /// 定位文件系统流位置。
+        /// Seeks the file system stream position.
         /// </summary>
-        /// <param name="offset">要定位的文件系统流位置的偏移。</param>
-        /// <param name="origin">要定位的文件系统流位置的方式。</param>
+        /// <param name="offset">The offset of the file system stream position to seek.</param>
+        /// <param name="origin">The seek origin of the file system stream position.</param>
         protected internal override void Seek(long offset, SeekOrigin origin)
         {
             m_FileStream.Seek(offset, origin);
         }
 
         /// <summary>
-        /// 从文件系统流中读取一个字节。
+        /// Reads a byte from the file system stream.
         /// </summary>
-        /// <returns>读取的字节，若已经到达文件结尾，则返回 -1。</returns>
+        /// <returns>The read byte, or -1 if the end of the file system stream has been reached.</returns>
         protected internal override int ReadByte()
         {
             return m_FileStream.ReadByte();
         }
 
         /// <summary>
-        /// 从文件系统流中读取二进制流。
+        /// Reads bytes from the file system stream.
         /// </summary>
-        /// <param name="buffer">存储读取文件内容的二进制流。</param>
-        /// <param name="startIndex">存储读取文件内容的二进制流的起始位置。</param>
-        /// <param name="length">存储读取文件内容的二进制流的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="buffer">The byte array to store the read file content.</param>
+        /// <param name="startIndex">The starting position in the byte array to store the read file content.</param>
+        /// <param name="length">The length of the byte array to store the read file content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         protected internal override int Read(byte[] buffer, int startIndex, int length)
         {
             return m_FileStream.Read(buffer, startIndex, length);
         }
 
         /// <summary>
-        /// 向文件系统流中写入一个字节。
+        /// Writes a byte to the file system stream.
         /// </summary>
-        /// <param name="value">要写入的字节。</param>
+        /// <param name="value">The byte to write.</param>
         protected internal override void WriteByte(byte value)
         {
             m_FileStream.WriteByte(value);
         }
 
         /// <summary>
-        /// 向文件系统流中写入二进制流。
+        /// Writes bytes to the file system stream.
         /// </summary>
-        /// <param name="buffer">存储写入文件内容的二进制流。</param>
-        /// <param name="startIndex">存储写入文件内容的二进制流的起始位置。</param>
-        /// <param name="length">存储写入文件内容的二进制流的长度。</param>
+        /// <param name="buffer">The byte array containing the file content to write.</param>
+        /// <param name="startIndex">The starting position in the byte array of the file content to write.</param>
+        /// <param name="length">The length of the byte array of the file content to write.</param>
         protected internal override void Write(byte[] buffer, int startIndex, int length)
         {
             m_FileStream.Write(buffer, startIndex, length);
         }
 
         /// <summary>
-        /// 将文件系统流立刻更新到存储介质中。
+        /// Flushes the file system stream to the storage medium immediately.
         /// </summary>
         protected internal override void Flush()
         {
@@ -144,7 +144,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 关闭文件系统流。
+        /// Closes the file system stream.
         /// </summary>
         protected internal override void Close()
         {
@@ -152,7 +152,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 销毁文件系统流。
+        /// Releases all resources used by the CommonFileSystemStream.
         /// </summary>
         public void Dispose()
         {

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace GameFramework.Entity
 {
     /// <summary>
-    /// 实体管理器。
+    /// Entity manager.
     /// </summary>
     internal sealed partial class EntityManager : GameFrameworkModule, IEntityManager
     {
@@ -35,7 +35,7 @@ namespace GameFramework.Entity
         private EventHandler<HideEntityCompleteEventArgs> m_HideEntityCompleteEventHandler;
 
         /// <summary>
-        /// 初始化实体管理器的新实例。
+        /// Initializes a new instance of the EntityManager class.
         /// </summary>
         public EntityManager()
         {
@@ -58,7 +58,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体数量。
+        /// Gets the entity count.
         /// </summary>
         public int EntityCount
         {
@@ -69,7 +69,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体组数量。
+        /// Gets the entity group count.
         /// </summary>
         public int EntityGroupCount
         {
@@ -80,7 +80,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 显示实体成功事件。
+        /// Show entity success event.
         /// </summary>
         public event EventHandler<ShowEntitySuccessEventArgs> ShowEntitySuccess
         {
@@ -95,7 +95,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 显示实体失败事件。
+        /// Show entity failure event.
         /// </summary>
         public event EventHandler<ShowEntityFailureEventArgs> ShowEntityFailure
         {
@@ -110,7 +110,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 显示实体更新事件。
+        /// Show entity update event.
         /// </summary>
         public event EventHandler<ShowEntityUpdateEventArgs> ShowEntityUpdate
         {
@@ -125,7 +125,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 显示实体时加载依赖资源事件。
+        /// Show entity dependency asset event.
         /// </summary>
         public event EventHandler<ShowEntityDependencyAssetEventArgs> ShowEntityDependencyAsset
         {
@@ -140,7 +140,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 隐藏实体完成事件。
+        /// Hide entity complete event.
         /// </summary>
         public event EventHandler<HideEntityCompleteEventArgs> HideEntityComplete
         {
@@ -155,10 +155,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 实体管理器轮询。
+        /// Updates the entity manager.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
             while (m_RecycleQueue.Count > 0)
@@ -185,7 +185,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 关闭并清理实体管理器。
+        /// Shuts down and cleans up the entity manager.
         /// </summary>
         internal override void Shutdown()
         {
@@ -198,9 +198,9 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 设置对象池管理器。
+        /// Sets the object pool manager.
         /// </summary>
-        /// <param name="objectPoolManager">对象池管理器。</param>
+        /// <param name="objectPoolManager">The object pool manager.</param>
         public void SetObjectPoolManager(IObjectPoolManager objectPoolManager)
         {
             if (objectPoolManager == null)
@@ -212,9 +212,9 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 设置资源管理器。
+        /// Sets the resource manager.
         /// </summary>
-        /// <param name="resourceManager">资源管理器。</param>
+        /// <param name="resourceManager">The resource manager.</param>
         public void SetResourceManager(IResourceManager resourceManager)
         {
             if (resourceManager == null)
@@ -226,9 +226,9 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 设置实体辅助器。
+        /// Sets the entity helper.
         /// </summary>
-        /// <param name="entityHelper">实体辅助器。</param>
+        /// <param name="entityHelper">The entity helper.</param>
         public void SetEntityHelper(IEntityHelper entityHelper)
         {
             if (entityHelper == null)
@@ -240,10 +240,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 是否存在实体组。
+        /// Checks whether the entity group exists.
         /// </summary>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <returns>是否存在实体组。</returns>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <returns>Whether the entity group exists.</returns>
         public bool HasEntityGroup(string entityGroupName)
         {
             if (string.IsNullOrEmpty(entityGroupName))
@@ -255,10 +255,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体组。
+        /// Gets an entity group.
         /// </summary>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <returns>要获取的实体组。</returns>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <returns>The entity group to get.</returns>
         public IEntityGroup GetEntityGroup(string entityGroupName)
         {
             if (string.IsNullOrEmpty(entityGroupName))
@@ -276,9 +276,9 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取所有实体组。
+        /// Gets all entity groups.
         /// </summary>
-        /// <returns>所有实体组。</returns>
+        /// <returns>All entity groups.</returns>
         public IEntityGroup[] GetAllEntityGroups()
         {
             int index = 0;
@@ -292,9 +292,9 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取所有实体组。
+        /// Gets all entity groups.
         /// </summary>
-        /// <param name="results">所有实体组。</param>
+        /// <param name="results">All entity groups.</param>
         public void GetAllEntityGroups(List<IEntityGroup> results)
         {
             if (results == null)
@@ -310,15 +310,15 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 增加实体组。
+        /// Adds an entity group.
         /// </summary>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <param name="instanceAutoReleaseInterval">实体实例对象池自动释放可释放对象的间隔秒数。</param>
-        /// <param name="instanceCapacity">实体实例对象池容量。</param>
-        /// <param name="instanceExpireTime">实体实例对象池对象过期秒数。</param>
-        /// <param name="instancePriority">实体实例对象池的优先级。</param>
-        /// <param name="entityGroupHelper">实体组辅助器。</param>
-        /// <returns>是否增加实体组成功。</returns>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <param name="instanceAutoReleaseInterval">The interval in seconds for automatically releasing releasable objects in the entity instance object pool.</param>
+        /// <param name="instanceCapacity">The capacity of the entity instance object pool.</param>
+        /// <param name="instanceExpireTime">The expire time in seconds for objects in the entity instance object pool.</param>
+        /// <param name="instancePriority">The priority of the entity instance object pool.</param>
+        /// <param name="entityGroupHelper">The entity group helper.</param>
+        /// <returns>Whether the entity group was added successfully.</returns>
         public bool AddEntityGroup(string entityGroupName, float instanceAutoReleaseInterval, int instanceCapacity, float instanceExpireTime, int instancePriority, IEntityGroupHelper entityGroupHelper)
         {
             if (string.IsNullOrEmpty(entityGroupName))
@@ -347,20 +347,20 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 是否存在实体。
+        /// Checks whether the entity exists.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <returns>是否存在实体。</returns>
+        /// <param name="entityId">The entity id.</param>
+        /// <returns>Whether the entity exists.</returns>
         public bool HasEntity(int entityId)
         {
             return m_EntityInfos.ContainsKey(entityId);
         }
 
         /// <summary>
-        /// 是否存在实体。
+        /// Checks whether the entity exists.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <returns>是否存在实体。</returns>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <returns>Whether the entity exists.</returns>
         public bool HasEntity(string entityAssetName)
         {
             if (string.IsNullOrEmpty(entityAssetName))
@@ -380,10 +380,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体。
+        /// Gets an entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <returns>要获取的实体。</returns>
+        /// <param name="entityId">The entity id.</param>
+        /// <returns>The entity to get.</returns>
         public IEntity GetEntity(int entityId)
         {
             EntityInfo entityInfo = GetEntityInfo(entityId);
@@ -396,10 +396,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体。
+        /// Gets an entity.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <returns>要获取的实体。</returns>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <returns>The entity to get.</returns>
         public IEntity GetEntity(string entityAssetName)
         {
             if (string.IsNullOrEmpty(entityAssetName))
@@ -419,10 +419,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体。
+        /// Gets entities.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <returns>要获取的实体。</returns>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <returns>The entities to get.</returns>
         public IEntity[] GetEntities(string entityAssetName)
         {
             if (string.IsNullOrEmpty(entityAssetName))
@@ -443,10 +443,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体。
+        /// Gets entities.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="results">要获取的实体。</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="results">The entities to get.</param>
         public void GetEntities(string entityAssetName, List<IEntity> results)
         {
             if (string.IsNullOrEmpty(entityAssetName))
@@ -470,9 +470,9 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取所有已加载的实体。
+        /// Gets all loaded entities.
         /// </summary>
-        /// <returns>所有已加载的实体。</returns>
+        /// <returns>All loaded entities.</returns>
         public IEntity[] GetAllLoadedEntities()
         {
             int index = 0;
@@ -486,9 +486,9 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取所有已加载的实体。
+        /// Gets all loaded entities.
         /// </summary>
-        /// <param name="results">所有已加载的实体。</param>
+        /// <param name="results">All loaded entities.</param>
         public void GetAllLoadedEntities(List<IEntity> results)
         {
             if (results == null)
@@ -504,9 +504,9 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取所有正在加载实体的编号。
+        /// Gets all loading entity ids.
         /// </summary>
-        /// <returns>所有正在加载实体的编号。</returns>
+        /// <returns>All loading entity ids.</returns>
         public int[] GetAllLoadingEntityIds()
         {
             int index = 0;
@@ -520,9 +520,9 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取所有正在加载实体的编号。
+        /// Gets all loading entity ids.
         /// </summary>
-        /// <param name="results">所有正在加载实体的编号。</param>
+        /// <param name="results">All loading entity ids.</param>
         public void GetAllLoadingEntityIds(List<int> results)
         {
             if (results == null)
@@ -538,20 +538,20 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 是否正在加载实体。
+        /// Checks whether the entity is loading.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <returns>是否正在加载实体。</returns>
+        /// <param name="entityId">The entity id.</param>
+        /// <returns>Whether the entity is loading.</returns>
         public bool IsLoadingEntity(int entityId)
         {
             return m_EntitiesBeingLoaded.ContainsKey(entityId);
         }
 
         /// <summary>
-        /// 是否是合法的实体。
+        /// Checks whether the entity is valid.
         /// </summary>
-        /// <param name="entity">实体。</param>
-        /// <returns>实体是否合法。</returns>
+        /// <param name="entity">The entity.</param>
+        /// <returns>Whether the entity is valid.</returns>
         public bool IsValidEntity(IEntity entity)
         {
             if (entity == null)
@@ -563,48 +563,48 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 显示实体。
+        /// Shows the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroupName">实体组名称。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="entityGroupName">The entity group name.</param>
         public void ShowEntity(int entityId, string entityAssetName, string entityGroupName)
         {
             ShowEntity(entityId, entityAssetName, entityGroupName, Constant.DefaultPriority, null);
         }
 
         /// <summary>
-        /// 显示实体。
+        /// Shows the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <param name="priority">加载实体资源的优先级。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <param name="priority">The priority for loading the entity asset.</param>
         public void ShowEntity(int entityId, string entityAssetName, string entityGroupName, int priority)
         {
             ShowEntity(entityId, entityAssetName, entityGroupName, priority, null);
         }
 
         /// <summary>
-        /// 显示实体。
+        /// Shows the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void ShowEntity(int entityId, string entityAssetName, string entityGroupName, object userData)
         {
             ShowEntity(entityId, entityAssetName, entityGroupName, Constant.DefaultPriority, userData);
         }
 
         /// <summary>
-        /// 显示实体。
+        /// Shows the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <param name="priority">加载实体资源的优先级。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <param name="priority">The priority for loading the entity asset.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void ShowEntity(int entityId, string entityAssetName, string entityGroupName, int priority, object userData)
         {
             if (m_ResourceManager == null)
@@ -656,19 +656,19 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 隐藏实体。
+        /// Hides the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
+        /// <param name="entityId">The entity id.</param>
         public void HideEntity(int entityId)
         {
             HideEntity(entityId, null);
         }
 
         /// <summary>
-        /// 隐藏实体。
+        /// Hides the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void HideEntity(int entityId, object userData)
         {
             if (IsLoadingEntity(entityId))
@@ -688,19 +688,19 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 隐藏实体。
+        /// Hides the entity.
         /// </summary>
-        /// <param name="entity">实体。</param>
+        /// <param name="entity">The entity.</param>
         public void HideEntity(IEntity entity)
         {
             HideEntity(entity, null);
         }
 
         /// <summary>
-        /// 隐藏实体。
+        /// Hides the entity.
         /// </summary>
-        /// <param name="entity">实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="entity">The entity.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void HideEntity(IEntity entity, object userData)
         {
             if (entity == null)
@@ -712,7 +712,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 隐藏所有已加载的实体。
+        /// Hides all loaded entities.
         /// </summary>
         public void HideAllLoadedEntities()
         {
@@ -720,9 +720,9 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 隐藏所有已加载的实体。
+        /// Hides all loaded entities.
         /// </summary>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="userData">The user-defined data.</param>
         public void HideAllLoadedEntities(object userData)
         {
             while (m_EntityInfos.Count > 0)
@@ -736,7 +736,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 隐藏所有正在加载的实体。
+        /// Hides all loading entities.
         /// </summary>
         public void HideAllLoadingEntities()
         {
@@ -749,10 +749,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取父实体。
+        /// Gets the parent entity.
         /// </summary>
-        /// <param name="childEntityId">要获取父实体的子实体的实体编号。</param>
-        /// <returns>子实体的父实体。</returns>
+        /// <param name="childEntityId">The entity id of the child entity to get the parent entity.</param>
+        /// <returns>The parent entity of the child entity.</returns>
         public IEntity GetParentEntity(int childEntityId)
         {
             EntityInfo childEntityInfo = GetEntityInfo(childEntityId);
@@ -765,10 +765,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取父实体。
+        /// Gets the parent entity.
         /// </summary>
-        /// <param name="childEntity">要获取父实体的子实体。</param>
-        /// <returns>子实体的父实体。</returns>
+        /// <param name="childEntity">The child entity to get the parent entity.</param>
+        /// <returns>The parent entity of the child entity.</returns>
         public IEntity GetParentEntity(IEntity childEntity)
         {
             if (childEntity == null)
@@ -780,10 +780,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取子实体数量。
+        /// Gets the count of child entities.
         /// </summary>
-        /// <param name="parentEntityId">要获取子实体数量的父实体的实体编号。</param>
-        /// <returns>子实体数量。</returns>
+        /// <param name="parentEntityId">The entity id of the parent entity to get the child entity count.</param>
+        /// <returns>The count of child entities.</returns>
         public int GetChildEntityCount(int parentEntityId)
         {
             EntityInfo parentEntityInfo = GetEntityInfo(parentEntityId);
@@ -796,10 +796,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取子实体。
+        /// Gets a child entity.
         /// </summary>
-        /// <param name="parentEntityId">要获取子实体的父实体的实体编号。</param>
-        /// <returns>子实体。</returns>
+        /// <param name="parentEntityId">The entity id of the parent entity to get the child entity.</param>
+        /// <returns>The child entity.</returns>
         public IEntity GetChildEntity(int parentEntityId)
         {
             EntityInfo parentEntityInfo = GetEntityInfo(parentEntityId);
@@ -812,10 +812,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取子实体。
+        /// Gets a child entity.
         /// </summary>
-        /// <param name="parentEntity">要获取子实体的父实体。</param>
-        /// <returns>子实体。</returns>
+        /// <param name="parentEntity">The parent entity to get the child entity.</param>
+        /// <returns>The child entity.</returns>
         public IEntity GetChildEntity(IEntity parentEntity)
         {
             if (parentEntity == null)
@@ -827,10 +827,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取所有子实体。
+        /// Gets all child entities.
         /// </summary>
-        /// <param name="parentEntityId">要获取所有子实体的父实体的实体编号。</param>
-        /// <returns>所有子实体。</returns>
+        /// <param name="parentEntityId">The entity id of the parent entity to get all child entities.</param>
+        /// <returns>All child entities.</returns>
         public IEntity[] GetChildEntities(int parentEntityId)
         {
             EntityInfo parentEntityInfo = GetEntityInfo(parentEntityId);
@@ -843,10 +843,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取所有子实体。
+        /// Gets all child entities.
         /// </summary>
-        /// <param name="parentEntityId">要获取所有子实体的父实体的实体编号。</param>
-        /// <param name="results">所有子实体。</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to get all child entities.</param>
+        /// <param name="results">All child entities.</param>
         public void GetChildEntities(int parentEntityId, List<IEntity> results)
         {
             EntityInfo parentEntityInfo = GetEntityInfo(parentEntityId);
@@ -859,10 +859,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取所有子实体。
+        /// Gets all child entities.
         /// </summary>
-        /// <param name="parentEntity">要获取所有子实体的父实体。</param>
-        /// <returns>所有子实体。</returns>
+        /// <param name="parentEntity">The parent entity to get all child entities.</param>
+        /// <returns>All child entities.</returns>
         public IEntity[] GetChildEntities(IEntity parentEntity)
         {
             if (parentEntity == null)
@@ -874,10 +874,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取所有子实体。
+        /// Gets all child entities.
         /// </summary>
-        /// <param name="parentEntity">要获取所有子实体的父实体。</param>
-        /// <param name="results">所有子实体。</param>
+        /// <param name="parentEntity">The parent entity to get all child entities.</param>
+        /// <param name="results">All child entities.</param>
         public void GetChildEntities(IEntity parentEntity, List<IEntity> results)
         {
             if (parentEntity == null)
@@ -889,21 +889,21 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要附加的子实体的实体编号。</param>
-        /// <param name="parentEntityId">被附加的父实体的实体编号。</param>
+        /// <param name="childEntityId">The entity id of the child entity to attach.</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to attach to.</param>
         public void AttachEntity(int childEntityId, int parentEntityId)
         {
             AttachEntity(childEntityId, parentEntityId, null);
         }
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要附加的子实体的实体编号。</param>
-        /// <param name="parentEntityId">被附加的父实体的实体编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntityId">The entity id of the child entity to attach.</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to attach to.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void AttachEntity(int childEntityId, int parentEntityId, object userData)
         {
             if (childEntityId == parentEntityId)
@@ -943,21 +943,21 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要附加的子实体的实体编号。</param>
-        /// <param name="parentEntity">被附加的父实体。</param>
+        /// <param name="childEntityId">The entity id of the child entity to attach.</param>
+        /// <param name="parentEntity">The parent entity to attach to.</param>
         public void AttachEntity(int childEntityId, IEntity parentEntity)
         {
             AttachEntity(childEntityId, parentEntity, null);
         }
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要附加的子实体的实体编号。</param>
-        /// <param name="parentEntity">被附加的父实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntityId">The entity id of the child entity to attach.</param>
+        /// <param name="parentEntity">The parent entity to attach to.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void AttachEntity(int childEntityId, IEntity parentEntity, object userData)
         {
             if (parentEntity == null)
@@ -969,21 +969,21 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要附加的子实体。</param>
-        /// <param name="parentEntityId">被附加的父实体的实体编号。</param>
+        /// <param name="childEntity">The child entity to attach.</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to attach to.</param>
         public void AttachEntity(IEntity childEntity, int parentEntityId)
         {
             AttachEntity(childEntity, parentEntityId, null);
         }
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要附加的子实体。</param>
-        /// <param name="parentEntityId">被附加的父实体的实体编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntity">The child entity to attach.</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to attach to.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void AttachEntity(IEntity childEntity, int parentEntityId, object userData)
         {
             if (childEntity == null)
@@ -995,21 +995,21 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要附加的子实体。</param>
-        /// <param name="parentEntity">被附加的父实体。</param>
+        /// <param name="childEntity">The child entity to attach.</param>
+        /// <param name="parentEntity">The parent entity to attach to.</param>
         public void AttachEntity(IEntity childEntity, IEntity parentEntity)
         {
             AttachEntity(childEntity, parentEntity, null);
         }
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要附加的子实体。</param>
-        /// <param name="parentEntity">被附加的父实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntity">The child entity to attach.</param>
+        /// <param name="parentEntity">The parent entity to attach to.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void AttachEntity(IEntity childEntity, IEntity parentEntity, object userData)
         {
             if (childEntity == null)
@@ -1026,19 +1026,19 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 解除子实体。
+        /// Detaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要解除的子实体的实体编号。</param>
+        /// <param name="childEntityId">The entity id of the child entity to detach.</param>
         public void DetachEntity(int childEntityId)
         {
             DetachEntity(childEntityId, null);
         }
 
         /// <summary>
-        /// 解除子实体。
+        /// Detaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要解除的子实体的实体编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntityId">The entity id of the child entity to detach.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void DetachEntity(int childEntityId, object userData)
         {
             EntityInfo childEntityInfo = GetEntityInfo(childEntityId);
@@ -1067,19 +1067,19 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 解除子实体。
+        /// Detaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要解除的子实体。</param>
+        /// <param name="childEntity">The child entity to detach.</param>
         public void DetachEntity(IEntity childEntity)
         {
             DetachEntity(childEntity, null);
         }
 
         /// <summary>
-        /// 解除子实体。
+        /// Detaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要解除的子实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntity">The child entity to detach.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void DetachEntity(IEntity childEntity, object userData)
         {
             if (childEntity == null)
@@ -1091,19 +1091,19 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 解除所有子实体。
+        /// Detaches all child entities.
         /// </summary>
-        /// <param name="parentEntityId">被解除的父实体的实体编号。</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to detach.</param>
         public void DetachChildEntities(int parentEntityId)
         {
             DetachChildEntities(parentEntityId, null);
         }
 
         /// <summary>
-        /// 解除所有子实体。
+        /// Detaches all child entities.
         /// </summary>
-        /// <param name="parentEntityId">被解除的父实体的实体编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to detach.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void DetachChildEntities(int parentEntityId, object userData)
         {
             EntityInfo parentEntityInfo = GetEntityInfo(parentEntityId);
@@ -1120,19 +1120,19 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 解除所有子实体。
+        /// Detaches all child entities.
         /// </summary>
-        /// <param name="parentEntity">被解除的父实体。</param>
+        /// <param name="parentEntity">The parent entity to detach.</param>
         public void DetachChildEntities(IEntity parentEntity)
         {
             DetachChildEntities(parentEntity, null);
         }
 
         /// <summary>
-        /// 解除所有子实体。
+        /// Detaches all child entities.
         /// </summary>
-        /// <param name="parentEntity">被解除的父实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="parentEntity">The parent entity to detach.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void DetachChildEntities(IEntity parentEntity, object userData)
         {
             if (parentEntity == null)
@@ -1144,10 +1144,10 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体信息。
+        /// Gets the entity info.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <returns>实体信息。</returns>
+        /// <param name="entityId">The entity id.</param>
+        /// <returns>The entity info.</returns>
         private EntityInfo GetEntityInfo(int entityId)
         {
             EntityInfo entityInfo = null;

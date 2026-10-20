@@ -14,7 +14,7 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 资源名称。
+        /// Resource name.
         /// </summary>
         [StructLayout(LayoutKind.Auto)]
         private struct ResourceName : IComparable, IComparable<ResourceName>, IEquatable<ResourceName>
@@ -26,11 +26,11 @@ namespace GameFramework.Resource
             private readonly string m_Extension;
 
             /// <summary>
-            /// 初始化资源名称的新实例。
+            /// Initializes a new instance of the ResourceName struct.
             /// </summary>
-            /// <param name="name">资源名称。</param>
-            /// <param name="variant">变体名称。</param>
-            /// <param name="extension">扩展名称。</param>
+            /// <param name="name">The resource name.</param>
+            /// <param name="variant">The variant name.</param>
+            /// <param name="extension">The extension name.</param>
             public ResourceName(string name, string variant, string extension)
             {
                 if (string.IsNullOrEmpty(name))
@@ -49,7 +49,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源名称。
+            /// Gets the resource name.
             /// </summary>
             public string Name
             {
@@ -60,7 +60,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取变体名称。
+            /// Gets the variant name.
             /// </summary>
             public string Variant
             {
@@ -71,7 +71,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取扩展名称。
+            /// Gets the extension name.
             /// </summary>
             public string Extension
             {

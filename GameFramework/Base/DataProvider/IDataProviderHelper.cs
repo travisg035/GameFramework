@@ -8,57 +8,58 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 数据提供者辅助器接口。
+    /// Data provider helper interface.
     /// </summary>
+    /// <typeparam name="T">The type of the data provider owner.</typeparam>
     public interface IDataProviderHelper<T>
     {
         /// <summary>
-        /// 读取数据。
+        /// Reads data.
         /// </summary>
-        /// <param name="dataProviderOwner">数据提供者的持有者。</param>
-        /// <param name="dataAssetName">内容资源名称。</param>
-        /// <param name="dataAsset">内容资源。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否读取数据成功。</returns>
+        /// <param name="dataProviderOwner">The owner of the data provider.</param>
+        /// <param name="dataAssetName">Data asset name.</param>
+        /// <param name="dataAsset">Data asset.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>Whether the data was read successfully.</returns>
         bool ReadData(T dataProviderOwner, string dataAssetName, object dataAsset, object userData);
 
         /// <summary>
-        /// 读取数据。
+        /// Reads data.
         /// </summary>
-        /// <param name="dataProviderOwner">数据提供者的持有者。</param>
-        /// <param name="dataAssetName">内容资源名称。</param>
-        /// <param name="dataBytes">内容二进制流。</param>
-        /// <param name="startIndex">内容二进制流的起始位置。</param>
-        /// <param name="length">内容二进制流的长度。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否读取数据成功。</returns>
+        /// <param name="dataProviderOwner">The owner of the data provider.</param>
+        /// <param name="dataAssetName">Data asset name.</param>
+        /// <param name="dataBytes">Data bytes.</param>
+        /// <param name="startIndex">The start index in the data bytes.</param>
+        /// <param name="length">The length of data bytes to read.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>Whether the data was read successfully.</returns>
         bool ReadData(T dataProviderOwner, string dataAssetName, byte[] dataBytes, int startIndex, int length, object userData);
 
         /// <summary>
-        /// 解析内容。
+        /// Parses data.
         /// </summary>
-        /// <param name="dataProviderOwner">数据提供者的持有者。</param>
-        /// <param name="dataString">要解析的内容字符串。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否解析内容成功。</returns>
+        /// <param name="dataProviderOwner">The owner of the data provider.</param>
+        /// <param name="dataString">The data string to parse.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>Whether the data was parsed successfully.</returns>
         bool ParseData(T dataProviderOwner, string dataString, object userData);
 
         /// <summary>
-        /// 解析内容。
+        /// Parses data.
         /// </summary>
-        /// <param name="dataProviderOwner">数据提供者的持有者。</param>
-        /// <param name="dataBytes">要解析的内容二进制流。</param>
-        /// <param name="startIndex">内容二进制流的起始位置。</param>
-        /// <param name="length">内容二进制流的长度。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否解析内容成功。</returns>
+        /// <param name="dataProviderOwner">The owner of the data provider.</param>
+        /// <param name="dataBytes">The data bytes to parse.</param>
+        /// <param name="startIndex">The start index in the data bytes.</param>
+        /// <param name="length">The length of data bytes to parse.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>Whether the data was parsed successfully.</returns>
         bool ParseData(T dataProviderOwner, byte[] dataBytes, int startIndex, int length, object userData);
 
         /// <summary>
-        /// 释放内容资源。
+        /// Releases the data asset.
         /// </summary>
-        /// <param name="dataProviderOwner">数据提供者的持有者。</param>
-        /// <param name="dataAsset">要释放的内容资源。</param>
+        /// <param name="dataProviderOwner">The owner of the data provider.</param>
+        /// <param name="dataAsset">The data asset to release.</param>
         void ReleaseDataAsset(T dataProviderOwner, object dataAsset);
     }
 }

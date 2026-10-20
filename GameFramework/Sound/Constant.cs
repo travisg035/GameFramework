@@ -8,7 +8,7 @@
 namespace GameFramework.Sound
 {
     /// <summary>
-    /// 声音相关常量。
+    /// Sound-related constants.
     /// </summary>
     internal static class Constant
     {

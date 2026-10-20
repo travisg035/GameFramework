@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源包版本资源列表。
+    /// Resource pack version list.
     /// </summary>
     [StructLayout(LayoutKind.Auto)]
     public partial struct ResourcePackVersionList
@@ -24,12 +24,12 @@ namespace GameFramework.Resource
         private readonly Resource[] m_Resources;
 
         /// <summary>
-        /// 初始化资源包版本资源列表的新实例。
+        /// Initializes a new instance of the ResourcePackVersionList struct.
         /// </summary>
-        /// <param name="offset">资源数据偏移。</param>
-        /// <param name="length">资源数据长度。</param>
-        /// <param name="hashCode">资源数据哈希值。</param>
-        /// <param name="resources">包含的资源集合。</param>
+        /// <param name="offset">Resource data offset.</param>
+        /// <param name="length">Resource data length.</param>
+        /// <param name="hashCode">Resource data hash code.</param>
+        /// <param name="resources">Included resources.</param>
         public ResourcePackVersionList(int offset, long length, int hashCode, Resource[] resources)
         {
             m_IsValid = true;
@@ -40,7 +40,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源包版本资源列表是否有效。
+        /// Gets whether the resource pack version list is valid.
         /// </summary>
         public bool IsValid
         {
@@ -51,7 +51,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源数据偏移。
+        /// Gets the resource data offset.
         /// </summary>
         public int Offset
         {
@@ -67,7 +67,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源数据长度。
+        /// Gets the resource data length.
         /// </summary>
         public long Length
         {
@@ -83,7 +83,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源数据哈希值。
+        /// Gets the resource data hash code.
         /// </summary>
         public int HashCode
         {
@@ -99,9 +99,9 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取包含的资源集合。
+        /// Gets the included resources.
         /// </summary>
-        /// <returns>包含的资源集合。</returns>
+        /// <returns>Included resources.</returns>
         public Resource[] GetResources()
         {
             if (!m_IsValid)

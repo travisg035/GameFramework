@@ -8,12 +8,12 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 引用接口。
+    /// Reference interface.
     /// </summary>
     public interface IReference
     {
         /// <summary>
-        /// 清理引用。
+        /// Clears the reference.
         /// </summary>
         void Clear();
     }

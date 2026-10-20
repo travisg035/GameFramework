@@ -10,12 +10,12 @@ using System.Collections.Generic;
 namespace GameFramework.Entity
 {
     /// <summary>
-    /// 实体组接口。
+    /// Entity group interface.
     /// </summary>
     public interface IEntityGroup
     {
         /// <summary>
-        /// 获取实体组名称。
+        /// Gets the entity group name.
         /// </summary>
         string Name
         {
@@ -23,7 +23,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体组中实体数量。
+        /// Gets the count of entities in the entity group.
         /// </summary>
         int EntityCount
         {
@@ -31,7 +31,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取或设置实体组实例对象池自动释放可释放对象的间隔秒数。
+        /// Gets or sets the interval in seconds for automatically releasing releasable objects in the entity group instance object pool.
         /// </summary>
         float InstanceAutoReleaseInterval
         {
@@ -40,7 +40,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取或设置实体组实例对象池的容量。
+        /// Gets or sets the capacity of the entity group instance object pool.
         /// </summary>
         int InstanceCapacity
         {
@@ -49,7 +49,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取或设置实体组实例对象池对象过期秒数。
+        /// Gets or sets the expire time in seconds for objects in the entity group instance object pool.
         /// </summary>
         float InstanceExpireTime
         {
@@ -58,7 +58,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取或设置实体组实例对象池的优先级。
+        /// Gets or sets the priority of the entity group instance object pool.
         /// </summary>
         int InstancePriority
         {
@@ -67,7 +67,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体组辅助器。
+        /// Gets the entity group helper.
         /// </summary>
         IEntityGroupHelper Helper
         {
@@ -75,71 +75,71 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 实体组中是否存在实体。
+        /// Checks whether the entity exists in the entity group.
         /// </summary>
-        /// <param name="entityId">实体序列编号。</param>
-        /// <returns>实体组中是否存在实体。</returns>
+        /// <param name="entityId">The serial ID of the entity.</param>
+        /// <returns>Whether the entity exists in the entity group.</returns>
         bool HasEntity(int entityId);
 
         /// <summary>
-        /// 实体组中是否存在实体。
+        /// Checks whether the entity exists in the entity group.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <returns>实体组中是否存在实体。</returns>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <returns>Whether the entity exists in the entity group.</returns>
         bool HasEntity(string entityAssetName);
 
         /// <summary>
-        /// 从实体组中获取实体。
+        /// Gets an entity from the entity group.
         /// </summary>
-        /// <param name="entityId">实体序列编号。</param>
-        /// <returns>要获取的实体。</returns>
+        /// <param name="entityId">The serial ID of the entity.</param>
+        /// <returns>The entity to get.</returns>
         IEntity GetEntity(int entityId);
 
         /// <summary>
-        /// 从实体组中获取实体。
+        /// Gets an entity from the entity group.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <returns>要获取的实体。</returns>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <returns>The entity to get.</returns>
         IEntity GetEntity(string entityAssetName);
 
         /// <summary>
-        /// 从实体组中获取实体。
+        /// Gets entities from the entity group.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <returns>要获取的实体。</returns>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <returns>The entities to get.</returns>
         IEntity[] GetEntities(string entityAssetName);
 
         /// <summary>
-        /// 从实体组中获取实体。
+        /// Gets entities from the entity group.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="results">要获取的实体。</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="results">The entities to get.</param>
         void GetEntities(string entityAssetName, List<IEntity> results);
 
         /// <summary>
-        /// 从实体组中获取所有实体。
+        /// Gets all entities from the entity group.
         /// </summary>
-        /// <returns>实体组中的所有实体。</returns>
+        /// <returns>All entities in the entity group.</returns>
         IEntity[] GetAllEntities();
 
         /// <summary>
-        /// 从实体组中获取所有实体。
+        /// Gets all entities from the entity group.
         /// </summary>
-        /// <param name="results">实体组中的所有实体。</param>
+        /// <param name="results">All entities in the entity group.</param>
         void GetAllEntities(List<IEntity> results);
 
         /// <summary>
-        /// 设置实体实例是否被加锁。
+        /// Sets whether the entity instance is locked.
         /// </summary>
-        /// <param name="entityInstance">实体实例。</param>
-        /// <param name="locked">实体实例是否被加锁。</param>
+        /// <param name="entityInstance">The entity instance.</param>
+        /// <param name="locked">Whether the entity instance is locked.</param>
         void SetEntityInstanceLocked(object entityInstance, bool locked);
 
         /// <summary>
-        /// 设置实体实例的优先级。
+        /// Sets the priority of the entity instance.
         /// </summary>
-        /// <param name="entityInstance">实体实例。</param>
-        /// <param name="priority">实体实例优先级。</param>
+        /// <param name="entityInstance">The entity instance.</param>
+        /// <param name="priority">The entity instance priority.</param>
         void SetEntityInstancePriority(object entityInstance, int priority);
     }
 }

@@ -8,12 +8,12 @@
 namespace GameFramework.Localization
 {
     /// <summary>
-    /// 本地化辅助器接口。
+    /// Localization helper interface.
     /// </summary>
     public interface ILocalizationHelper
     {
         /// <summary>
-        /// 获取系统语言。
+        /// Gets the system language.
         /// </summary>
         Language SystemLanguage
         {

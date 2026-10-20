@@ -13,7 +13,7 @@ namespace GameFramework
     public static partial class Utility
     {
         /// <summary>
-        /// 类型转换相关的实用函数。
+        /// Type converter utility functions.
         /// </summary>
         public static class Converter
         {
@@ -21,7 +21,7 @@ namespace GameFramework
             private const float CentimetersToInches = 1f / InchesToCentimeters; // 1 cm = 0.3937 inches
 
             /// <summary>
-            /// 获取数据在此计算机结构中存储时的字节顺序。
+            /// Gets the byte order ("endianness") in which data is stored in this computer architecture.
             /// </summary>
             public static bool IsLittleEndian
             {
@@ -32,7 +32,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取或设置屏幕每英寸点数。
+            /// Gets or sets the screen dots per inch (DPI).
             /// </summary>
             public static float ScreenDpi
             {
@@ -41,10 +41,10 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 将像素转换为厘米。
+            /// Converts pixels to centimeters.
             /// </summary>
-            /// <param name="pixels">像素。</param>
-            /// <returns>厘米。</returns>
+            /// <param name="pixels">Pixels.</param>
+            /// <returns>Centimeters.</returns>
             public static float GetCentimetersFromPixels(float pixels)
             {
                 if (ScreenDpi <= 0)
@@ -56,10 +56,10 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 将厘米转换为像素。
+            /// Converts centimeters to pixels.
             /// </summary>
-            /// <param name="centimeters">厘米。</param>
-            /// <returns>像素。</returns>
+            /// <param name="centimeters">Centimeters.</param>
+            /// <returns>Pixels.</returns>
             public static float GetPixelsFromCentimeters(float centimeters)
             {
                 if (ScreenDpi <= 0)
@@ -71,10 +71,10 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 将像素转换为英寸。
+            /// Converts pixels to inches.
             /// </summary>
-            /// <param name="pixels">像素。</param>
-            /// <returns>英寸。</returns>
+            /// <param name="pixels">Pixels.</param>
+            /// <returns>Inches.</returns>
             public static float GetInchesFromPixels(float pixels)
             {
                 if (ScreenDpi <= 0)
@@ -86,10 +86,10 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 将英寸转换为像素。
+            /// Converts inches to pixels.
             /// </summary>
-            /// <param name="inches">英寸。</param>
-            /// <returns>像素。</returns>
+            /// <param name="inches">Inches.</param>
+            /// <returns>Pixels.</returns>
             public static float GetPixelsFromInches(float inches)
             {
                 if (ScreenDpi <= 0)
@@ -101,10 +101,10 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的布尔值。
+            /// Gets the specified boolean value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的布尔值。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The boolean value to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static byte[] GetBytes(bool value)
             {
                 byte[] buffer = new byte[1];
@@ -113,21 +113,21 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的布尔值。
+            /// Gets the specified boolean value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的布尔值。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
+            /// <param name="value">The boolean value to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
             public static void GetBytes(bool value, byte[] buffer)
             {
                 GetBytes(value, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的布尔值。
+            /// Gets the specified boolean value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的布尔值。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
+            /// <param name="value">The boolean value to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
             public static void GetBytes(bool value, byte[] buffer, int startIndex)
             {
                 if (buffer == null)
@@ -144,31 +144,31 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 返回由字节数组中首字节转换来的布尔值。
+            /// Returns a boolean value converted from the first byte in the specified byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>如果 value 中的首字节非零，则为 true，否则为 false。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>true if the first byte in value is non-zero; otherwise, false.</returns>
             public static bool GetBoolean(byte[] value)
             {
                 return BitConverter.ToBoolean(value, 0);
             }
 
             /// <summary>
-            /// 返回由字节数组中指定位置的一个字节转换来的布尔值。
+            /// Returns a boolean value converted from the byte at the specified position in the byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <returns>如果 value 中指定位置的字节非零，则为 true，否则为 false。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <returns>true if the byte at the specified position in value is non-zero; otherwise, false.</returns>
             public static bool GetBoolean(byte[] value, int startIndex)
             {
                 return BitConverter.ToBoolean(value, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 Unicode 字符值。
+            /// Gets the specified Unicode character value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的字符。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The character to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static byte[] GetBytes(char value)
             {
                 byte[] buffer = new byte[2];
@@ -177,52 +177,52 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 Unicode 字符值。
+            /// Gets the specified Unicode character value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的字符。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
+            /// <param name="value">The character to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
             public static void GetBytes(char value, byte[] buffer)
             {
                 GetBytes((short)value, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 Unicode 字符值。
+            /// Gets the specified Unicode character value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的字符。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
+            /// <param name="value">The character to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
             public static void GetBytes(char value, byte[] buffer, int startIndex)
             {
                 GetBytes((short)value, buffer, startIndex);
             }
 
             /// <summary>
-            /// 返回由字节数组中前两个字节转换来的 Unicode 字符。
+            /// Returns a Unicode character converted from the first two bytes in the specified byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>由两个字节构成的字符。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>A character formed by two bytes.</returns>
             public static char GetChar(byte[] value)
             {
                 return BitConverter.ToChar(value, 0);
             }
 
             /// <summary>
-            /// 返回由字节数组中指定位置的两个字节转换来的 Unicode 字符。
+            /// Returns a Unicode character converted from two bytes at the specified position in the byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <returns>由两个字节构成的字符。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <returns>A character formed by two bytes.</returns>
             public static char GetChar(byte[] value, int startIndex)
             {
                 return BitConverter.ToChar(value, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 16 位有符号整数值。
+            /// Gets the specified 16-bit signed integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The number to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static byte[] GetBytes(short value)
             {
                 byte[] buffer = new byte[2];
@@ -231,21 +231,21 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 16 位有符号整数值。
+            /// Gets the specified 16-bit signed integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
             public static void GetBytes(short value, byte[] buffer)
             {
                 GetBytes(value, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 16 位有符号整数值。
+            /// Gets the specified 16-bit signed integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
             public static unsafe void GetBytes(short value, byte[] buffer, int startIndex)
             {
                 if (buffer == null)
@@ -265,31 +265,31 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 返回由字节数组中前两个字节转换来的 16 位有符号整数。
+            /// Returns a 16-bit signed integer converted from the first two bytes in the specified byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>由两个字节构成的 16 位有符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>A 16-bit signed integer formed by two bytes.</returns>
             public static short GetInt16(byte[] value)
             {
                 return BitConverter.ToInt16(value, 0);
             }
 
             /// <summary>
-            /// 返回由字节数组中指定位置的两个字节转换来的 16 位有符号整数。
+            /// Returns a 16-bit signed integer converted from two bytes at the specified position in the byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <returns>由两个字节构成的 16 位有符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <returns>A 16-bit signed integer formed by two bytes.</returns>
             public static short GetInt16(byte[] value, int startIndex)
             {
                 return BitConverter.ToInt16(value, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 16 位无符号整数值。
+            /// Gets the specified 16-bit unsigned integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The number to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static byte[] GetBytes(ushort value)
             {
                 byte[] buffer = new byte[2];
@@ -298,52 +298,52 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 16 位无符号整数值。
+            /// Gets the specified 16-bit unsigned integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
             public static void GetBytes(ushort value, byte[] buffer)
             {
                 GetBytes((short)value, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 16 位无符号整数值。
+            /// Gets the specified 16-bit unsigned integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
             public static void GetBytes(ushort value, byte[] buffer, int startIndex)
             {
                 GetBytes((short)value, buffer, startIndex);
             }
 
             /// <summary>
-            /// 返回由字节数组中前两个字节转换来的 16 位无符号整数。
+            /// Returns a 16-bit unsigned integer converted from the first two bytes in the specified byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>由两个字节构成的 16 位无符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>A 16-bit unsigned integer formed by two bytes.</returns>
             public static ushort GetUInt16(byte[] value)
             {
                 return BitConverter.ToUInt16(value, 0);
             }
 
             /// <summary>
-            /// 返回由字节数组中指定位置的两个字节转换来的 16 位无符号整数。
+            /// Returns a 16-bit unsigned integer converted from two bytes at the specified position in the byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <returns>由两个字节构成的 16 位无符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <returns>A 16-bit unsigned integer formed by two bytes.</returns>
             public static ushort GetUInt16(byte[] value, int startIndex)
             {
                 return BitConverter.ToUInt16(value, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 32 位有符号整数值。
+            /// Gets the specified 32-bit signed integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The number to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static byte[] GetBytes(int value)
             {
                 byte[] buffer = new byte[4];
@@ -352,21 +352,21 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 32 位有符号整数值。
+            /// Gets the specified 32-bit signed integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
             public static void GetBytes(int value, byte[] buffer)
             {
                 GetBytes(value, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 32 位有符号整数值。
+            /// Gets the specified 32-bit signed integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
             public static unsafe void GetBytes(int value, byte[] buffer, int startIndex)
             {
                 if (buffer == null)
@@ -386,31 +386,31 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 返回由字节数组中前四个字节转换来的 32 位有符号整数。
+            /// Returns a 32-bit signed integer converted from the first four bytes in the specified byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>由四个字节构成的 32 位有符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>A 32-bit signed integer formed by four bytes.</returns>
             public static int GetInt32(byte[] value)
             {
                 return BitConverter.ToInt32(value, 0);
             }
 
             /// <summary>
-            /// 返回由字节数组中指定位置的四个字节转换来的 32 位有符号整数。
+            /// Returns a 32-bit signed integer converted from four bytes at the specified position in the byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <returns>由四个字节构成的 32 位有符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <returns>A 32-bit signed integer formed by four bytes.</returns>
             public static int GetInt32(byte[] value, int startIndex)
             {
                 return BitConverter.ToInt32(value, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 32 位无符号整数值。
+            /// Gets the specified 32-bit unsigned integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The number to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static byte[] GetBytes(uint value)
             {
                 byte[] buffer = new byte[4];
@@ -419,52 +419,52 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 32 位无符号整数值。
+            /// Gets the specified 32-bit unsigned integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
             public static void GetBytes(uint value, byte[] buffer)
             {
                 GetBytes((int)value, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 32 位无符号整数值。
+            /// Gets the specified 32-bit unsigned integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
             public static void GetBytes(uint value, byte[] buffer, int startIndex)
             {
                 GetBytes((int)value, buffer, startIndex);
             }
 
             /// <summary>
-            /// 返回由字节数组中前四个字节转换来的 32 位无符号整数。
+            /// Returns a 32-bit unsigned integer converted from the first four bytes in the specified byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>由四个字节构成的 32 位无符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>A 32-bit unsigned integer formed by four bytes.</returns>
             public static uint GetUInt32(byte[] value)
             {
                 return BitConverter.ToUInt32(value, 0);
             }
 
             /// <summary>
-            /// 返回由字节数组中指定位置的四个字节转换来的 32 位无符号整数。
+            /// Returns a 32-bit unsigned integer converted from four bytes at the specified position in the byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <returns>由四个字节构成的 32 位无符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <returns>A 32-bit unsigned integer formed by four bytes.</returns>
             public static uint GetUInt32(byte[] value, int startIndex)
             {
                 return BitConverter.ToUInt32(value, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 64 位有符号整数值。
+            /// Gets the specified 64-bit signed integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The number to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static byte[] GetBytes(long value)
             {
                 byte[] buffer = new byte[8];
@@ -473,21 +473,21 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 64 位有符号整数值。
+            /// Gets the specified 64-bit signed integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
             public static void GetBytes(long value, byte[] buffer)
             {
                 GetBytes(value, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 64 位有符号整数值。
+            /// Gets the specified 64-bit signed integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
             public static unsafe void GetBytes(long value, byte[] buffer, int startIndex)
             {
                 if (buffer == null)
@@ -507,31 +507,31 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 返回由字节数组中前八个字节转换来的 64 位有符号整数。
+            /// Returns a 64-bit signed integer converted from the first eight bytes in the specified byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>由八个字节构成的 64 位有符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>A 64-bit signed integer formed by eight bytes.</returns>
             public static long GetInt64(byte[] value)
             {
                 return BitConverter.ToInt64(value, 0);
             }
 
             /// <summary>
-            /// 返回由字节数组中指定位置的八个字节转换来的 64 位有符号整数。
+            /// Returns a 64-bit signed integer converted from eight bytes at the specified position in the byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <returns>由八个字节构成的 64 位有符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <returns>A 64-bit signed integer formed by eight bytes.</returns>
             public static long GetInt64(byte[] value, int startIndex)
             {
                 return BitConverter.ToInt64(value, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 64 位无符号整数值。
+            /// Gets the specified 64-bit unsigned integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The number to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static byte[] GetBytes(ulong value)
             {
                 byte[] buffer = new byte[8];
@@ -540,52 +540,52 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 64 位无符号整数值。
+            /// Gets the specified 64-bit unsigned integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
             public static void GetBytes(ulong value, byte[] buffer)
             {
                 GetBytes((long)value, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的 64 位无符号整数值。
+            /// Gets the specified 64-bit unsigned integer value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
             public static void GetBytes(ulong value, byte[] buffer, int startIndex)
             {
                 GetBytes((long)value, buffer, startIndex);
             }
 
             /// <summary>
-            /// 返回由字节数组中前八个字节转换来的 64 位无符号整数。
+            /// Returns a 64-bit unsigned integer converted from the first eight bytes in the specified byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>由八个字节构成的 64 位无符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>A 64-bit unsigned integer formed by eight bytes.</returns>
             public static ulong GetUInt64(byte[] value)
             {
                 return BitConverter.ToUInt64(value, 0);
             }
 
             /// <summary>
-            /// 返回由字节数组中指定位置的八个字节转换来的 64 位无符号整数。
+            /// Returns a 64-bit unsigned integer converted from eight bytes at the specified position in the byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <returns>由八个字节构成的 64 位无符号整数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <returns>A 64-bit unsigned integer formed by eight bytes.</returns>
             public static ulong GetUInt64(byte[] value, int startIndex)
             {
                 return BitConverter.ToUInt64(value, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的单精度浮点值。
+            /// Gets the specified single-precision floating-point value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The number to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static unsafe byte[] GetBytes(float value)
             {
                 byte[] buffer = new byte[4];
@@ -594,52 +594,52 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的单精度浮点值。
+            /// Gets the specified single-precision floating-point value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
             public static unsafe void GetBytes(float value, byte[] buffer)
             {
                 GetBytes(*(int*)&value, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的单精度浮点值。
+            /// Gets the specified single-precision floating-point value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
             public static unsafe void GetBytes(float value, byte[] buffer, int startIndex)
             {
                 GetBytes(*(int*)&value, buffer, startIndex);
             }
 
             /// <summary>
-            /// 返回由字节数组中前四个字节转换来的单精度浮点数。
+            /// Returns a single-precision floating-point number converted from the first four bytes in the specified byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>由四个字节构成的单精度浮点数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>A single-precision floating-point number formed by four bytes.</returns>
             public static float GetSingle(byte[] value)
             {
                 return BitConverter.ToSingle(value, 0);
             }
 
             /// <summary>
-            /// 返回由字节数组中指定位置的四个字节转换来的单精度浮点数。
+            /// Returns a single-precision floating-point number converted from four bytes at the specified position in the byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <returns>由四个字节构成的单精度浮点数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <returns>A single-precision floating-point number formed by four bytes.</returns>
             public static float GetSingle(byte[] value, int startIndex)
             {
                 return BitConverter.ToSingle(value, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的双精度浮点值。
+            /// Gets the specified double-precision floating-point value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The number to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static unsafe byte[] GetBytes(double value)
             {
                 byte[] buffer = new byte[8];
@@ -648,86 +648,86 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的双精度浮点值。
+            /// Gets the specified double-precision floating-point value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
             public static unsafe void GetBytes(double value, byte[] buffer)
             {
                 GetBytes(*(long*)&value, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定的双精度浮点值。
+            /// Gets the specified double-precision floating-point value in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的数字。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
             public static unsafe void GetBytes(double value, byte[] buffer, int startIndex)
             {
                 GetBytes(*(long*)&value, buffer, startIndex);
             }
 
             /// <summary>
-            /// 返回由字节数组中前八个字节转换来的双精度浮点数。
+            /// Returns a double-precision floating-point number converted from the first eight bytes in the specified byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>由八个字节构成的双精度浮点数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>A double-precision floating-point number formed by eight bytes.</returns>
             public static double GetDouble(byte[] value)
             {
                 return BitConverter.ToDouble(value, 0);
             }
 
             /// <summary>
-            /// 返回由字节数组中指定位置的八个字节转换来的双精度浮点数。
+            /// Returns a double-precision floating-point number converted from eight bytes at the specified position in the byte array.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <returns>由八个字节构成的双精度浮点数。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <returns>A double-precision floating-point number formed by eight bytes.</returns>
             public static double GetDouble(byte[] value, int startIndex)
             {
                 return BitConverter.ToDouble(value, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取 UTF-8 编码的字符串。
+            /// Gets the UTF-8 encoded string in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的字符串。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The string to convert.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static byte[] GetBytes(string value)
             {
                 return GetBytes(value, Encoding.UTF8);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取 UTF-8 编码的字符串。
+            /// Gets the UTF-8 encoded string in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的字符串。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <returns>buffer 内实际填充了多少字节。</returns>
+            /// <param name="value">The string to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <returns>The actual number of bytes written into buffer.</returns>
             public static int GetBytes(string value, byte[] buffer)
             {
                 return GetBytes(value, Encoding.UTF8, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取 UTF-8 编码的字符串。
+            /// Gets the UTF-8 encoded string in binary bytes.
             /// </summary>
-            /// <param name="value">要转换的字符串。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
-            /// <returns>buffer 内实际填充了多少字节。</returns>
+            /// <param name="value">The string to convert.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
+            /// <returns>The actual number of bytes written into buffer.</returns>
             public static int GetBytes(string value, byte[] buffer, int startIndex)
             {
                 return GetBytes(value, Encoding.UTF8, buffer, startIndex);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定编码的字符串。
+            /// Gets the string in binary bytes using the specified encoding.
             /// </summary>
-            /// <param name="value">要转换的字符串。</param>
-            /// <param name="encoding">要使用的编码。</param>
-            /// <returns>用于存放结果的字节数组。</returns>
+            /// <param name="value">The string to convert.</param>
+            /// <param name="encoding">The encoding to use.</param>
+            /// <returns>The binary bytes containing the result.</returns>
             public static byte[] GetBytes(string value, Encoding encoding)
             {
                 if (value == null)
@@ -744,25 +744,25 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定编码的字符串。
+            /// Gets the string in binary bytes using the specified encoding.
             /// </summary>
-            /// <param name="value">要转换的字符串。</param>
-            /// <param name="encoding">要使用的编码。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <returns>buffer 内实际填充了多少字节。</returns>
+            /// <param name="value">The string to convert.</param>
+            /// <param name="encoding">The encoding to use.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <returns>The actual number of bytes written into buffer.</returns>
             public static int GetBytes(string value, Encoding encoding, byte[] buffer)
             {
                 return GetBytes(value, encoding, buffer, 0);
             }
 
             /// <summary>
-            /// 以字节数组的形式获取指定编码的字符串。
+            /// Gets the string in binary bytes using the specified encoding.
             /// </summary>
-            /// <param name="value">要转换的字符串。</param>
-            /// <param name="encoding">要使用的编码。</param>
-            /// <param name="buffer">用于存放结果的字节数组。</param>
-            /// <param name="startIndex">buffer 内的起始位置。</param>
-            /// <returns>buffer 内实际填充了多少字节。</returns>
+            /// <param name="value">The string to convert.</param>
+            /// <param name="encoding">The encoding to use.</param>
+            /// <param name="buffer">The binary bytes containing the result.</param>
+            /// <param name="startIndex">The start index within buffer.</param>
+            /// <returns>The actual number of bytes written into buffer.</returns>
             public static int GetBytes(string value, Encoding encoding, byte[] buffer, int startIndex)
             {
                 if (value == null)
@@ -779,21 +779,21 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 返回由字节数组使用 UTF-8 编码转换成的字符串。
+            /// Returns a string converted from the byte array using UTF-8 encoding.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <returns>转换后的字符串。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <returns>The converted string.</returns>
             public static string GetString(byte[] value)
             {
                 return GetString(value, Encoding.UTF8);
             }
 
             /// <summary>
-            /// 返回由字节数组使用指定编码转换成的字符串。
+            /// Returns a string converted from the byte array using the specified encoding.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="encoding">要使用的编码。</param>
-            /// <returns>转换后的字符串。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="encoding">The encoding to use.</param>
+            /// <returns>The converted string.</returns>
             public static string GetString(byte[] value, Encoding encoding)
             {
                 if (value == null)
@@ -810,25 +810,25 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 返回由字节数组使用 UTF-8 编码转换成的字符串。
+            /// Returns a string converted from the byte array using UTF-8 encoding.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <param name="length">长度。</param>
-            /// <returns>转换后的字符串。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <param name="length">The length.</param>
+            /// <returns>The converted string.</returns>
             public static string GetString(byte[] value, int startIndex, int length)
             {
                 return GetString(value, startIndex, length, Encoding.UTF8);
             }
 
             /// <summary>
-            /// 返回由字节数组使用指定编码转换成的字符串。
+            /// Returns a string converted from the byte array using the specified encoding.
             /// </summary>
-            /// <param name="value">字节数组。</param>
-            /// <param name="startIndex">value 内的起始位置。</param>
-            /// <param name="length">长度。</param>
-            /// <param name="encoding">要使用的编码。</param>
-            /// <returns>转换后的字符串。</returns>
+            /// <param name="value">The byte array.</param>
+            /// <param name="startIndex">The start index within value.</param>
+            /// <param name="length">The length.</param>
+            /// <param name="encoding">The encoding to use.</param>
+            /// <returns>The converted string.</returns>
             public static string GetString(byte[] value, int startIndex, int length, Encoding encoding)
             {
                 if (value == null)

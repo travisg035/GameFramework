@@ -8,18 +8,18 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 解密资源回调函数。
+    /// Decrypt resource callback method.
     /// </summary>
-    /// <param name="bytes">要解密的资源二进制流。</param>
-    /// <param name="startIndex">解密二进制流的起始位置。</param>
-    /// <param name="count">解密二进制流的长度。</param>
-    /// <param name="name">资源名称。</param>
-    /// <param name="variant">变体名称。</param>
-    /// <param name="extension">扩展名称。</param>
-    /// <param name="storageInReadOnly">资源是否在只读区。</param>
-    /// <param name="fileSystem">文件系统名称。</param>
-    /// <param name="loadType">资源加载方式。</param>
-    /// <param name="length">资源大小。</param>
-    /// <param name="hashCode">资源哈希值。</param>
+    /// <param name="bytes">The binary bytes of the resource to decrypt.</param>
+    /// <param name="startIndex">The start index of the binary bytes to decrypt.</param>
+    /// <param name="count">The length of the binary bytes to decrypt.</param>
+    /// <param name="name">The resource name.</param>
+    /// <param name="variant">The variant name.</param>
+    /// <param name="extension">The extension name.</param>
+    /// <param name="storageInReadOnly">Whether the resource is stored in the read-only area.</param>
+    /// <param name="fileSystem">The file system name.</param>
+    /// <param name="loadType">The resource load type.</param>
+    /// <param name="length">The resource length.</param>
+    /// <param name="hashCode">The resource hash code.</param>
     public delegate void DecryptResourceCallback(byte[] bytes, int startIndex, int count, string name, string variant, string extension, bool storageInReadOnly, string fileSystem, byte loadType, int length, int hashCode);
 }

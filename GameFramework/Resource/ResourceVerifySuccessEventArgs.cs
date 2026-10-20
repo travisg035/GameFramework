@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源校验成功事件。
+    /// Resource verify success event.
     /// </summary>
     public sealed class ResourceVerifySuccessEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化资源校验成功事件的新实例。
+        /// Initializes a new instance of the <see cref="ResourceVerifySuccessEventArgs"/> class.
         /// </summary>
         public ResourceVerifySuccessEventArgs()
         {
@@ -22,7 +22,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源名称。
+        /// Gets the resource name.
         /// </summary>
         public string Name
         {
@@ -31,7 +31,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源大小。
+        /// Gets the resource length.
         /// </summary>
         public int Length
         {
@@ -40,11 +40,11 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建资源校验成功事件。
+        /// Creates a new resource verify success event.
         /// </summary>
-        /// <param name="name">资源名称。</param>
-        /// <param name="length">资源大小。</param>
-        /// <returns>创建的资源校验成功事件。</returns>
+        /// <param name="name">The resource name.</param>
+        /// <param name="length">The resource length.</param>
+        /// <returns>The created resource verify success event.</returns>
         public static ResourceVerifySuccessEventArgs Create(string name, int length)
         {
             ResourceVerifySuccessEventArgs resourceVerifySuccessEventArgs = ReferencePool.Acquire<ResourceVerifySuccessEventArgs>();
@@ -54,7 +54,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理资源校验成功事件。
+        /// Clears the resource verify success event.
         /// </summary>
         public override void Clear()
         {

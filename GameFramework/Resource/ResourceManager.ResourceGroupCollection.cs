@@ -12,7 +12,7 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 资源组集合。
+        /// Resource group collection.
         /// </summary>
         private sealed class ResourceGroupCollection : IResourceGroupCollection
         {
@@ -23,10 +23,10 @@ namespace GameFramework.Resource
             private long m_TotalCompressedLength;
 
             /// <summary>
-            /// 初始化资源组集合的新实例。
+            /// Initializes a new instance of the ResourceGroupCollection class.
             /// </summary>
-            /// <param name="resourceGroups">资源组集合。</param>
-            /// <param name="resourceInfos">资源信息引用。</param>
+            /// <param name="resourceGroups">Resource groups.</param>
+            /// <param name="resourceInfos">Resource information reference.</param>
             public ResourceGroupCollection(ResourceGroup[] resourceGroups, Dictionary<ResourceName, ResourceInfo> resourceInfos)
             {
                 if (resourceGroups == null || resourceGroups.Length < 1)
@@ -89,7 +89,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组集合是否准备完毕。
+            /// Gets a value indicating whether the resource group collection is ready.
             /// </summary>
             public bool Ready
             {
@@ -100,7 +100,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组集合包含资源数量。
+            /// Gets the total number of resources in the resource group collection.
             /// </summary>
             public int TotalCount
             {
@@ -111,7 +111,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组集合中已准备完成资源数量。
+            /// Gets the number of ready resources in the resource group collection.
             /// </summary>
             public int ReadyCount
             {
@@ -132,7 +132,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组集合包含资源的总大小。
+            /// Gets the total length of resources in the resource group collection.
             /// </summary>
             public long TotalLength
             {
@@ -143,7 +143,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组集合包含资源压缩后的总大小。
+            /// Gets the total compressed length of resources in the resource group collection.
             /// </summary>
             public long TotalCompressedLength
             {
@@ -154,7 +154,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组集合中已准备完成资源的总大小。
+            /// Gets the total length of ready resources in the resource group collection.
             /// </summary>
             public long ReadyLength
             {
@@ -175,7 +175,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组集合中已准备完成资源压缩后的总大小。
+            /// Gets the total compressed length of ready resources in the resource group collection.
             /// </summary>
             public long ReadyCompressedLength
             {
@@ -196,7 +196,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组集合的完成进度。
+            /// Gets the progress of the resource group collection.
             /// </summary>
             public float Progress
             {
@@ -207,18 +207,18 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组集合包含的资源组列表。
+            /// Gets the resource groups in the resource group collection.
             /// </summary>
-            /// <returns>资源组包含的资源名称列表。</returns>
+            /// <returns>The resource groups in the resource group collection.</returns>
             public IResourceGroup[] GetResourceGroups()
             {
                 return m_ResourceGroups;
             }
 
             /// <summary>
-            /// 获取资源组集合包含的资源名称列表。
+            /// Gets the resource names in the resource group collection.
             /// </summary>
-            /// <returns>资源组包含的资源名称列表。</returns>
+            /// <returns>The resource names in the resource group collection.</returns>
             public string[] GetResourceNames()
             {
                 int index = 0;
@@ -232,9 +232,9 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组集合包含的资源名称列表。
+            /// Gets the resource names in the resource group collection.
             /// </summary>
-            /// <param name="results">资源组包含的资源名称列表。</param>
+            /// <param name="results">The resource names in the resource group collection.</param>
             public void GetResourceNames(List<string> results)
             {
                 if (results == null)

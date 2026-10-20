@@ -11,22 +11,22 @@ using System.IO;
 namespace GameFramework.FileSystem
 {
     /// <summary>
-    /// 文件系统流。
+    /// File system stream.
     /// </summary>
     public abstract class FileSystemStream
     {
         /// <summary>
-        /// 缓存二进制流的长度。
+        /// Cached byte array length.
         /// </summary>
         protected const int CachedBytesLength = 0x1000;
 
         /// <summary>
-        /// 缓存二进制流。
+        /// Cached byte array.
         /// </summary>
         protected static readonly byte[] s_CachedBytes = new byte[CachedBytesLength];
 
         /// <summary>
-        /// 获取或设置文件系统流位置。
+        /// Gets or sets the file system stream position.
         /// </summary>
         protected internal abstract long Position
         {
@@ -35,7 +35,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件系统流长度。
+        /// Gets the file system stream length.
         /// </summary>
         protected internal abstract long Length
         {
@@ -43,39 +43,39 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 设置文件系统流长度。
+        /// Sets the file system stream length.
         /// </summary>
-        /// <param name="length">要设置的文件系统流的长度。</param>
+        /// <param name="length">The file system stream length to set.</param>
         protected internal abstract void SetLength(long length);
 
         /// <summary>
-        /// 定位文件系统流位置。
+        /// Seeks the file system stream position.
         /// </summary>
-        /// <param name="offset">要定位的文件系统流位置的偏移。</param>
-        /// <param name="origin">要定位的文件系统流位置的方式。</param>
+        /// <param name="offset">The offset of the file system stream position to seek.</param>
+        /// <param name="origin">The seek origin of the file system stream position.</param>
         protected internal abstract void Seek(long offset, SeekOrigin origin);
 
         /// <summary>
-        /// 从文件系统流中读取一个字节。
+        /// Reads a byte from the file system stream.
         /// </summary>
-        /// <returns>读取的字节，若已经到达文件结尾，则返回 -1。</returns>
+        /// <returns>The read byte, or -1 if the end of the file system stream has been reached.</returns>
         protected internal abstract int ReadByte();
 
         /// <summary>
-        /// 从文件系统流中读取二进制流。
+        /// Reads bytes from the file system stream.
         /// </summary>
-        /// <param name="buffer">存储读取文件内容的二进制流。</param>
-        /// <param name="startIndex">存储读取文件内容的二进制流的起始位置。</param>
-        /// <param name="length">存储读取文件内容的二进制流的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="buffer">The byte array to store the read file content.</param>
+        /// <param name="startIndex">The starting position in the byte array to store the read file content.</param>
+        /// <param name="length">The length of the byte array to store the read file content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         protected internal abstract int Read(byte[] buffer, int startIndex, int length);
 
         /// <summary>
-        /// 从文件系统流中读取二进制流。
+        /// Reads bytes from the file system stream.
         /// </summary>
-        /// <param name="stream">存储读取文件内容的二进制流。</param>
-        /// <param name="length">存储读取文件内容的二进制流的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="stream">The stream to store the read file content.</param>
+        /// <param name="length">The length of the bytes to read into the stream.</param>
+        /// <returns>The actual number of bytes read.</returns>
         protected internal int Read(Stream stream, int length)
         {
             int bytesRead = 0;
@@ -91,24 +91,24 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 向文件系统流中写入一个字节。
+        /// Writes a byte to the file system stream.
         /// </summary>
-        /// <param name="value">要写入的字节。</param>
+        /// <param name="value">The byte to write.</param>
         protected internal abstract void WriteByte(byte value);
 
         /// <summary>
-        /// 向文件系统流中写入二进制流。
+        /// Writes bytes to the file system stream.
         /// </summary>
-        /// <param name="buffer">存储写入文件内容的二进制流。</param>
-        /// <param name="startIndex">存储写入文件内容的二进制流的起始位置。</param>
-        /// <param name="length">存储写入文件内容的二进制流的长度。</param>
+        /// <param name="buffer">The byte array containing the file content to write.</param>
+        /// <param name="startIndex">The starting position in the byte array of the file content to write.</param>
+        /// <param name="length">The length of the byte array of the file content to write.</param>
         protected internal abstract void Write(byte[] buffer, int startIndex, int length);
 
         /// <summary>
-        /// 向文件系统流中写入二进制流。
+        /// Writes bytes to the file system stream.
         /// </summary>
-        /// <param name="stream">存储写入文件内容的二进制流。</param>
-        /// <param name="length">存储写入文件内容的二进制流的长度。</param>
+        /// <param name="stream">The stream containing the file content to write.</param>
+        /// <param name="length">The length of the bytes to write from the stream.</param>
         protected internal void Write(Stream stream, int length)
         {
             int bytesRead = 0;
@@ -123,12 +123,12 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 将文件系统流立刻更新到存储介质中。
+        /// Flushes the file system stream to the storage medium immediately.
         /// </summary>
         protected internal abstract void Flush();
 
         /// <summary>
-        /// 关闭文件系统流。
+        /// Closes the file system stream.
         /// </summary>
         protected internal abstract void Close();
     }

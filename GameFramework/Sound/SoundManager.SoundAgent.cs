@@ -12,7 +12,7 @@ namespace GameFramework.Sound
     internal sealed partial class SoundManager : GameFrameworkModule, ISoundManager
     {
         /// <summary>
-        /// 声音代理。
+        /// Sound agent.
         /// </summary>
         private sealed class SoundAgent : ISoundAgent
         {
@@ -26,11 +26,11 @@ namespace GameFramework.Sound
             private float m_VolumeInSoundGroup;
 
             /// <summary>
-            /// 初始化声音代理的新实例。
+            /// Initializes a new instance of the SoundAgent class.
             /// </summary>
-            /// <param name="soundGroup">所在的声音组。</param>
-            /// <param name="soundHelper">声音辅助器接口。</param>
-            /// <param name="soundAgentHelper">声音代理辅助器接口。</param>
+            /// <param name="soundGroup">The sound group to which the sound agent belongs.</param>
+            /// <param name="soundHelper">The sound helper interface.</param>
+            /// <param name="soundAgentHelper">The sound agent helper interface.</param>
             public SoundAgent(SoundGroup soundGroup, ISoundHelper soundHelper, ISoundAgentHelper soundAgentHelper)
             {
                 if (soundGroup == null)
@@ -58,7 +58,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取所在的声音组。
+            /// Gets the sound group to which the sound agent belongs.
             /// </summary>
             public ISoundGroup SoundGroup
             {
@@ -69,7 +69,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置声音的序列编号。
+            /// Gets or sets the serial ID of the sound.
             /// </summary>
             public int SerialId
             {
@@ -84,7 +84,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取当前是否正在播放。
+            /// Gets whether the sound is currently playing.
             /// </summary>
             public bool IsPlaying
             {
@@ -95,7 +95,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取声音长度。
+            /// Gets the sound length.
             /// </summary>
             public float Length
             {
@@ -106,7 +106,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置播放位置。
+            /// Gets or sets the playback time.
             /// </summary>
             public float Time
             {
@@ -121,7 +121,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取是否静音。
+            /// Gets whether the sound is muted.
             /// </summary>
             public bool Mute
             {
@@ -132,7 +132,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置在声音组内是否静音。
+            /// Gets or sets whether to mute in the sound group.
             /// </summary>
             public bool MuteInSoundGroup
             {
@@ -148,7 +148,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置是否循环播放。
+            /// Gets or sets whether to loop playback.
             /// </summary>
             public bool Loop
             {
@@ -163,7 +163,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置声音优先级。
+            /// Gets or sets the sound priority.
             /// </summary>
             public int Priority
             {
@@ -178,7 +178,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取音量大小。
+            /// Gets the volume.
             /// </summary>
             public float Volume
             {
@@ -189,7 +189,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置在声音组内音量大小。
+            /// Gets or sets the volume in the sound group.
             /// </summary>
             public float VolumeInSoundGroup
             {
@@ -205,7 +205,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置声音音调。
+            /// Gets or sets the sound pitch.
             /// </summary>
             public float Pitch
             {
@@ -220,7 +220,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置声音立体声声相。
+            /// Gets or sets the sound pan stereo.
             /// </summary>
             public float PanStereo
             {
@@ -235,7 +235,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置声音空间混合量。
+            /// Gets or sets the sound spatial blend.
             /// </summary>
             public float SpatialBlend
             {
@@ -250,7 +250,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置声音最大距离。
+            /// Gets or sets the sound max distance.
             /// </summary>
             public float MaxDistance
             {
@@ -265,7 +265,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取或设置声音多普勒等级。
+            /// Gets or sets the sound Doppler level.
             /// </summary>
             public float DopplerLevel
             {
@@ -280,7 +280,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取声音代理辅助器。
+            /// Gets the sound agent helper.
             /// </summary>
             public ISoundAgentHelper Helper
             {
@@ -291,7 +291,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 获取声音创建时间。
+            /// Gets the time when the sound asset was set.
             /// </summary>
             internal DateTime SetSoundAssetTime
             {
@@ -302,7 +302,7 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 播放声音。
+            /// Plays the sound.
             /// </summary>
             public void Play()
             {
@@ -310,16 +310,16 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 播放声音。
+            /// Plays the sound.
             /// </summary>
-            /// <param name="fadeInSeconds">声音淡入时间，以秒为单位。</param>
+            /// <param name="fadeInSeconds">The sound fade in time in seconds.</param>
             public void Play(float fadeInSeconds)
             {
                 m_SoundAgentHelper.Play(fadeInSeconds);
             }
 
             /// <summary>
-            /// 停止播放声音。
+            /// Stops playing the sound.
             /// </summary>
             public void Stop()
             {
@@ -327,16 +327,16 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 停止播放声音。
+            /// Stops playing the sound.
             /// </summary>
-            /// <param name="fadeOutSeconds">声音淡出时间，以秒为单位。</param>
+            /// <param name="fadeOutSeconds">The sound fade out time in seconds.</param>
             public void Stop(float fadeOutSeconds)
             {
                 m_SoundAgentHelper.Stop(fadeOutSeconds);
             }
 
             /// <summary>
-            /// 暂停播放声音。
+            /// Pauses playing the sound.
             /// </summary>
             public void Pause()
             {
@@ -344,16 +344,16 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 暂停播放声音。
+            /// Pauses playing the sound.
             /// </summary>
-            /// <param name="fadeOutSeconds">声音淡出时间，以秒为单位。</param>
+            /// <param name="fadeOutSeconds">The sound fade out time in seconds.</param>
             public void Pause(float fadeOutSeconds)
             {
                 m_SoundAgentHelper.Pause(fadeOutSeconds);
             }
 
             /// <summary>
-            /// 恢复播放声音。
+            /// Resumes playing the sound.
             /// </summary>
             public void Resume()
             {
@@ -361,16 +361,16 @@ namespace GameFramework.Sound
             }
 
             /// <summary>
-            /// 恢复播放声音。
+            /// Resumes playing the sound.
             /// </summary>
-            /// <param name="fadeInSeconds">声音淡入时间，以秒为单位。</param>
+            /// <param name="fadeInSeconds">The sound fade in time in seconds.</param>
             public void Resume(float fadeInSeconds)
             {
                 m_SoundAgentHelper.Resume(fadeInSeconds);
             }
 
             /// <summary>
-            /// 重置声音代理。
+            /// Resets the sound agent.
             /// </summary>
             public void Reset()
             {

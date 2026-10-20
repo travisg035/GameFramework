@@ -11,9 +11,9 @@ using System;
 namespace GameFramework
 {
     /// <summary>
-    /// 数据提供者。
+    /// Data provider.
     /// </summary>
-    /// <typeparam name="T">数据提供者的持有者的类型。</typeparam>
+    /// <typeparam name="T">The type of the data provider owner.</typeparam>
     internal sealed class DataProvider<T> : IDataProvider<T>
     {
         private const int BlockSize = 1024 * 4;
@@ -30,9 +30,9 @@ namespace GameFramework
         private EventHandler<ReadDataDependencyAssetEventArgs> m_ReadDataDependencyAssetEventHandler;
 
         /// <summary>
-        /// 初始化数据提供者的新实例。
+        /// Initializes a new instance of the DataProvider class.
         /// </summary>
-        /// <param name="owner">数据提供者的持有者。</param>
+        /// <param name="owner">The owner of the data provider.</param>
         public DataProvider(T owner)
         {
             m_Owner = owner;
@@ -47,7 +47,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取缓冲二进制流的大小。
+        /// Gets the size of the cached binary stream buffer.
         /// </summary>
         public static int CachedBytesSize
         {
@@ -58,7 +58,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 读取数据成功事件。
+        /// Read data success event.
         /// </summary>
         public event EventHandler<ReadDataSuccessEventArgs> ReadDataSuccess
         {
@@ -73,7 +73,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 读取数据失败事件。
+        /// Read data failure event.
         /// </summary>
         public event EventHandler<ReadDataFailureEventArgs> ReadDataFailure
         {
@@ -88,7 +88,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 读取数据更新事件。
+        /// Read data update event.
         /// </summary>
         public event EventHandler<ReadDataUpdateEventArgs> ReadDataUpdate
         {
@@ -103,7 +103,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 读取数据时加载依赖资源事件。
+        /// Read data dependency asset event.
         /// </summary>
         public event EventHandler<ReadDataDependencyAssetEventArgs> ReadDataDependencyAsset
         {
@@ -118,9 +118,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 确保二进制流缓存分配足够大小的内存并缓存。
+        /// Ensures the binary stream cache has allocated sufficient memory and keeps it cached.
         /// </summary>
-        /// <param name="ensureSize">要确保二进制流缓存分配内存的大小。</param>
+        /// <param name="ensureSize">The size of memory to ensure for the binary stream cache.</param>
         public static void EnsureCachedBytesSize(int ensureSize)
         {
             if (ensureSize < 0)
@@ -137,7 +137,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 释放缓存的二进制流。
+        /// Releases the cached binary stream buffer.
         /// </summary>
         public static void FreeCachedBytes()
         {
@@ -145,40 +145,40 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 读取数据。
+        /// Reads data.
         /// </summary>
-        /// <param name="dataAssetName">内容资源名称。</param>
+        /// <param name="dataAssetName">Data asset name.</param>
         public void ReadData(string dataAssetName)
         {
             ReadData(dataAssetName, Constant.DefaultPriority, null);
         }
 
         /// <summary>
-        /// 读取数据。
+        /// Reads data.
         /// </summary>
-        /// <param name="dataAssetName">内容资源名称。</param>
-        /// <param name="priority">加载数据资源的优先级。</param>
+        /// <param name="dataAssetName">Data asset name.</param>
+        /// <param name="priority">Priority for loading the data asset.</param>
         public void ReadData(string dataAssetName, int priority)
         {
             ReadData(dataAssetName, priority, null);
         }
 
         /// <summary>
-        /// 读取数据。
+        /// Reads data.
         /// </summary>
-        /// <param name="dataAssetName">内容资源名称。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="dataAssetName">Data asset name.</param>
+        /// <param name="userData">User-defined data.</param>
         public void ReadData(string dataAssetName, object userData)
         {
             ReadData(dataAssetName, Constant.DefaultPriority, userData);
         }
 
         /// <summary>
-        /// 读取数据。
+        /// Reads data.
         /// </summary>
-        /// <param name="dataAssetName">内容资源名称。</param>
-        /// <param name="priority">加载数据资源的优先级。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="dataAssetName">Data asset name.</param>
+        /// <param name="priority">Priority for loading the data asset.</param>
+        /// <param name="userData">User-defined data.</param>
         public void ReadData(string dataAssetName, int priority, object userData)
         {
             if (m_ResourceManager == null)
@@ -246,21 +246,21 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 解析内容。
+        /// Parses data.
         /// </summary>
-        /// <param name="dataString">要解析的内容字符串。</param>
-        /// <returns>是否解析内容成功。</returns>
+        /// <param name="dataString">The data string to parse.</param>
+        /// <returns>Whether the data was parsed successfully.</returns>
         public bool ParseData(string dataString)
         {
             return ParseData(dataString, null);
         }
 
         /// <summary>
-        /// 解析内容。
+        /// Parses data.
         /// </summary>
-        /// <param name="dataString">要解析的内容字符串。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否解析内容成功。</returns>
+        /// <param name="dataString">The data string to parse.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>Whether the data was parsed successfully.</returns>
         public bool ParseData(string dataString, object userData)
         {
             if (m_DataProviderHelper == null)
@@ -289,10 +289,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 解析内容。
+        /// Parses data.
         /// </summary>
-        /// <param name="dataBytes">要解析的内容二进制流。</param>
-        /// <returns>是否解析内容成功。</returns>
+        /// <param name="dataBytes">The data bytes to parse.</param>
+        /// <returns>Whether the data was parsed successfully.</returns>
         public bool ParseData(byte[] dataBytes)
         {
             if (dataBytes == null)
@@ -304,11 +304,11 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 解析内容。
+        /// Parses data.
         /// </summary>
-        /// <param name="dataBytes">要解析的内容二进制流。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否解析内容成功。</returns>
+        /// <param name="dataBytes">The data bytes to parse.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>Whether the data was parsed successfully.</returns>
         public bool ParseData(byte[] dataBytes, object userData)
         {
             if (dataBytes == null)
@@ -320,25 +320,25 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 解析内容。
+        /// Parses data.
         /// </summary>
-        /// <param name="dataBytes">要解析的内容二进制流。</param>
-        /// <param name="startIndex">内容二进制流的起始位置。</param>
-        /// <param name="length">内容二进制流的长度。</param>
-        /// <returns>是否解析内容成功。</returns>
+        /// <param name="dataBytes">The data bytes to parse.</param>
+        /// <param name="startIndex">The start index in the data bytes.</param>
+        /// <param name="length">The length of data bytes to parse.</param>
+        /// <returns>Whether the data was parsed successfully.</returns>
         public bool ParseData(byte[] dataBytes, int startIndex, int length)
         {
             return ParseData(dataBytes, startIndex, length, null);
         }
 
         /// <summary>
-        /// 解析内容。
+        /// Parses data.
         /// </summary>
-        /// <param name="dataBytes">要解析的内容二进制流。</param>
-        /// <param name="startIndex">内容二进制流的起始位置。</param>
-        /// <param name="length">内容二进制流的长度。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否解析内容成功。</returns>
+        /// <param name="dataBytes">The data bytes to parse.</param>
+        /// <param name="startIndex">The start index in the data bytes.</param>
+        /// <param name="length">The length of data bytes to parse.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>Whether the data was parsed successfully.</returns>
         public bool ParseData(byte[] dataBytes, int startIndex, int length, object userData)
         {
             if (m_DataProviderHelper == null)
@@ -372,9 +372,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 设置资源管理器。
+        /// Sets the resource manager.
         /// </summary>
-        /// <param name="resourceManager">资源管理器。</param>
+        /// <param name="resourceManager">Resource manager.</param>
         internal void SetResourceManager(IResourceManager resourceManager)
         {
             if (resourceManager == null)
@@ -386,9 +386,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 设置数据提供者辅助器。
+        /// Sets the data provider helper.
         /// </summary>
-        /// <param name="dataProviderHelper">数据提供者辅助器。</param>
+        /// <param name="dataProviderHelper">Data provider helper.</param>
         internal void SetDataProviderHelper(IDataProviderHelper<T> dataProviderHelper)
         {
             if (dataProviderHelper == null)

@@ -8,11 +8,11 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源失败回调函数。
+    /// Load asset failure callback.
     /// </summary>
-    /// <param name="assetName">要加载的资源名称。</param>
-    /// <param name="status">加载资源状态。</param>
-    /// <param name="errorMessage">错误信息。</param>
-    /// <param name="userData">用户自定义数据。</param>
+    /// <param name="assetName">The asset name to load.</param>
+    /// <param name="status">Load resource status.</param>
+    /// <param name="errorMessage">Error message.</param>
+    /// <param name="userData">User-defined data.</param>
     public delegate void LoadAssetFailureCallback(string assetName, LoadResourceStatus status, string errorMessage, object userData);
 }

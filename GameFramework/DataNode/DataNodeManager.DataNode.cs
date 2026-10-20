@@ -12,7 +12,7 @@ namespace GameFramework.DataNode
     internal sealed partial class DataNodeManager : GameFrameworkModule, IDataNodeManager
     {
         /// <summary>
-        /// 数据结点。
+        /// Data node.
         /// </summary>
         private sealed class DataNode : IDataNode, IReference
         {
@@ -32,11 +32,11 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 创建数据结点。
+            /// Creates a data node.
             /// </summary>
-            /// <param name="name">数据结点名称。</param>
-            /// <param name="parent">父数据结点。</param>
-            /// <returns>创建的数据结点。</returns>
+            /// <param name="name">The data node name.</param>
+            /// <param name="parent">The parent data node.</param>
+            /// <returns>The created data node.</returns>
             public static DataNode Create(string name, DataNode parent)
             {
                 if (!IsValidName(name))
@@ -51,7 +51,7 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 获取数据结点的名称。
+            /// Gets the name of the data node.
             /// </summary>
             public string Name
             {
@@ -62,7 +62,7 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 获取数据结点的完整名称。
+            /// Gets the full name of the data node.
             /// </summary>
             public string FullName
             {
@@ -73,7 +73,7 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 获取父数据结点。
+            /// Gets the parent data node.
             /// </summary>
             public IDataNode Parent
             {
@@ -84,7 +84,7 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 获取子数据结点的数量。
+            /// Gets the count of child data nodes.
             /// </summary>
             public int ChildCount
             {
@@ -95,38 +95,38 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 根据类型获取数据结点的数据。
+            /// Gets the data of the data node by type.
             /// </summary>
-            /// <typeparam name="T">要获取的数据类型。</typeparam>
-            /// <returns>指定类型的数据。</returns>
+            /// <typeparam name="T">The data type to get.</typeparam>
+            /// <returns>The data of the specified type.</returns>
             public T GetData<T>() where T : Variable
             {
                 return (T)m_Data;
             }
 
             /// <summary>
-            /// 获取数据结点的数据。
+            /// Gets the data of the data node.
             /// </summary>
-            /// <returns>数据结点数据。</returns>
+            /// <returns>The data of the data node.</returns>
             public Variable GetData()
             {
                 return m_Data;
             }
 
             /// <summary>
-            /// 设置数据结点的数据。
+            /// Sets the data of the data node.
             /// </summary>
-            /// <typeparam name="T">要设置的数据类型。</typeparam>
-            /// <param name="data">要设置的数据。</param>
+            /// <typeparam name="T">The data type to set.</typeparam>
+            /// <param name="data">The data to set.</param>
             public void SetData<T>(T data) where T : Variable
             {
                 SetData((Variable)data);
             }
 
             /// <summary>
-            /// 设置数据结点的数据。
+            /// Sets the data of the data node.
             /// </summary>
-            /// <param name="data">要设置的数据。</param>
+            /// <param name="data">The data to set.</param>
             public void SetData(Variable data)
             {
                 if (m_Data != null)
@@ -138,20 +138,20 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 根据索引检查是否存在子数据结点。
+            /// Checks whether the child data node exists by index.
             /// </summary>
-            /// <param name="index">子数据结点的索引。</param>
-            /// <returns>是否存在子数据结点。</returns>
+            /// <param name="index">The child data node index.</param>
+            /// <returns>Whether the child data node exists.</returns>
             public bool HasChild(int index)
             {
                 return index >= 0 && index < ChildCount;
             }
 
             /// <summary>
-            /// 根据名称检查是否存在子数据结点。
+            /// Checks whether the child data node exists by name.
             /// </summary>
-            /// <param name="name">子数据结点名称。</param>
-            /// <returns>是否存在子数据结点。</returns>
+            /// <param name="name">The child data node name.</param>
+            /// <returns>Whether the child data node exists.</returns>
             public bool HasChild(string name)
             {
                 if (!IsValidName(name))
@@ -176,20 +176,20 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 根据索引获取子数据结点。
+            /// Gets the child data node by index.
             /// </summary>
-            /// <param name="index">子数据结点的索引。</param>
-            /// <returns>指定索引的子数据结点，如果索引越界，则返回空。</returns>
+            /// <param name="index">The child data node index.</param>
+            /// <returns>The child data node at the specified index, or null if the index is out of range.</returns>
             public IDataNode GetChild(int index)
             {
                 return index >= 0 && index < ChildCount ? m_Childs[index] : null;
             }
 
             /// <summary>
-            /// 根据名称获取子数据结点。
+            /// Gets the child data node by name.
             /// </summary>
-            /// <param name="name">子数据结点名称。</param>
-            /// <returns>指定名称的子数据结点，如果没有找到，则返回空。</returns>
+            /// <param name="name">The child data node name.</param>
+            /// <returns>The child data node with the specified name, or null if not found.</returns>
             public IDataNode GetChild(string name)
             {
                 if (!IsValidName(name))
@@ -214,10 +214,10 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 根据名称获取或增加子数据结点。
+            /// Gets or adds a child data node by name.
             /// </summary>
-            /// <param name="name">子数据结点名称。</param>
-            /// <returns>指定名称的子数据结点，如果对应名称的子数据结点已存在，则返回已存在的子数据结点，否则增加子数据结点。</returns>
+            /// <param name="name">The child data node name.</param>
+            /// <returns>The child data node with the specified name; returns the existing child data node if it already exists, otherwise adds a new child data node.</returns>
             public IDataNode GetOrAddChild(string name)
             {
                 DataNode node = (DataNode)GetChild(name);
@@ -239,9 +239,9 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 获取所有子数据结点。
+            /// Gets all child data nodes.
             /// </summary>
-            /// <returns>所有子数据结点。</returns>
+            /// <returns>All child data nodes.</returns>
             public IDataNode[] GetAllChild()
             {
                 if (m_Childs == null)
@@ -253,9 +253,9 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 获取所有子数据结点。
+            /// Gets all child data nodes.
             /// </summary>
-            /// <param name="results">所有子数据结点。</param>
+            /// <param name="results">The list to store all child data nodes.</param>
             public void GetAllChild(List<IDataNode> results)
             {
                 if (results == null)
@@ -276,9 +276,9 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 根据索引移除子数据结点。
+            /// Removes the child data node by index.
             /// </summary>
-            /// <param name="index">子数据结点的索引位置。</param>
+            /// <param name="index">The child data node index.</param>
             public void RemoveChild(int index)
             {
                 DataNode node = (DataNode)GetChild(index);
@@ -292,9 +292,9 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 根据名称移除子数据结点。
+            /// Removes the child data node by name.
             /// </summary>
-            /// <param name="name">子数据结点名称。</param>
+            /// <param name="name">The child data node name.</param>
             public void RemoveChild(string name)
             {
                 DataNode node = (DataNode)GetChild(name);
@@ -327,18 +327,18 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 获取数据结点字符串。
+            /// Gets the data node string.
             /// </summary>
-            /// <returns>数据结点字符串。</returns>
+            /// <returns>The data node string.</returns>
             public override string ToString()
             {
                 return Utility.Text.Format("{0}: {1}", FullName, ToDataString());
             }
 
             /// <summary>
-            /// 获取数据字符串。
+            /// Gets the data string.
             /// </summary>
-            /// <returns>数据字符串。</returns>
+            /// <returns>The data string.</returns>
             public string ToDataString()
             {
                 if (m_Data == null)
@@ -350,10 +350,10 @@ namespace GameFramework.DataNode
             }
 
             /// <summary>
-            /// 检测数据结点名称是否合法。
+            /// Checks whether the data node name is valid.
             /// </summary>
-            /// <param name="name">要检测的数据结点名称。</param>
-            /// <returns>是否是合法的数据结点名称。</returns>
+            /// <param name="name">The data node name to check.</param>
+            /// <returns>Whether the data node name is valid.</returns>
             private static bool IsValidName(string name)
             {
                 if (string.IsNullOrEmpty(name))

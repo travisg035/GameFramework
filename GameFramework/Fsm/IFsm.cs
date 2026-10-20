@@ -11,13 +11,13 @@ using System.Collections.Generic;
 namespace GameFramework.Fsm
 {
     /// <summary>
-    /// 有限状态机接口。
+    /// Finite state machine interface.
     /// </summary>
-    /// <typeparam name="T">有限状态机持有者类型。</typeparam>
+    /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
     public interface IFsm<T> where T : class
     {
         /// <summary>
-        /// 获取有限状态机名称。
+        /// Gets the finite state machine name.
         /// </summary>
         string Name
         {
@@ -25,7 +25,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机完整名称。
+        /// Gets the finite state machine full name.
         /// </summary>
         string FullName
         {
@@ -33,7 +33,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机持有者。
+        /// Gets the finite state machine owner.
         /// </summary>
         T Owner
         {
@@ -41,7 +41,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机中状态的数量。
+        /// Gets the number of states in the finite state machine.
         /// </summary>
         int FsmStateCount
         {
@@ -49,7 +49,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机是否正在运行。
+        /// Gets whether the finite state machine is running.
         /// </summary>
         bool IsRunning
         {
@@ -57,7 +57,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机是否被销毁。
+        /// Gets whether the finite state machine is destroyed.
         /// </summary>
         bool IsDestroyed
         {
@@ -65,7 +65,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取当前有限状态机状态。
+        /// Gets the current finite state machine state.
         /// </summary>
         FsmState<T> CurrentState
         {
@@ -73,7 +73,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取当前有限状态机状态持续时间。
+        /// Gets the duration of the current finite state machine state in seconds.
         /// </summary>
         float CurrentStateTime
         {
@@ -81,99 +81,99 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 开始有限状态机。
+        /// Starts the finite state machine.
         /// </summary>
-        /// <typeparam name="TState">要开始的有限状态机状态类型。</typeparam>
+        /// <typeparam name="TState">The type of the finite state machine state to start.</typeparam>
         void Start<TState>() where TState : FsmState<T>;
 
         /// <summary>
-        /// 开始有限状态机。
+        /// Starts the finite state machine.
         /// </summary>
-        /// <param name="stateType">要开始的有限状态机状态类型。</param>
+        /// <param name="stateType">The type of the finite state machine state to start.</param>
         void Start(Type stateType);
 
         /// <summary>
-        /// 是否存在有限状态机状态。
+        /// Determines whether a state exists in the finite state machine.
         /// </summary>
-        /// <typeparam name="TState">要检查的有限状态机状态类型。</typeparam>
-        /// <returns>是否存在有限状态机状态。</returns>
+        /// <typeparam name="TState">The type of the finite state machine state to check.</typeparam>
+        /// <returns>Whether the finite state machine state exists.</returns>
         bool HasState<TState>() where TState : FsmState<T>;
 
         /// <summary>
-        /// 是否存在有限状态机状态。
+        /// Determines whether a state exists in the finite state machine.
         /// </summary>
-        /// <param name="stateType">要检查的有限状态机状态类型。</param>
-        /// <returns>是否存在有限状态机状态。</returns>
+        /// <param name="stateType">The type of the finite state machine state to check.</param>
+        /// <returns>Whether the finite state machine state exists.</returns>
         bool HasState(Type stateType);
 
         /// <summary>
-        /// 获取有限状态机状态。
+        /// Gets a state from the finite state machine.
         /// </summary>
-        /// <typeparam name="TState">要获取的有限状态机状态类型。</typeparam>
-        /// <returns>要获取的有限状态机状态。</returns>
+        /// <typeparam name="TState">The type of the finite state machine state to get.</typeparam>
+        /// <returns>The finite state machine state to get.</returns>
         TState GetState<TState>() where TState : FsmState<T>;
 
         /// <summary>
-        /// 获取有限状态机状态。
+        /// Gets a state from the finite state machine.
         /// </summary>
-        /// <param name="stateType">要获取的有限状态机状态类型。</param>
-        /// <returns>要获取的有限状态机状态。</returns>
+        /// <param name="stateType">The type of the finite state machine state to get.</param>
+        /// <returns>The finite state machine state to get.</returns>
         FsmState<T> GetState(Type stateType);
 
         /// <summary>
-        /// 获取有限状态机的所有状态。
+        /// Gets all states of the finite state machine.
         /// </summary>
-        /// <returns>有限状态机的所有状态。</returns>
+        /// <returns>All states of the finite state machine.</returns>
         FsmState<T>[] GetAllStates();
 
         /// <summary>
-        /// 获取有限状态机的所有状态。
+        /// Gets all states of the finite state machine.
         /// </summary>
-        /// <param name="results">有限状态机的所有状态。</param>
+        /// <param name="results">The list to store all states of the finite state machine.</param>
         void GetAllStates(List<FsmState<T>> results);
 
         /// <summary>
-        /// 是否存在有限状态机数据。
+        /// Determines whether the finite state machine data exists.
         /// </summary>
-        /// <param name="name">有限状态机数据名称。</param>
-        /// <returns>有限状态机数据是否存在。</returns>
+        /// <param name="name">The name of the finite state machine data.</param>
+        /// <returns>Whether the finite state machine data exists.</returns>
         bool HasData(string name);
 
         /// <summary>
-        /// 获取有限状态机数据。
+        /// Gets data from the finite state machine.
         /// </summary>
-        /// <typeparam name="TData">要获取的有限状态机数据的类型。</typeparam>
-        /// <param name="name">有限状态机数据名称。</param>
-        /// <returns>要获取的有限状态机数据。</returns>
+        /// <typeparam name="TData">The type of the finite state machine data to get.</typeparam>
+        /// <param name="name">The name of the finite state machine data.</param>
+        /// <returns>The finite state machine data to get.</returns>
         TData GetData<TData>(string name) where TData : Variable;
 
         /// <summary>
-        /// 获取有限状态机数据。
+        /// Gets data from the finite state machine.
         /// </summary>
-        /// <param name="name">有限状态机数据名称。</param>
-        /// <returns>要获取的有限状态机数据。</returns>
+        /// <param name="name">The name of the finite state machine data.</param>
+        /// <returns>The finite state machine data to get.</returns>
         Variable GetData(string name);
 
         /// <summary>
-        /// 设置有限状态机数据。
+        /// Sets data in the finite state machine.
         /// </summary>
-        /// <typeparam name="TData">要设置的有限状态机数据的类型。</typeparam>
-        /// <param name="name">有限状态机数据名称。</param>
-        /// <param name="data">要设置的有限状态机数据。</param>
+        /// <typeparam name="TData">The type of the finite state machine data to set.</typeparam>
+        /// <param name="name">The name of the finite state machine data.</param>
+        /// <param name="data">The finite state machine data to set.</param>
         void SetData<TData>(string name, TData data) where TData : Variable;
 
         /// <summary>
-        /// 设置有限状态机数据。
+        /// Sets data in the finite state machine.
         /// </summary>
-        /// <param name="name">有限状态机数据名称。</param>
-        /// <param name="data">要设置的有限状态机数据。</param>
+        /// <param name="name">The name of the finite state machine data.</param>
+        /// <param name="data">The finite state machine data to set.</param>
         void SetData(string name, Variable data);
 
         /// <summary>
-        /// 移除有限状态机数据。
+        /// Removes data from the finite state machine.
         /// </summary>
-        /// <param name="name">有限状态机数据名称。</param>
-        /// <returns>是否移除有限状态机数据成功。</returns>
+        /// <param name="name">The name of the finite state machine data.</param>
+        /// <returns>Whether the finite state machine data was removed successfully.</returns>
         bool RemoveData(string name);
     }
 }

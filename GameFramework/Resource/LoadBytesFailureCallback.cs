@@ -8,10 +8,10 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载数据流失败回调函数。
+    /// Load bytes failure callback method.
     /// </summary>
-    /// <param name="fileUri">文件路径。</param>
-    /// <param name="errorMessage">错误信息。</param>
-    /// <param name="userData">用户自定义数据。</param>
+    /// <param name="fileUri">The file URI.</param>
+    /// <param name="errorMessage">The error message.</param>
+    /// <param name="userData">User-defined data.</param>
     public delegate void LoadBytesFailureCallback(string fileUri, string errorMessage, object userData);
 }

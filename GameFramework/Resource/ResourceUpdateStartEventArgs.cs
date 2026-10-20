@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源更新开始事件。
+    /// Resource update start event.
     /// </summary>
     public sealed class ResourceUpdateStartEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化资源更新开始事件的新实例。
+        /// Initializes a new instance of the <see cref="ResourceUpdateStartEventArgs"/> class.
         /// </summary>
         public ResourceUpdateStartEventArgs()
         {
@@ -26,7 +26,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源名称。
+        /// Gets the resource name.
         /// </summary>
         public string Name
         {
@@ -35,7 +35,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源下载后存放路径。
+        /// Gets the destination path where the resource is stored after download.
         /// </summary>
         public string DownloadPath
         {
@@ -44,7 +44,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取下载地址。
+        /// Gets the download URI.
         /// </summary>
         public string DownloadUri
         {
@@ -53,7 +53,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取当前下载大小。
+        /// Gets the current downloaded length.
         /// </summary>
         public int CurrentLength
         {
@@ -62,7 +62,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取压缩后大小。
+        /// Gets the compressed resource length.
         /// </summary>
         public int CompressedLength
         {
@@ -71,7 +71,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取已重试下载次数。
+        /// Gets the number of download retries already performed.
         /// </summary>
         public int RetryCount
         {
@@ -80,15 +80,15 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建资源更新开始事件。
+        /// Creates a new resource update start event.
         /// </summary>
-        /// <param name="name">资源名称。</param>
-        /// <param name="downloadPath">资源下载后存放路径。</param>
-        /// <param name="downloadUri">资源下载地址。</param>
-        /// <param name="currentLength">当前下载大小。</param>
-        /// <param name="compressedLength">压缩后大小。</param>
-        /// <param name="retryCount">已重试下载次数。</param>
-        /// <returns>创建的资源更新开始事件。</returns>
+        /// <param name="name">The resource name.</param>
+        /// <param name="downloadPath">The destination path where the resource is stored after download.</param>
+        /// <param name="downloadUri">The resource download URI.</param>
+        /// <param name="currentLength">The current downloaded length.</param>
+        /// <param name="compressedLength">The compressed resource length.</param>
+        /// <param name="retryCount">The number of download retries already performed.</param>
+        /// <returns>The created resource update start event.</returns>
         public static ResourceUpdateStartEventArgs Create(string name, string downloadPath, string downloadUri, int currentLength, int compressedLength, int retryCount)
         {
             ResourceUpdateStartEventArgs resourceUpdateStartEventArgs = ReferencePool.Acquire<ResourceUpdateStartEventArgs>();
@@ -102,7 +102,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理资源更新开始事件。
+        /// Clears the resource update start event.
         /// </summary>
         public override void Clear()
         {

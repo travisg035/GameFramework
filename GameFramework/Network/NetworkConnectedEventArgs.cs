@@ -8,12 +8,12 @@
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络连接成功事件。
+    /// Network connected event.
     /// </summary>
     public sealed class NetworkConnectedEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化网络连接成功事件的新实例。
+        /// Initializes a new instance of the NetworkConnectedEventArgs class.
         /// </summary>
         public NetworkConnectedEventArgs()
         {
@@ -22,7 +22,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取网络频道。
+        /// Gets the network channel.
         /// </summary>
         public INetworkChannel NetworkChannel
         {
@@ -31,7 +31,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -40,11 +40,11 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 创建网络连接成功事件。
+        /// Creates a network connected event.
         /// </summary>
-        /// <param name="networkChannel">网络频道。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的网络连接成功事件。</returns>
+        /// <param name="networkChannel">Network channel.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created network connected event.</returns>
         public static NetworkConnectedEventArgs Create(INetworkChannel networkChannel, object userData)
         {
             NetworkConnectedEventArgs networkConnectedEventArgs = ReferencePool.Acquire<NetworkConnectedEventArgs>();
@@ -54,7 +54,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 清理网络连接成功事件。
+        /// Clears the network connected event.
         /// </summary>
         public override void Clear()
         {

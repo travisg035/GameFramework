@@ -11,12 +11,12 @@ using System.IO;
 namespace GameFramework.FileSystem
 {
     /// <summary>
-    /// 文件系统接口。
+    /// File system interface.
     /// </summary>
     public interface IFileSystem
     {
         /// <summary>
-        /// 获取文件系统完整路径。
+        /// Gets the full path of the file system.
         /// </summary>
         string FullPath
         {
@@ -24,7 +24,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件系统访问方式。
+        /// Gets the access mode of the file system.
         /// </summary>
         FileSystemAccess Access
         {
@@ -32,7 +32,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件数量。
+        /// Gets the file count.
         /// </summary>
         int FileCount
         {
@@ -40,7 +40,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取最大文件数量。
+        /// Gets the maximum file count.
         /// </summary>
         int MaxFileCount
         {
@@ -48,230 +48,230 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件信息。
+        /// Gets the file info.
         /// </summary>
-        /// <param name="name">要获取文件信息的文件名称。</param>
-        /// <returns>获取的文件信息。</returns>
+        /// <param name="name">The name of the file whose info is to be obtained.</param>
+        /// <returns>The file info.</returns>
         FileInfo GetFileInfo(string name);
 
         /// <summary>
-        /// 获取所有文件信息。
+        /// Gets all file infos.
         /// </summary>
-        /// <returns>获取的所有文件信息。</returns>
+        /// <returns>All file infos.</returns>
         FileInfo[] GetAllFileInfos();
 
         /// <summary>
-        /// 获取所有文件信息。
+        /// Gets all file infos.
         /// </summary>
-        /// <param name="results">获取的所有文件信息。</param>
+        /// <param name="results">All file infos.</param>
         void GetAllFileInfos(List<FileInfo> results);
 
         /// <summary>
-        /// 检查是否存在指定文件。
+        /// Checks whether the specified file exists.
         /// </summary>
-        /// <param name="name">要检查的文件名称。</param>
-        /// <returns>是否存在指定文件。</returns>
+        /// <param name="name">The name of the file to check.</param>
+        /// <returns>Whether the specified file exists.</returns>
         bool HasFile(string name);
 
         /// <summary>
-        /// 读取指定文件。
+        /// Reads the specified file.
         /// </summary>
-        /// <param name="name">要读取的文件名称。</param>
-        /// <returns>存储读取文件内容的二进制流。</returns>
+        /// <param name="name">The name of the file to read.</param>
+        /// <returns>The byte array containing the read file content.</returns>
         byte[] ReadFile(string name);
 
         /// <summary>
-        /// 读取指定文件。
+        /// Reads the specified file.
         /// </summary>
-        /// <param name="name">要读取的文件名称。</param>
-        /// <param name="buffer">存储读取文件内容的二进制流。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file to read.</param>
+        /// <param name="buffer">The byte array to store the read file content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFile(string name, byte[] buffer);
 
         /// <summary>
-        /// 读取指定文件。
+        /// Reads the specified file.
         /// </summary>
-        /// <param name="name">要读取的文件名称。</param>
-        /// <param name="buffer">存储读取文件内容的二进制流。</param>
-        /// <param name="startIndex">存储读取文件内容的二进制流的起始位置。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file to read.</param>
+        /// <param name="buffer">The byte array to store the read file content.</param>
+        /// <param name="startIndex">The starting position in the byte array to store the read file content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFile(string name, byte[] buffer, int startIndex);
 
         /// <summary>
-        /// 读取指定文件。
+        /// Reads the specified file.
         /// </summary>
-        /// <param name="name">要读取的文件名称。</param>
-        /// <param name="buffer">存储读取文件内容的二进制流。</param>
-        /// <param name="startIndex">存储读取文件内容的二进制流的起始位置。</param>
-        /// <param name="length">存储读取文件内容的二进制流的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file to read.</param>
+        /// <param name="buffer">The byte array to store the read file content.</param>
+        /// <param name="startIndex">The starting position in the byte array to store the read file content.</param>
+        /// <param name="length">The length of the byte array to store the read file content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFile(string name, byte[] buffer, int startIndex, int length);
 
         /// <summary>
-        /// 读取指定文件。
+        /// Reads the specified file.
         /// </summary>
-        /// <param name="name">要读取的文件名称。</param>
-        /// <param name="stream">存储读取文件内容的二进制流。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file to read.</param>
+        /// <param name="stream">The stream to store the read file content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFile(string name, Stream stream);
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>存储读取文件片段内容的二进制流。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The byte array containing the read file segment content.</returns>
         byte[] ReadFileSegment(string name, int length);
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="offset">要读取片段的偏移。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>存储读取文件片段内容的二进制流。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="offset">The offset of the segment to read.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The byte array containing the read file segment content.</returns>
         byte[] ReadFileSegment(string name, int offset, int length);
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFileSegment(string name, byte[] buffer);
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFileSegment(string name, byte[] buffer, int length);
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <param name="startIndex">存储读取文件片段内容的二进制流的起始位置。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <param name="startIndex">The starting position in the byte array to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFileSegment(string name, byte[] buffer, int startIndex, int length);
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="offset">要读取片段的偏移。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="offset">The offset of the segment to read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFileSegment(string name, int offset, byte[] buffer);
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="offset">要读取片段的偏移。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="offset">The offset of the segment to read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFileSegment(string name, int offset, byte[] buffer, int length);
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="offset">要读取片段的偏移。</param>
-        /// <param name="buffer">存储读取文件片段内容的二进制流。</param>
-        /// <param name="startIndex">存储读取文件片段内容的二进制流的起始位置。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="offset">The offset of the segment to read.</param>
+        /// <param name="buffer">The byte array to store the read file segment content.</param>
+        /// <param name="startIndex">The starting position in the byte array to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFileSegment(string name, int offset, byte[] buffer, int startIndex, int length);
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="stream">存储读取文件片段内容的二进制流。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="stream">The stream to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFileSegment(string name, Stream stream, int length);
 
         /// <summary>
-        /// 读取指定文件的指定片段。
+        /// Reads the specified segment of the specified file.
         /// </summary>
-        /// <param name="name">要读取片段的文件名称。</param>
-        /// <param name="offset">要读取片段的偏移。</param>
-        /// <param name="stream">存储读取文件片段内容的二进制流。</param>
-        /// <param name="length">要读取片段的长度。</param>
-        /// <returns>实际读取了多少字节。</returns>
+        /// <param name="name">The name of the file whose segment is to be read.</param>
+        /// <param name="offset">The offset of the segment to read.</param>
+        /// <param name="stream">The stream to store the read file segment content.</param>
+        /// <param name="length">The length of the segment to read.</param>
+        /// <returns>The actual number of bytes read.</returns>
         int ReadFileSegment(string name, int offset, Stream stream, int length);
 
         /// <summary>
-        /// 写入指定文件。
+        /// Writes the specified file.
         /// </summary>
-        /// <param name="name">要写入的文件名称。</param>
-        /// <param name="buffer">存储写入文件内容的二进制流。</param>
-        /// <returns>是否写入指定文件成功。</returns>
+        /// <param name="name">The name of the file to write.</param>
+        /// <param name="buffer">The byte array containing the file content to write.</param>
+        /// <returns>Whether the file was written successfully.</returns>
         bool WriteFile(string name, byte[] buffer);
 
         /// <summary>
-        /// 写入指定文件。
+        /// Writes the specified file.
         /// </summary>
-        /// <param name="name">要写入的文件名称。</param>
-        /// <param name="buffer">存储写入文件内容的二进制流。</param>
-        /// <param name="startIndex">存储写入文件内容的二进制流的起始位置。</param>
-        /// <returns>是否写入指定文件成功。</returns>
+        /// <param name="name">The name of the file to write.</param>
+        /// <param name="buffer">The byte array containing the file content to write.</param>
+        /// <param name="startIndex">The starting position in the byte array of the file content to write.</param>
+        /// <returns>Whether the file was written successfully.</returns>
         bool WriteFile(string name, byte[] buffer, int startIndex);
 
         /// <summary>
-        /// 写入指定文件。
+        /// Writes the specified file.
         /// </summary>
-        /// <param name="name">要写入的文件名称。</param>
-        /// <param name="buffer">存储写入文件内容的二进制流。</param>
-        /// <param name="startIndex">存储写入文件内容的二进制流的起始位置。</param>
-        /// <param name="length">存储写入文件内容的二进制流的长度。</param>
-        /// <returns>是否写入指定文件成功。</returns>
+        /// <param name="name">The name of the file to write.</param>
+        /// <param name="buffer">The byte array containing the file content to write.</param>
+        /// <param name="startIndex">The starting position in the byte array of the file content to write.</param>
+        /// <param name="length">The length of the byte array of the file content to write.</param>
+        /// <returns>Whether the file was written successfully.</returns>
         bool WriteFile(string name, byte[] buffer, int startIndex, int length);
 
         /// <summary>
-        /// 写入指定文件。
+        /// Writes the specified file.
         /// </summary>
-        /// <param name="name">要写入的文件名称。</param>
-        /// <param name="stream">存储写入文件内容的二进制流。</param>
-        /// <returns>是否写入指定文件成功。</returns>
+        /// <param name="name">The name of the file to write.</param>
+        /// <param name="stream">The stream containing the file content to write.</param>
+        /// <returns>Whether the file was written successfully.</returns>
         bool WriteFile(string name, Stream stream);
 
         /// <summary>
-        /// 写入指定文件。
+        /// Writes the specified file.
         /// </summary>
-        /// <param name="name">要写入的文件名称。</param>
-        /// <param name="filePath">存储写入文件内容的文件路径。</param>
-        /// <returns>是否写入指定文件成功。</returns>
+        /// <param name="name">The name of the file to write.</param>
+        /// <param name="filePath">The file path containing the file content to write.</param>
+        /// <returns>Whether the file was written successfully.</returns>
         bool WriteFile(string name, string filePath);
 
         /// <summary>
-        /// 将指定文件另存为物理文件。
+        /// Saves the specified file as a physical file.
         /// </summary>
-        /// <param name="name">要另存为的文件名称。</param>
-        /// <param name="filePath">存储写入文件内容的文件路径。</param>
-        /// <returns>是否将指定文件另存为物理文件成功。</returns>
+        /// <param name="name">The name of the file to save as a physical file.</param>
+        /// <param name="filePath">The file path to store the saved file content.</param>
+        /// <returns>Whether the file was saved as a physical file successfully.</returns>
         bool SaveAsFile(string name, string filePath);
 
         /// <summary>
-        /// 重命名指定文件。
+        /// Renames the specified file.
         /// </summary>
-        /// <param name="oldName">要重命名的文件名称。</param>
-        /// <param name="newName">重命名后的文件名称。</param>
-        /// <returns>是否重命名指定文件成功。</returns>
+        /// <param name="oldName">The old name of the file to rename.</param>
+        /// <param name="newName">The new name of the file.</param>
+        /// <returns>Whether the file was renamed successfully.</returns>
         bool RenameFile(string oldName, string newName);
 
         /// <summary>
-        /// 删除指定文件。
+        /// Deletes the specified file.
         /// </summary>
-        /// <param name="name">要删除的文件名称。</param>
-        /// <returns>是否删除指定文件成功。</returns>
+        /// <param name="name">The name of the file to delete.</param>
+        /// <returns>Whether the file was deleted successfully.</returns>
         bool DeleteFile(string name);
     }
 }

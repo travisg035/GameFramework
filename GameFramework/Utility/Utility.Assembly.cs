@@ -13,7 +13,7 @@ namespace GameFramework
     public static partial class Utility
     {
         /// <summary>
-        /// 程序集相关的实用函数。
+        /// Assembly utility functions.
         /// </summary>
         public static class Assembly
         {
@@ -26,18 +26,18 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取已加载的程序集。
+            /// Gets loaded assemblies.
             /// </summary>
-            /// <returns>已加载的程序集。</returns>
+            /// <returns>Loaded assemblies.</returns>
             public static System.Reflection.Assembly[] GetAssemblies()
             {
                 return s_Assemblies;
             }
 
             /// <summary>
-            /// 获取已加载的程序集中的所有类型。
+            /// Gets all types in loaded assemblies.
             /// </summary>
-            /// <returns>已加载的程序集中的所有类型。</returns>
+            /// <returns>All types in loaded assemblies.</returns>
             public static Type[] GetTypes()
             {
                 List<Type> results = new List<Type>();
@@ -50,9 +50,9 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取已加载的程序集中的所有类型。
+            /// Gets all types in loaded assemblies.
             /// </summary>
-            /// <param name="results">已加载的程序集中的所有类型。</param>
+            /// <param name="results">The list to store all types in loaded assemblies.</param>
             public static void GetTypes(List<Type> results)
             {
                 if (results == null)
@@ -68,10 +68,10 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取已加载的程序集中的指定类型。
+            /// Gets the specified type in loaded assemblies.
             /// </summary>
-            /// <param name="typeName">要获取的类型名。</param>
-            /// <returns>已加载的程序集中的指定类型。</returns>
+            /// <param name="typeName">The type name to get.</param>
+            /// <returns>The specified type in loaded assemblies.</returns>
             public static Type GetType(string typeName)
             {
                 if (string.IsNullOrEmpty(typeName))

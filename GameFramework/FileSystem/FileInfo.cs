@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 namespace GameFramework.FileSystem
 {
     /// <summary>
-    /// 文件信息。
+    /// File info.
     /// </summary>
     [StructLayout(LayoutKind.Auto)]
     public struct FileInfo
@@ -20,11 +20,11 @@ namespace GameFramework.FileSystem
         private readonly int m_Length;
 
         /// <summary>
-        /// 初始化文件信息的新实例。
+        /// Initializes a new instance of the FileInfo struct.
         /// </summary>
-        /// <param name="name">文件名称。</param>
-        /// <param name="offset">文件偏移。</param>
-        /// <param name="length">文件长度。</param>
+        /// <param name="name">The file name.</param>
+        /// <param name="offset">The file offset.</param>
+        /// <param name="length">The file length.</param>
         public FileInfo(string name, long offset, int length)
         {
             if (string.IsNullOrEmpty(name))
@@ -48,7 +48,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件信息是否有效。
+        /// Gets whether the file info is valid.
         /// </summary>
         public bool IsValid
         {
@@ -59,7 +59,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件名称。
+        /// Gets the file name.
         /// </summary>
         public string Name
         {
@@ -70,7 +70,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件偏移。
+        /// Gets the file offset.
         /// </summary>
         public long Offset
         {
@@ -81,7 +81,7 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 获取文件长度。
+        /// Gets the file length.
         /// </summary>
         public int Length
         {

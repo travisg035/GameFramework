@@ -8,13 +8,13 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 任务代理接口。
+    /// Task agent interface.
     /// </summary>
-    /// <typeparam name="T">任务类型。</typeparam>
+    /// <typeparam name="T">Task type.</typeparam>
     internal interface ITaskAgent<T> where T : TaskBase
     {
         /// <summary>
-        /// 获取任务。
+        /// Gets the task.
         /// </summary>
         T Task
         {
@@ -22,31 +22,31 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 初始化任务代理。
+        /// Initializes the task agent.
         /// </summary>
         void Initialize();
 
         /// <summary>
-        /// 任务代理轮询。
+        /// Updates the task agent per frame.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         void Update(float elapseSeconds, float realElapseSeconds);
 
         /// <summary>
-        /// 关闭并清理任务代理。
+        /// Shutdowns and cleans up the task agent.
         /// </summary>
         void Shutdown();
 
         /// <summary>
-        /// 开始处理任务。
+        /// Starts processing the task.
         /// </summary>
-        /// <param name="task">要处理的任务。</param>
-        /// <returns>开始处理任务的状态。</returns>
+        /// <param name="task">The task to process.</param>
+        /// <returns>The start task status.</returns>
         StartTaskStatus Start(T task);
 
         /// <summary>
-        /// 停止正在处理的任务并重置任务代理。
+        /// Stops processing the task and resets the task agent.
         /// </summary>
         void Reset();
     }

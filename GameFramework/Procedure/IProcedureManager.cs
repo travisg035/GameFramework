@@ -11,12 +11,12 @@ using System;
 namespace GameFramework.Procedure
 {
     /// <summary>
-    /// 流程管理器接口。
+    /// Procedure manager interface.
     /// </summary>
     public interface IProcedureManager
     {
         /// <summary>
-        /// 获取当前流程。
+        /// Gets the current procedure.
         /// </summary>
         ProcedureBase CurrentProcedure
         {
@@ -24,7 +24,7 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 获取当前流程持续时间。
+        /// Gets the elapsed time of the current procedure in seconds.
         /// </summary>
         float CurrentProcedureTime
         {
@@ -32,50 +32,50 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 初始化流程管理器。
+        /// Initializes the procedure manager.
         /// </summary>
-        /// <param name="fsmManager">有限状态机管理器。</param>
-        /// <param name="procedures">流程管理器包含的流程。</param>
+        /// <param name="fsmManager">Finite state machine manager.</param>
+        /// <param name="procedures">Procedures contained in the procedure manager.</param>
         void Initialize(IFsmManager fsmManager, params ProcedureBase[] procedures);
 
         /// <summary>
-        /// 开始流程。
+        /// Starts a procedure.
         /// </summary>
-        /// <typeparam name="T">要开始的流程类型。</typeparam>
+        /// <typeparam name="T">The type of the procedure to start.</typeparam>
         void StartProcedure<T>() where T : ProcedureBase;
 
         /// <summary>
-        /// 开始流程。
+        /// Starts a procedure.
         /// </summary>
-        /// <param name="procedureType">要开始的流程类型。</param>
+        /// <param name="procedureType">The type of the procedure to start.</param>
         void StartProcedure(Type procedureType);
 
         /// <summary>
-        /// 是否存在流程。
+        /// Checks whether a procedure exists.
         /// </summary>
-        /// <typeparam name="T">要检查的流程类型。</typeparam>
-        /// <returns>是否存在流程。</returns>
+        /// <typeparam name="T">The type of the procedure to check.</typeparam>
+        /// <returns>Whether the procedure exists.</returns>
         bool HasProcedure<T>() where T : ProcedureBase;
 
         /// <summary>
-        /// 是否存在流程。
+        /// Checks whether a procedure exists.
         /// </summary>
-        /// <param name="procedureType">要检查的流程类型。</param>
-        /// <returns>是否存在流程。</returns>
+        /// <param name="procedureType">The type of the procedure to check.</param>
+        /// <returns>Whether the procedure exists.</returns>
         bool HasProcedure(Type procedureType);
 
         /// <summary>
-        /// 获取流程。
+        /// Gets a procedure.
         /// </summary>
-        /// <typeparam name="T">要获取的流程类型。</typeparam>
-        /// <returns>要获取的流程。</returns>
+        /// <typeparam name="T">The type of the procedure to get.</typeparam>
+        /// <returns>The procedure.</returns>
         ProcedureBase GetProcedure<T>() where T : ProcedureBase;
 
         /// <summary>
-        /// 获取流程。
+        /// Gets a procedure.
         /// </summary>
-        /// <param name="procedureType">要获取的流程类型。</param>
-        /// <returns>要获取的流程。</returns>
+        /// <param name="procedureType">The type of the procedure to get.</param>
+        /// <returns>The procedure.</returns>
         ProcedureBase GetProcedure(Type procedureType);
     }
 }

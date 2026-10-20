@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace GameFramework
 {
     /// <summary>
-    /// 引用池。
+    /// Reference pool.
     /// </summary>
     public static partial class ReferencePool
     {
@@ -19,7 +19,7 @@ namespace GameFramework
         private static bool m_EnableStrictCheck = false;
 
         /// <summary>
-        /// 获取或设置是否开启强制检查。
+        /// Gets or sets whether strict checking is enabled.
         /// </summary>
         public static bool EnableStrictCheck
         {
@@ -34,7 +34,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取引用池的数量。
+        /// Gets the number of reference pools.
         /// </summary>
         public static int Count
         {
@@ -45,9 +45,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取所有引用池的信息。
+        /// Gets information of all reference pools.
         /// </summary>
-        /// <returns>所有引用池的信息。</returns>
+        /// <returns>Information of all reference pools.</returns>
         public static ReferencePoolInfo[] GetAllReferencePoolInfos()
         {
             int index = 0;
@@ -66,7 +66,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 清除所有引用池。
+        /// Clears all reference pools.
         /// </summary>
         public static void ClearAll()
         {
@@ -82,20 +82,20 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 从引用池获取引用。
+        /// Acquires a reference from the reference pool.
         /// </summary>
-        /// <typeparam name="T">引用类型。</typeparam>
-        /// <returns>引用。</returns>
+        /// <typeparam name="T">Reference type.</typeparam>
+        /// <returns>The reference.</returns>
         public static T Acquire<T>() where T : class, IReference, new()
         {
             return GetReferenceCollection(typeof(T)).Acquire<T>();
         }
 
         /// <summary>
-        /// 从引用池获取引用。
+        /// Acquires a reference from the reference pool.
         /// </summary>
-        /// <param name="referenceType">引用类型。</param>
-        /// <returns>引用。</returns>
+        /// <param name="referenceType">Reference type.</param>
+        /// <returns>The reference.</returns>
         public static IReference Acquire(Type referenceType)
         {
             InternalCheckReferenceType(referenceType);
@@ -103,9 +103,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 将引用归还引用池。
+        /// Releases a reference back to the reference pool.
         /// </summary>
-        /// <param name="reference">引用。</param>
+        /// <param name="reference">The reference to release.</param>
         public static void Release(IReference reference)
         {
             if (reference == null)
@@ -119,20 +119,20 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 向引用池中追加指定数量的引用。
+        /// Adds a specified number of references to the reference pool.
         /// </summary>
-        /// <typeparam name="T">引用类型。</typeparam>
-        /// <param name="count">追加数量。</param>
+        /// <typeparam name="T">Reference type.</typeparam>
+        /// <param name="count">The count to add.</param>
         public static void Add<T>(int count) where T : class, IReference, new()
         {
             GetReferenceCollection(typeof(T)).Add<T>(count);
         }
 
         /// <summary>
-        /// 向引用池中追加指定数量的引用。
+        /// Adds a specified number of references to the reference pool.
         /// </summary>
-        /// <param name="referenceType">引用类型。</param>
-        /// <param name="count">追加数量。</param>
+        /// <param name="referenceType">Reference type.</param>
+        /// <param name="count">The count to add.</param>
         public static void Add(Type referenceType, int count)
         {
             InternalCheckReferenceType(referenceType);
@@ -140,20 +140,20 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 从引用池中移除指定数量的引用。
+        /// Removes a specified number of references from the reference pool.
         /// </summary>
-        /// <typeparam name="T">引用类型。</typeparam>
-        /// <param name="count">移除数量。</param>
+        /// <typeparam name="T">Reference type.</typeparam>
+        /// <param name="count">The count to remove.</param>
         public static void Remove<T>(int count) where T : class, IReference
         {
             GetReferenceCollection(typeof(T)).Remove(count);
         }
 
         /// <summary>
-        /// 从引用池中移除指定数量的引用。
+        /// Removes a specified number of references from the reference pool.
         /// </summary>
-        /// <param name="referenceType">引用类型。</param>
-        /// <param name="count">移除数量。</param>
+        /// <param name="referenceType">Reference type.</param>
+        /// <param name="count">The count to remove.</param>
         public static void Remove(Type referenceType, int count)
         {
             InternalCheckReferenceType(referenceType);
@@ -161,18 +161,18 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 从引用池中移除所有的引用。
+        /// Removes all references of the specified type from the reference pool.
         /// </summary>
-        /// <typeparam name="T">引用类型。</typeparam>
+        /// <typeparam name="T">Reference type.</typeparam>
         public static void RemoveAll<T>() where T : class, IReference
         {
             GetReferenceCollection(typeof(T)).RemoveAll();
         }
 
         /// <summary>
-        /// 从引用池中移除所有的引用。
+        /// Removes all references of the specified type from the reference pool.
         /// </summary>
-        /// <param name="referenceType">引用类型。</param>
+        /// <param name="referenceType">Reference type.</param>
         public static void RemoveAll(Type referenceType)
         {
             InternalCheckReferenceType(referenceType);

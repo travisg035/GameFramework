@@ -12,7 +12,7 @@ namespace GameFramework.Debugger
     internal sealed partial class DebuggerManager : GameFrameworkModule, IDebuggerManager
     {
         /// <summary>
-        /// 调试器窗口组。
+        /// Debugger window group.
         /// </summary>
         private sealed class DebuggerWindowGroup : IDebuggerWindowGroup
         {
@@ -28,7 +28,7 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 获取调试器窗口数量。
+            /// Gets the number of debugger windows.
             /// </summary>
             public int DebuggerWindowCount
             {
@@ -39,7 +39,7 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 获取或设置当前选中的调试器窗口索引。
+            /// Gets or sets the index of the selected debugger window.
             /// </summary>
             public int SelectedIndex
             {
@@ -54,7 +54,7 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 获取当前选中的调试器窗口。
+            /// Gets the currently selected debugger window.
             /// </summary>
             public IDebuggerWindow SelectedWindow
             {
@@ -70,15 +70,15 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 初始化调试组。
+            /// Initializes the debugger window group.
             /// </summary>
-            /// <param name="args">初始化调试组参数。</param>
+            /// <param name="args">Debugger window group initialization arguments.</param>
             public void Initialize(params object[] args)
             {
             }
 
             /// <summary>
-            /// 关闭调试组。
+            /// Shuts down the debugger window group.
             /// </summary>
             public void Shutdown()
             {
@@ -91,7 +91,7 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 进入调试器窗口。
+            /// Called when entering the debugger window.
             /// </summary>
             public void OnEnter()
             {
@@ -99,7 +99,7 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 离开调试器窗口。
+            /// Called when leaving the debugger window.
             /// </summary>
             public void OnLeave()
             {
@@ -107,17 +107,17 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 调试组轮询。
+            /// Debugger window group update.
             /// </summary>
-            /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-            /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+            /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+            /// <param name="realElapseSeconds">Real elapsed seconds.</param>
             public void OnUpdate(float elapseSeconds, float realElapseSeconds)
             {
                 SelectedWindow.OnUpdate(elapseSeconds, realElapseSeconds);
             }
 
             /// <summary>
-            /// 调试器窗口绘制。
+            /// Debugger window draw.
             /// </summary>
             public void OnDraw()
             {
@@ -134,7 +134,7 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 获取调试组的调试器窗口名称集合。
+            /// Gets the debugger window names in the debugger window group.
             /// </summary>
             public string[] GetDebuggerWindowNames()
             {
@@ -142,10 +142,10 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 获取调试器窗口。
+            /// Gets a debugger window.
             /// </summary>
-            /// <param name="path">调试器窗口路径。</param>
-            /// <returns>要获取的调试器窗口。</returns>
+            /// <param name="path">Debugger window path.</param>
+            /// <returns>The debugger window to get.</returns>
             public IDebuggerWindow GetDebuggerWindow(string path)
             {
                 if (string.IsNullOrEmpty(path))
@@ -171,10 +171,10 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 选中调试器窗口。
+            /// Selects a debugger window.
             /// </summary>
-            /// <param name="path">调试器窗口路径。</param>
-            /// <returns>是否成功选中调试器窗口。</returns>
+            /// <param name="path">Debugger window path.</param>
+            /// <returns>Whether the debugger window was selected successfully.</returns>
             public bool SelectDebuggerWindow(string path)
             {
                 if (string.IsNullOrEmpty(path))
@@ -200,10 +200,10 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 注册调试器窗口。
+            /// Registers a debugger window.
             /// </summary>
-            /// <param name="path">调试器窗口路径。</param>
-            /// <param name="debuggerWindow">要注册的调试器窗口。</param>
+            /// <param name="path">Debugger window path.</param>
+            /// <param name="debuggerWindow">The debugger window to register.</param>
             public void RegisterDebuggerWindow(string path, IDebuggerWindow debuggerWindow)
             {
                 if (string.IsNullOrEmpty(path))
@@ -244,10 +244,10 @@ namespace GameFramework.Debugger
             }
 
             /// <summary>
-            /// 解除注册调试器窗口。
+            /// Unregisters a debugger window.
             /// </summary>
-            /// <param name="path">调试器窗口路径。</param>
-            /// <returns>是否解除注册调试器窗口成功。</returns>
+            /// <param name="path">Debugger window path.</param>
+            /// <returns>Whether the debugger window was unregistered successfully.</returns>
             public bool UnregisterDebuggerWindow(string path)
             {
                 if (string.IsNullOrEmpty(path))

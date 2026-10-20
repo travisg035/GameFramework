@@ -12,7 +12,7 @@ namespace GameFramework
     public static partial class Utility
     {
         /// <summary>
-        /// Marshal 相关的实用函数。
+        /// Marshal utility functions.
         /// </summary>
         public static class Marshal
         {
@@ -21,7 +21,7 @@ namespace GameFramework
             private static int s_CachedHGlobalSize = 0;
 
             /// <summary>
-            /// 获取缓存的从进程的非托管内存中分配的内存的大小。
+            /// Gets the cached unmanaged memory size allocated from the process.
             /// </summary>
             public static int CachedHGlobalSize
             {
@@ -32,9 +32,9 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 确保从进程的非托管内存中分配足够大小的内存并缓存。
+            /// Ensures enough unmanaged memory is allocated from the process and cached.
             /// </summary>
-            /// <param name="ensureSize">要确保从进程的非托管内存中分配内存的大小。</param>
+            /// <param name="ensureSize">The size of unmanaged memory to ensure.</param>
             public static void EnsureCachedHGlobalSize(int ensureSize)
             {
                 if (ensureSize < 0)
@@ -52,7 +52,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 释放缓存的从进程的非托管内存中分配的内存。
+            /// Frees the cached unmanaged memory allocated from the process.
             /// </summary>
             public static void FreeCachedHGlobal()
             {
@@ -65,23 +65,23 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 将数据从对象转换为二进制流。
+            /// Converts an object to binary bytes.
             /// </summary>
-            /// <typeparam name="T">要转换的对象的类型。</typeparam>
-            /// <param name="structure">要转换的对象。</param>
-            /// <returns>存储转换结果的二进制流。</returns>
+            /// <typeparam name="T">The type of object to convert.</typeparam>
+            /// <param name="structure">The object to convert.</param>
+            /// <returns>The converted binary bytes.</returns>
             public static byte[] StructureToBytes<T>(T structure)
             {
                 return StructureToBytes(structure, System.Runtime.InteropServices.Marshal.SizeOf(typeof(T)));
             }
 
             /// <summary>
-            /// 将数据从对象转换为二进制流。
+            /// Converts an object to binary bytes.
             /// </summary>
-            /// <typeparam name="T">要转换的对象的类型。</typeparam>
-            /// <param name="structure">要转换的对象。</param>
-            /// <param name="structureSize">要转换的对象的大小。</param>
-            /// <returns>存储转换结果的二进制流。</returns>
+            /// <typeparam name="T">The type of object to convert.</typeparam>
+            /// <param name="structure">The object to convert.</param>
+            /// <param name="structureSize">The size of the object to convert.</param>
+            /// <returns>The converted binary bytes.</returns>
             internal static byte[] StructureToBytes<T>(T structure, int structureSize)
             {
                 if (structureSize < 0)
@@ -97,48 +97,48 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 将数据从对象转换为二进制流。
+            /// Converts an object to binary bytes.
             /// </summary>
-            /// <typeparam name="T">要转换的对象的类型。</typeparam>
-            /// <param name="structure">要转换的对象。</param>
-            /// <param name="result">存储转换结果的二进制流。</param>
+            /// <typeparam name="T">The type of object to convert.</typeparam>
+            /// <param name="structure">The object to convert.</param>
+            /// <param name="result">The converted binary bytes.</param>
             public static void StructureToBytes<T>(T structure, byte[] result)
             {
                 StructureToBytes(structure, System.Runtime.InteropServices.Marshal.SizeOf(typeof(T)), result, 0);
             }
 
             /// <summary>
-            /// 将数据从对象转换为二进制流。
+            /// Converts an object to binary bytes.
             /// </summary>
-            /// <typeparam name="T">要转换的对象的类型。</typeparam>
-            /// <param name="structure">要转换的对象。</param>
-            /// <param name="structureSize">要转换的对象的大小。</param>
-            /// <param name="result">存储转换结果的二进制流。</param>
+            /// <typeparam name="T">The type of object to convert.</typeparam>
+            /// <param name="structure">The object to convert.</param>
+            /// <param name="structureSize">The size of the object to convert.</param>
+            /// <param name="result">The converted binary bytes.</param>
             internal static void StructureToBytes<T>(T structure, int structureSize, byte[] result)
             {
                 StructureToBytes(structure, structureSize, result, 0);
             }
 
             /// <summary>
-            /// 将数据从对象转换为二进制流。
+            /// Converts an object to binary bytes.
             /// </summary>
-            /// <typeparam name="T">要转换的对象的类型。</typeparam>
-            /// <param name="structure">要转换的对象。</param>
-            /// <param name="result">存储转换结果的二进制流。</param>
-            /// <param name="startIndex">写入存储转换结果的二进制流的起始位置。</param>
+            /// <typeparam name="T">The type of object to convert.</typeparam>
+            /// <param name="structure">The object to convert.</param>
+            /// <param name="result">The converted binary bytes.</param>
+            /// <param name="startIndex">The start index of the converted binary bytes.</param>
             public static void StructureToBytes<T>(T structure, byte[] result, int startIndex)
             {
                 StructureToBytes(structure, System.Runtime.InteropServices.Marshal.SizeOf(typeof(T)), result, startIndex);
             }
 
             /// <summary>
-            /// 将数据从对象转换为二进制流。
+            /// Converts an object to binary bytes.
             /// </summary>
-            /// <typeparam name="T">要转换的对象的类型。</typeparam>
-            /// <param name="structure">要转换的对象。</param>
-            /// <param name="structureSize">要转换的对象的大小。</param>
-            /// <param name="result">存储转换结果的二进制流。</param>
-            /// <param name="startIndex">写入存储转换结果的二进制流的起始位置。</param>
+            /// <typeparam name="T">The type of object to convert.</typeparam>
+            /// <param name="structure">The object to convert.</param>
+            /// <param name="structureSize">The size of the object to convert.</param>
+            /// <param name="result">The converted binary bytes.</param>
+            /// <param name="startIndex">The start index of the converted binary bytes.</param>
             internal static void StructureToBytes<T>(T structure, int structureSize, byte[] result, int startIndex)
             {
                 if (structureSize < 0)
@@ -167,48 +167,48 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 将数据从二进制流转换为对象。
+            /// Converts binary bytes to an object.
             /// </summary>
-            /// <typeparam name="T">要转换的对象的类型。</typeparam>
-            /// <param name="buffer">要转换的二进制流。</param>
-            /// <returns>存储转换结果的对象。</returns>
+            /// <typeparam name="T">The type of object to convert.</typeparam>
+            /// <param name="buffer">The binary bytes to convert.</param>
+            /// <returns>The converted object.</returns>
             public static T BytesToStructure<T>(byte[] buffer)
             {
                 return BytesToStructure<T>(System.Runtime.InteropServices.Marshal.SizeOf(typeof(T)), buffer, 0);
             }
 
             /// <summary>
-            /// 将数据从二进制流转换为对象。
+            /// Converts binary bytes to an object.
             /// </summary>
-            /// <typeparam name="T">要转换的对象的类型。</typeparam>
-            /// <param name="buffer">要转换的二进制流。</param>
-            /// <param name="startIndex">读取要转换的二进制流的起始位置。</param>
-            /// <returns>存储转换结果的对象。</returns>
+            /// <typeparam name="T">The type of object to convert.</typeparam>
+            /// <param name="buffer">The binary bytes to convert.</param>
+            /// <param name="startIndex">The start index of the binary bytes to convert.</param>
+            /// <returns>The converted object.</returns>
             public static T BytesToStructure<T>(byte[] buffer, int startIndex)
             {
                 return BytesToStructure<T>(System.Runtime.InteropServices.Marshal.SizeOf(typeof(T)), buffer, startIndex);
             }
 
             /// <summary>
-            /// 将数据从二进制流转换为对象。
+            /// Converts binary bytes to an object.
             /// </summary>
-            /// <typeparam name="T">要转换的对象的类型。</typeparam>
-            /// <param name="structureSize">要转换的对象的大小。</param>
-            /// <param name="buffer">要转换的二进制流。</param>
-            /// <returns>存储转换结果的对象。</returns>
+            /// <typeparam name="T">The type of object to convert.</typeparam>
+            /// <param name="structureSize">The size of the object to convert.</param>
+            /// <param name="buffer">The binary bytes to convert.</param>
+            /// <returns>The converted object.</returns>
             internal static T BytesToStructure<T>(int structureSize, byte[] buffer)
             {
                 return BytesToStructure<T>(structureSize, buffer, 0);
             }
 
             /// <summary>
-            /// 将数据从二进制流转换为对象。
+            /// Converts binary bytes to an object.
             /// </summary>
-            /// <typeparam name="T">要转换的对象的类型。</typeparam>
-            /// <param name="structureSize">要转换的对象的大小。</param>
-            /// <param name="buffer">要转换的二进制流。</param>
-            /// <param name="startIndex">读取要转换的二进制流的起始位置。</param>
-            /// <returns>存储转换结果的对象。</returns>
+            /// <typeparam name="T">The type of object to convert.</typeparam>
+            /// <param name="structureSize">The size of the object to convert.</param>
+            /// <param name="buffer">The binary bytes to convert.</param>
+            /// <param name="startIndex">The start index of the binary bytes to convert.</param>
+            /// <returns>The converted object.</returns>
             internal static T BytesToStructure<T>(int structureSize, byte[] buffer, int startIndex)
             {
                 if (structureSize < 0)

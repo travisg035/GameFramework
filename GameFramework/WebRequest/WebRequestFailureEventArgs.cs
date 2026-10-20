@@ -8,12 +8,12 @@
 namespace GameFramework.WebRequest
 {
     /// <summary>
-    /// Web 请求失败事件。
+    /// Web request failure event.
     /// </summary>
     public sealed class WebRequestFailureEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化 Web 请求失败事件的新实例。
+        /// Initializes a new instance of the WebRequestFailureEventArgs class.
         /// </summary>
         public WebRequestFailureEventArgs()
         {
@@ -24,7 +24,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取 Web 请求任务的序列编号。
+        /// Gets the serial id of the web request task.
         /// </summary>
         public int SerialId
         {
@@ -33,7 +33,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取 Web 请求地址。
+        /// Gets the web request URI.
         /// </summary>
         public string WebRequestUri
         {
@@ -42,7 +42,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -51,7 +51,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the custom user data.
         /// </summary>
         public object UserData
         {
@@ -60,13 +60,13 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 创建 Web 请求失败事件。
+        /// Creates a web request failure event.
         /// </summary>
-        /// <param name="serialId">Web 请求任务的序列编号。</param>
-        /// <param name="webRequestUri">Web 请求地址。</param>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的 Web 请求失败事件。</returns>
+        /// <param name="serialId">The serial id of the web request task.</param>
+        /// <param name="webRequestUri">Web request URI.</param>
+        /// <param name="errorMessage">Error message.</param>
+        /// <param name="userData">Custom user data.</param>
+        /// <returns>The created web request failure event.</returns>
         public static WebRequestFailureEventArgs Create(int serialId, string webRequestUri, string errorMessage, object userData)
         {
             WebRequestFailureEventArgs webRequestFailureEventArgs = ReferencePool.Acquire<WebRequestFailureEventArgs>();
@@ -78,7 +78,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 清理 Web 请求失败事件。
+        /// Clears the web request failure event.
         /// </summary>
         public override void Clear()
         {

@@ -8,12 +8,12 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 读取数据失败事件。
+    /// Read data failure event.
     /// </summary>
     public sealed class ReadDataFailureEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化读取数据失败事件的新实例。
+        /// Initializes a new instance of the ReadDataFailureEventArgs class.
         /// </summary>
         public ReadDataFailureEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取内容资源名称。
+        /// Gets the data asset name.
         /// </summary>
         public string DataAssetName
         {
@@ -32,7 +32,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -41,7 +41,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -50,12 +50,12 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 创建读取数据失败事件。
+        /// Creates a read data failure event.
         /// </summary>
-        /// <param name="dataAssetName">内容资源名称。</param>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的读取数据失败事件。</returns>
+        /// <param name="dataAssetName">Data asset name.</param>
+        /// <param name="errorMessage">Error message.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created read data failure event.</returns>
         public static ReadDataFailureEventArgs Create(string dataAssetName, string errorMessage, object userData)
         {
             ReadDataFailureEventArgs loadDataFailureEventArgs = ReferencePool.Acquire<ReadDataFailureEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 清理读取数据失败事件。
+        /// Clears the read data failure event.
         /// </summary>
         public override void Clear()
         {

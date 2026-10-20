@@ -8,32 +8,32 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 游戏框架日志等级。
+    /// Game framework log level.
     /// </summary>
     public enum GameFrameworkLogLevel : byte
     {
         /// <summary>
-        /// 调试。
+        /// Debug.
         /// </summary>
         Debug = 0,
 
         /// <summary>
-        /// 信息。
+        /// Info.
         /// </summary>
         Info,
 
         /// <summary>
-        /// 警告。
+        /// Warning.
         /// </summary>
         Warning,
 
         /// <summary>
-        /// 错误。
+        /// Error.
         /// </summary>
         Error,
 
         /// <summary>
-        /// 严重错误。
+        /// Fatal.
         /// </summary>
         Fatal
     }

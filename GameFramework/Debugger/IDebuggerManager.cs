@@ -8,12 +8,12 @@
 namespace GameFramework.Debugger
 {
     /// <summary>
-    /// 调试器管理器接口。
+    /// Debugger manager interface.
     /// </summary>
     public interface IDebuggerManager
     {
         /// <summary>
-        /// 获取或设置调试器窗口是否激活。
+        /// Gets or sets whether the debugger window is active.
         /// </summary>
         bool ActiveWindow
         {
@@ -22,7 +22,7 @@ namespace GameFramework.Debugger
         }
 
         /// <summary>
-        /// 调试器窗口根结点。
+        /// Gets the debugger window root node.
         /// </summary>
         IDebuggerWindowGroup DebuggerWindowRoot
         {
@@ -30,32 +30,32 @@ namespace GameFramework.Debugger
         }
 
         /// <summary>
-        /// 注册调试器窗口。
+        /// Registers a debugger window.
         /// </summary>
-        /// <param name="path">调试器窗口路径。</param>
-        /// <param name="debuggerWindow">要注册的调试器窗口。</param>
-        /// <param name="args">初始化调试器窗口参数。</param>
+        /// <param name="path">Debugger window path.</param>
+        /// <param name="debuggerWindow">The debugger window to register.</param>
+        /// <param name="args">Debugger window initialization arguments.</param>
         void RegisterDebuggerWindow(string path, IDebuggerWindow debuggerWindow, params object[] args);
 
         /// <summary>
-        /// 解除注册调试器窗口。
+        /// Unregisters a debugger window.
         /// </summary>
-        /// <param name="path">调试器窗口路径。</param>
-        /// <returns>是否解除注册调试器窗口成功。</returns>
+        /// <param name="path">Debugger window path.</param>
+        /// <returns>Whether the debugger window was unregistered successfully.</returns>
         bool UnregisterDebuggerWindow(string path);
 
         /// <summary>
-        /// 获取调试器窗口。
+        /// Gets a debugger window.
         /// </summary>
-        /// <param name="path">调试器窗口路径。</param>
-        /// <returns>要获取的调试器窗口。</returns>
+        /// <param name="path">Debugger window path.</param>
+        /// <returns>The debugger window to get.</returns>
         IDebuggerWindow GetDebuggerWindow(string path);
 
         /// <summary>
-        /// 选中调试器窗口。
+        /// Selects a debugger window.
         /// </summary>
-        /// <param name="path">调试器窗口路径。</param>
-        /// <returns>是否成功选中调试器窗口。</returns>
+        /// <param name="path">Debugger window path.</param>
+        /// <returns>Whether the debugger window was selected successfully.</returns>
         bool SelectDebuggerWindow(string path);
     }
 }

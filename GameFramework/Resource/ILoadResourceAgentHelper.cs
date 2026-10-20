@@ -11,83 +11,83 @@ using System;
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源代理辅助器接口。
+    /// Load resource agent helper interface.
     /// </summary>
     public interface ILoadResourceAgentHelper
     {
         /// <summary>
-        /// 加载资源代理辅助器异步加载资源更新事件。
+        /// Load resource agent helper update event.
         /// </summary>
         event EventHandler<LoadResourceAgentHelperUpdateEventArgs> LoadResourceAgentHelperUpdate;
 
         /// <summary>
-        /// 加载资源代理辅助器异步读取资源文件完成事件。
+        /// Load resource agent helper asynchronous read resource file complete event.
         /// </summary>
         event EventHandler<LoadResourceAgentHelperReadFileCompleteEventArgs> LoadResourceAgentHelperReadFileComplete;
 
         /// <summary>
-        /// 加载资源代理辅助器异步读取资源二进制流完成事件。
+        /// Load resource agent helper asynchronous read resource bytes complete event.
         /// </summary>
         event EventHandler<LoadResourceAgentHelperReadBytesCompleteEventArgs> LoadResourceAgentHelperReadBytesComplete;
 
         /// <summary>
-        /// 加载资源代理辅助器异步将资源二进制流转换为加载对象完成事件。
+        /// Load resource agent helper asynchronous parse resource bytes complete event.
         /// </summary>
         event EventHandler<LoadResourceAgentHelperParseBytesCompleteEventArgs> LoadResourceAgentHelperParseBytesComplete;
 
         /// <summary>
-        /// 加载资源代理辅助器异步加载资源完成事件。
+        /// Load resource agent helper asynchronous load resource complete event.
         /// </summary>
         event EventHandler<LoadResourceAgentHelperLoadCompleteEventArgs> LoadResourceAgentHelperLoadComplete;
 
         /// <summary>
-        /// 加载资源代理辅助器错误事件。
+        /// Load resource agent helper error event.
         /// </summary>
         event EventHandler<LoadResourceAgentHelperErrorEventArgs> LoadResourceAgentHelperError;
 
         /// <summary>
-        /// 通过加载资源代理辅助器开始异步读取资源文件。
+        /// Starts asynchronously reading resource file through the load resource agent helper.
         /// </summary>
-        /// <param name="fullPath">要加载资源的完整路径名。</param>
+        /// <param name="fullPath">The full path of the resource to load.</param>
         void ReadFile(string fullPath);
 
         /// <summary>
-        /// 通过加载资源代理辅助器开始异步读取资源文件。
+        /// Starts asynchronously reading resource file through the load resource agent helper.
         /// </summary>
-        /// <param name="fileSystem">要加载资源的文件系统。</param>
-        /// <param name="name">要加载资源的名称。</param>
+        /// <param name="fileSystem">The file system where the resource is located.</param>
+        /// <param name="name">The name of the resource to load.</param>
         void ReadFile(IFileSystem fileSystem, string name);
 
         /// <summary>
-        /// 通过加载资源代理辅助器开始异步读取资源二进制流。
+        /// Starts asynchronously reading resource bytes through the load resource agent helper.
         /// </summary>
-        /// <param name="fullPath">要加载资源的完整路径名。</param>
+        /// <param name="fullPath">The full path of the resource to load.</param>
         void ReadBytes(string fullPath);
 
         /// <summary>
-        /// 通过加载资源代理辅助器开始异步读取资源二进制流。
+        /// Starts asynchronously reading resource bytes through the load resource agent helper.
         /// </summary>
-        /// <param name="fileSystem">要加载资源的文件系统。</param>
-        /// <param name="name">要加载资源的名称。</param>
+        /// <param name="fileSystem">The file system where the resource is located.</param>
+        /// <param name="name">The name of the resource to load.</param>
         void ReadBytes(IFileSystem fileSystem, string name);
 
         /// <summary>
-        /// 通过加载资源代理辅助器开始异步将资源二进制流转换为加载对象。
+        /// Starts asynchronously parsing resource bytes into a loadable object through the load resource agent helper.
         /// </summary>
-        /// <param name="bytes">要加载资源的二进制流。</param>
+        /// <param name="bytes">The resource bytes to load.</param>
         void ParseBytes(byte[] bytes);
 
         /// <summary>
-        /// 通过加载资源代理辅助器开始异步加载资源。
+        /// Starts asynchronously loading asset through the load resource agent helper.
         /// </summary>
-        /// <param name="resource">资源。</param>
-        /// <param name="assetName">要加载的资源名称。</param>
-        /// <param name="assetType">要加载资源的类型。</param>
-        /// <param name="isScene">要加载的资源是否是场景。</param>
+        /// <param name="resource">The resource object.</param>
+        /// <param name="assetName">The name of the asset to load.</param>
+        /// <param name="assetType">The type of the asset to load.</param>
+        /// <param name="isScene">Whether the asset to load is a scene.</param>
         void LoadAsset(object resource, string assetName, Type assetType, bool isScene);
 
         /// <summary>
-        /// 重置加载资源代理辅助器。
+        /// Resets the load resource agent helper.
         /// </summary>
         void Reset();
     }

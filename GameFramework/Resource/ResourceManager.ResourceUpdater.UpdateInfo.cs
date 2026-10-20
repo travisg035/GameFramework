@@ -12,7 +12,7 @@ namespace GameFramework.Resource
         private sealed partial class ResourceUpdater
         {
             /// <summary>
-            /// 资源更新信息。
+            /// Resource update information.
             /// </summary>
             private sealed class UpdateInfo
             {
@@ -28,16 +28,16 @@ namespace GameFramework.Resource
                 private int m_RetryCount;
 
                 /// <summary>
-                /// 初始化资源更新信息的新实例。
+                /// Initializes a new instance of the UpdateInfo class.
                 /// </summary>
-                /// <param name="resourceName">资源名称。</param>
-                /// <param name="fileSystemName">资源所在的文件系统名称。</param>
-                /// <param name="loadType">资源加载方式。</param>
-                /// <param name="length">资源大小。</param>
-                /// <param name="hashCode">资源哈希值。</param>
-                /// <param name="compressedLength">压缩后大小。</param>
-                /// <param name="compressedHashCode">压缩后哈希值。</param>
-                /// <param name="resourcePath">资源路径。</param>
+                /// <param name="resourceName">The resource name.</param>
+                /// <param name="fileSystemName">The file system name containing the resource.</param>
+                /// <param name="loadType">The resource load type.</param>
+                /// <param name="length">The resource length.</param>
+                /// <param name="hashCode">The resource hash code.</param>
+                /// <param name="compressedLength">The compressed resource length.</param>
+                /// <param name="compressedHashCode">The compressed resource hash code.</param>
+                /// <param name="resourcePath">The resource path.</param>
                 public UpdateInfo(ResourceName resourceName, string fileSystemName, LoadType loadType, int length, int hashCode, int compressedLength, int compressedHashCode, string resourcePath)
                 {
                     m_ResourceName = resourceName;
@@ -53,7 +53,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源名称。
+                /// Gets the resource name.
                 /// </summary>
                 public ResourceName ResourceName
                 {
@@ -64,7 +64,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源是否使用文件系统。
+                /// Gets a value indicating whether the resource uses the file system.
                 /// </summary>
                 public bool UseFileSystem
                 {
@@ -75,7 +75,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源所在的文件系统名称。
+                /// Gets the file system name containing the resource.
                 /// </summary>
                 public string FileSystemName
                 {
@@ -86,7 +86,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源加载方式。
+                /// Gets the resource load type.
                 /// </summary>
                 public LoadType LoadType
                 {
@@ -97,7 +97,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源大小。
+                /// Gets the resource length.
                 /// </summary>
                 public int Length
                 {
@@ -108,7 +108,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源哈希值。
+                /// Gets the resource hash code.
                 /// </summary>
                 public int HashCode
                 {
@@ -119,7 +119,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取压缩后大小。
+                /// Gets the compressed resource length.
                 /// </summary>
                 public int CompressedLength
                 {
@@ -130,7 +130,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取压缩后哈希值。
+                /// Gets the compressed resource hash code.
                 /// </summary>
                 public int CompressedHashCode
                 {
@@ -141,7 +141,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源路径。
+                /// Gets the resource path.
                 /// </summary>
                 public string ResourcePath
                 {
@@ -152,7 +152,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取或设置下载状态。
+                /// Gets or sets a value indicating whether downloading is in progress.
                 /// </summary>
                 public bool Downloading
                 {
@@ -167,7 +167,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取或设置已重试次数。
+                /// Gets or sets the retry count.
                 /// </summary>
                 public int RetryCount
                 {

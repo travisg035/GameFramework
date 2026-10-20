@@ -11,13 +11,13 @@ using System.Runtime.Serialization;
 namespace GameFramework
 {
     /// <summary>
-    /// 游戏框架异常类。
+    /// Game framework exception class.
     /// </summary>
     [Serializable]
     public class GameFrameworkException : Exception
     {
         /// <summary>
-        /// 初始化游戏框架异常类的新实例。
+        /// Initializes a new instance of the GameFrameworkException class.
         /// </summary>
         public GameFrameworkException()
             : base()
@@ -25,29 +25,29 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 使用指定错误消息初始化游戏框架异常类的新实例。
+        /// Initializes a new instance of the GameFrameworkException class with a specified error message.
         /// </summary>
-        /// <param name="message">描述错误的消息。</param>
+        /// <param name="message">The message that describes the error.</param>
         public GameFrameworkException(string message)
             : base(message)
         {
         }
 
         /// <summary>
-        /// 使用指定错误消息和对作为此异常原因的内部异常的引用来初始化游戏框架异常类的新实例。
+        /// Initializes a new instance of the GameFrameworkException class with a specified error message and a reference to the inner exception that is the cause of this exception.
         /// </summary>
-        /// <param name="message">解释异常原因的错误消息。</param>
-        /// <param name="innerException">导致当前异常的异常。如果 innerException 参数不为空引用，则在处理内部异常的 catch 块中引发当前异常。</param>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
+        /// <param name="innerException">The exception that is the cause of the current exception. If the innerException parameter is not null, the current exception is raised in a catch block that handles the inner exception.</param>
         public GameFrameworkException(string message, Exception innerException)
             : base(message, innerException)
         {
         }
 
         /// <summary>
-        /// 用序列化数据初始化游戏框架异常类的新实例。
+        /// Initializes a new instance of the GameFrameworkException class with serialized data.
         /// </summary>
-        /// <param name="info">存有有关所引发异常的序列化的对象数据。</param>
-        /// <param name="context">包含有关源或目标的上下文信息。</param>
+        /// <param name="info">The object that holds the serialized object data about the exception being thrown.</param>
+        /// <param name="context">The contextual information about the source or destination.</param>
         protected GameFrameworkException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

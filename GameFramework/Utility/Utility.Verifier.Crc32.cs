@@ -12,7 +12,7 @@ namespace GameFramework
         public static partial class Verifier
         {
             /// <summary>
-            /// CRC32 算法。
+            /// CRC32 algorithm.
             /// </summary>
             private sealed class Crc32
             {

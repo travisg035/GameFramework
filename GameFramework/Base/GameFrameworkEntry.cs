@@ -11,17 +11,17 @@ using System.Collections.Generic;
 namespace GameFramework
 {
     /// <summary>
-    /// 游戏框架入口。
+    /// Game framework entry point.
     /// </summary>
     public static class GameFrameworkEntry
     {
         private static readonly GameFrameworkLinkedList<GameFrameworkModule> s_GameFrameworkModules = new GameFrameworkLinkedList<GameFrameworkModule>();
 
         /// <summary>
-        /// 所有游戏框架模块轮询。
+        /// Polling all game framework modules.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         public static void Update(float elapseSeconds, float realElapseSeconds)
         {
             foreach (GameFrameworkModule module in s_GameFrameworkModules)
@@ -31,7 +31,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 关闭并清理所有游戏框架模块。
+        /// Shutdown and cleanup all game framework modules.
         /// </summary>
         public static void Shutdown()
         {
@@ -47,11 +47,11 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取游戏框架模块。
+        /// Get game framework module.
         /// </summary>
-        /// <typeparam name="T">要获取的游戏框架模块类型。</typeparam>
-        /// <returns>要获取的游戏框架模块。</returns>
-        /// <remarks>如果要获取的游戏框架模块不存在，则自动创建该游戏框架模块。</remarks>
+        /// <typeparam name="T">The type of the game framework module to get.</typeparam>
+        /// <returns>The game framework module.</returns>
+        /// <remarks>If the module does not exist, it will be created automatically.</remarks>
         public static T GetModule<T>() where T : class
         {
             Type interfaceType = typeof(T);
@@ -76,11 +76,11 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取游戏框架模块。
+        /// Get game framework module.
         /// </summary>
-        /// <param name="moduleType">要获取的游戏框架模块类型。</param>
-        /// <returns>要获取的游戏框架模块。</returns>
-        /// <remarks>如果要获取的游戏框架模块不存在，则自动创建该游戏框架模块。</remarks>
+        /// <param name="moduleType">The type of the game framework module to get.</param>
+        /// <returns>The game framework module.</returns>
+        /// <remarks>If the module does not exist, it will be created automatically.</remarks>
         private static GameFrameworkModule GetModule(Type moduleType)
         {
             foreach (GameFrameworkModule module in s_GameFrameworkModules)
@@ -95,10 +95,10 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 创建游戏框架模块。
+        /// Create game framework module.
         /// </summary>
-        /// <param name="moduleType">要创建的游戏框架模块类型。</param>
-        /// <returns>要创建的游戏框架模块。</returns>
+        /// <param name="moduleType">The type of the game framework module to create.</param>
+        /// <returns>The created game framework module.</returns>
         private static GameFrameworkModule CreateModule(Type moduleType)
         {
             GameFrameworkModule module = (GameFrameworkModule)Activator.CreateInstance(moduleType);

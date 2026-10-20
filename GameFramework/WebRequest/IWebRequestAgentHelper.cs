@@ -10,37 +10,37 @@ using System;
 namespace GameFramework.WebRequest
 {
     /// <summary>
-    /// Web 请求代理辅助器接口。
+    /// Web request agent helper interface.
     /// </summary>
     public interface IWebRequestAgentHelper
     {
         /// <summary>
-        /// Web 请求代理辅助器完成事件。
+        /// Web request agent helper complete event.
         /// </summary>
         event EventHandler<WebRequestAgentHelperCompleteEventArgs> WebRequestAgentHelperComplete;
 
         /// <summary>
-        /// Web 请求代理辅助器错误事件。
+        /// Web request agent helper error event.
         /// </summary>
         event EventHandler<WebRequestAgentHelperErrorEventArgs> WebRequestAgentHelperError;
 
         /// <summary>
-        /// 通过 Web 请求代理辅助器发送 Web 请求。
+        /// Sends a web request through the web request agent helper.
         /// </summary>
-        /// <param name="webRequestUri">Web 请求地址。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="webRequestUri">Web request URI.</param>
+        /// <param name="userData">Custom user data.</param>
         void Request(string webRequestUri, object userData);
 
         /// <summary>
-        /// 通过 Web 请求代理辅助器发送 Web 请求。
+        /// Sends a web request through the web request agent helper.
         /// </summary>
-        /// <param name="webRequestUri">Web 请求地址。</param>
-        /// <param name="postData">要发送的数据流。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="webRequestUri">Web request URI.</param>
+        /// <param name="postData">The post data to send.</param>
+        /// <param name="userData">Custom user data.</param>
         void Request(string webRequestUri, byte[] postData, object userData);
 
         /// <summary>
-        /// 重置 Web 请求代理辅助器。
+        /// Resets the web request agent helper.
         /// </summary>
         void Reset();
     }

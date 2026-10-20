@@ -12,7 +12,7 @@ namespace GameFramework.UI
     internal sealed partial class UIManager : GameFrameworkModule, IUIManager
     {
         /// <summary>
-        /// 界面组。
+        /// UI group.
         /// </summary>
         private sealed partial class UIGroup : IUIGroup
         {
@@ -24,11 +24,11 @@ namespace GameFramework.UI
             private LinkedListNode<UIFormInfo> m_CachedNode;
 
             /// <summary>
-            /// 初始化界面组的新实例。
+            /// Initializes a new instance of the UIGroup class.
             /// </summary>
-            /// <param name="name">界面组名称。</param>
-            /// <param name="depth">界面组深度。</param>
-            /// <param name="uiGroupHelper">界面组辅助器。</param>
+            /// <param name="name">The UI group name.</param>
+            /// <param name="depth">The UI group depth.</param>
+            /// <param name="uiGroupHelper">The UI group helper.</param>
             public UIGroup(string name, int depth, IUIGroupHelper uiGroupHelper)
             {
                 if (string.IsNullOrEmpty(name))
@@ -50,7 +50,7 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 获取界面组名称。
+            /// Gets the UI group name.
             /// </summary>
             public string Name
             {
@@ -61,7 +61,7 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 获取或设置界面组深度。
+            /// Gets or sets the UI group depth.
             /// </summary>
             public int Depth
             {
@@ -83,7 +83,7 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 获取或设置界面组是否暂停。
+            /// Gets or sets whether the UI group is paused.
             /// </summary>
             public bool Pause
             {
@@ -104,7 +104,7 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 获取界面组中界面数量。
+            /// Gets the count of UI forms in the UI group.
             /// </summary>
             public int UIFormCount
             {
@@ -115,7 +115,7 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 获取当前界面。
+            /// Gets the current UI form.
             /// </summary>
             public IUIForm CurrentUIForm
             {
@@ -126,7 +126,7 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 获取界面组辅助器。
+            /// Gets the UI group helper.
             /// </summary>
             public IUIGroupHelper Helper
             {
@@ -137,10 +137,10 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 界面组轮询。
+            /// Polling the UI group.
             /// </summary>
-            /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-            /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+            /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+            /// <param name="realElapseSeconds">Real elapsed seconds.</param>
             public void Update(float elapseSeconds, float realElapseSeconds)
             {
                 LinkedListNode<UIFormInfo> current = m_UIFormInfos.First;
@@ -159,10 +159,10 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 界面组中是否存在界面。
+            /// Checks whether the UI form exists in the UI group.
             /// </summary>
-            /// <param name="serialId">界面序列编号。</param>
-            /// <returns>界面组中是否存在界面。</returns>
+            /// <param name="serialId">The serial ID of the UI form.</param>
+            /// <returns>Whether the UI form exists in the UI group.</returns>
             public bool HasUIForm(int serialId)
             {
                 foreach (UIFormInfo uiFormInfo in m_UIFormInfos)
@@ -177,10 +177,10 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 界面组中是否存在界面。
+            /// Checks whether the UI form exists in the UI group.
             /// </summary>
-            /// <param name="uiFormAssetName">界面资源名称。</param>
-            /// <returns>界面组中是否存在界面。</returns>
+            /// <param name="uiFormAssetName">The UI form asset name.</param>
+            /// <returns>Whether the UI form exists in the UI group.</returns>
             public bool HasUIForm(string uiFormAssetName)
             {
                 if (string.IsNullOrEmpty(uiFormAssetName))
@@ -200,10 +200,10 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 从界面组中获取界面。
+            /// Gets a UI form from the UI group.
             /// </summary>
-            /// <param name="serialId">界面序列编号。</param>
-            /// <returns>要获取的界面。</returns>
+            /// <param name="serialId">The serial ID of the UI form.</param>
+            /// <returns>The UI form to get.</returns>
             public IUIForm GetUIForm(int serialId)
             {
                 foreach (UIFormInfo uiFormInfo in m_UIFormInfos)
@@ -218,10 +218,10 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 从界面组中获取界面。
+            /// Gets a UI form from the UI group.
             /// </summary>
-            /// <param name="uiFormAssetName">界面资源名称。</param>
-            /// <returns>要获取的界面。</returns>
+            /// <param name="uiFormAssetName">The UI form asset name.</param>
+            /// <returns>The UI form to get.</returns>
             public IUIForm GetUIForm(string uiFormAssetName)
             {
                 if (string.IsNullOrEmpty(uiFormAssetName))
@@ -241,10 +241,10 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 从界面组中获取界面。
+            /// Gets UI forms from the UI group.
             /// </summary>
-            /// <param name="uiFormAssetName">界面资源名称。</param>
-            /// <returns>要获取的界面。</returns>
+            /// <param name="uiFormAssetName">The UI form asset name.</param>
+            /// <returns>The UI forms to get.</returns>
             public IUIForm[] GetUIForms(string uiFormAssetName)
             {
                 if (string.IsNullOrEmpty(uiFormAssetName))
@@ -265,10 +265,10 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 从界面组中获取界面。
+            /// Gets UI forms from the UI group.
             /// </summary>
-            /// <param name="uiFormAssetName">界面资源名称。</param>
-            /// <param name="results">要获取的界面。</param>
+            /// <param name="uiFormAssetName">The UI form asset name.</param>
+            /// <param name="results">The UI forms to get.</param>
             public void GetUIForms(string uiFormAssetName, List<IUIForm> results)
             {
                 if (string.IsNullOrEmpty(uiFormAssetName))
@@ -292,9 +292,9 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 从界面组中获取所有界面。
+            /// Gets all UI forms from the UI group.
             /// </summary>
-            /// <returns>界面组中的所有界面。</returns>
+            /// <returns>All UI forms in the UI group.</returns>
             public IUIForm[] GetAllUIForms()
             {
                 List<IUIForm> results = new List<IUIForm>();
@@ -307,9 +307,9 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 从界面组中获取所有界面。
+            /// Gets all UI forms from the UI group.
             /// </summary>
-            /// <param name="results">界面组中的所有界面。</param>
+            /// <param name="results">All UI forms in the UI group.</param>
             public void GetAllUIForms(List<IUIForm> results)
             {
                 if (results == null)
@@ -325,18 +325,18 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 往界面组增加界面。
+            /// Adds a UI form to the UI group.
             /// </summary>
-            /// <param name="uiForm">要增加的界面。</param>
+            /// <param name="uiForm">The UI form to add.</param>
             public void AddUIForm(IUIForm uiForm)
             {
                 m_UIFormInfos.AddFirst(UIFormInfo.Create(uiForm));
             }
 
             /// <summary>
-            /// 从界面组移除界面。
+            /// Removes a UI form from the UI group.
             /// </summary>
-            /// <param name="uiForm">要移除的界面。</param>
+            /// <param name="uiForm">The UI form to remove.</param>
             public void RemoveUIForm(IUIForm uiForm)
             {
                 UIFormInfo uiFormInfo = GetUIFormInfo(uiForm);
@@ -371,10 +371,10 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 激活界面。
+            /// Refocuses the UI form.
             /// </summary>
-            /// <param name="uiForm">要激活的界面。</param>
-            /// <param name="userData">用户自定义数据。</param>
+            /// <param name="uiForm">The UI form to refocus.</param>
+            /// <param name="userData">The user-defined data.</param>
             public void RefocusUIForm(IUIForm uiForm, object userData)
             {
                 UIFormInfo uiFormInfo = GetUIFormInfo(uiForm);
@@ -388,7 +388,7 @@ namespace GameFramework.UI
             }
 
             /// <summary>
-            /// 刷新界面组。
+            /// Refreshes the UI group.
             /// </summary>
             public void Refresh()
             {

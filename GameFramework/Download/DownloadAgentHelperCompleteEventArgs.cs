@@ -8,12 +8,12 @@
 namespace GameFramework.Download
 {
     /// <summary>
-    /// 下载代理辅助器完成事件。
+    /// Download agent helper complete event.
     /// </summary>
     public sealed class DownloadAgentHelperCompleteEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化下载代理辅助器完成事件的新实例。
+        /// Initializes a new instance of the DownloadAgentHelperCompleteEventArgs class.
         /// </summary>
         public DownloadAgentHelperCompleteEventArgs()
         {
@@ -21,7 +21,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取下载的数据大小。
+        /// Gets the downloaded data length.
         /// </summary>
         public long Length
         {
@@ -30,10 +30,10 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 创建下载代理辅助器完成事件。
+        /// Creates a download agent helper complete event.
         /// </summary>
-        /// <param name="length">下载的数据大小。</param>
-        /// <returns>创建的下载代理辅助器完成事件。</returns>
+        /// <param name="length">Downloaded data length.</param>
+        /// <returns>The created download agent helper complete event.</returns>
         public static DownloadAgentHelperCompleteEventArgs Create(long length)
         {
             if (length < 0L)
@@ -47,7 +47,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 清理下载代理辅助器完成事件。
+        /// Clears the download agent helper complete event.
         /// </summary>
         public override void Clear()
         {

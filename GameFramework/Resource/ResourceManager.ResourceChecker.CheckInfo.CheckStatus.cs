@@ -14,37 +14,37 @@ namespace GameFramework.Resource
             private sealed partial class CheckInfo
             {
                 /// <summary>
-                /// 资源检查状态。
+                /// Resource check status.
                 /// </summary>
                 public enum CheckStatus : byte
                 {
                     /// <summary>
-                    /// 资源状态未知。
+                    /// Resource status is unknown.
                     /// </summary>
                     Unknown = 0,
 
                     /// <summary>
-                    /// 资源存在且已存放于只读区中。
+                    /// Resource exists and is stored in the read-only area.
                     /// </summary>
                     StorageInReadOnly,
 
                     /// <summary>
-                    /// 资源存在且已存放于读写区中。
+                    /// Resource exists and is stored in the read-write area.
                     /// </summary>
                     StorageInReadWrite,
 
                     /// <summary>
-                    /// 资源不适用于当前变体。
+                    /// Resource is not applicable to the current variant.
                     /// </summary>
                     Unavailable,
 
                     /// <summary>
-                    /// 资源需要更新。
+                    /// Resource needs to be updated.
                     /// </summary>
                     Update,
 
                     /// <summary>
-                    /// 资源已废弃。
+                    /// Resource is disused.
                     /// </summary>
                     Disuse
                 }

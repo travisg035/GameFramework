@@ -10,12 +10,12 @@ using System.Collections.Generic;
 namespace GameFramework.FileSystem
 {
     /// <summary>
-    /// 文件系统管理器。
+    /// File system manager interface.
     /// </summary>
     public interface IFileSystemManager
     {
         /// <summary>
-        /// 获取文件系统数量。
+        /// Gets the count of file systems.
         /// </summary>
         int Count
         {
@@ -23,60 +23,60 @@ namespace GameFramework.FileSystem
         }
 
         /// <summary>
-        /// 设置文件系统辅助器。
+        /// Sets the file system helper.
         /// </summary>
-        /// <param name="fileSystemHelper">文件系统辅助器。</param>
+        /// <param name="fileSystemHelper">The file system helper.</param>
         void SetFileSystemHelper(IFileSystemHelper fileSystemHelper);
 
         /// <summary>
-        /// 检查是否存在文件系统。
+        /// Checks whether a file system exists.
         /// </summary>
-        /// <param name="fullPath">要检查的文件系统的完整路径。</param>
-        /// <returns>是否存在文件系统。</returns>
+        /// <param name="fullPath">The full path of the file system to check.</param>
+        /// <returns>Whether the file system exists.</returns>
         bool HasFileSystem(string fullPath);
 
         /// <summary>
-        /// 获取文件系统。
+        /// Gets a file system.
         /// </summary>
-        /// <param name="fullPath">要获取的文件系统的完整路径。</param>
-        /// <returns>获取的文件系统。</returns>
+        /// <param name="fullPath">The full path of the file system to get.</param>
+        /// <returns>The file system to get.</returns>
         IFileSystem GetFileSystem(string fullPath);
 
         /// <summary>
-        /// 创建文件系统。
+        /// Creates a file system.
         /// </summary>
-        /// <param name="fullPath">要创建的文件系统的完整路径。</param>
-        /// <param name="access">要创建的文件系统的访问方式。</param>
-        /// <param name="maxFileCount">要创建的文件系统的最大文件数量。</param>
-        /// <param name="maxBlockCount">要创建的文件系统的最大块数据数量。</param>
-        /// <returns>创建的文件系统。</returns>
+        /// <param name="fullPath">The full path of the file system to create.</param>
+        /// <param name="access">The access mode of the file system to create.</param>
+        /// <param name="maxFileCount">The maximum file count of the file system to create.</param>
+        /// <param name="maxBlockCount">The maximum block count of the file system to create.</param>
+        /// <returns>The created file system.</returns>
         IFileSystem CreateFileSystem(string fullPath, FileSystemAccess access, int maxFileCount, int maxBlockCount);
 
         /// <summary>
-        /// 加载文件系统。
+        /// Loads a file system.
         /// </summary>
-        /// <param name="fullPath">要加载的文件系统的完整路径。</param>
-        /// <param name="access">要加载的文件系统的访问方式。</param>
-        /// <returns>加载的文件系统。</returns>
+        /// <param name="fullPath">The full path of the file system to load.</param>
+        /// <param name="access">The access mode of the file system to load.</param>
+        /// <returns>The loaded file system.</returns>
         IFileSystem LoadFileSystem(string fullPath, FileSystemAccess access);
 
         /// <summary>
-        /// 销毁文件系统。
+        /// Destroys a file system.
         /// </summary>
-        /// <param name="fileSystem">要销毁的文件系统。</param>
-        /// <param name="deletePhysicalFile">是否删除文件系统对应的物理文件。</param>
+        /// <param name="fileSystem">The file system to destroy.</param>
+        /// <param name="deletePhysicalFile">Whether to delete the physical file corresponding to the file system.</param>
         void DestroyFileSystem(IFileSystem fileSystem, bool deletePhysicalFile);
 
         /// <summary>
-        /// 获取所有文件系统集合。
+        /// Gets all file systems.
         /// </summary>
-        /// <returns>获取的所有文件系统集合。</returns>
+        /// <returns>All file systems.</returns>
         IFileSystem[] GetAllFileSystems();
 
         /// <summary>
-        /// 获取所有文件系统集合。
+        /// Gets all file systems.
         /// </summary>
-        /// <param name="results">获取的所有文件系统集合。</param>
+        /// <param name="results">All file systems.</param>
         void GetAllFileSystems(List<IFileSystem> results);
     }
 }

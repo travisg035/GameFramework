@@ -16,7 +16,7 @@ namespace GameFramework.Resource
             private sealed partial class CheckInfo
             {
                 /// <summary>
-                /// 本地资源状态信息。
+                /// Local version information.
                 /// </summary>
                 [StructLayout(LayoutKind.Auto)]
                 private struct LocalVersionInfo

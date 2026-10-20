@@ -8,12 +8,12 @@
 namespace GameFramework.Sound
 {
     /// <summary>
-    /// 声音组接口。
+    /// Sound group interface.
     /// </summary>
     public interface ISoundGroup
     {
         /// <summary>
-        /// 获取声音组名称。
+        /// Gets the sound group name.
         /// </summary>
         string Name
         {
@@ -21,7 +21,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取声音代理数。
+        /// Gets the number of sound agents.
         /// </summary>
         int SoundAgentCount
         {
@@ -29,7 +29,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置声音组中的声音是否避免被同优先级声音替换。
+        /// Gets or sets whether the sounds in the sound group avoid being replaced by sounds of the same priority.
         /// </summary>
         bool AvoidBeingReplacedBySamePriority
         {
@@ -38,7 +38,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置声音组静音。
+        /// Gets or sets whether the sound group is muted.
         /// </summary>
         bool Mute
         {
@@ -47,7 +47,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置声音组音量。
+        /// Gets or sets the sound group volume.
         /// </summary>
         float Volume
         {
@@ -56,7 +56,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取声音组辅助器。
+        /// Gets the sound group helper.
         /// </summary>
         ISoundGroupHelper Helper
         {
@@ -64,14 +64,14 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 停止所有已加载的声音。
+        /// Stops all loaded sounds.
         /// </summary>
         void StopAllLoadedSounds();
 
         /// <summary>
-        /// 停止所有已加载的声音。
+        /// Stops all loaded sounds.
         /// </summary>
-        /// <param name="fadeOutSeconds">声音淡出时间，以秒为单位。</param>
+        /// <param name="fadeOutSeconds">The sound fade out time in seconds.</param>
         void StopAllLoadedSounds(float fadeOutSeconds);
     }
 }

@@ -8,10 +8,10 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载场景更新回调函数。
+    /// Load scene update callback method.
     /// </summary>
-    /// <param name="sceneAssetName">要加载的场景资源名称。</param>
-    /// <param name="progress">加载场景进度。</param>
-    /// <param name="userData">用户自定义数据。</param>
+    /// <param name="sceneAssetName">The asset name of the scene to load.</param>
+    /// <param name="progress">The scene loading progress.</param>
+    /// <param name="userData">User-defined data.</param>
     public delegate void LoadSceneUpdateCallback(string sceneAssetName, float progress, object userData);
 }

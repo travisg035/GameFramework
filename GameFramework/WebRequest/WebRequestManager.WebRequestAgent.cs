@@ -10,7 +10,7 @@ namespace GameFramework.WebRequest
     internal sealed partial class WebRequestManager : GameFrameworkModule, IWebRequestManager
     {
         /// <summary>
-        /// Web 请求代理。
+        /// Web request agent.
         /// </summary>
         private sealed class WebRequestAgent : ITaskAgent<WebRequestTask>
         {
@@ -23,9 +23,9 @@ namespace GameFramework.WebRequest
             public GameFrameworkAction<WebRequestAgent, string> WebRequestAgentFailure;
 
             /// <summary>
-            /// 初始化 Web 请求代理的新实例。
+            /// Initializes a new instance of the WebRequestAgent class.
             /// </summary>
-            /// <param name="webRequestAgentHelper">Web 请求代理辅助器。</param>
+            /// <param name="webRequestAgentHelper">Web request agent helper.</param>
             public WebRequestAgent(IWebRequestAgentHelper webRequestAgentHelper)
             {
                 if (webRequestAgentHelper == null)
@@ -43,7 +43,7 @@ namespace GameFramework.WebRequest
             }
 
             /// <summary>
-            /// 获取 Web 请求任务。
+            /// Gets the web request task.
             /// </summary>
             public WebRequestTask Task
             {
@@ -54,7 +54,7 @@ namespace GameFramework.WebRequest
             }
 
             /// <summary>
-            /// 获取已经等待时间。
+            /// Gets the elapsed wait time.
             /// </summary>
             public float WaitTime
             {
@@ -65,7 +65,7 @@ namespace GameFramework.WebRequest
             }
 
             /// <summary>
-            /// 初始化 Web 请求代理。
+            /// Initializes the web request agent.
             /// </summary>
             public void Initialize()
             {
@@ -74,10 +74,10 @@ namespace GameFramework.WebRequest
             }
 
             /// <summary>
-            /// Web 请求代理轮询。
+            /// Polls the web request agent.
             /// </summary>
-            /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-            /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+            /// <param name="elapseSeconds">Logical elapsed time in seconds.</param>
+            /// <param name="realElapseSeconds">Real elapsed time in seconds.</param>
             public void Update(float elapseSeconds, float realElapseSeconds)
             {
                 if (m_Task.Status == WebRequestTaskStatus.Doing)
@@ -93,7 +93,7 @@ namespace GameFramework.WebRequest
             }
 
             /// <summary>
-            /// 关闭并清理 Web 请求代理。
+            /// Shuts down and cleans up the web request agent.
             /// </summary>
             public void Shutdown()
             {
@@ -103,10 +103,10 @@ namespace GameFramework.WebRequest
             }
 
             /// <summary>
-            /// 开始处理 Web 请求任务。
+            /// Starts processing the web request task.
             /// </summary>
-            /// <param name="task">要处理的 Web 请求任务。</param>
-            /// <returns>开始处理任务的状态。</returns>
+            /// <param name="task">The web request task to process.</param>
+            /// <returns>The start task status.</returns>
             public StartTaskStatus Start(WebRequestTask task)
             {
                 if (task == null)
@@ -137,7 +137,7 @@ namespace GameFramework.WebRequest
             }
 
             /// <summary>
-            /// 重置 Web 请求代理。
+            /// Resets the web request agent.
             /// </summary>
             public void Reset()
             {

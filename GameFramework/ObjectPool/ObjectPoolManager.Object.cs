@@ -12,16 +12,16 @@ namespace GameFramework.ObjectPool
     internal sealed partial class ObjectPoolManager : GameFrameworkModule, IObjectPoolManager
     {
         /// <summary>
-        /// 内部对象。
+        /// Internal object.
         /// </summary>
-        /// <typeparam name="T">对象类型。</typeparam>
+        /// <typeparam name="T">The object type.</typeparam>
         private sealed class Object<T> : IReference where T : ObjectBase
         {
             private T m_Object;
             private int m_SpawnCount;
 
             /// <summary>
-            /// 初始化内部对象的新实例。
+            /// Initializes a new instance of the Object class.
             /// </summary>
             public Object()
             {
@@ -30,7 +30,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取对象名称。
+            /// Gets the object name.
             /// </summary>
             public string Name
             {
@@ -41,7 +41,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取对象是否被加锁。
+            /// Gets or sets whether the object is locked.
             /// </summary>
             public bool Locked
             {
@@ -56,7 +56,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取对象的优先级。
+            /// Gets or sets the priority of the object.
             /// </summary>
             public int Priority
             {
@@ -71,7 +71,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取自定义释放检查标记。
+            /// Gets the custom can release flag.
             /// </summary>
             public bool CustomCanReleaseFlag
             {
@@ -82,7 +82,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取对象上次使用时间。
+            /// Gets the last use time of the object.
             /// </summary>
             public DateTime LastUseTime
             {
@@ -93,7 +93,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取对象是否正在使用。
+            /// Gets whether the object is in use.
             /// </summary>
             public bool IsInUse
             {
@@ -104,7 +104,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 获取对象的获取计数。
+            /// Gets the spawn count of the object.
             /// </summary>
             public int SpawnCount
             {
@@ -115,11 +115,11 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 创建内部对象。
+            /// Creates an internal object.
             /// </summary>
-            /// <param name="obj">对象。</param>
-            /// <param name="spawned">对象是否已被获取。</param>
-            /// <returns>创建的内部对象。</returns>
+            /// <param name="obj">The object.</param>
+            /// <param name="spawned">Whether the object has been spawned.</param>
+            /// <returns>The created internal object.</returns>
             public static Object<T> Create(T obj, bool spawned)
             {
                 if (obj == null)
@@ -139,7 +139,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 清理内部对象。
+            /// Clears the internal object.
             /// </summary>
             public void Clear()
             {
@@ -148,18 +148,18 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 查看对象。
+            /// Peeks the object.
             /// </summary>
-            /// <returns>对象。</returns>
+            /// <returns>The object.</returns>
             public T Peek()
             {
                 return m_Object;
             }
 
             /// <summary>
-            /// 获取对象。
+            /// Spawns the object.
             /// </summary>
-            /// <returns>对象。</returns>
+            /// <returns>The object.</returns>
             public T Spawn()
             {
                 m_SpawnCount++;
@@ -169,7 +169,7 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 回收对象。
+            /// Unspawns the object.
             /// </summary>
             public void Unspawn()
             {
@@ -183,9 +183,9 @@ namespace GameFramework.ObjectPool
             }
 
             /// <summary>
-            /// 释放对象。
+            /// Releases the object.
             /// </summary>
-            /// <param name="isShutdown">是否是关闭对象池时触发。</param>
+            /// <param name="isShutdown">Whether it is triggered when the object pool is shutting down.</param>
             public void Release(bool isShutdown)
             {
                 m_Object.Release(isShutdown);

@@ -10,7 +10,7 @@ using System;
 namespace GameFramework.DataNode
 {
     /// <summary>
-    /// 数据结点管理器。
+    /// Data node manager.
     /// </summary>
     internal sealed partial class DataNodeManager : GameFrameworkModule, IDataNodeManager
     {
@@ -21,7 +21,7 @@ namespace GameFramework.DataNode
         private DataNode m_Root;
 
         /// <summary>
-        /// 初始化数据结点管理器的新实例。
+        /// Initializes a new instance of the DataNodeManager class.
         /// </summary>
         public DataNodeManager()
         {
@@ -29,7 +29,7 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 获取根数据结点。
+        /// Gets the root data node.
         /// </summary>
         public IDataNode Root
         {
@@ -40,16 +40,16 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 数据结点管理器轮询。
+        /// Polls the data node manager.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed time in seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed time in seconds.</param>
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
         }
 
         /// <summary>
-        /// 关闭并清理数据结点管理器。
+        /// Shuts down and cleans up the data node manager.
         /// </summary>
         internal override void Shutdown()
         {
@@ -58,33 +58,33 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 根据类型获取数据结点的数据。
+        /// Gets the data of the data node by type.
         /// </summary>
-        /// <typeparam name="T">要获取的数据类型。</typeparam>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <returns>指定类型的数据。</returns>
+        /// <typeparam name="T">The data type to get.</typeparam>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <returns>The data of the specified type.</returns>
         public T GetData<T>(string path) where T : Variable
         {
             return GetData<T>(path, null);
         }
 
         /// <summary>
-        /// 获取数据结点的数据。
+        /// Gets the data of the data node.
         /// </summary>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <returns>数据结点的数据。</returns>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <returns>The data of the data node.</returns>
         public Variable GetData(string path)
         {
             return GetData(path, null);
         }
 
         /// <summary>
-        /// 根据类型获取数据结点的数据。
+        /// Gets the data of the data node by type.
         /// </summary>
-        /// <typeparam name="T">要获取的数据类型。</typeparam>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <param name="node">查找起始结点。</param>
-        /// <returns>指定类型的数据。</returns>
+        /// <typeparam name="T">The data type to get.</typeparam>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <param name="node">The starting node to search from.</param>
+        /// <returns>The data of the specified type.</returns>
         public T GetData<T>(string path, IDataNode node) where T : Variable
         {
             IDataNode current = GetNode(path, node);
@@ -97,11 +97,11 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 获取数据结点的数据。
+        /// Gets the data of the data node.
         /// </summary>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <param name="node">查找起始结点。</param>
-        /// <returns>数据结点的数据。</returns>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <param name="node">The starting node to search from.</param>
+        /// <returns>The data of the data node.</returns>
         public Variable GetData(string path, IDataNode node)
         {
             IDataNode current = GetNode(path, node);
@@ -114,33 +114,33 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 设置数据结点的数据。
+        /// Sets the data of the data node.
         /// </summary>
-        /// <typeparam name="T">要设置的数据类型。</typeparam>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <param name="data">要设置的数据。</param>
+        /// <typeparam name="T">The data type to set.</typeparam>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <param name="data">The data to set.</param>
         public void SetData<T>(string path, T data) where T : Variable
         {
             SetData(path, data, null);
         }
 
         /// <summary>
-        /// 设置数据结点的数据。
+        /// Sets the data of the data node.
         /// </summary>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <param name="data">要设置的数据。</param>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <param name="data">The data to set.</param>
         public void SetData(string path, Variable data)
         {
             SetData(path, data, null);
         }
 
         /// <summary>
-        /// 设置数据结点的数据。
+        /// Sets the data of the data node.
         /// </summary>
-        /// <typeparam name="T">要设置的数据类型。</typeparam>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <param name="data">要设置的数据。</param>
-        /// <param name="node">查找起始结点。</param>
+        /// <typeparam name="T">The data type to set.</typeparam>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <param name="data">The data to set.</param>
+        /// <param name="node">The starting node to search from.</param>
         public void SetData<T>(string path, T data, IDataNode node) where T : Variable
         {
             IDataNode current = GetOrAddNode(path, node);
@@ -148,11 +148,11 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 设置数据结点的数据。
+        /// Sets the data of the data node.
         /// </summary>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <param name="data">要设置的数据。</param>
-        /// <param name="node">查找起始结点。</param>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <param name="data">The data to set.</param>
+        /// <param name="node">The starting node to search from.</param>
         public void SetData(string path, Variable data, IDataNode node)
         {
             IDataNode current = GetOrAddNode(path, node);
@@ -160,21 +160,21 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 获取数据结点。
+        /// Gets a data node.
         /// </summary>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <returns>指定位置的数据结点，如果没有找到，则返回空。</returns>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <returns>The data node at the specified path, or null if not found.</returns>
         public IDataNode GetNode(string path)
         {
             return GetNode(path, null);
         }
 
         /// <summary>
-        /// 获取数据结点。
+        /// Gets a data node.
         /// </summary>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <param name="node">查找起始结点。</param>
-        /// <returns>指定位置的数据结点，如果没有找到，则返回空。</returns>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <param name="node">The starting node to search from.</param>
+        /// <returns>The data node at the specified path, or null if not found.</returns>
         public IDataNode GetNode(string path, IDataNode node)
         {
             IDataNode current = node ?? m_Root;
@@ -192,21 +192,21 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 获取或增加数据结点。
+        /// Gets or adds a data node.
         /// </summary>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <returns>指定位置的数据结点，如果没有找到，则创建相应的数据结点。</returns>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <returns>The data node at the specified path; creates the corresponding data node if not found.</returns>
         public IDataNode GetOrAddNode(string path)
         {
             return GetOrAddNode(path, null);
         }
 
         /// <summary>
-        /// 获取或增加数据结点。
+        /// Gets or adds a data node.
         /// </summary>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <param name="node">查找起始结点。</param>
-        /// <returns>指定位置的数据结点，如果没有找到，则增加相应的数据结点。</returns>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <param name="node">The starting node to search from.</param>
+        /// <returns>The data node at the specified path; creates the corresponding data node if not found.</returns>
         public IDataNode GetOrAddNode(string path, IDataNode node)
         {
             IDataNode current = node ?? m_Root;
@@ -220,19 +220,19 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 移除数据结点。
+        /// Removes a data node.
         /// </summary>
-        /// <param name="path">相对于 node 的查找路径。</param>
+        /// <param name="path">The search path relative to the node.</param>
         public void RemoveNode(string path)
         {
             RemoveNode(path, null);
         }
 
         /// <summary>
-        /// 移除数据结点。
+        /// Removes a data node.
         /// </summary>
-        /// <param name="path">相对于 node 的查找路径。</param>
-        /// <param name="node">查找起始结点。</param>
+        /// <param name="path">The search path relative to the node.</param>
+        /// <param name="node">The starting node to search from.</param>
         public void RemoveNode(string path, IDataNode node)
         {
             IDataNode current = node ?? m_Root;
@@ -255,7 +255,7 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 移除所有数据结点。
+        /// Clears all data nodes.
         /// </summary>
         public void Clear()
         {
@@ -263,10 +263,10 @@ namespace GameFramework.DataNode
         }
 
         /// <summary>
-        /// 数据结点路径切分工具函数。
+        /// Splits the data node path.
         /// </summary>
-        /// <param name="path">要切分的数据结点路径。</param>
-        /// <returns>切分后的字符串数组。</returns>
+        /// <param name="path">The data node path to split.</param>
+        /// <returns>The splited string array.</returns>
         private static string[] GetSplitedPath(string path)
         {
             if (string.IsNullOrEmpty(path))

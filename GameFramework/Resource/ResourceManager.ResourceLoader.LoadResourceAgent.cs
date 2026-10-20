@@ -17,7 +17,7 @@ namespace GameFramework.Resource
         private sealed partial class ResourceLoader
         {
             /// <summary>
-            /// 加载资源代理。
+            /// Load resource agent.
             /// </summary>
             private sealed partial class LoadResourceAgent : ITaskAgent<LoadResourceTaskBase>
             {
@@ -34,14 +34,14 @@ namespace GameFramework.Resource
                 private LoadResourceTaskBase m_Task;
 
                 /// <summary>
-                /// 初始化加载资源代理的新实例。
+                /// Initializes a new instance of the <see cref="LoadResourceAgent"/> class.
                 /// </summary>
-                /// <param name="loadResourceAgentHelper">加载资源代理辅助器。</param>
-                /// <param name="resourceHelper">资源辅助器。</param>
-                /// <param name="resourceLoader">加载资源器。</param>
-                /// <param name="readOnlyPath">资源只读区路径。</param>
-                /// <param name="readWritePath">资源读写区路径。</param>
-                /// <param name="decryptResourceCallback">解密资源回调函数。</param>
+                /// <param name="loadResourceAgentHelper">The load resource agent helper.</param>
+                /// <param name="resourceHelper">The resource helper.</param>
+                /// <param name="resourceLoader">The resource loader.</param>
+                /// <param name="readOnlyPath">The resource read-only path.</param>
+                /// <param name="readWritePath">The resource read-write path.</param>
+                /// <param name="decryptResourceCallback">The decrypt resource callback method.</param>
                 public LoadResourceAgent(ILoadResourceAgentHelper loadResourceAgentHelper, IResourceHelper resourceHelper, ResourceLoader resourceLoader, string readOnlyPath, string readWritePath, DecryptResourceCallback decryptResourceCallback)
                 {
                     if (loadResourceAgentHelper == null)
@@ -82,7 +82,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取加载资源任务。
+                /// Gets the load resource task.
                 /// </summary>
                 public LoadResourceTaskBase Task
                 {
@@ -93,7 +93,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 初始化加载资源代理。
+                /// Initializes the load resource agent.
                 /// </summary>
                 public void Initialize()
                 {
@@ -106,16 +106,16 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 加载资源代理轮询。
+                /// Load resource agent update.
                 /// </summary>
-                /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-                /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+                /// <param name="elapseSeconds">Logical elapsed time in seconds.</param>
+                /// <param name="realElapseSeconds">Real elapsed time in seconds.</param>
                 public void Update(float elapseSeconds, float realElapseSeconds)
                 {
                 }
 
                 /// <summary>
-                /// 关闭并清理加载资源代理。
+                /// Shutdowns and cleans up the load resource agent.
                 /// </summary>
                 public void Shutdown()
                 {
@@ -136,10 +136,10 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 开始处理加载资源任务。
+                /// Starts processing the load resource task.
                 /// </summary>
-                /// <param name="task">要处理的加载资源任务。</param>
-                /// <returns>开始处理任务的状态。</returns>
+                /// <param name="task">The load resource task to process.</param>
+                /// <returns>The status of starting the task.</returns>
                 public StartTaskStatus Start(LoadResourceTaskBase task)
                 {
                     if (task == null)
@@ -240,7 +240,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 重置加载资源代理。
+                /// Resets the load resource agent.
                 /// </summary>
                 public void Reset()
                 {

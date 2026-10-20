@@ -8,22 +8,22 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 任务状态。
+    /// Task status.
     /// </summary>
     public enum TaskStatus : byte
     {
         /// <summary>
-        /// 未开始。
+        /// Not started.
         /// </summary>
         Todo = 0,
 
         /// <summary>
-        /// 执行中。
+        /// In progress.
         /// </summary>
         Doing,
 
         /// <summary>
-        /// 完成。
+        /// Completed.
         /// </summary>
         Done
     }

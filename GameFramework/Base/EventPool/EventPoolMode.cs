@@ -10,28 +10,28 @@ using System;
 namespace GameFramework
 {
     /// <summary>
-    /// 事件池模式。
+    /// Event pool mode.
     /// </summary>
     [Flags]
     internal enum EventPoolMode : byte
     {
         /// <summary>
-        /// 默认事件池模式，即必须存在有且只有一个事件处理函数。
+        /// Default event pool mode, which requires exactly one event handler.
         /// </summary>
         Default = 0,
 
         /// <summary>
-        /// 允许不存在事件处理函数。
+        /// Allows having no event handler.
         /// </summary>
         AllowNoHandler = 1,
 
         /// <summary>
-        /// 允许存在多个事件处理函数。
+        /// Allows having multiple event handlers.
         /// </summary>
         AllowMultiHandler = 2,
 
         /// <summary>
-        /// 允许存在重复的事件处理函数。
+        /// Allows having duplicate event handlers.
         /// </summary>
         AllowDuplicateHandler = 4
     }

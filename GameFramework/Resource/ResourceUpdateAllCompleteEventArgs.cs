@@ -8,28 +8,28 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源更新全部完成事件。
+    /// Resource update all complete event.
     /// </summary>
     public sealed class ResourceUpdateAllCompleteEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化资源更新全部完成事件的新实例。
+        /// Initializes a new instance of the <see cref="ResourceUpdateAllCompleteEventArgs"/> class.
         /// </summary>
         public ResourceUpdateAllCompleteEventArgs()
         {
         }
 
         /// <summary>
-        /// 创建资源更新全部完成事件。
+        /// Creates a new resource update all complete event.
         /// </summary>
-        /// <returns>创建的资源更新全部完成事件。</returns>
+        /// <returns>The created resource update all complete event.</returns>
         public static ResourceUpdateAllCompleteEventArgs Create()
         {
             return ReferencePool.Acquire<ResourceUpdateAllCompleteEventArgs>();
         }
 
         /// <summary>
-        /// 清理资源更新全部完成事件。
+        /// Clears the resource update all complete event.
         /// </summary>
         public override void Clear()
         {

@@ -8,31 +8,31 @@
 namespace GameFramework.Entity
 {
     /// <summary>
-    /// 实体辅助器接口。
+    /// Entity helper interface.
     /// </summary>
     public interface IEntityHelper
     {
         /// <summary>
-        /// 实例化实体。
+        /// Instantiates an entity.
         /// </summary>
-        /// <param name="entityAsset">要实例化的实体资源。</param>
-        /// <returns>实例化后的实体。</returns>
+        /// <param name="entityAsset">The entity asset to instantiate.</param>
+        /// <returns>The instantiated entity.</returns>
         object InstantiateEntity(object entityAsset);
 
         /// <summary>
-        /// 创建实体。
+        /// Creates an entity.
         /// </summary>
-        /// <param name="entityInstance">实体实例。</param>
-        /// <param name="entityGroup">实体所属的实体组。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>实体。</returns>
+        /// <param name="entityInstance">The entity instance.</param>
+        /// <param name="entityGroup">The entity group to which the entity belongs.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The entity.</returns>
         IEntity CreateEntity(object entityInstance, IEntityGroup entityGroup, object userData);
 
         /// <summary>
-        /// 释放实体。
+        /// Releases the entity.
         /// </summary>
-        /// <param name="entityAsset">要释放的实体资源。</param>
-        /// <param name="entityInstance">要释放的实体实例。</param>
+        /// <param name="entityAsset">The entity asset to release.</param>
+        /// <param name="entityInstance">The entity instance to release.</param>
         void ReleaseEntity(object entityAsset, object entityInstance);
     }
 }

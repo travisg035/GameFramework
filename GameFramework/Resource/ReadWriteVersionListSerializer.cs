@@ -8,23 +8,23 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 本地读写区版本资源列表序列化器。
+    /// Read-write version list serializer.
     /// </summary>
     public sealed class ReadWriteVersionListSerializer : GameFrameworkSerializer<LocalVersionList>
     {
         private static readonly byte[] Header = new byte[] { (byte)'G', (byte)'F', (byte)'W' };
 
         /// <summary>
-        /// 初始化本地读写区版本资源列表序列化器的新实例。
+        /// Initializes a new instance of the ReadWriteVersionListSerializer class.
         /// </summary>
         public ReadWriteVersionListSerializer()
         {
         }
 
         /// <summary>
-        /// 获取本地读写区版本资源列表头标识。
+        /// Gets the read-write version list header.
         /// </summary>
-        /// <returns>本地读写区版本资源列表头标识。</returns>
+        /// <returns>Read-write version list header.</returns>
         protected override byte[] GetHeader()
         {
             return Header;

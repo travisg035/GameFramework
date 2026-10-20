@@ -12,7 +12,7 @@ namespace GameFramework.Resource
     public partial struct PackageVersionList
     {
         /// <summary>
-        /// 资源组。
+        /// Resource group.
         /// </summary>
         [StructLayout(LayoutKind.Auto)]
         public struct ResourceGroup
@@ -23,10 +23,10 @@ namespace GameFramework.Resource
             private readonly int[] m_ResourceIndexes;
 
             /// <summary>
-            /// 初始化资源组的新实例。
+            /// Initializes a new instance of the ResourceGroup struct.
             /// </summary>
-            /// <param name="name">资源组名称。</param>
-            /// <param name="resourceIndexes">资源组包含的资源索引集合。</param>
+            /// <param name="name">Resource group name.</param>
+            /// <param name="resourceIndexes">Resource indexes included in the resource group.</param>
             public ResourceGroup(string name, int[] resourceIndexes)
             {
                 if (name == null)
@@ -39,7 +39,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组名称。
+            /// Gets the resource group name.
             /// </summary>
             public string Name
             {
@@ -50,9 +50,9 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源组包含的资源索引集合。
+            /// Gets the resource indexes included in the resource group.
             /// </summary>
-            /// <returns>资源组包含的资源索引集合。</returns>
+            /// <returns>Resource indexes included in the resource group.</returns>
             public int[] GetResourceIndexes()
             {
                 return m_ResourceIndexes;

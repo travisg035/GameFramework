@@ -10,12 +10,12 @@ using System.IO;
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络频道辅助器接口。
+    /// Network channel helper interface.
     /// </summary>
     public interface INetworkChannelHelper
     {
         /// <summary>
-        /// 获取消息包头长度。
+        /// Gets the packet header length.
         /// </summary>
         int PacketHeaderLength
         {
@@ -23,51 +23,51 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 初始化网络频道辅助器。
+        /// Initializes the network channel helper.
         /// </summary>
-        /// <param name="networkChannel">网络频道。</param>
+        /// <param name="networkChannel">Network channel.</param>
         void Initialize(INetworkChannel networkChannel);
 
         /// <summary>
-        /// 关闭并清理网络频道辅助器。
+        /// Shuts down and cleans up the network channel helper.
         /// </summary>
         void Shutdown();
 
         /// <summary>
-        /// 准备进行连接。
+        /// Prepares for connecting.
         /// </summary>
         void PrepareForConnecting();
 
         /// <summary>
-        /// 发送心跳消息包。
+        /// Sends heartbeat packet.
         /// </summary>
-        /// <returns>是否发送心跳消息包成功。</returns>
+        /// <returns>Whether sending the heartbeat packet was successful.</returns>
         bool SendHeartBeat();
 
         /// <summary>
-        /// 序列化消息包。
+        /// Serializes packet.
         /// </summary>
-        /// <typeparam name="T">消息包类型。</typeparam>
-        /// <param name="packet">要序列化的消息包。</param>
-        /// <param name="destination">要序列化的目标流。</param>
-        /// <returns>是否序列化成功。</returns>
+        /// <typeparam name="T">Packet type.</typeparam>
+        /// <param name="packet">Packet to serialize.</param>
+        /// <param name="destination">Target stream to serialize into.</param>
+        /// <returns>Whether the packet was serialized successfully.</returns>
         bool Serialize<T>(T packet, Stream destination) where T : Packet;
 
         /// <summary>
-        /// 反序列化消息包头。
+        /// Deserializes packet header.
         /// </summary>
-        /// <param name="source">要反序列化的来源流。</param>
-        /// <param name="customErrorData">用户自定义错误数据。</param>
-        /// <returns>反序列化后的消息包头。</returns>
+        /// <param name="source">Source stream to deserialize from.</param>
+        /// <param name="customErrorData">User-defined error data.</param>
+        /// <returns>Deserialized packet header.</returns>
         IPacketHeader DeserializePacketHeader(Stream source, out object customErrorData);
 
         /// <summary>
-        /// 反序列化消息包。
+        /// Deserializes packet.
         /// </summary>
-        /// <param name="packetHeader">消息包头。</param>
-        /// <param name="source">要反序列化的来源流。</param>
-        /// <param name="customErrorData">用户自定义错误数据。</param>
-        /// <returns>反序列化后的消息包。</returns>
+        /// <param name="packetHeader">Packet header.</param>
+        /// <param name="source">Source stream to deserialize from.</param>
+        /// <param name="customErrorData">User-defined error data.</param>
+        /// <returns>Deserialized packet.</returns>
         Packet DeserializePacket(IPacketHeader packetHeader, Stream source, out object customErrorData);
     }
 }

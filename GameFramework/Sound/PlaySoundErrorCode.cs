@@ -8,37 +8,37 @@
 namespace GameFramework.Sound
 {
     /// <summary>
-    /// 播放声音错误码。
+    /// Play sound error codes.
     /// </summary>
     public enum PlaySoundErrorCode : byte
     {
         /// <summary>
-        /// 未知错误。
+        /// Unknown error.
         /// </summary>
         Unknown = 0,
 
         /// <summary>
-        /// 声音组不存在。
+        /// Sound group does not exist.
         /// </summary>
         SoundGroupNotExist,
 
         /// <summary>
-        /// 声音组没有声音代理。
+        /// Sound group has no sound agent.
         /// </summary>
         SoundGroupHasNoAgent,
 
         /// <summary>
-        /// 加载资源失败。
+        /// Load asset failure.
         /// </summary>
         LoadAssetFailure,
 
         /// <summary>
-        /// 播放声音因优先级低被忽略。
+        /// Ignored due to low priority.
         /// </summary>
         IgnoredDueToLowPriority,
 
         /// <summary>
-        /// 设置声音资源失败。
+        /// Set sound asset failure.
         /// </summary>
         SetSoundAssetFailure
     }

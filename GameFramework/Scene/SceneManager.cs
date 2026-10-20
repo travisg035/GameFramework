@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace GameFramework.Scene
 {
     /// <summary>
-    /// 场景管理器。
+    /// Scene manager.
     /// </summary>
     internal sealed class SceneManager : GameFrameworkModule, ISceneManager
     {
@@ -30,7 +30,7 @@ namespace GameFramework.Scene
         private EventHandler<UnloadSceneFailureEventArgs> m_UnloadSceneFailureEventHandler;
 
         /// <summary>
-        /// 初始化场景管理器的新实例。
+        /// Initializes a new instance of the SceneManager class.
         /// </summary>
         public SceneManager()
         {
@@ -49,9 +49,9 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取游戏框架模块优先级。
+        /// Gets the game framework module priority.
         /// </summary>
-        /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
+        /// <remarks>Modules with higher priority are polled first and shut down later.</remarks>
         internal override int Priority
         {
             get
@@ -61,7 +61,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 加载场景成功事件。
+        /// Load scene success event.
         /// </summary>
         public event EventHandler<LoadSceneSuccessEventArgs> LoadSceneSuccess
         {
@@ -76,7 +76,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 加载场景失败事件。
+        /// Load scene failure event.
         /// </summary>
         public event EventHandler<LoadSceneFailureEventArgs> LoadSceneFailure
         {
@@ -91,7 +91,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 加载场景更新事件。
+        /// Load scene update event.
         /// </summary>
         public event EventHandler<LoadSceneUpdateEventArgs> LoadSceneUpdate
         {
@@ -106,7 +106,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 加载场景时加载依赖资源事件。
+        /// Load scene dependency asset event.
         /// </summary>
         public event EventHandler<LoadSceneDependencyAssetEventArgs> LoadSceneDependencyAsset
         {
@@ -121,7 +121,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 卸载场景成功事件。
+        /// Unload scene success event.
         /// </summary>
         public event EventHandler<UnloadSceneSuccessEventArgs> UnloadSceneSuccess
         {
@@ -136,7 +136,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 卸载场景失败事件。
+        /// Unload scene failure event.
         /// </summary>
         public event EventHandler<UnloadSceneFailureEventArgs> UnloadSceneFailure
         {
@@ -151,16 +151,16 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 场景管理器轮询。
+        /// Polls the scene manager.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed time in seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed time in seconds.</param>
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
         }
 
         /// <summary>
-        /// 关闭并清理场景管理器。
+        /// Shuts down and cleans up the scene manager.
         /// </summary>
         internal override void Shutdown()
         {
@@ -181,9 +181,9 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 设置资源管理器。
+        /// Sets the resource manager.
         /// </summary>
-        /// <param name="resourceManager">资源管理器。</param>
+        /// <param name="resourceManager">The resource manager.</param>
         public void SetResourceManager(IResourceManager resourceManager)
         {
             if (resourceManager == null)
@@ -195,10 +195,10 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取场景是否已加载。
+        /// Gets whether the scene is loaded.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <returns>场景是否已加载。</returns>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <returns>Whether the scene is loaded.</returns>
         public bool SceneIsLoaded(string sceneAssetName)
         {
             if (string.IsNullOrEmpty(sceneAssetName))
@@ -210,18 +210,18 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取已加载场景的资源名称。
+        /// Gets the loaded scene asset names.
         /// </summary>
-        /// <returns>已加载场景的资源名称。</returns>
+        /// <returns>The loaded scene asset names.</returns>
         public string[] GetLoadedSceneAssetNames()
         {
             return m_LoadedSceneAssetNames.ToArray();
         }
 
         /// <summary>
-        /// 获取已加载场景的资源名称。
+        /// Gets the loaded scene asset names.
         /// </summary>
-        /// <param name="results">已加载场景的资源名称。</param>
+        /// <param name="results">The loaded scene asset names.</param>
         public void GetLoadedSceneAssetNames(List<string> results)
         {
             if (results == null)
@@ -234,10 +234,10 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取场景是否正在加载。
+        /// Gets whether the scene is loading.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <returns>场景是否正在加载。</returns>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <returns>Whether the scene is loading.</returns>
         public bool SceneIsLoading(string sceneAssetName)
         {
             if (string.IsNullOrEmpty(sceneAssetName))
@@ -249,18 +249,18 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取正在加载场景的资源名称。
+        /// Gets the loading scene asset names.
         /// </summary>
-        /// <returns>正在加载场景的资源名称。</returns>
+        /// <returns>The loading scene asset names.</returns>
         public string[] GetLoadingSceneAssetNames()
         {
             return m_LoadingSceneAssetNames.ToArray();
         }
 
         /// <summary>
-        /// 获取正在加载场景的资源名称。
+        /// Gets the loading scene asset names.
         /// </summary>
-        /// <param name="results">正在加载场景的资源名称。</param>
+        /// <param name="results">The loading scene asset names.</param>
         public void GetLoadingSceneAssetNames(List<string> results)
         {
             if (results == null)
@@ -273,10 +273,10 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取场景是否正在卸载。
+        /// Gets whether the scene is unloading.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <returns>场景是否正在卸载。</returns>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <returns>Whether the scene is unloading.</returns>
         public bool SceneIsUnloading(string sceneAssetName)
         {
             if (string.IsNullOrEmpty(sceneAssetName))
@@ -288,18 +288,18 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取正在卸载场景的资源名称。
+        /// Gets the unloading scene asset names.
         /// </summary>
-        /// <returns>正在卸载场景的资源名称。</returns>
+        /// <returns>The unloading scene asset names.</returns>
         public string[] GetUnloadingSceneAssetNames()
         {
             return m_UnloadingSceneAssetNames.ToArray();
         }
 
         /// <summary>
-        /// 获取正在卸载场景的资源名称。
+        /// Gets the unloading scene asset names.
         /// </summary>
-        /// <param name="results">正在卸载场景的资源名称。</param>
+        /// <param name="results">The unloading scene asset names.</param>
         public void GetUnloadingSceneAssetNames(List<string> results)
         {
             if (results == null)
@@ -312,50 +312,50 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 检查场景资源是否存在。
+        /// Checks whether the scene asset exists.
         /// </summary>
-        /// <param name="sceneAssetName">要检查场景资源的名称。</param>
-        /// <returns>场景资源是否存在。</returns>
+        /// <param name="sceneAssetName">The name of the scene asset to check.</param>
+        /// <returns>Whether the scene asset exists.</returns>
         public bool HasScene(string sceneAssetName)
         {
             return m_ResourceManager.HasAsset(sceneAssetName) != HasAssetResult.NotExist;
         }
 
         /// <summary>
-        /// 加载场景。
+        /// Loads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
         public void LoadScene(string sceneAssetName)
         {
             LoadScene(sceneAssetName, Constant.DefaultPriority, null);
         }
 
         /// <summary>
-        /// 加载场景。
+        /// Loads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="priority">加载场景资源的优先级。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <param name="priority">The priority of loading the scene asset.</param>
         public void LoadScene(string sceneAssetName, int priority)
         {
             LoadScene(sceneAssetName, priority, null);
         }
 
         /// <summary>
-        /// 加载场景。
+        /// Loads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void LoadScene(string sceneAssetName, object userData)
         {
             LoadScene(sceneAssetName, Constant.DefaultPriority, userData);
         }
 
         /// <summary>
-        /// 加载场景。
+        /// Loads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="priority">加载场景资源的优先级。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <param name="priority">The priority of loading the scene asset.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void LoadScene(string sceneAssetName, int priority, object userData)
         {
             if (string.IsNullOrEmpty(sceneAssetName))
@@ -388,19 +388,19 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 卸载场景。
+        /// Unloads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
         public void UnloadScene(string sceneAssetName)
         {
             UnloadScene(sceneAssetName, null);
         }
 
         /// <summary>
-        /// 卸载场景。
+        /// Unloads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <param name="userData">The user-defined data.</param>
         public void UnloadScene(string sceneAssetName, object userData)
         {
             if (string.IsNullOrEmpty(sceneAssetName))

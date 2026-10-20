@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 namespace GameFramework.ObjectPool
 {
     /// <summary>
-    /// 对象信息。
+    /// Object information.
     /// </summary>
     [StructLayout(LayoutKind.Auto)]
     public struct ObjectInfo
@@ -24,14 +24,14 @@ namespace GameFramework.ObjectPool
         private readonly int m_SpawnCount;
 
         /// <summary>
-        /// 初始化对象信息的新实例。
+        /// Initializes a new instance of the ObjectInfo struct.
         /// </summary>
-        /// <param name="name">对象名称。</param>
-        /// <param name="locked">对象是否被加锁。</param>
-        /// <param name="customCanReleaseFlag">对象自定义释放检查标记。</param>
-        /// <param name="priority">对象的优先级。</param>
-        /// <param name="lastUseTime">对象上次使用时间。</param>
-        /// <param name="spawnCount">对象的获取计数。</param>
+        /// <param name="name">The object name.</param>
+        /// <param name="locked">Whether the object is locked.</param>
+        /// <param name="customCanReleaseFlag">Custom can release flag of the object.</param>
+        /// <param name="priority">Priority of the object.</param>
+        /// <param name="lastUseTime">The last use time of the object.</param>
+        /// <param name="spawnCount">The spawn count of the object.</param>
         public ObjectInfo(string name, bool locked, bool customCanReleaseFlag, int priority, DateTime lastUseTime, int spawnCount)
         {
             m_Name = name;
@@ -43,7 +43,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象名称。
+        /// Gets the object name.
         /// </summary>
         public string Name
         {
@@ -54,7 +54,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象是否被加锁。
+        /// Gets whether the object is locked.
         /// </summary>
         public bool Locked
         {
@@ -65,7 +65,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象自定义释放检查标记。
+        /// Gets the custom can release flag of the object.
         /// </summary>
         public bool CustomCanReleaseFlag
         {
@@ -76,7 +76,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象的优先级。
+        /// Gets the priority of the object.
         /// </summary>
         public int Priority
         {
@@ -87,7 +87,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象上次使用时间。
+        /// Gets the last use time of the object.
         /// </summary>
         public DateTime LastUseTime
         {
@@ -98,7 +98,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象是否正在使用。
+        /// Gets whether the object is in use.
         /// </summary>
         public bool IsInUse
         {
@@ -109,7 +109,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象的获取计数。
+        /// Gets the spawn count of the object.
         /// </summary>
         public int SpawnCount
         {

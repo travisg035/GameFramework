@@ -8,12 +8,12 @@
 namespace GameFramework.DataTable
 {
     /// <summary>
-    /// 数据表行接口。
+    /// Data row interface.
     /// </summary>
     public interface IDataRow
     {
         /// <summary>
-        /// 获取数据表行的编号。
+        /// Gets the data row id.
         /// </summary>
         int Id
         {
@@ -21,21 +21,21 @@ namespace GameFramework.DataTable
         }
 
         /// <summary>
-        /// 解析数据表行。
+        /// Parses a data row.
         /// </summary>
-        /// <param name="dataRowString">要解析的数据表行字符串。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否解析数据表行成功。</returns>
+        /// <param name="dataRowString">The data row string to parse.</param>
+        /// <param name="userData">Custom user data.</param>
+        /// <returns>Whether the data row was parsed successfully.</returns>
         bool ParseDataRow(string dataRowString, object userData);
 
         /// <summary>
-        /// 解析数据表行。
+        /// Parses a data row.
         /// </summary>
-        /// <param name="dataRowBytes">要解析的数据表行二进制流。</param>
-        /// <param name="startIndex">数据表行二进制流的起始位置。</param>
-        /// <param name="length">数据表行二进制流的长度。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>是否解析数据表行成功。</returns>
+        /// <param name="dataRowBytes">The data row binary bytes to parse.</param>
+        /// <param name="startIndex">The start index of the data row binary bytes.</param>
+        /// <param name="length">The length of the data row binary bytes.</param>
+        /// <param name="userData">Custom user data.</param>
+        /// <returns>Whether the data row was parsed successfully.</returns>
         bool ParseDataRow(byte[] dataRowBytes, int startIndex, int length, object userData);
     }
 }

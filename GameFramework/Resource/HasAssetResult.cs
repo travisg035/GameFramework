@@ -8,37 +8,37 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 检查资源是否存在的结果。
+    /// Result of checking whether an asset exists.
     /// </summary>
     public enum HasAssetResult : byte
     {
         /// <summary>
-        /// 资源不存在。
+        /// The asset does not exist.
         /// </summary>
         NotExist = 0,
 
         /// <summary>
-        /// 资源尚未准备完毕。
+        /// The asset is not ready yet.
         /// </summary>
         NotReady,
 
         /// <summary>
-        /// 存在资源且存储在磁盘上。
+        /// The asset exists and is stored on disk.
         /// </summary>
         AssetOnDisk,
 
         /// <summary>
-        /// 存在资源且存储在文件系统里。
+        /// The asset exists and is stored in a file system.
         /// </summary>
         AssetOnFileSystem,
 
         /// <summary>
-        /// 存在二进制资源且存储在磁盘上。
+        /// The binary asset exists and is stored on disk.
         /// </summary>
         BinaryOnDisk,
 
         /// <summary>
-        /// 存在二进制资源且存储在文件系统里。
+        /// The binary asset exists and is stored in a file system.
         /// </summary>
         BinaryOnFileSystem
     }

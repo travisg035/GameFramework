@@ -10,7 +10,7 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 资源信息。
+        /// Resource information.
         /// </summary>
         private sealed class ResourceInfo
         {
@@ -24,16 +24,16 @@ namespace GameFramework.Resource
             private bool m_Ready;
 
             /// <summary>
-            /// 初始化资源信息的新实例。
+            /// Initializes a new instance of the ResourceInfo class.
             /// </summary>
-            /// <param name="resourceName">资源名称。</param>
-            /// <param name="fileSystemName">文件系统名称。</param>
-            /// <param name="loadType">资源加载方式。</param>
-            /// <param name="length">资源大小。</param>
-            /// <param name="hashCode">资源哈希值。</param>
-            /// <param name="compressedLength">压缩后资源大小。</param>
-            /// <param name="storageInReadOnly">资源是否在只读区。</param>
-            /// <param name="ready">资源是否准备完毕。</param>
+            /// <param name="resourceName">The resource name.</param>
+            /// <param name="fileSystemName">The file system name.</param>
+            /// <param name="loadType">The resource load type.</param>
+            /// <param name="length">The resource length.</param>
+            /// <param name="hashCode">The resource hash code.</param>
+            /// <param name="compressedLength">The compressed resource length.</param>
+            /// <param name="storageInReadOnly">Whether the resource is stored in the read-only area.</param>
+            /// <param name="ready">Whether the resource is ready.</param>
             public ResourceInfo(ResourceName resourceName, string fileSystemName, LoadType loadType, int length, int hashCode, int compressedLength, bool storageInReadOnly, bool ready)
             {
                 m_ResourceName = resourceName;
@@ -47,7 +47,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源名称。
+            /// Gets the resource name.
             /// </summary>
             public ResourceName ResourceName
             {
@@ -58,7 +58,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源是否使用文件系统。
+            /// Gets a value indicating whether the resource uses the file system.
             /// </summary>
             public bool UseFileSystem
             {
@@ -69,7 +69,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取文件系统名称。
+            /// Gets the file system name.
             /// </summary>
             public string FileSystemName
             {
@@ -80,7 +80,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源是否通过二进制方式加载。
+            /// Gets a value indicating whether the resource is loaded from binary.
             /// </summary>
             public bool IsLoadFromBinary
             {
@@ -91,7 +91,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源加载方式。
+            /// Gets the resource load type.
             /// </summary>
             public LoadType LoadType
             {
@@ -102,7 +102,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源大小。
+            /// Gets the resource length.
             /// </summary>
             public int Length
             {
@@ -113,7 +113,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源哈希值。
+            /// Gets the resource hash code.
             /// </summary>
             public int HashCode
             {
@@ -124,7 +124,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取压缩后资源大小。
+            /// Gets the compressed resource length.
             /// </summary>
             public int CompressedLength
             {
@@ -135,7 +135,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源是否在只读区。
+            /// Gets a value indicating whether the resource is stored in the read-only area.
             /// </summary>
             public bool StorageInReadOnly
             {
@@ -146,7 +146,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源是否准备完毕。
+            /// Gets a value indicating whether the resource is ready.
             /// </summary>
             public bool Ready
             {
@@ -157,7 +157,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 标记资源准备完毕。
+            /// Marks the resource as ready.
             /// </summary>
             public void MarkReady()
             {

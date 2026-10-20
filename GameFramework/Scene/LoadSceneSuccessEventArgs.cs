@@ -8,12 +8,12 @@
 namespace GameFramework.Scene
 {
     /// <summary>
-    /// 加载场景成功事件。
+    /// Load scene success event.
     /// </summary>
     public sealed class LoadSceneSuccessEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化加载场景成功事件的新实例。
+        /// Initializes a new instance of the LoadSceneSuccessEventArgs class.
         /// </summary>
         public LoadSceneSuccessEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取场景资源名称。
+        /// Gets the scene asset name.
         /// </summary>
         public string SceneAssetName
         {
@@ -32,7 +32,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取加载持续时间。
+        /// Gets the loading duration in seconds.
         /// </summary>
         public float Duration
         {
@@ -41,7 +41,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -50,12 +50,12 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 创建加载场景成功事件。
+        /// Creates a load scene success event.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="duration">加载持续时间。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的加载场景成功事件。</returns>
+        /// <param name="sceneAssetName">Scene asset name.</param>
+        /// <param name="duration">Loading duration in seconds.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created load scene success event.</returns>
         public static LoadSceneSuccessEventArgs Create(string sceneAssetName, float duration, object userData)
         {
             LoadSceneSuccessEventArgs loadSceneSuccessEventArgs = ReferencePool.Acquire<LoadSceneSuccessEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 清理加载场景成功事件。
+        /// Clears the load scene success event.
         /// </summary>
         public override void Clear()
         {

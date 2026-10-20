@@ -12,7 +12,7 @@ namespace GameFramework.Resource
         private sealed partial class ResourceVerifier
         {
             /// <summary>
-            /// 资源校验信息。
+            /// Resource verification information.
             /// </summary>
             private struct VerifyInfo
             {
@@ -23,13 +23,13 @@ namespace GameFramework.Resource
                 private readonly int m_HashCode;
 
                 /// <summary>
-                /// 初始化资源校验信息的新实例。
+                /// Initializes a new instance of the VerifyInfo struct.
                 /// </summary>
-                /// <param name="resourceName">资源名称。</param>
-                /// <param name="fileSystemName">资源所在的文件系统名称。</param>
-                /// <param name="loadType">资源加载方式。</param>
-                /// <param name="length">资源大小。</param>
-                /// <param name="hashCode">资源哈希值。</param>
+                /// <param name="resourceName">The resource name.</param>
+                /// <param name="fileSystemName">The file system name containing the resource.</param>
+                /// <param name="loadType">The resource load type.</param>
+                /// <param name="length">The resource length.</param>
+                /// <param name="hashCode">The resource hash code.</param>
                 public VerifyInfo(ResourceName resourceName, string fileSystemName, LoadType loadType, int length, int hashCode)
                 {
                     m_ResourceName = resourceName;
@@ -40,7 +40,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源名称。
+                /// Gets the resource name.
                 /// </summary>
                 public ResourceName ResourceName
                 {
@@ -51,7 +51,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源是否使用文件系统。
+                /// Gets a value indicating whether the resource uses the file system.
                 /// </summary>
                 public bool UseFileSystem
                 {
@@ -62,7 +62,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源所在的文件系统名称。
+                /// Gets the file system name containing the resource.
                 /// </summary>
                 public string FileSystemName
                 {
@@ -73,7 +73,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源加载方式。
+                /// Gets the resource load type.
                 /// </summary>
                 public LoadType LoadType
                 {
@@ -84,7 +84,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源大小。
+                /// Gets the resource length.
                 /// </summary>
                 public int Length
                 {
@@ -95,7 +95,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源哈希值。
+                /// Gets the resource hash code.
                 /// </summary>
                 public int HashCode
                 {

@@ -8,14 +8,14 @@
 namespace GameFramework.WebRequest
 {
     /// <summary>
-    /// Web 请求成功事件。
+    /// Web request success event.
     /// </summary>
     public sealed class WebRequestSuccessEventArgs : GameFrameworkEventArgs
     {
         private byte[] m_WebResponseBytes;
 
         /// <summary>
-        /// 初始化 Web 请求成功事件的新实例。
+        /// Initializes a new instance of the WebRequestSuccessEventArgs class.
         /// </summary>
         public WebRequestSuccessEventArgs()
         {
@@ -26,7 +26,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取 Web 请求任务的序列编号。
+        /// Gets the serial id of the web request task.
         /// </summary>
         public int SerialId
         {
@@ -35,7 +35,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取 Web 请求地址。
+        /// Gets the web request URI.
         /// </summary>
         public string WebRequestUri
         {
@@ -44,7 +44,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the custom user data.
         /// </summary>
         public object UserData
         {
@@ -53,13 +53,13 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 创建 Web 请求成功事件。
+        /// Creates a web request success event.
         /// </summary>
-        /// <param name="serialId">Web 请求任务的序列编号。</param>
-        /// <param name="webRequestUri">Web 请求地址。</param>
-        /// <param name="webResponseBytes">Web 响应的数据流。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的 Web 请求成功事件。</returns>
+        /// <param name="serialId">The serial id of the web request task.</param>
+        /// <param name="webRequestUri">Web request URI.</param>
+        /// <param name="webResponseBytes">Web response bytes.</param>
+        /// <param name="userData">Custom user data.</param>
+        /// <returns>The created web request success event.</returns>
         public static WebRequestSuccessEventArgs Create(int serialId, string webRequestUri, byte[] webResponseBytes, object userData)
         {
             WebRequestSuccessEventArgs webRequestSuccessEventArgs = ReferencePool.Acquire<WebRequestSuccessEventArgs>();
@@ -71,7 +71,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 清理 Web 请求成功事件。
+        /// Clears the web request success event.
         /// </summary>
         public override void Clear()
         {
@@ -82,9 +82,9 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取 Web 响应的数据流。
+        /// Gets the web response bytes.
         /// </summary>
-        /// <returns>Web 响应的数据流。</returns>
+        /// <returns>The web response bytes.</returns>
         public byte[] GetWebResponseBytes()
         {
             return m_WebResponseBytes;

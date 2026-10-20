@@ -8,7 +8,7 @@
 namespace GameFramework.DataTable
 {
     /// <summary>
-    /// 数据表辅助器接口。
+    /// Data table helper interface.
     /// </summary>
     public interface IDataTableHelper
     {

@@ -8,9 +8,9 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 卸载场景失败回调函数。
+    /// Unload scene failure callback method.
     /// </summary>
-    /// <param name="sceneAssetName">要卸载的场景资源名称。</param>
-    /// <param name="userData">用户自定义数据。</param>
+    /// <param name="sceneAssetName">The asset name of the scene to unload.</param>
+    /// <param name="userData">User-defined data.</param>
     public delegate void UnloadSceneFailureCallback(string sceneAssetName, object userData);
 }

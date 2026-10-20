@@ -8,7 +8,7 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载二进制资源回调函数集。
+    /// Load binary callback set.
     /// </summary>
     public sealed class LoadBinaryCallbacks
     {
@@ -16,19 +16,19 @@ namespace GameFramework.Resource
         private readonly LoadBinaryFailureCallback m_LoadBinaryFailureCallback;
 
         /// <summary>
-        /// 初始化加载二进制资源回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadBinaryCallbacks"/> class.
         /// </summary>
-        /// <param name="loadBinarySuccessCallback">加载二进制资源成功回调函数。</param>
+        /// <param name="loadBinarySuccessCallback">The load binary success callback method.</param>
         public LoadBinaryCallbacks(LoadBinarySuccessCallback loadBinarySuccessCallback)
             : this(loadBinarySuccessCallback, null)
         {
         }
 
         /// <summary>
-        /// 初始化加载二进制资源回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="LoadBinaryCallbacks"/> class.
         /// </summary>
-        /// <param name="loadBinarySuccessCallback">加载二进制资源成功回调函数。</param>
-        /// <param name="loadBinaryFailureCallback">加载二进制资源失败回调函数。</param>
+        /// <param name="loadBinarySuccessCallback">The load binary success callback method.</param>
+        /// <param name="loadBinaryFailureCallback">The load binary failure callback method.</param>
         public LoadBinaryCallbacks(LoadBinarySuccessCallback loadBinarySuccessCallback, LoadBinaryFailureCallback loadBinaryFailureCallback)
         {
             if (loadBinarySuccessCallback == null)
@@ -41,7 +41,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载二进制资源成功回调函数。
+        /// Gets the load binary success callback method.
         /// </summary>
         public LoadBinarySuccessCallback LoadBinarySuccessCallback
         {
@@ -52,7 +52,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取加载二进制资源失败回调函数。
+        /// Gets the load binary failure callback method.
         /// </summary>
         public LoadBinaryFailureCallback LoadBinaryFailureCallback
         {

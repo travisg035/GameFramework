@@ -11,12 +11,12 @@ using System.Collections.Generic;
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络管理器接口。
+    /// Network manager interface.
     /// </summary>
     public interface INetworkManager
     {
         /// <summary>
-        /// 获取网络频道数量。
+        /// Gets the number of network channels.
         /// </summary>
         int NetworkChannelCount
         {
@@ -24,70 +24,70 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 网络连接成功事件。
+        /// Network connected event.
         /// </summary>
         event EventHandler<NetworkConnectedEventArgs> NetworkConnected;
 
         /// <summary>
-        /// 网络连接关闭事件。
+        /// Network closed event.
         /// </summary>
         event EventHandler<NetworkClosedEventArgs> NetworkClosed;
 
         /// <summary>
-        /// 网络心跳包丢失事件。
+        /// Network miss heartbeat event.
         /// </summary>
         event EventHandler<NetworkMissHeartBeatEventArgs> NetworkMissHeartBeat;
 
         /// <summary>
-        /// 网络错误事件。
+        /// Network error event.
         /// </summary>
         event EventHandler<NetworkErrorEventArgs> NetworkError;
 
         /// <summary>
-        /// 用户自定义网络错误事件。
+        /// Network custom error event.
         /// </summary>
         event EventHandler<NetworkCustomErrorEventArgs> NetworkCustomError;
 
         /// <summary>
-        /// 检查是否存在网络频道。
+        /// Checks whether the network channel exists.
         /// </summary>
-        /// <param name="name">网络频道名称。</param>
-        /// <returns>是否存在网络频道。</returns>
+        /// <param name="name">The network channel name.</param>
+        /// <returns>Whether the network channel exists.</returns>
         bool HasNetworkChannel(string name);
 
         /// <summary>
-        /// 获取网络频道。
+        /// Gets a network channel.
         /// </summary>
-        /// <param name="name">网络频道名称。</param>
-        /// <returns>要获取的网络频道。</returns>
+        /// <param name="name">The network channel name.</param>
+        /// <returns>The network channel to get.</returns>
         INetworkChannel GetNetworkChannel(string name);
 
         /// <summary>
-        /// 获取所有网络频道。
+        /// Gets all network channels.
         /// </summary>
-        /// <returns>所有网络频道。</returns>
+        /// <returns>All network channels.</returns>
         INetworkChannel[] GetAllNetworkChannels();
 
         /// <summary>
-        /// 获取所有网络频道。
+        /// Gets all network channels.
         /// </summary>
-        /// <param name="results">所有网络频道。</param>
+        /// <param name="results">All network channels.</param>
         void GetAllNetworkChannels(List<INetworkChannel> results);
 
         /// <summary>
-        /// 创建网络频道。
+        /// Creates a network channel.
         /// </summary>
-        /// <param name="name">网络频道名称。</param>
-        /// <param name="serviceType">网络服务类型。</param>
-        /// <param name="networkChannelHelper">网络频道辅助器。</param>
-        /// <returns>要创建的网络频道。</returns>
+        /// <param name="name">The network channel name.</param>
+        /// <param name="serviceType">Network service type.</param>
+        /// <param name="networkChannelHelper">The network channel helper.</param>
+        /// <returns>The created network channel.</returns>
         INetworkChannel CreateNetworkChannel(string name, ServiceType serviceType, INetworkChannelHelper networkChannelHelper);
 
         /// <summary>
-        /// 销毁网络频道。
+        /// Destroys a network channel.
         /// </summary>
-        /// <param name="name">网络频道名称。</param>
-        /// <returns>是否销毁网络频道成功。</returns>
+        /// <param name="name">The network channel name.</param>
+        /// <returns>Whether the network channel was destroyed successfully.</returns>
         bool DestroyNetworkChannel(string name);
     }
 }

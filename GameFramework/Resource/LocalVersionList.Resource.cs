@@ -12,7 +12,7 @@ namespace GameFramework.Resource
     public partial struct LocalVersionList
     {
         /// <summary>
-        /// 资源。
+        /// Resource.
         /// </summary>
         [StructLayout(LayoutKind.Auto)]
         public struct Resource
@@ -25,14 +25,14 @@ namespace GameFramework.Resource
             private readonly int m_HashCode;
 
             /// <summary>
-            /// 初始化资源的新实例。
+            /// Initializes a new instance of the Resource struct.
             /// </summary>
-            /// <param name="name">资源名称。</param>
-            /// <param name="variant">资源变体名称。</param>
-            /// <param name="extension">资源扩展名称。</param>
-            /// <param name="loadType">资源加载方式。</param>
-            /// <param name="length">资源长度。</param>
-            /// <param name="hashCode">资源哈希值。</param>
+            /// <param name="name">Resource name.</param>
+            /// <param name="variant">Resource variant name.</param>
+            /// <param name="extension">Resource extension name.</param>
+            /// <param name="loadType">Resource load type.</param>
+            /// <param name="length">Resource length.</param>
+            /// <param name="hashCode">Resource hash code.</param>
             public Resource(string name, string variant, string extension, byte loadType, int length, int hashCode)
             {
                 if (string.IsNullOrEmpty(name))
@@ -49,7 +49,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源名称。
+            /// Gets the resource name.
             /// </summary>
             public string Name
             {
@@ -60,7 +60,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源变体名称。
+            /// Gets the resource variant name.
             /// </summary>
             public string Variant
             {
@@ -71,7 +71,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源扩展名称。
+            /// Gets the resource extension name.
             /// </summary>
             public string Extension
             {
@@ -82,7 +82,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源加载方式。
+            /// Gets the resource load type.
             /// </summary>
             public byte LoadType
             {
@@ -93,7 +93,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源长度。
+            /// Gets the resource length.
             /// </summary>
             public int Length
             {
@@ -104,7 +104,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 获取资源哈希值。
+            /// Gets the resource hash code.
             /// </summary>
             public int HashCode
             {

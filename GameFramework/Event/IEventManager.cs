@@ -10,12 +10,12 @@ using System;
 namespace GameFramework.Event
 {
     /// <summary>
-    /// 事件管理器接口。
+    /// Event manager interface.
     /// </summary>
     public interface IEventManager
     {
         /// <summary>
-        /// 获取事件处理函数的数量。
+        /// Gets the number of event handlers.
         /// </summary>
         int EventHandlerCount
         {
@@ -23,7 +23,7 @@ namespace GameFramework.Event
         }
 
         /// <summary>
-        /// 获取事件数量。
+        /// Gets the number of events.
         /// </summary>
         int EventCount
         {
@@ -31,52 +31,52 @@ namespace GameFramework.Event
         }
 
         /// <summary>
-        /// 获取事件处理函数的数量。
+        /// Gets the number of event handlers for the specified event id.
         /// </summary>
-        /// <param name="id">事件类型编号。</param>
-        /// <returns>事件处理函数的数量。</returns>
+        /// <param name="id">Event type id.</param>
+        /// <returns>The number of event handlers.</returns>
         int Count(int id);
 
         /// <summary>
-        /// 检查是否存在事件处理函数。
+        /// Checks whether the event handler exists.
         /// </summary>
-        /// <param name="id">事件类型编号。</param>
-        /// <param name="handler">要检查的事件处理函数。</param>
-        /// <returns>是否存在事件处理函数。</returns>
+        /// <param name="id">Event type id.</param>
+        /// <param name="handler">Event handler to check.</param>
+        /// <returns>Whether the event handler exists.</returns>
         bool Check(int id, EventHandler<GameEventArgs> handler);
 
         /// <summary>
-        /// 订阅事件处理函数。
+        /// Subscribes to an event handler.
         /// </summary>
-        /// <param name="id">事件类型编号。</param>
-        /// <param name="handler">要订阅的事件处理函数。</param>
+        /// <param name="id">Event type id.</param>
+        /// <param name="handler">Event handler to subscribe.</param>
         void Subscribe(int id, EventHandler<GameEventArgs> handler);
 
         /// <summary>
-        /// 取消订阅事件处理函数。
+        /// Unsubscribes from an event handler.
         /// </summary>
-        /// <param name="id">事件类型编号。</param>
-        /// <param name="handler">要取消订阅的事件处理函数。</param>
+        /// <param name="id">Event type id.</param>
+        /// <param name="handler">Event handler to unsubscribe.</param>
         void Unsubscribe(int id, EventHandler<GameEventArgs> handler);
 
         /// <summary>
-        /// 设置默认事件处理函数。
+        /// Sets the default event handler.
         /// </summary>
-        /// <param name="handler">要设置的默认事件处理函数。</param>
+        /// <param name="handler">Default event handler to set.</param>
         void SetDefaultHandler(EventHandler<GameEventArgs> handler);
 
         /// <summary>
-        /// 抛出事件，这个操作是线程安全的，即使不在主线程中抛出，也可保证在主线程中回调事件处理函数，但事件会在抛出后的下一帧分发。
+        /// Fires an event. This operation is thread-safe; handlers will be called on the main thread, but dispatched in the next frame.
         /// </summary>
-        /// <param name="sender">事件源。</param>
-        /// <param name="e">事件参数。</param>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Event arguments.</param>
         void Fire(object sender, GameEventArgs e);
 
         /// <summary>
-        /// 抛出事件立即模式，这个操作不是线程安全的，事件会立刻分发。
+        /// Fires an event immediately. This operation is not thread-safe and the event will be dispatched immediately.
         /// </summary>
-        /// <param name="sender">事件源。</param>
-        /// <param name="e">事件参数。</param>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Event arguments.</param>
         void FireNow(object sender, GameEventArgs e);
     }
 }

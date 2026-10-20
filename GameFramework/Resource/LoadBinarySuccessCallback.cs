@@ -8,11 +8,11 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载二进制资源成功回调函数。
+    /// Load binary success callback method.
     /// </summary>
-    /// <param name="binaryAssetName">要加载的二进制资源名称。</param>
-    /// <param name="binaryBytes">已加载的二进制资源。</param>
-    /// <param name="duration">加载持续时间。</param>
-    /// <param name="userData">用户自定义数据。</param>
+    /// <param name="binaryAssetName">The name of the binary asset to load.</param>
+    /// <param name="binaryBytes">The loaded binary bytes.</param>
+    /// <param name="duration">The loading duration in seconds.</param>
+    /// <param name="userData">User-defined data.</param>
     public delegate void LoadBinarySuccessCallback(string binaryAssetName, byte[] binaryBytes, float duration, object userData);
 }

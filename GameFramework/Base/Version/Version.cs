@@ -8,7 +8,7 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 版本号类。
+    /// Version utility class.
     /// </summary>
     public static partial class Version
     {
@@ -17,7 +17,7 @@ namespace GameFramework
         private static IVersionHelper s_VersionHelper = null;
 
         /// <summary>
-        /// 获取游戏框架版本号。
+        /// Gets the game framework version.
         /// </summary>
         public static string GameFrameworkVersion
         {
@@ -28,7 +28,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取游戏版本号。
+        /// Gets the game version.
         /// </summary>
         public static string GameVersion
         {
@@ -44,7 +44,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取内部游戏版本号。
+        /// Gets the internal game version.
         /// </summary>
         public static int InternalGameVersion
         {
@@ -60,9 +60,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 设置版本号辅助器。
+        /// Sets the version helper.
         /// </summary>
-        /// <param name="versionHelper">要设置的版本号辅助器。</param>
+        /// <param name="versionHelper">The version helper to set.</param>
         public static void SetVersionHelper(IVersionHelper versionHelper)
         {
             s_VersionHelper = versionHelper;

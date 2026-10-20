@@ -8,14 +8,14 @@
 namespace GameFramework.Sound
 {
     /// <summary>
-    /// 声音辅助器接口。
+    /// Sound helper interface.
     /// </summary>
     public interface ISoundHelper
     {
         /// <summary>
-        /// 释放声音资源。
+        /// Releases the sound asset.
         /// </summary>
-        /// <param name="soundAsset">要释放的声音资源。</param>
+        /// <param name="soundAsset">The sound asset to release.</param>
         void ReleaseSoundAsset(object soundAsset);
     }
 }

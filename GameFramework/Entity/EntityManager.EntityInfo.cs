@@ -12,7 +12,7 @@ namespace GameFramework.Entity
     internal sealed partial class EntityManager : GameFrameworkModule, IEntityManager
     {
         /// <summary>
-        /// 实体信息。
+        /// Entity info.
         /// </summary>
         private sealed class EntityInfo : IReference
         {

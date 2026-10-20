@@ -8,37 +8,37 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源状态。
+    /// Load resource status.
     /// </summary>
     public enum LoadResourceStatus : byte
     {
         /// <summary>
-        /// 加载资源完成。
+        /// Load resource success.
         /// </summary>
         Success = 0,
 
         /// <summary>
-        /// 资源不存在。
+        /// Resource does not exist.
         /// </summary>
         NotExist,
 
         /// <summary>
-        /// 资源尚未准备完毕。
+        /// Resource is not ready yet.
         /// </summary>
         NotReady,
 
         /// <summary>
-        /// 依赖资源错误。
+        /// Dependency asset error.
         /// </summary>
         DependencyError,
 
         /// <summary>
-        /// 资源类型错误。
+        /// Resource type error.
         /// </summary>
         TypeError,
 
         /// <summary>
-        /// 加载资源错误。
+        /// Load asset error.
         /// </summary>
         AssetError
     }

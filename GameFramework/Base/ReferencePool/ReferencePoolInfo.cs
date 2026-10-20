@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 namespace GameFramework
 {
     /// <summary>
-    /// 引用池信息。
+    /// Reference pool information.
     /// </summary>
     [StructLayout(LayoutKind.Auto)]
     public struct ReferencePoolInfo
@@ -25,15 +25,15 @@ namespace GameFramework
         private readonly int m_RemoveReferenceCount;
 
         /// <summary>
-        /// 初始化引用池信息的新实例。
+        /// Initializes a new instance of the ReferencePoolInfo struct.
         /// </summary>
-        /// <param name="type">引用池类型。</param>
-        /// <param name="unusedReferenceCount">未使用引用数量。</param>
-        /// <param name="usingReferenceCount">正在使用引用数量。</param>
-        /// <param name="acquireReferenceCount">获取引用数量。</param>
-        /// <param name="releaseReferenceCount">归还引用数量。</param>
-        /// <param name="addReferenceCount">增加引用数量。</param>
-        /// <param name="removeReferenceCount">移除引用数量。</param>
+        /// <param name="type">Reference pool type.</param>
+        /// <param name="unusedReferenceCount">Number of unused references.</param>
+        /// <param name="usingReferenceCount">Number of using references.</param>
+        /// <param name="acquireReferenceCount">Number of acquired references.</param>
+        /// <param name="releaseReferenceCount">Number of released references.</param>
+        /// <param name="addReferenceCount">Number of added references.</param>
+        /// <param name="removeReferenceCount">Number of removed references.</param>
         public ReferencePoolInfo(Type type, int unusedReferenceCount, int usingReferenceCount, int acquireReferenceCount, int releaseReferenceCount, int addReferenceCount, int removeReferenceCount)
         {
             m_Type = type;
@@ -46,7 +46,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取引用池类型。
+        /// Gets the reference pool type.
         /// </summary>
         public Type Type
         {
@@ -57,7 +57,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取未使用引用数量。
+        /// Gets the number of unused references.
         /// </summary>
         public int UnusedReferenceCount
         {
@@ -68,7 +68,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取正在使用引用数量。
+        /// Gets the number of using references.
         /// </summary>
         public int UsingReferenceCount
         {
@@ -79,7 +79,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取获取引用数量。
+        /// Gets the number of acquired references.
         /// </summary>
         public int AcquireReferenceCount
         {
@@ -90,7 +90,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取归还引用数量。
+        /// Gets the number of released references.
         /// </summary>
         public int ReleaseReferenceCount
         {
@@ -101,7 +101,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取增加引用数量。
+        /// Gets the number of added references.
         /// </summary>
         public int AddReferenceCount
         {
@@ -112,7 +112,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取移除引用数量。
+        /// Gets the number of removed references.
         /// </summary>
         public int RemoveReferenceCount
         {

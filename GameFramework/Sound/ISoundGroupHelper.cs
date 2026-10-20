@@ -8,7 +8,7 @@
 namespace GameFramework.Sound
 {
     /// <summary>
-    /// 声音组辅助器接口。
+    /// Sound group helper interface.
     /// </summary>
     public interface ISoundGroupHelper
     {

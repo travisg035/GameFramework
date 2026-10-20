@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源相关常量。
+    /// Resource related constants.
     /// </summary>
     internal static class Constant
     {
         /// <summary>
-        /// 默认资源加载优先级。
+        /// Default resource loading priority.
         /// </summary>
         internal const int DefaultPriority = 0;
     }

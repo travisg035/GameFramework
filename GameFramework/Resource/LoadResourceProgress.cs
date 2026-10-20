@@ -8,32 +8,32 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源进度类型。
+    /// Load resource progress type.
     /// </summary>
     public enum LoadResourceProgress : byte
     {
         /// <summary>
-        /// 未知类型。
+        /// Unknown type.
         /// </summary>
         Unknown = 0,
 
         /// <summary>
-        /// 读取资源包。
+        /// Read resource.
         /// </summary>
         ReadResource,
 
         /// <summary>
-        /// 加载资源包。
+        /// Load resource.
         /// </summary>
         LoadResource,
 
         /// <summary>
-        /// 加载资源。
+        /// Load asset.
         /// </summary>
         LoadAsset,
 
         /// <summary>
-        /// 加载场景。
+        /// Load scene.
         /// </summary>
         LoadScene
     }

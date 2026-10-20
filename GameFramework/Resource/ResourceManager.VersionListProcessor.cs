@@ -14,7 +14,7 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 版本资源列表处理器。
+        /// Version list processor.
         /// </summary>
         private sealed class VersionListProcessor
         {
@@ -29,9 +29,9 @@ namespace GameFramework.Resource
             public GameFrameworkAction<string, string> VersionListUpdateFailure;
 
             /// <summary>
-            /// 初始化版本资源列表处理器的新实例。
+            /// Initializes a new instance of the VersionListProcessor class.
             /// </summary>
-            /// <param name="resourceManager">资源管理器。</param>
+            /// <param name="resourceManager">The resource manager.</param>
             public VersionListProcessor(ResourceManager resourceManager)
             {
                 m_ResourceManager = resourceManager;
@@ -46,7 +46,7 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 关闭并清理版本资源列表处理器。
+            /// Shuts down and cleans up the version list processor.
             /// </summary>
             public void Shutdown()
             {
@@ -58,9 +58,9 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 设置下载管理器。
+            /// Sets the download manager.
             /// </summary>
-            /// <param name="downloadManager">下载管理器。</param>
+            /// <param name="downloadManager">The download manager.</param>
             public void SetDownloadManager(IDownloadManager downloadManager)
             {
                 if (downloadManager == null)
@@ -74,10 +74,10 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 检查版本资源列表。
+            /// Checks the version list.
             /// </summary>
-            /// <param name="latestInternalResourceVersion">最新的内部资源版本号。</param>
-            /// <returns>检查版本资源列表结果。</returns>
+            /// <param name="latestInternalResourceVersion">Latest internal resource version.</param>
+            /// <returns>Check version list result.</returns>
             public CheckVersionListResult CheckVersionList(int latestInternalResourceVersion)
             {
                 if (string.IsNullOrEmpty(m_ResourceManager.m_ReadWritePath))
@@ -126,12 +126,12 @@ namespace GameFramework.Resource
             }
 
             /// <summary>
-            /// 更新版本资源列表。
+            /// Updates the version list.
             /// </summary>
-            /// <param name="versionListLength">版本资源列表大小。</param>
-            /// <param name="versionListHashCode">版本资源列表哈希值。</param>
-            /// <param name="versionListCompressedLength">版本资源列表压缩后大小。</param>
-            /// <param name="versionListCompressedHashCode">版本资源列表压缩后哈希值。</param>
+            /// <param name="versionListLength">Version list length.</param>
+            /// <param name="versionListHashCode">Version list hash code.</param>
+            /// <param name="versionListCompressedLength">Version list compressed length.</param>
+            /// <param name="versionListCompressedHashCode">Version list compressed hash code.</param>
             public void UpdateVersionList(int versionListLength, int versionListHashCode, int versionListCompressedLength, int versionListCompressedHashCode)
             {
                 if (m_DownloadManager == null)

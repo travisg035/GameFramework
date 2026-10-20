@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源应用开始事件。
+    /// Resource apply start event.
     /// </summary>
     public sealed class ResourceApplyStartEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化资源应用开始事件的新实例。
+        /// Initializes a new instance of the <see cref="ResourceApplyStartEventArgs"/> class.
         /// </summary>
         public ResourceApplyStartEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源包路径。
+        /// Gets the resource pack path.
         /// </summary>
         public string ResourcePackPath
         {
@@ -32,7 +32,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取要应用资源的数量。
+        /// Gets the count of resources to apply.
         /// </summary>
         public int Count
         {
@@ -41,7 +41,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取要应用资源的总大小。
+        /// Gets the total length of resources to apply.
         /// </summary>
         public long TotalLength
         {
@@ -50,12 +50,12 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建资源应用开始事件。
+        /// Creates a new resource apply start event.
         /// </summary>
-        /// <param name="resourcePackPath">资源包路径。</param>
-        /// <param name="count">要应用资源的数量。</param>
-        /// <param name="totalLength">要应用资源的总大小。</param>
-        /// <returns>创建的资源应用开始事件。</returns>
+        /// <param name="resourcePackPath">The resource pack path.</param>
+        /// <param name="count">The count of resources to apply.</param>
+        /// <param name="totalLength">The total length of resources to apply.</param>
+        /// <returns>The created resource apply start event.</returns>
         public static ResourceApplyStartEventArgs Create(string resourcePackPath, int count, long totalLength)
         {
             ResourceApplyStartEventArgs resourceApplyStartEventArgs = ReferencePool.Acquire<ResourceApplyStartEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理资源应用开始事件。
+        /// Clears the resource apply start event.
         /// </summary>
         public override void Clear()
         {

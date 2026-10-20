@@ -11,12 +11,12 @@ using System.Collections.Generic;
 namespace GameFramework.Fsm
 {
     /// <summary>
-    /// 有限状态机管理器。
+    /// Finite state machine manager interface.
     /// </summary>
     public interface IFsmManager
     {
         /// <summary>
-        /// 获取有限状态机数量。
+        /// Gets the number of finite state machines.
         /// </summary>
         int Count
         {
@@ -24,158 +24,158 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 检查是否存在有限状态机。
+        /// Determines whether a finite state machine exists.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <returns>是否存在有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <returns>Whether the finite state machine exists.</returns>
         bool HasFsm<T>() where T : class;
 
         /// <summary>
-        /// 检查是否存在有限状态机。
+        /// Determines whether a finite state machine exists.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <returns>是否存在有限状态机。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <returns>Whether the finite state machine exists.</returns>
         bool HasFsm(Type ownerType);
 
         /// <summary>
-        /// 检查是否存在有限状态机。
+        /// Determines whether a finite state machine exists.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="name">有限状态机名称。</param>
-        /// <returns>是否存在有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <returns>Whether the finite state machine exists.</returns>
         bool HasFsm<T>(string name) where T : class;
 
         /// <summary>
-        /// 检查是否存在有限状态机。
+        /// Determines whether a finite state machine exists.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <param name="name">有限状态机名称。</param>
-        /// <returns>是否存在有限状态机。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <returns>Whether the finite state machine exists.</returns>
         bool HasFsm(Type ownerType, string name);
 
         /// <summary>
-        /// 获取有限状态机。
+        /// Gets a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <returns>要获取的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <returns>The finite state machine to get.</returns>
         IFsm<T> GetFsm<T>() where T : class;
 
         /// <summary>
-        /// 获取有限状态机。
+        /// Gets a finite state machine.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <returns>要获取的有限状态机。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <returns>The finite state machine to get.</returns>
         FsmBase GetFsm(Type ownerType);
 
         /// <summary>
-        /// 获取有限状态机。
+        /// Gets a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="name">有限状态机名称。</param>
-        /// <returns>要获取的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <returns>The finite state machine to get.</returns>
         IFsm<T> GetFsm<T>(string name) where T : class;
 
         /// <summary>
-        /// 获取有限状态机。
+        /// Gets a finite state machine.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <param name="name">有限状态机名称。</param>
-        /// <returns>要获取的有限状态机。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <returns>The finite state machine to get.</returns>
         FsmBase GetFsm(Type ownerType, string name);
 
         /// <summary>
-        /// 获取所有有限状态机。
+        /// Gets all finite state machines.
         /// </summary>
-        /// <returns>所有有限状态机。</returns>
+        /// <returns>All finite state machines.</returns>
         FsmBase[] GetAllFsms();
 
         /// <summary>
-        /// 获取所有有限状态机。
+        /// Gets all finite state machines.
         /// </summary>
-        /// <param name="results">所有有限状态机。</param>
+        /// <param name="results">The list to store all finite state machines.</param>
         void GetAllFsms(List<FsmBase> results);
 
         /// <summary>
-        /// 创建有限状态机。
+        /// Creates a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="owner">有限状态机持有者。</param>
-        /// <param name="states">有限状态机状态集合。</param>
-        /// <returns>要创建的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="owner">The owner of the finite state machine.</param>
+        /// <param name="states">The state set of the finite state machine.</param>
+        /// <returns>The created finite state machine.</returns>
         IFsm<T> CreateFsm<T>(T owner, params FsmState<T>[] states) where T : class;
 
         /// <summary>
-        /// 创建有限状态机。
+        /// Creates a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="name">有限状态机名称。</param>
-        /// <param name="owner">有限状态机持有者。</param>
-        /// <param name="states">有限状态机状态集合。</param>
-        /// <returns>要创建的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <param name="owner">The owner of the finite state machine.</param>
+        /// <param name="states">The state set of the finite state machine.</param>
+        /// <returns>The created finite state machine.</returns>
         IFsm<T> CreateFsm<T>(string name, T owner, params FsmState<T>[] states) where T : class;
 
         /// <summary>
-        /// 创建有限状态机。
+        /// Creates a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="owner">有限状态机持有者。</param>
-        /// <param name="states">有限状态机状态集合。</param>
-        /// <returns>要创建的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="owner">The owner of the finite state machine.</param>
+        /// <param name="states">The state set of the finite state machine.</param>
+        /// <returns>The created finite state machine.</returns>
         IFsm<T> CreateFsm<T>(T owner, List<FsmState<T>> states) where T : class;
 
         /// <summary>
-        /// 创建有限状态机。
+        /// Creates a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="name">有限状态机名称。</param>
-        /// <param name="owner">有限状态机持有者。</param>
-        /// <param name="states">有限状态机状态集合。</param>
-        /// <returns>要创建的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <param name="owner">The owner of the finite state machine.</param>
+        /// <param name="states">The state set of the finite state machine.</param>
+        /// <returns>The created finite state machine.</returns>
         IFsm<T> CreateFsm<T>(string name, T owner, List<FsmState<T>> states) where T : class;
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         bool DestroyFsm<T>() where T : class;
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         bool DestroyFsm(Type ownerType);
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="name">要销毁的有限状态机名称。</param>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="name">The name of the finite state machine to destroy.</param>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         bool DestroyFsm<T>(string name) where T : class;
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <param name="name">要销毁的有限状态机名称。</param>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <param name="name">The name of the finite state machine to destroy.</param>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         bool DestroyFsm(Type ownerType, string name);
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="fsm">要销毁的有限状态机。</param>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="fsm">The finite state machine to destroy.</param>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         bool DestroyFsm<T>(IFsm<T> fsm) where T : class;
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <param name="fsm">要销毁的有限状态机。</param>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <param name="fsm">The finite state machine to destroy.</param>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         bool DestroyFsm(FsmBase fsm);
     }
 }

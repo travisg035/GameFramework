@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 namespace GameFramework
 {
     /// <summary>
-    /// 任务信息。
+    /// Task information.
     /// </summary>
     [StructLayout(LayoutKind.Auto)]
     public struct TaskInfo
@@ -24,14 +24,14 @@ namespace GameFramework
         private readonly string m_Description;
 
         /// <summary>
-        /// 初始化任务信息的新实例。
+        /// Initializes a new instance of the task information.
         /// </summary>
-        /// <param name="serialId">任务的序列编号。</param>
-        /// <param name="tag">任务的标签。</param>
-        /// <param name="priority">任务的优先级。</param>
-        /// <param name="userData">任务的用户自定义数据。</param>
-        /// <param name="status">任务状态。</param>
-        /// <param name="description">任务描述。</param>
+        /// <param name="serialId">The serial ID of the task.</param>
+        /// <param name="tag">The tag of the task.</param>
+        /// <param name="priority">The priority of the task.</param>
+        /// <param name="userData">The user custom data of the task.</param>
+        /// <param name="status">The task status.</param>
+        /// <param name="description">The task description.</param>
         public TaskInfo(int serialId, string tag, int priority, object userData, TaskStatus status, string description)
         {
             m_IsValid = true;
@@ -44,7 +44,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务信息是否有效。
+        /// Gets whether the task information is valid.
         /// </summary>
         public bool IsValid
         {
@@ -55,7 +55,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务的序列编号。
+        /// Gets the serial ID of the task.
         /// </summary>
         public int SerialId
         {
@@ -71,7 +71,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务的标签。
+        /// Gets the tag of the task.
         /// </summary>
         public string Tag
         {
@@ -87,7 +87,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务的优先级。
+        /// Gets the priority of the task.
         /// </summary>
         public int Priority
         {
@@ -103,7 +103,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务的用户自定义数据。
+        /// Gets the user custom data of the task.
         /// </summary>
         public object UserData
         {
@@ -119,7 +119,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务状态。
+        /// Gets the task status.
         /// </summary>
         public TaskStatus Status
         {
@@ -135,7 +135,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务描述。
+        /// Gets the task description.
         /// </summary>
         public string Description
         {

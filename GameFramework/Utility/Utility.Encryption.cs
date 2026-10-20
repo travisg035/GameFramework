@@ -12,39 +12,39 @@ namespace GameFramework
     public static partial class Utility
     {
         /// <summary>
-        /// 加密解密相关的实用函数。
+        /// Encryption and decryption utility functions.
         /// </summary>
         public static class Encryption
         {
             internal const int QuickEncryptLength = 220;
 
             /// <summary>
-            /// 将 bytes 使用 code 做异或运算的快速版本。
+            /// Fast version of performing XOR operation on bytes using code.
             /// </summary>
-            /// <param name="bytes">原始二进制流。</param>
-            /// <param name="code">异或二进制流。</param>
-            /// <returns>异或后的二进制流。</returns>
+            /// <param name="bytes">The original binary bytes.</param>
+            /// <param name="code">The XOR key binary bytes.</param>
+            /// <returns>The XORed binary bytes.</returns>
             public static byte[] GetQuickXorBytes(byte[] bytes, byte[] code)
             {
                 return GetXorBytes(bytes, 0, QuickEncryptLength, code);
             }
 
             /// <summary>
-            /// 将 bytes 使用 code 做异或运算的快速版本。此方法将复用并改写传入的 bytes 作为返回值，而不额外分配内存空间。
+            /// Fast version of performing XOR operation on bytes using code. This method reuses and overwrites the passed-in bytes as return value without allocating extra memory.
             /// </summary>
-            /// <param name="bytes">原始及异或后的二进制流。</param>
-            /// <param name="code">异或二进制流。</param>
+            /// <param name="bytes">The original and XORed binary bytes.</param>
+            /// <param name="code">The XOR key binary bytes.</param>
             public static void GetQuickSelfXorBytes(byte[] bytes, byte[] code)
             {
                 GetSelfXorBytes(bytes, 0, QuickEncryptLength, code);
             }
 
             /// <summary>
-            /// 将 bytes 使用 code 做异或运算。
+            /// Performs XOR operation on bytes using code.
             /// </summary>
-            /// <param name="bytes">原始二进制流。</param>
-            /// <param name="code">异或二进制流。</param>
-            /// <returns>异或后的二进制流。</returns>
+            /// <param name="bytes">The original binary bytes.</param>
+            /// <param name="code">The XOR key binary bytes.</param>
+            /// <returns>The XORed binary bytes.</returns>
             public static byte[] GetXorBytes(byte[] bytes, byte[] code)
             {
                 if (bytes == null)
@@ -56,10 +56,10 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 将 bytes 使用 code 做异或运算。此方法将复用并改写传入的 bytes 作为返回值，而不额外分配内存空间。
+            /// Performs XOR operation on bytes using code. This method reuses and overwrites the passed-in bytes as return value without allocating extra memory.
             /// </summary>
-            /// <param name="bytes">原始及异或后的二进制流。</param>
-            /// <param name="code">异或二进制流。</param>
+            /// <param name="bytes">The original and XORed binary bytes.</param>
+            /// <param name="code">The XOR key binary bytes.</param>
             public static void GetSelfXorBytes(byte[] bytes, byte[] code)
             {
                 if (bytes == null)
@@ -71,13 +71,13 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 将 bytes 使用 code 做异或运算。
+            /// Performs XOR operation on bytes using code.
             /// </summary>
-            /// <param name="bytes">原始二进制流。</param>
-            /// <param name="startIndex">异或计算的开始位置。</param>
-            /// <param name="length">异或计算长度，若小于 0，则计算整个二进制流。</param>
-            /// <param name="code">异或二进制流。</param>
-            /// <returns>异或后的二进制流。</returns>
+            /// <param name="bytes">The original binary bytes.</param>
+            /// <param name="startIndex">The start index of the XOR calculation.</param>
+            /// <param name="length">The length of the XOR calculation. If less than 0, calculates the entire binary bytes.</param>
+            /// <param name="code">The XOR key binary bytes.</param>
+            /// <returns>The XORed binary bytes.</returns>
             public static byte[] GetXorBytes(byte[] bytes, int startIndex, int length, byte[] code)
             {
                 if (bytes == null)
@@ -93,12 +93,12 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 将 bytes 使用 code 做异或运算。此方法将复用并改写传入的 bytes 作为返回值，而不额外分配内存空间。
+            /// Performs XOR operation on bytes using code. This method reuses and overwrites the passed-in bytes as return value without allocating extra memory.
             /// </summary>
-            /// <param name="bytes">原始及异或后的二进制流。</param>
-            /// <param name="startIndex">异或计算的开始位置。</param>
-            /// <param name="length">异或计算长度。</param>
-            /// <param name="code">异或二进制流。</param>
+            /// <param name="bytes">The original and XORed binary bytes.</param>
+            /// <param name="startIndex">The start index of the XOR calculation.</param>
+            /// <param name="length">The length of the XOR calculation.</param>
+            /// <param name="code">The XOR key binary bytes.</param>
             public static void GetSelfXorBytes(byte[] bytes, int startIndex, int length, byte[] code)
             {
                 if (bytes == null)

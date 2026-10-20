@@ -10,7 +10,7 @@ namespace GameFramework.Entity
     internal sealed partial class EntityManager : GameFrameworkModule, IEntityManager
     {
         /// <summary>
-        /// 实体状态。
+        /// Entity status.
         /// </summary>
         private enum EntityStatus : byte
         {

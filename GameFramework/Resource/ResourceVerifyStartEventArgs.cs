@@ -8,12 +8,12 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 资源校验开始事件。
+    /// Resource verify start event.
     /// </summary>
     public sealed class ResourceVerifyStartEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化资源校验开始事件的新实例。
+        /// Initializes a new instance of the <see cref="ResourceVerifyStartEventArgs"/> class.
         /// </summary>
         public ResourceVerifyStartEventArgs()
         {
@@ -22,7 +22,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取要校验资源的数量。
+        /// Gets the count of resources to verify.
         /// </summary>
         public int Count
         {
@@ -31,7 +31,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取要校验资源的总大小。
+        /// Gets the total length of resources to verify.
         /// </summary>
         public long TotalLength
         {
@@ -40,11 +40,11 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建资源校验开始事件。
+        /// Creates a new resource verify start event.
         /// </summary>
-        /// <param name="count">要校验资源的数量。</param>
-        /// <param name="totalLength">要校验资源的总大小。</param>
-        /// <returns>创建的资源校验开始事件。</returns>
+        /// <param name="count">The count of resources to verify.</param>
+        /// <param name="totalLength">The total length of resources to verify.</param>
+        /// <returns>The created resource verify start event.</returns>
         public static ResourceVerifyStartEventArgs Create(int count, long totalLength)
         {
             ResourceVerifyStartEventArgs resourceVerifyStartEventArgs = ReferencePool.Acquire<ResourceVerifyStartEventArgs>();
@@ -54,7 +54,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理资源校验开始事件。
+        /// Clears the resource verify start event.
         /// </summary>
         public override void Clear()
         {

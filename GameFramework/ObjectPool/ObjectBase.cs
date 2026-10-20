@@ -10,7 +10,7 @@ using System;
 namespace GameFramework.ObjectPool
 {
     /// <summary>
-    /// 对象基类。
+    /// Object base class.
     /// </summary>
     public abstract class ObjectBase : IReference
     {
@@ -21,7 +21,7 @@ namespace GameFramework.ObjectPool
         private DateTime m_LastUseTime;
 
         /// <summary>
-        /// 初始化对象基类的新实例。
+        /// Initializes a new instance of the ObjectBase class.
         /// </summary>
         public ObjectBase()
         {
@@ -33,7 +33,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象名称。
+        /// Gets the object name.
         /// </summary>
         public string Name
         {
@@ -44,7 +44,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象。
+        /// Gets the target object.
         /// </summary>
         public object Target
         {
@@ -55,7 +55,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取或设置对象是否被加锁。
+        /// Gets or sets whether the object is locked.
         /// </summary>
         public bool Locked
         {
@@ -70,7 +70,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取或设置对象的优先级。
+        /// Gets or sets the priority of the object.
         /// </summary>
         public int Priority
         {
@@ -85,7 +85,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取自定义释放检查标记。
+        /// Gets the custom can release flag.
         /// </summary>
         public virtual bool CustomCanReleaseFlag
         {
@@ -96,7 +96,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象上次使用时间。
+        /// Gets the last use time of the object.
         /// </summary>
         public DateTime LastUseTime
         {
@@ -111,53 +111,53 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 初始化对象基类。
+        /// Initializes the object base class.
         /// </summary>
-        /// <param name="target">对象。</param>
+        /// <param name="target">The target object.</param>
         protected void Initialize(object target)
         {
             Initialize(null, target, false, 0);
         }
 
         /// <summary>
-        /// 初始化对象基类。
+        /// Initializes the object base class.
         /// </summary>
-        /// <param name="name">对象名称。</param>
-        /// <param name="target">对象。</param>
+        /// <param name="name">The object name.</param>
+        /// <param name="target">The target object.</param>
         protected void Initialize(string name, object target)
         {
             Initialize(name, target, false, 0);
         }
 
         /// <summary>
-        /// 初始化对象基类。
+        /// Initializes the object base class.
         /// </summary>
-        /// <param name="name">对象名称。</param>
-        /// <param name="target">对象。</param>
-        /// <param name="locked">对象是否被加锁。</param>
+        /// <param name="name">The object name.</param>
+        /// <param name="target">The target object.</param>
+        /// <param name="locked">Whether the object is locked.</param>
         protected void Initialize(string name, object target, bool locked)
         {
             Initialize(name, target, locked, 0);
         }
 
         /// <summary>
-        /// 初始化对象基类。
+        /// Initializes the object base class.
         /// </summary>
-        /// <param name="name">对象名称。</param>
-        /// <param name="target">对象。</param>
-        /// <param name="priority">对象的优先级。</param>
+        /// <param name="name">The object name.</param>
+        /// <param name="target">The target object.</param>
+        /// <param name="priority">The priority of the object.</param>
         protected void Initialize(string name, object target, int priority)
         {
             Initialize(name, target, false, priority);
         }
 
         /// <summary>
-        /// 初始化对象基类。
+        /// Initializes the object base class.
         /// </summary>
-        /// <param name="name">对象名称。</param>
-        /// <param name="target">对象。</param>
-        /// <param name="locked">对象是否被加锁。</param>
-        /// <param name="priority">对象的优先级。</param>
+        /// <param name="name">The object name.</param>
+        /// <param name="target">The target object.</param>
+        /// <param name="locked">Whether the object is locked.</param>
+        /// <param name="priority">The priority of the object.</param>
         protected void Initialize(string name, object target, bool locked, int priority)
         {
             if (target == null)
@@ -173,7 +173,7 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 清理对象基类。
+        /// Clears the object base class.
         /// </summary>
         public virtual void Clear()
         {
@@ -185,23 +185,23 @@ namespace GameFramework.ObjectPool
         }
 
         /// <summary>
-        /// 获取对象时的事件。
+        /// Event called when the object is spawned.
         /// </summary>
         protected internal virtual void OnSpawn()
         {
         }
 
         /// <summary>
-        /// 回收对象时的事件。
+        /// Event called when the object is unspawned.
         /// </summary>
         protected internal virtual void OnUnspawn()
         {
         }
 
         /// <summary>
-        /// 释放对象。
+        /// Releases the object.
         /// </summary>
-        /// <param name="isShutdown">是否是关闭对象池时触发。</param>
+        /// <param name="isShutdown">Whether it is triggered when the object pool is shutting down.</param>
         protected internal abstract void Release(bool isShutdown);
     }
 }

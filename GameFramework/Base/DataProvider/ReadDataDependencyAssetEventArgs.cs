@@ -8,12 +8,12 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 读取数据时加载依赖资源事件。
+    /// Event fired when loading a dependency asset while reading data.
     /// </summary>
     public sealed class ReadDataDependencyAssetEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化读取数据时加载依赖资源事件的新实例。
+        /// Initializes a new instance of the ReadDataDependencyAssetEventArgs class.
         /// </summary>
         public ReadDataDependencyAssetEventArgs()
         {
@@ -25,7 +25,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取内容资源名称。
+        /// Gets the data asset name.
         /// </summary>
         public string DataAssetName
         {
@@ -34,7 +34,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取被加载的依赖资源名称。
+        /// Gets the name of the dependency asset being loaded.
         /// </summary>
         public string DependencyAssetName
         {
@@ -43,7 +43,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取当前已加载依赖资源数量。
+        /// Gets the number of dependency assets currently loaded.
         /// </summary>
         public int LoadedCount
         {
@@ -52,7 +52,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取总共加载依赖资源数量。
+        /// Gets the total number of dependency assets to load.
         /// </summary>
         public int TotalCount
         {
@@ -61,7 +61,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -70,14 +70,14 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 创建读取数据时加载依赖资源事件。
+        /// Creates a read data dependency asset event.
         /// </summary>
-        /// <param name="dataAssetName">内容资源名称。</param>
-        /// <param name="dependencyAssetName">被加载的依赖资源名称。</param>
-        /// <param name="loadedCount">当前已加载依赖资源数量。</param>
-        /// <param name="totalCount">总共加载依赖资源数量。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的读取数据时加载依赖资源事件。</returns>
+        /// <param name="dataAssetName">Data asset name.</param>
+        /// <param name="dependencyAssetName">Name of the dependency asset being loaded.</param>
+        /// <param name="loadedCount">Number of dependency assets currently loaded.</param>
+        /// <param name="totalCount">Total number of dependency assets to load.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created read data dependency asset event.</returns>
         public static ReadDataDependencyAssetEventArgs Create(string dataAssetName, string dependencyAssetName, int loadedCount, int totalCount, object userData)
         {
             ReadDataDependencyAssetEventArgs loadDataDependencyAssetEventArgs = ReferencePool.Acquire<ReadDataDependencyAssetEventArgs>();
@@ -90,7 +90,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 清理读取数据时加载依赖资源事件。
+        /// Clears the read data dependency asset event.
         /// </summary>
         public override void Clear()
         {

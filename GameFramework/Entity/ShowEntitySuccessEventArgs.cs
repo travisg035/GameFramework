@@ -8,12 +8,12 @@
 namespace GameFramework.Entity
 {
     /// <summary>
-    /// 显示实体成功事件。
+    /// Show entity success event.
     /// </summary>
     public sealed class ShowEntitySuccessEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化显示实体成功事件的新实例。
+        /// Initializes a new instance of the ShowEntitySuccessEventArgs class.
         /// </summary>
         public ShowEntitySuccessEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取显示成功的实体。
+        /// Gets the successfully shown entity.
         /// </summary>
         public IEntity Entity
         {
@@ -32,7 +32,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取加载持续时间。
+        /// Gets the loading duration in seconds.
         /// </summary>
         public float Duration
         {
@@ -41,7 +41,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -50,12 +50,12 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 创建显示实体成功事件。
+        /// Creates a show entity success event.
         /// </summary>
-        /// <param name="entity">加载成功的实体。</param>
-        /// <param name="duration">加载持续时间。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的显示实体成功事件。</returns>
+        /// <param name="entity">The successfully shown entity.</param>
+        /// <param name="duration">Loading duration in seconds.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created show entity success event.</returns>
         public static ShowEntitySuccessEventArgs Create(IEntity entity, float duration, object userData)
         {
             ShowEntitySuccessEventArgs showEntitySuccessEventArgs = ReferencePool.Acquire<ShowEntitySuccessEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 清理显示实体成功事件。
+        /// Clears the show entity success event.
         /// </summary>
         public override void Clear()
         {

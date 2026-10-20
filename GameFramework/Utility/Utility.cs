@@ -8,7 +8,7 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 实用函数集。
+    /// Utility functions.
     /// </summary>
     public static partial class Utility
     {

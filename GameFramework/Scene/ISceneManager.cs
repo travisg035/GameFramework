@@ -12,149 +12,149 @@ using System.Collections.Generic;
 namespace GameFramework.Scene
 {
     /// <summary>
-    /// 场景管理器接口。
+    /// Scene manager interface.
     /// </summary>
     public interface ISceneManager
     {
         /// <summary>
-        /// 加载场景成功事件。
+        /// Load scene success event.
         /// </summary>
         event EventHandler<LoadSceneSuccessEventArgs> LoadSceneSuccess;
 
         /// <summary>
-        /// 加载场景失败事件。
+        /// Load scene failure event.
         /// </summary>
         event EventHandler<LoadSceneFailureEventArgs> LoadSceneFailure;
 
         /// <summary>
-        /// 加载场景更新事件。
+        /// Load scene update event.
         /// </summary>
         event EventHandler<LoadSceneUpdateEventArgs> LoadSceneUpdate;
 
         /// <summary>
-        /// 加载场景时加载依赖资源事件。
+        /// Load scene dependency asset event.
         /// </summary>
         event EventHandler<LoadSceneDependencyAssetEventArgs> LoadSceneDependencyAsset;
 
         /// <summary>
-        /// 卸载场景成功事件。
+        /// Unload scene success event.
         /// </summary>
         event EventHandler<UnloadSceneSuccessEventArgs> UnloadSceneSuccess;
 
         /// <summary>
-        /// 卸载场景失败事件。
+        /// Unload scene failure event.
         /// </summary>
         event EventHandler<UnloadSceneFailureEventArgs> UnloadSceneFailure;
 
         /// <summary>
-        /// 设置资源管理器。
+        /// Sets the resource manager.
         /// </summary>
-        /// <param name="resourceManager">资源管理器。</param>
+        /// <param name="resourceManager">The resource manager.</param>
         void SetResourceManager(IResourceManager resourceManager);
 
         /// <summary>
-        /// 获取场景是否已加载。
+        /// Gets whether the scene is loaded.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <returns>场景是否已加载。</returns>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <returns>Whether the scene is loaded.</returns>
         bool SceneIsLoaded(string sceneAssetName);
 
         /// <summary>
-        /// 获取已加载场景的资源名称。
+        /// Gets the loaded scene asset names.
         /// </summary>
-        /// <returns>已加载场景的资源名称。</returns>
+        /// <returns>The loaded scene asset names.</returns>
         string[] GetLoadedSceneAssetNames();
 
         /// <summary>
-        /// 获取已加载场景的资源名称。
+        /// Gets the loaded scene asset names.
         /// </summary>
-        /// <param name="results">已加载场景的资源名称。</param>
+        /// <param name="results">The loaded scene asset names.</param>
         void GetLoadedSceneAssetNames(List<string> results);
 
         /// <summary>
-        /// 获取场景是否正在加载。
+        /// Gets whether the scene is loading.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <returns>场景是否正在加载。</returns>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <returns>Whether the scene is loading.</returns>
         bool SceneIsLoading(string sceneAssetName);
 
         /// <summary>
-        /// 获取正在加载场景的资源名称。
+        /// Gets the loading scene asset names.
         /// </summary>
-        /// <returns>正在加载场景的资源名称。</returns>
+        /// <returns>The loading scene asset names.</returns>
         string[] GetLoadingSceneAssetNames();
 
         /// <summary>
-        /// 获取正在加载场景的资源名称。
+        /// Gets the loading scene asset names.
         /// </summary>
-        /// <param name="results">正在加载场景的资源名称。</param>
+        /// <param name="results">The loading scene asset names.</param>
         void GetLoadingSceneAssetNames(List<string> results);
 
         /// <summary>
-        /// 获取场景是否正在卸载。
+        /// Gets whether the scene is unloading.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <returns>场景是否正在卸载。</returns>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <returns>Whether the scene is unloading.</returns>
         bool SceneIsUnloading(string sceneAssetName);
 
         /// <summary>
-        /// 获取正在卸载场景的资源名称。
+        /// Gets the unloading scene asset names.
         /// </summary>
-        /// <returns>正在卸载场景的资源名称。</returns>
+        /// <returns>The unloading scene asset names.</returns>
         string[] GetUnloadingSceneAssetNames();
 
         /// <summary>
-        /// 获取正在卸载场景的资源名称。
+        /// Gets the unloading scene asset names.
         /// </summary>
-        /// <param name="results">正在卸载场景的资源名称。</param>
+        /// <param name="results">The unloading scene asset names.</param>
         void GetUnloadingSceneAssetNames(List<string> results);
 
         /// <summary>
-        /// 检查场景资源是否存在。
+        /// Checks whether the scene asset exists.
         /// </summary>
-        /// <param name="sceneAssetName">要检查场景资源的名称。</param>
-        /// <returns>场景资源是否存在。</returns>
+        /// <param name="sceneAssetName">The name of the scene asset to check.</param>
+        /// <returns>Whether the scene asset exists.</returns>
         bool HasScene(string sceneAssetName);
 
         /// <summary>
-        /// 加载场景。
+        /// Loads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
         void LoadScene(string sceneAssetName);
 
         /// <summary>
-        /// 加载场景。
+        /// Loads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="priority">加载场景资源的优先级。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <param name="priority">The priority of loading the scene asset.</param>
         void LoadScene(string sceneAssetName, int priority);
 
         /// <summary>
-        /// 加载场景。
+        /// Loads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <param name="userData">The user-defined data.</param>
         void LoadScene(string sceneAssetName, object userData);
 
         /// <summary>
-        /// 加载场景。
+        /// Loads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="priority">加载场景资源的优先级。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <param name="priority">The priority of loading the scene asset.</param>
+        /// <param name="userData">The user-defined data.</param>
         void LoadScene(string sceneAssetName, int priority, object userData);
 
         /// <summary>
-        /// 卸载场景。
+        /// Unloads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
         void UnloadScene(string sceneAssetName);
 
         /// <summary>
-        /// 卸载场景。
+        /// Unloads the scene.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="sceneAssetName">The scene asset name.</param>
+        /// <param name="userData">The user-defined data.</param>
         void UnloadScene(string sceneAssetName, object userData);
     }
 }

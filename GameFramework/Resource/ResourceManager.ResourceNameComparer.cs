@@ -12,7 +12,7 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 资源名称比较器。
+        /// Resource name comparer.
         /// </summary>
         private sealed class ResourceNameComparer : IComparer<ResourceName>, IEqualityComparer<ResourceName>
         {

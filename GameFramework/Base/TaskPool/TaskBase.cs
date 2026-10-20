@@ -8,12 +8,12 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 任务基类。
+    /// Task base class.
     /// </summary>
     internal abstract class TaskBase : IReference
     {
         /// <summary>
-        /// 任务默认优先级。
+        /// Default task priority.
         /// </summary>
         public const int DefaultPriority = 0;
 
@@ -25,7 +25,7 @@ namespace GameFramework
         private bool m_Done;
 
         /// <summary>
-        /// 初始化任务基类的新实例。
+        /// Initializes a new instance of the task base class.
         /// </summary>
         public TaskBase()
         {
@@ -37,7 +37,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务的序列编号。
+        /// Gets the serial ID of the task.
         /// </summary>
         public int SerialId
         {
@@ -48,7 +48,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务的标签。
+        /// Gets the tag of the task.
         /// </summary>
         public string Tag
         {
@@ -59,7 +59,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务的优先级。
+        /// Gets the priority of the task.
         /// </summary>
         public int Priority
         {
@@ -70,7 +70,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务的用户自定义数据。
+        /// Gets the user custom data of the task.
         /// </summary>
         public object UserData
         {
@@ -81,7 +81,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取或设置任务是否完成。
+        /// Gets or sets whether the task is done.
         /// </summary>
         public bool Done
         {
@@ -96,7 +96,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取任务描述。
+        /// Gets the task description.
         /// </summary>
         public virtual string Description
         {
@@ -107,12 +107,12 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 初始化任务基类。
+        /// Initializes the task base class.
         /// </summary>
-        /// <param name="serialId">任务的序列编号。</param>
-        /// <param name="tag">任务的标签。</param>
-        /// <param name="priority">任务的优先级。</param>
-        /// <param name="userData">任务的用户自定义数据。</param>
+        /// <param name="serialId">The serial ID of the task.</param>
+        /// <param name="tag">The tag of the task.</param>
+        /// <param name="priority">The priority of the task.</param>
+        /// <param name="userData">The user custom data of the task.</param>
         internal void Initialize(int serialId, string tag, int priority, object userData)
         {
             m_SerialId = serialId;
@@ -123,7 +123,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 清理任务基类。
+        /// Cleans up the task base class.
         /// </summary>
         public virtual void Clear()
         {

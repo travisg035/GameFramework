@@ -8,14 +8,14 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 加载资源代理辅助器异步读取资源二进制流完成事件。
+    /// Load resource agent helper asynchronous read binary bytes complete event.
     /// </summary>
     public sealed class LoadResourceAgentHelperReadBytesCompleteEventArgs : GameFrameworkEventArgs
     {
         private byte[] m_Bytes;
 
         /// <summary>
-        /// 初始化加载资源代理辅助器异步读取资源二进制流完成事件的新实例。
+        /// Initializes a new instance of the <see cref="LoadResourceAgentHelperReadBytesCompleteEventArgs"/> class.
         /// </summary>
         public LoadResourceAgentHelperReadBytesCompleteEventArgs()
         {
@@ -23,10 +23,10 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 创建加载资源代理辅助器异步读取资源二进制流完成事件。
+        /// Creates a new load resource agent helper asynchronous read binary bytes complete event.
         /// </summary>
-        /// <param name="bytes">资源的二进制流。</param>
-        /// <returns>创建的加载资源代理辅助器异步读取资源二进制流完成事件。</returns>
+        /// <param name="bytes">The binary bytes of the resource.</param>
+        /// <returns>The created load resource agent helper asynchronous read binary bytes complete event.</returns>
         public static LoadResourceAgentHelperReadBytesCompleteEventArgs Create(byte[] bytes)
         {
             LoadResourceAgentHelperReadBytesCompleteEventArgs loadResourceAgentHelperReadBytesCompleteEventArgs = ReferencePool.Acquire<LoadResourceAgentHelperReadBytesCompleteEventArgs>();
@@ -35,7 +35,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 清理加载资源代理辅助器异步读取资源二进制流完成事件。
+        /// Clears the load resource agent helper asynchronous read binary bytes complete event.
         /// </summary>
         public override void Clear()
         {
@@ -43,9 +43,9 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源的二进制流。
+        /// Gets the binary bytes of the resource.
         /// </summary>
-        /// <returns>资源的二进制流。</returns>
+        /// <returns>The binary bytes of the resource.</returns>
         public byte[] GetBytes()
         {
             return m_Bytes;

@@ -12,7 +12,7 @@ namespace GameFramework.UI
     internal sealed partial class UIManager : GameFrameworkModule, IUIManager
     {
         /// <summary>
-        /// 界面实例对象。
+        /// UI form instance object.
         /// </summary>
         private sealed class UIFormInstanceObject : ObjectBase
         {

@@ -8,12 +8,12 @@
 namespace GameFramework.WebRequest
 {
     /// <summary>
-    /// Web 请求开始事件。
+    /// Web request start event.
     /// </summary>
     public sealed class WebRequestStartEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化 Web 请求开始事件的新实例。
+        /// Initializes a new instance of the WebRequestStartEventArgs class.
         /// </summary>
         public WebRequestStartEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取 Web 请求任务的序列编号。
+        /// Gets the serial id of the web request task.
         /// </summary>
         public int SerialId
         {
@@ -32,7 +32,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取 Web 请求地址。
+        /// Gets the web request URI.
         /// </summary>
         public string WebRequestUri
         {
@@ -41,7 +41,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the custom user data.
         /// </summary>
         public object UserData
         {
@@ -50,12 +50,12 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 创建 Web 请求开始事件。
+        /// Creates a web request start event.
         /// </summary>
-        /// <param name="serialId">Web 请求任务的序列编号。</param>
-        /// <param name="webRequestUri">Web 请求地址。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的 Web 请求开始事件。</returns>
+        /// <param name="serialId">The serial id of the web request task.</param>
+        /// <param name="webRequestUri">Web request URI.</param>
+        /// <param name="userData">Custom user data.</param>
+        /// <returns>The created web request start event.</returns>
         public static WebRequestStartEventArgs Create(int serialId, string webRequestUri, object userData)
         {
             WebRequestStartEventArgs webRequestStartEventArgs = ReferencePool.Acquire<WebRequestStartEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework.WebRequest
         }
 
         /// <summary>
-        /// 清理 Web 请求开始事件。
+        /// Clears the web request start event.
         /// </summary>
         public override void Clear()
         {

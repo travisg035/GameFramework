@@ -8,12 +8,12 @@
 namespace GameFramework.Download
 {
     /// <summary>
-    /// 下载相关常量。
+    /// Download related constants.
     /// </summary>
     internal static class Constant
     {
         /// <summary>
-        /// 默认下载任务优先级。
+        /// Default download task priority.
         /// </summary>
         internal const int DefaultPriority = 0;
     }

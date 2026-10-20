@@ -10,28 +10,28 @@ using System;
 namespace GameFramework.FileSystem
 {
     /// <summary>
-    /// 文件系统访问方式。
+    /// File system access.
     /// </summary>
     [Flags]
     public enum FileSystemAccess : byte
     {
         /// <summary>
-        /// 未指定。
+        /// Unspecified.
         /// </summary>
         Unspecified = 0,
 
         /// <summary>
-        /// 只可读。
+        /// Read-only.
         /// </summary>
         Read = 1,
 
         /// <summary>
-        /// 只可写。
+        /// Write-only.
         /// </summary>
         Write = 2,
 
         /// <summary>
-        /// 可读写。
+        /// Read and write.
         /// </summary>
         ReadWrite = 3
     }

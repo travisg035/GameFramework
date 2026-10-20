@@ -8,17 +8,17 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 检查版本资源列表结果。
+    /// Check version list result.
     /// </summary>
     public enum CheckVersionListResult : byte
     {
         /// <summary>
-        /// 已经是最新的。
+        /// Already up-to-date.
         /// </summary>
         Updated = 0,
 
         /// <summary>
-        /// 需要更新。
+        /// Update needed.
         /// </summary>
         NeedUpdate
     }

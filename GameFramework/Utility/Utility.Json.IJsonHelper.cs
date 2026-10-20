@@ -14,31 +14,31 @@ namespace GameFramework
         public static partial class Json
         {
             /// <summary>
-            /// JSON 辅助器接口。
+            /// JSON helper interface.
             /// </summary>
             public interface IJsonHelper
             {
                 /// <summary>
-                /// 将对象序列化为 JSON 字符串。
+                /// Serializes an object to a JSON string.
                 /// </summary>
-                /// <param name="obj">要序列化的对象。</param>
-                /// <returns>序列化后的 JSON 字符串。</returns>
+                /// <param name="obj">The object to serialize.</param>
+                /// <returns>The serialized JSON string.</returns>
                 string ToJson(object obj);
 
                 /// <summary>
-                /// 将 JSON 字符串反序列化为对象。
+                /// Deserializes a JSON string to an object.
                 /// </summary>
-                /// <typeparam name="T">对象类型。</typeparam>
-                /// <param name="json">要反序列化的 JSON 字符串。</param>
-                /// <returns>反序列化后的对象。</returns>
+                /// <typeparam name="T">The type of the object.</typeparam>
+                /// <param name="json">The JSON string to deserialize.</param>
+                /// <returns>The deserialized object.</returns>
                 T ToObject<T>(string json);
 
                 /// <summary>
-                /// 将 JSON 字符串反序列化为对象。
+                /// Deserializes a JSON string to an object.
                 /// </summary>
-                /// <param name="objectType">对象类型。</param>
-                /// <param name="json">要反序列化的 JSON 字符串。</param>
-                /// <returns>反序列化后的对象。</returns>
+                /// <param name="objectType">The type of the object.</param>
+                /// <param name="json">The JSON string to deserialize.</param>
+                /// <returns>The deserialized object.</returns>
                 object ToObject(Type objectType, string json);
             }
         }

@@ -10,12 +10,12 @@ using System.Net.Sockets;
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络错误事件。
+    /// Network error event.
     /// </summary>
     public sealed class NetworkErrorEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化网络错误事件的新实例。
+        /// Initializes a new instance of the NetworkErrorEventArgs class.
         /// </summary>
         public NetworkErrorEventArgs()
         {
@@ -26,7 +26,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取网络频道。
+        /// Gets the network channel.
         /// </summary>
         public INetworkChannel NetworkChannel
         {
@@ -35,7 +35,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取错误码。
+        /// Gets the error code.
         /// </summary>
         public NetworkErrorCode ErrorCode
         {
@@ -44,7 +44,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取 Socket 错误码。
+        /// Gets the Socket error code.
         /// </summary>
         public SocketError SocketErrorCode
         {
@@ -53,7 +53,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -62,13 +62,13 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 创建网络错误事件。
+        /// Creates a network error event.
         /// </summary>
-        /// <param name="networkChannel">网络频道。</param>
-        /// <param name="errorCode">错误码。</param>
-        /// <param name="socketErrorCode">Socket 错误码。</param>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <returns>创建的网络错误事件。</returns>
+        /// <param name="networkChannel">Network channel.</param>
+        /// <param name="errorCode">Error code.</param>
+        /// <param name="socketErrorCode">Socket error code.</param>
+        /// <param name="errorMessage">Error message.</param>
+        /// <returns>The created network error event.</returns>
         public static NetworkErrorEventArgs Create(INetworkChannel networkChannel, NetworkErrorCode errorCode, SocketError socketErrorCode, string errorMessage)
         {
             NetworkErrorEventArgs networkErrorEventArgs = ReferencePool.Acquire<NetworkErrorEventArgs>();
@@ -80,7 +80,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 清理网络错误事件。
+        /// Clears the network error event.
         /// </summary>
         public override void Clear()
         {

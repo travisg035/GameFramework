@@ -10,42 +10,42 @@ namespace GameFramework.Resource
     internal sealed partial class ResourceManager : GameFrameworkModule, IResourceManager
     {
         /// <summary>
-        /// 资源加载方式类型。
+        /// Resource load type.
         /// </summary>
         private enum LoadType : byte
         {
             /// <summary>
-            /// 使用文件方式加载。
+            /// Load from file.
             /// </summary>
             LoadFromFile = 0,
 
             /// <summary>
-            /// 使用内存方式加载。
+            /// Load from memory.
             /// </summary>
             LoadFromMemory,
 
             /// <summary>
-            /// 使用内存快速解密方式加载。
+            /// Load from memory with quick decryption.
             /// </summary>
             LoadFromMemoryAndQuickDecrypt,
 
             /// <summary>
-            /// 使用内存解密方式加载。
+            /// Load from memory with decryption.
             /// </summary>
             LoadFromMemoryAndDecrypt,
 
             /// <summary>
-            /// 使用二进制方式加载。
+            /// Load from binary.
             /// </summary>
             LoadFromBinary,
 
             /// <summary>
-            /// 使用二进制快速解密方式加载。
+            /// Load from binary with quick decryption.
             /// </summary>
             LoadFromBinaryAndQuickDecrypt,
 
             /// <summary>
-            /// 使用二进制解密方式加载。
+            /// Load from binary with decryption.
             /// </summary>
             LoadFromBinaryAndDecrypt
         }

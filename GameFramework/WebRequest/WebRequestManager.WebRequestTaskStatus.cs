@@ -10,27 +10,27 @@ namespace GameFramework.WebRequest
     internal sealed partial class WebRequestManager : GameFrameworkModule, IWebRequestManager
     {
         /// <summary>
-        /// Web 请求任务的状态。
+        /// Web request task status.
         /// </summary>
         private enum WebRequestTaskStatus : byte
         {
             /// <summary>
-            /// 准备请求。
+            /// Pending.
             /// </summary>
             Todo = 0,
 
             /// <summary>
-            /// 请求中。
+            /// In progress.
             /// </summary>
             Doing,
 
             /// <summary>
-            /// 请求完成。
+            /// Done.
             /// </summary>
             Done,
 
             /// <summary>
-            /// 请求错误。
+            /// Error occurred.
             /// </summary>
             Error
         }

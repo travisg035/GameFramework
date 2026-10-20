@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 本地版本资源列表。
+    /// Local version list.
     /// </summary>
     [StructLayout(LayoutKind.Auto)]
     public partial struct LocalVersionList
@@ -23,10 +23,10 @@ namespace GameFramework.Resource
         private readonly FileSystem[] m_FileSystems;
 
         /// <summary>
-        /// 初始化本地版本资源列表的新实例。
+        /// Initializes a new instance of the LocalVersionList struct.
         /// </summary>
-        /// <param name="resources">包含的资源集合。</param>
-        /// <param name="fileSystems">包含的文件系统集合。</param>
+        /// <param name="resources">Included resources.</param>
+        /// <param name="fileSystems">Included file systems.</param>
         public LocalVersionList(Resource[] resources, FileSystem[] fileSystems)
         {
             m_IsValid = true;
@@ -35,7 +35,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取本地版本资源列表是否有效。
+        /// Gets whether the local version list is valid.
         /// </summary>
         public bool IsValid
         {
@@ -46,9 +46,9 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取包含的资源集合。
+        /// Gets the included resources.
         /// </summary>
-        /// <returns>包含的资源集合。</returns>
+        /// <returns>Included resources.</returns>
         public Resource[] GetResources()
         {
             if (!m_IsValid)
@@ -60,9 +60,9 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取包含的文件系统集合。
+        /// Gets the included file systems.
         /// </summary>
-        /// <returns>包含的文件系统集合。</returns>
+        /// <returns>Included file systems.</returns>
         public FileSystem[] GetFileSystems()
         {
             if (!m_IsValid)

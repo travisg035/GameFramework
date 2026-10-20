@@ -12,7 +12,7 @@ namespace GameFramework.Resource
         private sealed partial class ResourceChecker
         {
             /// <summary>
-            /// 资源检查信息。
+            /// Resource check information.
             /// </summary>
             private sealed partial class CheckInfo
             {
@@ -27,9 +27,9 @@ namespace GameFramework.Resource
                 private string m_CachedFileSystemName;
 
                 /// <summary>
-                /// 初始化资源检查信息的新实例。
+                /// Initializes a new instance of the CheckInfo class.
                 /// </summary>
-                /// <param name="resourceName">资源名称。</param>
+                /// <param name="resourceName">The resource name.</param>
                 public CheckInfo(ResourceName resourceName)
                 {
                     m_ResourceName = resourceName;
@@ -44,7 +44,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源名称。
+                /// Gets the resource name.
                 /// </summary>
                 public ResourceName ResourceName
                 {
@@ -55,7 +55,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源检查状态。
+                /// Gets the resource check status.
                 /// </summary>
                 public CheckStatus Status
                 {
@@ -66,7 +66,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取是否需要移除读写区的资源。
+                /// Gets a value indicating whether the resource in the read-write area needs to be removed.
                 /// </summary>
                 public bool NeedRemove
                 {
@@ -77,7 +77,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取是否需要将读写区的资源移动到磁盘。
+                /// Gets a value indicating whether the resource in the read-write area needs to be moved to disk.
                 /// </summary>
                 public bool NeedMoveToDisk
                 {
@@ -88,7 +88,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取是否需要将读写区的资源移动到文件系统。
+                /// Gets a value indicating whether the resource in the read-write area needs to be moved to the file system.
                 /// </summary>
                 public bool NeedMoveToFileSystem
                 {
@@ -99,7 +99,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源所在的文件系统名称。
+                /// Gets the file system name containing the resource.
                 /// </summary>
                 public string FileSystemName
                 {
@@ -110,7 +110,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源是否使用文件系统。
+                /// Gets a value indicating whether the read-write resource uses the file system.
                 /// </summary>
                 public bool ReadWriteUseFileSystem
                 {
@@ -121,7 +121,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取读写资源所在的文件系统名称。
+                /// Gets the file system name containing the read-write resource.
                 /// </summary>
                 public string ReadWriteFileSystemName
                 {
@@ -132,7 +132,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源加载方式。
+                /// Gets the resource load type.
                 /// </summary>
                 public LoadType LoadType
                 {
@@ -143,7 +143,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源大小。
+                /// Gets the resource length.
                 /// </summary>
                 public int Length
                 {
@@ -154,7 +154,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取资源哈希值。
+                /// Gets the resource hash code.
                 /// </summary>
                 public int HashCode
                 {
@@ -165,7 +165,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取压缩后大小。
+                /// Gets the compressed resource length.
                 /// </summary>
                 public int CompressedLength
                 {
@@ -176,7 +176,7 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 获取压缩后哈希值。
+                /// Gets the compressed resource hash code.
                 /// </summary>
                 public int CompressedHashCode
                 {
@@ -187,22 +187,22 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 临时缓存资源所在的文件系统名称。
+                /// Temporarily caches the file system name containing the resource.
                 /// </summary>
-                /// <param name="fileSystemName">资源所在的文件系统名称。</param>
+                /// <param name="fileSystemName">The file system name containing the resource.</param>
                 public void SetCachedFileSystemName(string fileSystemName)
                 {
                     m_CachedFileSystemName = fileSystemName;
                 }
 
                 /// <summary>
-                /// 设置资源在版本中的信息。
+                /// Sets the resource version information.
                 /// </summary>
-                /// <param name="loadType">资源加载方式。</param>
-                /// <param name="length">资源大小。</param>
-                /// <param name="hashCode">资源哈希值。</param>
-                /// <param name="compressedLength">压缩后大小。</param>
-                /// <param name="compressedHashCode">压缩后哈希值。</param>
+                /// <param name="loadType">The resource load type.</param>
+                /// <param name="length">The resource length.</param>
+                /// <param name="hashCode">The resource hash code.</param>
+                /// <param name="compressedLength">The compressed resource length.</param>
+                /// <param name="compressedHashCode">The compressed resource hash code.</param>
                 public void SetVersionInfo(LoadType loadType, int length, int hashCode, int compressedLength, int compressedHashCode)
                 {
                     if (m_VersionInfo.Exist)
@@ -215,11 +215,11 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 设置资源在只读区中的信息。
+                /// Sets the resource information in the read-only area.
                 /// </summary>
-                /// <param name="loadType">资源加载方式。</param>
-                /// <param name="length">资源大小。</param>
-                /// <param name="hashCode">资源哈希值。</param>
+                /// <param name="loadType">The resource load type.</param>
+                /// <param name="length">The resource length.</param>
+                /// <param name="hashCode">The resource hash code.</param>
                 public void SetReadOnlyInfo(LoadType loadType, int length, int hashCode)
                 {
                     if (m_ReadOnlyInfo.Exist)
@@ -232,11 +232,11 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 设置资源在读写区中的信息。
+                /// Sets the resource information in the read-write area.
                 /// </summary>
-                /// <param name="loadType">资源加载方式。</param>
-                /// <param name="length">资源大小。</param>
-                /// <param name="hashCode">资源哈希值。</param>
+                /// <param name="loadType">The resource load type.</param>
+                /// <param name="length">The resource length.</param>
+                /// <param name="hashCode">The resource hash code.</param>
                 public void SetReadWriteInfo(LoadType loadType, int length, int hashCode)
                 {
                     if (m_ReadWriteInfo.Exist)
@@ -249,10 +249,10 @@ namespace GameFramework.Resource
                 }
 
                 /// <summary>
-                /// 刷新资源信息状态。
+                /// Refreshes the resource status.
                 /// </summary>
-                /// <param name="currentVariant">当前变体。</param>
-                /// <param name="ignoreOtherVariant">是否忽略处理其它变体的资源，若不忽略则移除。</param>
+                /// <param name="currentVariant">The current variant.</param>
+                /// <param name="ignoreOtherVariant">Whether to ignore resources of other variants; if not ignored, they will be removed.</param>
                 public void RefreshStatus(string currentVariant, bool ignoreOtherVariant)
                 {
                     if (!m_VersionInfo.Exist)

@@ -11,12 +11,12 @@ using System.Collections.Generic;
 namespace GameFramework.ObjectPool
 {
     /// <summary>
-    /// 释放对象筛选函数。
+    /// Release object filter callback.
     /// </summary>
-    /// <typeparam name="T">对象类型。</typeparam>
-    /// <param name="candidateObjects">要筛选的对象集合。</param>
-    /// <param name="toReleaseCount">需要释放的对象数量。</param>
-    /// <param name="expireTime">对象过期参考时间。</param>
-    /// <returns>经筛选需要释放的对象集合。</returns>
+    /// <typeparam name="T">The type of the object.</typeparam>
+    /// <param name="candidateObjects">The collection of candidate objects to filter.</param>
+    /// <param name="toReleaseCount">The count of objects to release.</param>
+    /// <param name="expireTime">The reference expire time of objects.</param>
+    /// <returns>The collection of filtered objects to release.</returns>
     public delegate List<T> ReleaseObjectFilterCallback<T>(List<T> candidateObjects, int toReleaseCount, DateTime expireTime) where T : ObjectBase;
 }

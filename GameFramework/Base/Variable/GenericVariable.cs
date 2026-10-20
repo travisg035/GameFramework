@@ -10,15 +10,15 @@ using System;
 namespace GameFramework
 {
     /// <summary>
-    /// 变量。
+    /// Strongly-typed variable.
     /// </summary>
-    /// <typeparam name="T">变量类型。</typeparam>
+    /// <typeparam name="T">The variable type.</typeparam>
     public abstract class Variable<T> : Variable
     {
         private T m_Value;
 
         /// <summary>
-        /// 初始化变量的新实例。
+        /// Initializes a new instance of the Variable class.
         /// </summary>
         public Variable()
         {
@@ -26,7 +26,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取变量类型。
+        /// Gets the variable type.
         /// </summary>
         public override Type Type
         {
@@ -37,7 +37,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取或设置变量值。
+        /// Gets or sets the variable value.
         /// </summary>
         public T Value
         {
@@ -52,25 +52,25 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取变量值。
+        /// Gets the variable value.
         /// </summary>
-        /// <returns>变量值。</returns>
+        /// <returns>The variable value.</returns>
         public override object GetValue()
         {
             return m_Value;
         }
 
         /// <summary>
-        /// 设置变量值。
+        /// Sets the variable value.
         /// </summary>
-        /// <param name="value">变量值。</param>
+        /// <param name="value">The variable value.</param>
         public override void SetValue(object value)
         {
             m_Value = (T)value;
         }
 
         /// <summary>
-        /// 清理变量值。
+        /// Clears the variable value.
         /// </summary>
         public override void Clear()
         {
@@ -78,9 +78,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取变量字符串。
+        /// Gets the string representation of the variable.
         /// </summary>
-        /// <returns>变量字符串。</returns>
+        /// <returns>The string representation of the variable.</returns>
         public override string ToString()
         {
             return (m_Value != null) ? m_Value.ToString() : "<Null>";

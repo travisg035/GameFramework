@@ -8,9 +8,9 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 版本资源列表更新失败回调函数。
+    /// Update version list failure callback.
     /// </summary>
-    /// <param name="downloadUri">版本资源列表更新地址。</param>
-    /// <param name="errorMessage">错误信息。</param>
+    /// <param name="downloadUri">The URI for updating the version list.</param>
+    /// <param name="errorMessage">Error message.</param>
     public delegate void UpdateVersionListFailureCallback(string downloadUri, string errorMessage);
 }

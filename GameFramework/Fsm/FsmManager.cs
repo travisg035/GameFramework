@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace GameFramework.Fsm
 {
     /// <summary>
-    /// 有限状态机管理器。
+    /// Finite state machine manager.
     /// </summary>
     internal sealed class FsmManager : GameFrameworkModule, IFsmManager
     {
@@ -19,7 +19,7 @@ namespace GameFramework.Fsm
         private readonly List<FsmBase> m_TempFsms;
 
         /// <summary>
-        /// 初始化有限状态机管理器的新实例。
+        /// Initializes a new instance of the FsmManager class.
         /// </summary>
         public FsmManager()
         {
@@ -28,9 +28,9 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取游戏框架模块优先级。
+        /// Gets the game framework module priority.
         /// </summary>
-        /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
+        /// <remarks>Modules with higher priority will be updated first, and shut down later.</remarks>
         internal override int Priority
         {
             get
@@ -40,7 +40,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机数量。
+        /// Gets the number of finite state machines.
         /// </summary>
         public int Count
         {
@@ -51,10 +51,10 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 有限状态机管理器轮询。
+        /// Updates the finite state machine manager.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed time in seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed time in seconds.</param>
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
             m_TempFsms.Clear();
@@ -80,7 +80,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 关闭并清理有限状态机管理器。
+        /// Shuts down and cleans up the finite state machine manager.
         /// </summary>
         internal override void Shutdown()
         {
@@ -94,20 +94,20 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 检查是否存在有限状态机。
+        /// Determines whether a finite state machine exists.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <returns>是否存在有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <returns>Whether the finite state machine exists.</returns>
         public bool HasFsm<T>() where T : class
         {
             return InternalHasFsm(new TypeNamePair(typeof(T)));
         }
 
         /// <summary>
-        /// 检查是否存在有限状态机。
+        /// Determines whether a finite state machine exists.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <returns>是否存在有限状态机。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <returns>Whether the finite state machine exists.</returns>
         public bool HasFsm(Type ownerType)
         {
             if (ownerType == null)
@@ -119,22 +119,22 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 检查是否存在有限状态机。
+        /// Determines whether a finite state machine exists.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="name">有限状态机名称。</param>
-        /// <returns>是否存在有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <returns>Whether the finite state machine exists.</returns>
         public bool HasFsm<T>(string name) where T : class
         {
             return InternalHasFsm(new TypeNamePair(typeof(T), name));
         }
 
         /// <summary>
-        /// 检查是否存在有限状态机。
+        /// Determines whether a finite state machine exists.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <param name="name">有限状态机名称。</param>
-        /// <returns>是否存在有限状态机。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <returns>Whether the finite state machine exists.</returns>
         public bool HasFsm(Type ownerType, string name)
         {
             if (ownerType == null)
@@ -146,20 +146,20 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机。
+        /// Gets a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <returns>要获取的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <returns>The finite state machine to get.</returns>
         public IFsm<T> GetFsm<T>() where T : class
         {
             return (IFsm<T>)InternalGetFsm(new TypeNamePair(typeof(T)));
         }
 
         /// <summary>
-        /// 获取有限状态机。
+        /// Gets a finite state machine.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <returns>要获取的有限状态机。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <returns>The finite state machine to get.</returns>
         public FsmBase GetFsm(Type ownerType)
         {
             if (ownerType == null)
@@ -171,22 +171,22 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机。
+        /// Gets a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="name">有限状态机名称。</param>
-        /// <returns>要获取的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <returns>The finite state machine to get.</returns>
         public IFsm<T> GetFsm<T>(string name) where T : class
         {
             return (IFsm<T>)InternalGetFsm(new TypeNamePair(typeof(T), name));
         }
 
         /// <summary>
-        /// 获取有限状态机。
+        /// Gets a finite state machine.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <param name="name">有限状态机名称。</param>
-        /// <returns>要获取的有限状态机。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <returns>The finite state machine to get.</returns>
         public FsmBase GetFsm(Type ownerType, string name)
         {
             if (ownerType == null)
@@ -198,9 +198,9 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取所有有限状态机。
+        /// Gets all finite state machines.
         /// </summary>
-        /// <returns>所有有限状态机。</returns>
+        /// <returns>All finite state machines.</returns>
         public FsmBase[] GetAllFsms()
         {
             int index = 0;
@@ -214,9 +214,9 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取所有有限状态机。
+        /// Gets all finite state machines.
         /// </summary>
-        /// <param name="results">所有有限状态机。</param>
+        /// <param name="results">The list to store all finite state machines.</param>
         public void GetAllFsms(List<FsmBase> results)
         {
             if (results == null)
@@ -232,25 +232,25 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 创建有限状态机。
+        /// Creates a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="owner">有限状态机持有者。</param>
-        /// <param name="states">有限状态机状态集合。</param>
-        /// <returns>要创建的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="owner">The owner of the finite state machine.</param>
+        /// <param name="states">The state set of the finite state machine.</param>
+        /// <returns>The created finite state machine.</returns>
         public IFsm<T> CreateFsm<T>(T owner, params FsmState<T>[] states) where T : class
         {
             return CreateFsm(string.Empty, owner, states);
         }
 
         /// <summary>
-        /// 创建有限状态机。
+        /// Creates a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="name">有限状态机名称。</param>
-        /// <param name="owner">有限状态机持有者。</param>
-        /// <param name="states">有限状态机状态集合。</param>
-        /// <returns>要创建的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <param name="owner">The owner of the finite state machine.</param>
+        /// <param name="states">The state set of the finite state machine.</param>
+        /// <returns>The created finite state machine.</returns>
         public IFsm<T> CreateFsm<T>(string name, T owner, params FsmState<T>[] states) where T : class
         {
             TypeNamePair typeNamePair = new TypeNamePair(typeof(T), name);
@@ -265,25 +265,25 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 创建有限状态机。
+        /// Creates a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="owner">有限状态机持有者。</param>
-        /// <param name="states">有限状态机状态集合。</param>
-        /// <returns>要创建的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="owner">The owner of the finite state machine.</param>
+        /// <param name="states">The state set of the finite state machine.</param>
+        /// <returns>The created finite state machine.</returns>
         public IFsm<T> CreateFsm<T>(T owner, List<FsmState<T>> states) where T : class
         {
             return CreateFsm(string.Empty, owner, states);
         }
 
         /// <summary>
-        /// 创建有限状态机。
+        /// Creates a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="name">有限状态机名称。</param>
-        /// <param name="owner">有限状态机持有者。</param>
-        /// <param name="states">有限状态机状态集合。</param>
-        /// <returns>要创建的有限状态机。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="name">The name of the finite state machine.</param>
+        /// <param name="owner">The owner of the finite state machine.</param>
+        /// <param name="states">The state set of the finite state machine.</param>
+        /// <returns>The created finite state machine.</returns>
         public IFsm<T> CreateFsm<T>(string name, T owner, List<FsmState<T>> states) where T : class
         {
             TypeNamePair typeNamePair = new TypeNamePair(typeof(T), name);
@@ -298,20 +298,20 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         public bool DestroyFsm<T>() where T : class
         {
             return InternalDestroyFsm(new TypeNamePair(typeof(T)));
         }
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         public bool DestroyFsm(Type ownerType)
         {
             if (ownerType == null)
@@ -323,22 +323,22 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="name">要销毁的有限状态机名称。</param>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="name">The name of the finite state machine to destroy.</param>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         public bool DestroyFsm<T>(string name) where T : class
         {
             return InternalDestroyFsm(new TypeNamePair(typeof(T), name));
         }
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <param name="ownerType">有限状态机持有者类型。</param>
-        /// <param name="name">要销毁的有限状态机名称。</param>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <param name="ownerType">The type of the finite state machine owner.</param>
+        /// <param name="name">The name of the finite state machine to destroy.</param>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         public bool DestroyFsm(Type ownerType, string name)
         {
             if (ownerType == null)
@@ -350,11 +350,11 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <typeparam name="T">有限状态机持有者类型。</typeparam>
-        /// <param name="fsm">要销毁的有限状态机。</param>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <typeparam name="T">The type of the finite state machine owner.</typeparam>
+        /// <param name="fsm">The finite state machine to destroy.</param>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         public bool DestroyFsm<T>(IFsm<T> fsm) where T : class
         {
             if (fsm == null)
@@ -366,10 +366,10 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 销毁有限状态机。
+        /// Destroys a finite state machine.
         /// </summary>
-        /// <param name="fsm">要销毁的有限状态机。</param>
-        /// <returns>是否销毁有限状态机成功。</returns>
+        /// <param name="fsm">The finite state machine to destroy.</param>
+        /// <returns>Whether the finite state machine was destroyed successfully.</returns>
         public bool DestroyFsm(FsmBase fsm)
         {
             if (fsm == null)

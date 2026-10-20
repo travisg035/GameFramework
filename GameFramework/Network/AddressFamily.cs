@@ -8,22 +8,22 @@
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络地址类型。
+    /// Network address family.
     /// </summary>
     public enum AddressFamily : byte
     {
         /// <summary>
-        /// 未知。
+        /// Unknown.
         /// </summary>
         Unknown = 0,
 
         /// <summary>
-        /// IP 版本 4。
+        /// IP version 4.
         /// </summary>
         IPv4,
 
         /// <summary>
-        /// IP 版本 6。
+        /// IP version 6.
         /// </summary>
         IPv6
     }

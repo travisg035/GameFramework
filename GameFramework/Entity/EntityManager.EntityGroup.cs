@@ -13,7 +13,7 @@ namespace GameFramework.Entity
     internal sealed partial class EntityManager : GameFrameworkModule, IEntityManager
     {
         /// <summary>
-        /// 实体组。
+        /// Entity group.
         /// </summary>
         private sealed class EntityGroup : IEntityGroup
         {
@@ -24,15 +24,15 @@ namespace GameFramework.Entity
             private LinkedListNode<IEntity> m_CachedNode;
 
             /// <summary>
-            /// 初始化实体组的新实例。
+            /// Initializes a new instance of the EntityGroup class.
             /// </summary>
-            /// <param name="name">实体组名称。</param>
-            /// <param name="instanceAutoReleaseInterval">实体实例对象池自动释放可释放对象的间隔秒数。</param>
-            /// <param name="instanceCapacity">实体实例对象池容量。</param>
-            /// <param name="instanceExpireTime">实体实例对象池对象过期秒数。</param>
-            /// <param name="instancePriority">实体实例对象池的优先级。</param>
-            /// <param name="entityGroupHelper">实体组辅助器。</param>
-            /// <param name="objectPoolManager">对象池管理器。</param>
+            /// <param name="name">The entity group name.</param>
+            /// <param name="instanceAutoReleaseInterval">The interval in seconds for automatically releasing releasable objects in the entity instance object pool.</param>
+            /// <param name="instanceCapacity">The capacity of the entity instance object pool.</param>
+            /// <param name="instanceExpireTime">The expire time in seconds for objects in the entity instance object pool.</param>
+            /// <param name="instancePriority">The priority of the entity instance object pool.</param>
+            /// <param name="entityGroupHelper">The entity group helper.</param>
+            /// <param name="objectPoolManager">The object pool manager.</param>
             public EntityGroup(string name, float instanceAutoReleaseInterval, int instanceCapacity, float instanceExpireTime, int instancePriority, IEntityGroupHelper entityGroupHelper, IObjectPoolManager objectPoolManager)
             {
                 if (string.IsNullOrEmpty(name))
@@ -54,7 +54,7 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 获取实体组名称。
+            /// Gets the entity group name.
             /// </summary>
             public string Name
             {
@@ -65,7 +65,7 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 获取实体组中实体数量。
+            /// Gets the count of entities in the entity group.
             /// </summary>
             public int EntityCount
             {
@@ -76,7 +76,7 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 获取或设置实体组实例对象池自动释放可释放对象的间隔秒数。
+            /// Gets or sets the interval in seconds for automatically releasing releasable objects in the entity group instance object pool.
             /// </summary>
             public float InstanceAutoReleaseInterval
             {
@@ -91,7 +91,7 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 获取或设置实体组实例对象池的容量。
+            /// Gets or sets the capacity of the entity group instance object pool.
             /// </summary>
             public int InstanceCapacity
             {
@@ -106,7 +106,7 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 获取或设置实体组实例对象池对象过期秒数。
+            /// Gets or sets the expire time in seconds for objects in the entity group instance object pool.
             /// </summary>
             public float InstanceExpireTime
             {
@@ -121,7 +121,7 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 获取或设置实体组实例对象池的优先级。
+            /// Gets or sets the priority of the entity group instance object pool.
             /// </summary>
             public int InstancePriority
             {
@@ -136,7 +136,7 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 获取实体组辅助器。
+            /// Gets the entity group helper.
             /// </summary>
             public IEntityGroupHelper Helper
             {
@@ -147,10 +147,10 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 实体组轮询。
+            /// Polling the entity group.
             /// </summary>
-            /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-            /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+            /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+            /// <param name="realElapseSeconds">Real elapsed seconds.</param>
             public void Update(float elapseSeconds, float realElapseSeconds)
             {
                 LinkedListNode<IEntity> current = m_Entities.First;
@@ -164,10 +164,10 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 实体组中是否存在实体。
+            /// Checks whether the entity exists in the entity group.
             /// </summary>
-            /// <param name="entityId">实体序列编号。</param>
-            /// <returns>实体组中是否存在实体。</returns>
+            /// <param name="entityId">The serial ID of the entity.</param>
+            /// <returns>Whether the entity exists in the entity group.</returns>
             public bool HasEntity(int entityId)
             {
                 foreach (IEntity entity in m_Entities)
@@ -182,10 +182,10 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 实体组中是否存在实体。
+            /// Checks whether the entity exists in the entity group.
             /// </summary>
-            /// <param name="entityAssetName">实体资源名称。</param>
-            /// <returns>实体组中是否存在实体。</returns>
+            /// <param name="entityAssetName">The entity asset name.</param>
+            /// <returns>Whether the entity exists in the entity group.</returns>
             public bool HasEntity(string entityAssetName)
             {
                 if (string.IsNullOrEmpty(entityAssetName))
@@ -205,10 +205,10 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 从实体组中获取实体。
+            /// Gets an entity from the entity group.
             /// </summary>
-            /// <param name="entityId">实体序列编号。</param>
-            /// <returns>要获取的实体。</returns>
+            /// <param name="entityId">The serial ID of the entity.</param>
+            /// <returns>The entity to get.</returns>
             public IEntity GetEntity(int entityId)
             {
                 foreach (IEntity entity in m_Entities)
@@ -223,10 +223,10 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 从实体组中获取实体。
+            /// Gets an entity from the entity group.
             /// </summary>
-            /// <param name="entityAssetName">实体资源名称。</param>
-            /// <returns>要获取的实体。</returns>
+            /// <param name="entityAssetName">The entity asset name.</param>
+            /// <returns>The entity to get.</returns>
             public IEntity GetEntity(string entityAssetName)
             {
                 if (string.IsNullOrEmpty(entityAssetName))
@@ -246,10 +246,10 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 从实体组中获取实体。
+            /// Gets entities from the entity group.
             /// </summary>
-            /// <param name="entityAssetName">实体资源名称。</param>
-            /// <returns>要获取的实体。</returns>
+            /// <param name="entityAssetName">The entity asset name.</param>
+            /// <returns>The entities to get.</returns>
             public IEntity[] GetEntities(string entityAssetName)
             {
                 if (string.IsNullOrEmpty(entityAssetName))
@@ -270,10 +270,10 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 从实体组中获取实体。
+            /// Gets entities from the entity group.
             /// </summary>
-            /// <param name="entityAssetName">实体资源名称。</param>
-            /// <param name="results">要获取的实体。</param>
+            /// <param name="entityAssetName">The entity asset name.</param>
+            /// <param name="results">The entities to get.</param>
             public void GetEntities(string entityAssetName, List<IEntity> results)
             {
                 if (string.IsNullOrEmpty(entityAssetName))
@@ -297,9 +297,9 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 从实体组中获取所有实体。
+            /// Gets all entities from the entity group.
             /// </summary>
-            /// <returns>实体组中的所有实体。</returns>
+            /// <returns>All entities in the entity group.</returns>
             public IEntity[] GetAllEntities()
             {
                 List<IEntity> results = new List<IEntity>();
@@ -312,9 +312,9 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 从实体组中获取所有实体。
+            /// Gets all entities from the entity group.
             /// </summary>
-            /// <param name="results">实体组中的所有实体。</param>
+            /// <param name="results">All entities in the entity group.</param>
             public void GetAllEntities(List<IEntity> results)
             {
                 if (results == null)
@@ -330,18 +330,18 @@ namespace GameFramework.Entity
             }
 
             /// <summary>
-            /// 往实体组增加实体。
+            /// Adds an entity to the entity group.
             /// </summary>
-            /// <param name="entity">要增加的实体。</param>
+            /// <param name="entity">The entity to add.</param>
             public void AddEntity(IEntity entity)
             {
                 m_Entities.AddLast(entity);
             }
 
             /// <summary>
-            /// 从实体组移除实体。
+            /// Removes an entity from the entity group.
             /// </summary>
-            /// <param name="entity">要移除的实体。</param>
+            /// <param name="entity">The entity to remove.</param>
             public void RemoveEntity(IEntity entity)
             {
                 if (m_CachedNode != null && m_CachedNode.Value == entity)

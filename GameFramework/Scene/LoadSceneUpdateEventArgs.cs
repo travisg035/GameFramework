@@ -8,12 +8,12 @@
 namespace GameFramework.Scene
 {
     /// <summary>
-    /// 加载场景更新事件。
+    /// Load scene update event.
     /// </summary>
     public sealed class LoadSceneUpdateEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化加载场景更新事件的新实例。
+        /// Initializes a new instance of the LoadSceneUpdateEventArgs class.
         /// </summary>
         public LoadSceneUpdateEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取场景资源名称。
+        /// Gets the scene asset name.
         /// </summary>
         public string SceneAssetName
         {
@@ -32,7 +32,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取加载场景进度。
+        /// Gets the load scene progress.
         /// </summary>
         public float Progress
         {
@@ -41,7 +41,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -50,12 +50,12 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 创建加载场景更新事件。
+        /// Creates a load scene update event.
         /// </summary>
-        /// <param name="sceneAssetName">场景资源名称。</param>
-        /// <param name="progress">加载场景进度。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的加载场景更新事件。</returns>
+        /// <param name="sceneAssetName">Scene asset name.</param>
+        /// <param name="progress">Load scene progress.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created load scene update event.</returns>
         public static LoadSceneUpdateEventArgs Create(string sceneAssetName, float progress, object userData)
         {
             LoadSceneUpdateEventArgs loadSceneUpdateEventArgs = ReferencePool.Acquire<LoadSceneUpdateEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework.Scene
         }
 
         /// <summary>
-        /// 清理加载场景更新事件。
+        /// Clears the load scene update event.
         /// </summary>
         public override void Clear()
         {

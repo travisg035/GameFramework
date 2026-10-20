@@ -11,7 +11,7 @@ using System;
 namespace GameFramework.Procedure
 {
     /// <summary>
-    /// 流程管理器。
+    /// Procedure manager.
     /// </summary>
     internal sealed class ProcedureManager : GameFrameworkModule, IProcedureManager
     {
@@ -19,7 +19,7 @@ namespace GameFramework.Procedure
         private IFsm<IProcedureManager> m_ProcedureFsm;
 
         /// <summary>
-        /// 初始化流程管理器的新实例。
+        /// Initializes a new instance of the ProcedureManager class.
         /// </summary>
         public ProcedureManager()
         {
@@ -28,9 +28,9 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 获取游戏框架模块优先级。
+        /// Gets the priority of the game framework module.
         /// </summary>
-        /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
+        /// <remarks>Modules with higher priority will be polled first and shut down later.</remarks>
         internal override int Priority
         {
             get
@@ -40,7 +40,7 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 获取当前流程。
+        /// Gets the current procedure.
         /// </summary>
         public ProcedureBase CurrentProcedure
         {
@@ -56,7 +56,7 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 获取当前流程持续时间。
+        /// Gets the elapsed time of the current procedure in seconds.
         /// </summary>
         public float CurrentProcedureTime
         {
@@ -72,16 +72,16 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 流程管理器轮询。
+        /// Procedure manager update.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed seconds.</param>
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
         }
 
         /// <summary>
-        /// 关闭并清理流程管理器。
+        /// Shutdown and cleanup the procedure manager.
         /// </summary>
         internal override void Shutdown()
         {
@@ -98,10 +98,10 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 初始化流程管理器。
+        /// Initializes the procedure manager.
         /// </summary>
-        /// <param name="fsmManager">有限状态机管理器。</param>
-        /// <param name="procedures">流程管理器包含的流程。</param>
+        /// <param name="fsmManager">Finite state machine manager.</param>
+        /// <param name="procedures">Procedures contained in the procedure manager.</param>
         public void Initialize(IFsmManager fsmManager, params ProcedureBase[] procedures)
         {
             if (fsmManager == null)
@@ -114,9 +114,9 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 开始流程。
+        /// Starts a procedure.
         /// </summary>
-        /// <typeparam name="T">要开始的流程类型。</typeparam>
+        /// <typeparam name="T">The type of the procedure to start.</typeparam>
         public void StartProcedure<T>() where T : ProcedureBase
         {
             if (m_ProcedureFsm == null)
@@ -128,9 +128,9 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 开始流程。
+        /// Starts a procedure.
         /// </summary>
-        /// <param name="procedureType">要开始的流程类型。</param>
+        /// <param name="procedureType">The type of the procedure to start.</param>
         public void StartProcedure(Type procedureType)
         {
             if (m_ProcedureFsm == null)
@@ -142,10 +142,10 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 是否存在流程。
+        /// Checks whether a procedure exists.
         /// </summary>
-        /// <typeparam name="T">要检查的流程类型。</typeparam>
-        /// <returns>是否存在流程。</returns>
+        /// <typeparam name="T">The type of the procedure to check.</typeparam>
+        /// <returns>Whether the procedure exists.</returns>
         public bool HasProcedure<T>() where T : ProcedureBase
         {
             if (m_ProcedureFsm == null)
@@ -157,10 +157,10 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 是否存在流程。
+        /// Checks whether a procedure exists.
         /// </summary>
-        /// <param name="procedureType">要检查的流程类型。</param>
-        /// <returns>是否存在流程。</returns>
+        /// <param name="procedureType">The type of the procedure to check.</param>
+        /// <returns>Whether the procedure exists.</returns>
         public bool HasProcedure(Type procedureType)
         {
             if (m_ProcedureFsm == null)
@@ -172,10 +172,10 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 获取流程。
+        /// Gets a procedure.
         /// </summary>
-        /// <typeparam name="T">要获取的流程类型。</typeparam>
-        /// <returns>要获取的流程。</returns>
+        /// <typeparam name="T">The type of the procedure to get.</typeparam>
+        /// <returns>The procedure.</returns>
         public ProcedureBase GetProcedure<T>() where T : ProcedureBase
         {
             if (m_ProcedureFsm == null)
@@ -187,10 +187,10 @@ namespace GameFramework.Procedure
         }
 
         /// <summary>
-        /// 获取流程。
+        /// Gets a procedure.
         /// </summary>
-        /// <param name="procedureType">要获取的流程类型。</param>
-        /// <returns>要获取的流程。</returns>
+        /// <param name="procedureType">The type of the procedure to get.</param>
+        /// <returns>The procedure.</returns>
         public ProcedureBase GetProcedure(Type procedureType)
         {
             if (m_ProcedureFsm == null)

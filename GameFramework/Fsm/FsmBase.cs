@@ -10,14 +10,14 @@ using System;
 namespace GameFramework.Fsm
 {
     /// <summary>
-    /// 有限状态机基类。
+    /// Finite state machine abstract base class.
     /// </summary>
     public abstract class FsmBase
     {
         private string m_Name;
 
         /// <summary>
-        /// 初始化有限状态机基类的新实例。
+        /// Initializes a new instance of the FsmBase class.
         /// </summary>
         public FsmBase()
         {
@@ -25,7 +25,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机名称。
+        /// Gets the finite state machine name.
         /// </summary>
         public string Name
         {
@@ -40,7 +40,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机完整名称。
+        /// Gets the finite state machine full name.
         /// </summary>
         public string FullName
         {
@@ -51,7 +51,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机持有者类型。
+        /// Gets the finite state machine owner type.
         /// </summary>
         public abstract Type OwnerType
         {
@@ -59,7 +59,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机中状态的数量。
+        /// Gets the number of states in the finite state machine.
         /// </summary>
         public abstract int FsmStateCount
         {
@@ -67,7 +67,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机是否正在运行。
+        /// Gets whether the finite state machine is running.
         /// </summary>
         public abstract bool IsRunning
         {
@@ -75,7 +75,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取有限状态机是否被销毁。
+        /// Gets whether the finite state machine is destroyed.
         /// </summary>
         public abstract bool IsDestroyed
         {
@@ -83,7 +83,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取当前有限状态机状态名称。
+        /// Gets the name of the current finite state machine state.
         /// </summary>
         public abstract string CurrentStateName
         {
@@ -91,7 +91,7 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 获取当前有限状态机状态持续时间。
+        /// Gets the duration of the current finite state machine state in seconds.
         /// </summary>
         public abstract float CurrentStateTime
         {
@@ -99,14 +99,14 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
-        /// 有限状态机轮询。
+        /// Updates the finite state machine.
         /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">当前已流逝时间，以秒为单位。</param>
+        /// <param name="elapseSeconds">Logical elapsed time in seconds.</param>
+        /// <param name="realElapseSeconds">Real elapsed time in seconds.</param>
         internal abstract void Update(float elapseSeconds, float realElapseSeconds);
 
         /// <summary>
-        /// 关闭并清理有限状态机。
+        /// Shuts down and cleans up the finite state machine.
         /// </summary>
         internal abstract void Shutdown();
     }

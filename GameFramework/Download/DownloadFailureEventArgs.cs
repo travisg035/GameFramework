@@ -8,12 +8,12 @@
 namespace GameFramework.Download
 {
     /// <summary>
-    /// 下载失败事件。
+    /// Download failure event.
     /// </summary>
     public sealed class DownloadFailureEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化下载失败事件的新实例。
+        /// Initializes a new instance of the DownloadFailureEventArgs class.
         /// </summary>
         public DownloadFailureEventArgs()
         {
@@ -25,7 +25,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取下载任务的序列编号。
+        /// Gets the serial ID of the download task.
         /// </summary>
         public int SerialId
         {
@@ -34,7 +34,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取下载后存放路径。
+        /// Gets the download path.
         /// </summary>
         public string DownloadPath
         {
@@ -43,7 +43,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取下载地址。
+        /// Gets the download URI.
         /// </summary>
         public string DownloadUri
         {
@@ -52,7 +52,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -61,7 +61,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -70,14 +70,14 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 创建下载失败事件。
+        /// Creates a download failure event.
         /// </summary>
-        /// <param name="serialId">下载任务的序列编号。</param>
-        /// <param name="downloadPath">下载后存放路径。</param>
-        /// <param name="downloadUri">下载地址。</param>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的下载失败事件。</returns>
+        /// <param name="serialId">The serial ID of the download task.</param>
+        /// <param name="downloadPath">Download path.</param>
+        /// <param name="downloadUri">Download URI.</param>
+        /// <param name="errorMessage">Error message.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created download failure event.</returns>
         public static DownloadFailureEventArgs Create(int serialId, string downloadPath, string downloadUri, string errorMessage, object userData)
         {
             DownloadFailureEventArgs downloadFailureEventArgs = ReferencePool.Acquire<DownloadFailureEventArgs>();
@@ -90,7 +90,7 @@ namespace GameFramework.Download
         }
 
         /// <summary>
-        /// 清理下载失败事件。
+        /// Clears the download failure event.
         /// </summary>
         public override void Clear()
         {

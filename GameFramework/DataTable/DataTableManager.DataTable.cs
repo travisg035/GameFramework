@@ -14,9 +14,9 @@ namespace GameFramework.DataTable
     internal sealed partial class DataTableManager : GameFrameworkModule, IDataTableManager
     {
         /// <summary>
-        /// 数据表。
+        /// Data table.
         /// </summary>
-        /// <typeparam name="T">数据表行的类型。</typeparam>
+        /// <typeparam name="T">The type of the data table row.</typeparam>
         private sealed class DataTable<T> : DataTableBase, IDataTable<T> where T : class, IDataRow, new()
         {
             private readonly Dictionary<int, T> m_DataSet;
@@ -24,9 +24,9 @@ namespace GameFramework.DataTable
             private T m_MaxIdDataRow;
 
             /// <summary>
-            /// 初始化数据表的新实例。
+            /// Initializes a new instance of the DataTable class.
             /// </summary>
-            /// <param name="name">数据表名称。</param>
+            /// <param name="name">Data table name.</param>
             public DataTable(string name)
                 : base(name)
             {
@@ -36,7 +36,7 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取数据表行的类型。
+            /// Gets the data table row type.
             /// </summary>
             public override Type Type
             {
@@ -47,7 +47,7 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取数据表行数。
+            /// Gets the count of data table rows.
             /// </summary>
             public override int Count
             {
@@ -58,10 +58,10 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取数据表行。
+            /// Gets the data table row.
             /// </summary>
-            /// <param name="id">数据表行的编号。</param>
-            /// <returns>数据表行。</returns>
+            /// <param name="id">The data table row id.</param>
+            /// <returns>The data table row.</returns>
             public T this[int id]
             {
                 get
@@ -71,7 +71,7 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取编号最小的数据表行。
+            /// Gets the data table row with the minimum id.
             /// </summary>
             public T MinIdDataRow
             {
@@ -82,7 +82,7 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取编号最大的数据表行。
+            /// Gets the data table row with the maximum id.
             /// </summary>
             public T MaxIdDataRow
             {
@@ -93,20 +93,20 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 检查是否存在数据表行。
+            /// Checks whether a data table row exists.
             /// </summary>
-            /// <param name="id">数据表行的编号。</param>
-            /// <returns>是否存在数据表行。</returns>
+            /// <param name="id">The data table row id.</param>
+            /// <returns>Whether the data table row exists.</returns>
             public override bool HasDataRow(int id)
             {
                 return m_DataSet.ContainsKey(id);
             }
 
             /// <summary>
-            /// 检查是否存在数据表行。
+            /// Checks whether a data table row exists.
             /// </summary>
-            /// <param name="condition">要检查的条件。</param>
-            /// <returns>是否存在数据表行。</returns>
+            /// <param name="condition">The condition to check.</param>
+            /// <returns>Whether the data table row exists.</returns>
             public bool HasDataRow(Predicate<T> condition)
             {
                 if (condition == null)
@@ -126,10 +126,10 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取数据表行。
+            /// Gets the data table row.
             /// </summary>
-            /// <param name="id">数据表行的编号。</param>
-            /// <returns>数据表行。</returns>
+            /// <param name="id">The data table row id.</param>
+            /// <returns>The data table row.</returns>
             public T GetDataRow(int id)
             {
                 T dataRow = null;
@@ -142,11 +142,11 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取符合条件的数据表行。
+            /// Gets the matching data table row.
             /// </summary>
-            /// <param name="condition">要检查的条件。</param>
-            /// <returns>符合条件的数据表行。</returns>
-            /// <remarks>当存在多个符合条件的数据表行时，仅返回第一个符合条件的数据表行。</remarks>
+            /// <param name="condition">The condition to check.</param>
+            /// <returns>The matching data table row.</returns>
+            /// <remarks>If multiple matching data table rows exist, only the first matching data table row is returned.</remarks>
             public T GetDataRow(Predicate<T> condition)
             {
                 if (condition == null)
@@ -166,10 +166,10 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取符合条件的数据表行。
+            /// Gets the matching data table rows.
             /// </summary>
-            /// <param name="condition">要检查的条件。</param>
-            /// <returns>符合条件的数据表行。</returns>
+            /// <param name="condition">The condition to check.</param>
+            /// <returns>The matching data table rows.</returns>
             public T[] GetDataRows(Predicate<T> condition)
             {
                 if (condition == null)
@@ -190,10 +190,10 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取符合条件的数据表行。
+            /// Gets the matching data table rows.
             /// </summary>
-            /// <param name="condition">要检查的条件。</param>
-            /// <param name="results">符合条件的数据表行。</param>
+            /// <param name="condition">The condition to check.</param>
+            /// <param name="results">The list to store the matching data table rows.</param>
             public void GetDataRows(Predicate<T> condition, List<T> results)
             {
                 if (condition == null)
@@ -217,10 +217,10 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取排序后的数据表行。
+            /// Gets sorted data table rows.
             /// </summary>
-            /// <param name="comparison">要排序的条件。</param>
-            /// <returns>排序后的数据表行。</returns>
+            /// <param name="comparison">The comparison condition for sorting.</param>
+            /// <returns>The sorted data table rows.</returns>
             public T[] GetDataRows(Comparison<T> comparison)
             {
                 if (comparison == null)
@@ -239,10 +239,10 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取排序后的数据表行。
+            /// Gets sorted data table rows.
             /// </summary>
-            /// <param name="comparison">要排序的条件。</param>
-            /// <param name="results">排序后的数据表行。</param>
+            /// <param name="comparison">The comparison condition for sorting.</param>
+            /// <param name="results">The list to store the sorted data table rows.</param>
             public void GetDataRows(Comparison<T> comparison, List<T> results)
             {
                 if (comparison == null)
@@ -265,11 +265,11 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取排序后的符合条件的数据表行。
+            /// Gets sorted matching data table rows.
             /// </summary>
-            /// <param name="condition">要检查的条件。</param>
-            /// <param name="comparison">要排序的条件。</param>
-            /// <returns>排序后的符合条件的数据表行。</returns>
+            /// <param name="condition">The condition to check.</param>
+            /// <param name="comparison">The comparison condition for sorting.</param>
+            /// <returns>The sorted matching data table rows.</returns>
             public T[] GetDataRows(Predicate<T> condition, Comparison<T> comparison)
             {
                 if (condition == null)
@@ -296,11 +296,11 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取排序后的符合条件的数据表行。
+            /// Gets sorted matching data table rows.
             /// </summary>
-            /// <param name="condition">要检查的条件。</param>
-            /// <param name="comparison">要排序的条件。</param>
-            /// <param name="results">排序后的符合条件的数据表行。</param>
+            /// <param name="condition">The condition to check.</param>
+            /// <param name="comparison">The comparison condition for sorting.</param>
+            /// <param name="results">The list to store the sorted matching data table rows.</param>
             public void GetDataRows(Predicate<T> condition, Comparison<T> comparison, List<T> results)
             {
                 if (condition == null)
@@ -331,9 +331,9 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取所有数据表行。
+            /// Gets all data table rows.
             /// </summary>
-            /// <returns>所有数据表行。</returns>
+            /// <returns>All data table rows.</returns>
             public T[] GetAllDataRows()
             {
                 int index = 0;
@@ -347,9 +347,9 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 获取所有数据表行。
+            /// Gets all data table rows.
             /// </summary>
-            /// <param name="results">所有数据表行。</param>
+            /// <param name="results">The list to store all data table rows.</param>
             public void GetAllDataRows(List<T> results)
             {
                 if (results == null)
@@ -365,11 +365,11 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 增加数据表行。
+            /// Adds a data table row.
             /// </summary>
-            /// <param name="dataRowString">要解析的数据表行字符串。</param>
-            /// <param name="userData">用户自定义数据。</param>
-            /// <returns>是否增加数据表行成功。</returns>
+            /// <param name="dataRowString">The data row string to parse.</param>
+            /// <param name="userData">Custom user data.</param>
+            /// <returns>Whether the data table row was added successfully.</returns>
             public override bool AddDataRow(string dataRowString, object userData)
             {
                 try
@@ -395,13 +395,13 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 增加数据表行。
+            /// Adds a data table row.
             /// </summary>
-            /// <param name="dataRowBytes">要解析的数据表行二进制流。</param>
-            /// <param name="startIndex">数据表行二进制流的起始位置。</param>
-            /// <param name="length">数据表行二进制流的长度。</param>
-            /// <param name="userData">用户自定义数据。</param>
-            /// <returns>是否增加数据表行成功。</returns>
+            /// <param name="dataRowBytes">The data row binary bytes to parse.</param>
+            /// <param name="startIndex">The start index of the data row binary bytes.</param>
+            /// <param name="length">The length of the data row binary bytes.</param>
+            /// <param name="userData">Custom user data.</param>
+            /// <returns>Whether the data table row was added successfully.</returns>
             public override bool AddDataRow(byte[] dataRowBytes, int startIndex, int length, object userData)
             {
                 try
@@ -427,10 +427,10 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 移除指定数据表行。
+            /// Removes the specified data table row.
             /// </summary>
-            /// <param name="id">要移除数据表行的编号。</param>
-            /// <returns>是否移除数据表行成功。</returns>
+            /// <param name="id">The id of the data table row to remove.</param>
+            /// <returns>Whether the data table row was removed successfully.</returns>
             public override bool RemoveDataRow(int id)
             {
                 if (!HasDataRow(id))
@@ -465,7 +465,7 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 清空所有数据表行。
+            /// Removes all data table rows.
             /// </summary>
             public override void RemoveAllDataRows()
             {
@@ -475,25 +475,25 @@ namespace GameFramework.DataTable
             }
 
             /// <summary>
-            /// 返回循环访问集合的枚举数。
+            /// Returns an enumerator that iterates through the collection.
             /// </summary>
-            /// <returns>循环访问集合的枚举数。</returns>
+            /// <returns>An enumerator that iterates through the collection.</returns>
             public IEnumerator<T> GetEnumerator()
             {
                 return m_DataSet.Values.GetEnumerator();
             }
 
             /// <summary>
-            /// 返回循环访问集合的枚举数。
+            /// Returns an enumerator that iterates through the collection.
             /// </summary>
-            /// <returns>循环访问集合的枚举数。</returns>
+            /// <returns>An enumerator that iterates through the collection.</returns>
             IEnumerator IEnumerable.GetEnumerator()
             {
                 return m_DataSet.Values.GetEnumerator();
             }
 
             /// <summary>
-            /// 关闭并清理数据表。
+            /// Shuts down and cleans up the data table.
             /// </summary>
             internal override void Shutdown()
             {

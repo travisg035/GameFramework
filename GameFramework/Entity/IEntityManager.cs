@@ -13,12 +13,12 @@ using System.Collections.Generic;
 namespace GameFramework.Entity
 {
     /// <summary>
-    /// 实体管理器接口。
+    /// Entity manager interface.
     /// </summary>
     public interface IEntityManager
     {
         /// <summary>
-        /// 获取实体数量。
+        /// Gets the entity count.
         /// </summary>
         int EntityCount
         {
@@ -26,7 +26,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体组数量。
+        /// Gets the entity group count.
         /// </summary>
         int EntityGroupCount
         {
@@ -34,417 +34,417 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 显示实体成功事件。
+        /// Show entity success event.
         /// </summary>
         event EventHandler<ShowEntitySuccessEventArgs> ShowEntitySuccess;
 
         /// <summary>
-        /// 显示实体失败事件。
+        /// Show entity failure event.
         /// </summary>
         event EventHandler<ShowEntityFailureEventArgs> ShowEntityFailure;
 
         /// <summary>
-        /// 显示实体更新事件。
+        /// Show entity update event.
         /// </summary>
         event EventHandler<ShowEntityUpdateEventArgs> ShowEntityUpdate;
 
         /// <summary>
-        /// 显示实体时加载依赖资源事件。
+        /// Show entity dependency asset event.
         /// </summary>
         event EventHandler<ShowEntityDependencyAssetEventArgs> ShowEntityDependencyAsset;
 
         /// <summary>
-        /// 隐藏实体完成事件。
+        /// Hide entity complete event.
         /// </summary>
         event EventHandler<HideEntityCompleteEventArgs> HideEntityComplete;
 
         /// <summary>
-        /// 设置对象池管理器。
+        /// Sets the object pool manager.
         /// </summary>
-        /// <param name="objectPoolManager">对象池管理器。</param>
+        /// <param name="objectPoolManager">The object pool manager.</param>
         void SetObjectPoolManager(IObjectPoolManager objectPoolManager);
 
         /// <summary>
-        /// 设置资源管理器。
+        /// Sets the resource manager.
         /// </summary>
-        /// <param name="resourceManager">资源管理器。</param>
+        /// <param name="resourceManager">The resource manager.</param>
         void SetResourceManager(IResourceManager resourceManager);
 
         /// <summary>
-        /// 设置实体辅助器。
+        /// Sets the entity helper.
         /// </summary>
-        /// <param name="entityHelper">实体辅助器。</param>
+        /// <param name="entityHelper">The entity helper.</param>
         void SetEntityHelper(IEntityHelper entityHelper);
 
         /// <summary>
-        /// 是否存在实体组。
+        /// Checks whether the entity group exists.
         /// </summary>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <returns>是否存在实体组。</returns>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <returns>Whether the entity group exists.</returns>
         bool HasEntityGroup(string entityGroupName);
 
         /// <summary>
-        /// 获取实体组。
+        /// Gets an entity group.
         /// </summary>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <returns>要获取的实体组。</returns>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <returns>The entity group to get.</returns>
         IEntityGroup GetEntityGroup(string entityGroupName);
 
         /// <summary>
-        /// 获取所有实体组。
+        /// Gets all entity groups.
         /// </summary>
-        /// <returns>所有实体组。</returns>
+        /// <returns>All entity groups.</returns>
         IEntityGroup[] GetAllEntityGroups();
 
         /// <summary>
-        /// 获取所有实体组。
+        /// Gets all entity groups.
         /// </summary>
-        /// <param name="results">所有实体组。</param>
+        /// <param name="results">All entity groups.</param>
         void GetAllEntityGroups(List<IEntityGroup> results);
 
         /// <summary>
-        /// 增加实体组。
+        /// Adds an entity group.
         /// </summary>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <param name="instanceAutoReleaseInterval">实体实例对象池自动释放可释放对象的间隔秒数。</param>
-        /// <param name="instanceCapacity">实体实例对象池容量。</param>
-        /// <param name="instanceExpireTime">实体实例对象池对象过期秒数。</param>
-        /// <param name="instancePriority">实体实例对象池的优先级。</param>
-        /// <param name="entityGroupHelper">实体组辅助器。</param>
-        /// <returns>是否增加实体组成功。</returns>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <param name="instanceAutoReleaseInterval">The interval in seconds for automatically releasing releasable objects in the entity instance object pool.</param>
+        /// <param name="instanceCapacity">The capacity of the entity instance object pool.</param>
+        /// <param name="instanceExpireTime">The expire time in seconds for objects in the entity instance object pool.</param>
+        /// <param name="instancePriority">The priority of the entity instance object pool.</param>
+        /// <param name="entityGroupHelper">The entity group helper.</param>
+        /// <returns>Whether the entity group was added successfully.</returns>
         bool AddEntityGroup(string entityGroupName, float instanceAutoReleaseInterval, int instanceCapacity, float instanceExpireTime, int instancePriority, IEntityGroupHelper entityGroupHelper);
 
         /// <summary>
-        /// 是否存在实体。
+        /// Checks whether the entity exists.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <returns>是否存在实体。</returns>
+        /// <param name="entityId">The entity id.</param>
+        /// <returns>Whether the entity exists.</returns>
         bool HasEntity(int entityId);
 
         /// <summary>
-        /// 是否存在实体。
+        /// Checks whether the entity exists.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <returns>是否存在实体。</returns>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <returns>Whether the entity exists.</returns>
         bool HasEntity(string entityAssetName);
 
         /// <summary>
-        /// 获取实体。
+        /// Gets an entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <returns>要获取的实体。</returns>
+        /// <param name="entityId">The entity id.</param>
+        /// <returns>The entity to get.</returns>
         IEntity GetEntity(int entityId);
 
         /// <summary>
-        /// 获取实体。
+        /// Gets an entity.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <returns>要获取的实体。</returns>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <returns>The entity to get.</returns>
         IEntity GetEntity(string entityAssetName);
 
         /// <summary>
-        /// 获取实体。
+        /// Gets entities.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <returns>要获取的实体。</returns>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <returns>The entities to get.</returns>
         IEntity[] GetEntities(string entityAssetName);
 
         /// <summary>
-        /// 获取实体。
+        /// Gets entities.
         /// </summary>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="results">要获取的实体。</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="results">The entities to get.</param>
         void GetEntities(string entityAssetName, List<IEntity> results);
 
         /// <summary>
-        /// 获取所有已加载的实体。
+        /// Gets all loaded entities.
         /// </summary>
-        /// <returns>所有已加载的实体。</returns>
+        /// <returns>All loaded entities.</returns>
         IEntity[] GetAllLoadedEntities();
 
         /// <summary>
-        /// 获取所有已加载的实体。
+        /// Gets all loaded entities.
         /// </summary>
-        /// <param name="results">所有已加载的实体。</param>
+        /// <param name="results">All loaded entities.</param>
         void GetAllLoadedEntities(List<IEntity> results);
 
         /// <summary>
-        /// 获取所有正在加载实体的编号。
+        /// Gets all loading entity ids.
         /// </summary>
-        /// <returns>所有正在加载实体的编号。</returns>
+        /// <returns>All loading entity ids.</returns>
         int[] GetAllLoadingEntityIds();
 
         /// <summary>
-        /// 获取所有正在加载实体的编号。
+        /// Gets all loading entity ids.
         /// </summary>
-        /// <param name="results">所有正在加载实体的编号。</param>
+        /// <param name="results">All loading entity ids.</param>
         void GetAllLoadingEntityIds(List<int> results);
 
         /// <summary>
-        /// 是否正在加载实体。
+        /// Checks whether the entity is loading.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <returns>是否正在加载实体。</returns>
+        /// <param name="entityId">The entity id.</param>
+        /// <returns>Whether the entity is loading.</returns>
         bool IsLoadingEntity(int entityId);
 
         /// <summary>
-        /// 是否是合法的实体。
+        /// Checks whether the entity is valid.
         /// </summary>
-        /// <param name="entity">实体。</param>
-        /// <returns>实体是否合法。</returns>
+        /// <param name="entity">The entity.</param>
+        /// <returns>Whether the entity is valid.</returns>
         bool IsValidEntity(IEntity entity);
 
         /// <summary>
-        /// 显示实体。
+        /// Shows the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroupName">实体组名称。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="entityGroupName">The entity group name.</param>
         void ShowEntity(int entityId, string entityAssetName, string entityGroupName);
 
         /// <summary>
-        /// 显示实体。
+        /// Shows the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <param name="priority">加载实体资源的优先级。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <param name="priority">The priority for loading the entity asset.</param>
         void ShowEntity(int entityId, string entityAssetName, string entityGroupName, int priority);
 
         /// <summary>
-        /// 显示实体。
+        /// Shows the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <param name="userData">The user-defined data.</param>
         void ShowEntity(int entityId, string entityAssetName, string entityGroupName, object userData);
 
         /// <summary>
-        /// 显示实体。
+        /// Shows the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <param name="priority">加载实体资源的优先级。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="entityAssetName">The entity asset name.</param>
+        /// <param name="entityGroupName">The entity group name.</param>
+        /// <param name="priority">The priority for loading the entity asset.</param>
+        /// <param name="userData">The user-defined data.</param>
         void ShowEntity(int entityId, string entityAssetName, string entityGroupName, int priority, object userData);
 
         /// <summary>
-        /// 隐藏实体。
+        /// Hides the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
+        /// <param name="entityId">The entity id.</param>
         void HideEntity(int entityId);
 
         /// <summary>
-        /// 隐藏实体。
+        /// Hides the entity.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="entityId">The entity id.</param>
+        /// <param name="userData">The user-defined data.</param>
         void HideEntity(int entityId, object userData);
 
         /// <summary>
-        /// 隐藏实体。
+        /// Hides the entity.
         /// </summary>
-        /// <param name="entity">实体。</param>
+        /// <param name="entity">The entity.</param>
         void HideEntity(IEntity entity);
 
         /// <summary>
-        /// 隐藏实体。
+        /// Hides the entity.
         /// </summary>
-        /// <param name="entity">实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="entity">The entity.</param>
+        /// <param name="userData">The user-defined data.</param>
         void HideEntity(IEntity entity, object userData);
 
         /// <summary>
-        /// 隐藏所有已加载的实体。
+        /// Hides all loaded entities.
         /// </summary>
         void HideAllLoadedEntities();
 
         /// <summary>
-        /// 隐藏所有已加载的实体。
+        /// Hides all loaded entities.
         /// </summary>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="userData">The user-defined data.</param>
         void HideAllLoadedEntities(object userData);
 
         /// <summary>
-        /// 隐藏所有正在加载的实体。
+        /// Hides all loading entities.
         /// </summary>
         void HideAllLoadingEntities();
 
         /// <summary>
-        /// 获取父实体。
+        /// Gets the parent entity.
         /// </summary>
-        /// <param name="childEntityId">要获取父实体的子实体的实体编号。</param>
-        /// <returns>子实体的父实体。</returns>
+        /// <param name="childEntityId">The entity id of the child entity to get the parent entity.</param>
+        /// <returns>The parent entity of the child entity.</returns>
         IEntity GetParentEntity(int childEntityId);
 
         /// <summary>
-        /// 获取父实体。
+        /// Gets the parent entity.
         /// </summary>
-        /// <param name="childEntity">要获取父实体的子实体。</param>
-        /// <returns>子实体的父实体。</returns>
+        /// <param name="childEntity">The child entity to get the parent entity.</param>
+        /// <returns>The parent entity of the child entity.</returns>
         IEntity GetParentEntity(IEntity childEntity);
 
         /// <summary>
-        /// 获取子实体数量。
+        /// Gets the count of child entities.
         /// </summary>
-        /// <param name="parentEntityId">要获取子实体数量的父实体的实体编号。</param>
-        /// <returns>子实体数量。</returns>
+        /// <param name="parentEntityId">The entity id of the parent entity to get the child entity count.</param>
+        /// <returns>The count of child entities.</returns>
         int GetChildEntityCount(int parentEntityId);
 
         /// <summary>
-        /// 获取子实体。
+        /// Gets a child entity.
         /// </summary>
-        /// <param name="parentEntityId">要获取子实体的父实体的实体编号。</param>
-        /// <returns>子实体。</returns>
+        /// <param name="parentEntityId">The entity id of the parent entity to get the child entity.</param>
+        /// <returns>The child entity.</returns>
         IEntity GetChildEntity(int parentEntityId);
 
         /// <summary>
-        /// 获取子实体。
+        /// Gets a child entity.
         /// </summary>
-        /// <param name="parentEntity">要获取子实体的父实体。</param>
-        /// <returns>子实体。</returns>
+        /// <param name="parentEntity">The parent entity to get the child entity.</param>
+        /// <returns>The child entity.</returns>
         IEntity GetChildEntity(IEntity parentEntity);
 
         /// <summary>
-        /// 获取所有子实体。
+        /// Gets all child entities.
         /// </summary>
-        /// <param name="parentEntityId">要获取所有子实体的父实体的实体编号。</param>
-        /// <returns>所有子实体。</returns>
+        /// <param name="parentEntityId">The entity id of the parent entity to get all child entities.</param>
+        /// <returns>All child entities.</returns>
         IEntity[] GetChildEntities(int parentEntityId);
 
         /// <summary>
-        /// 获取所有子实体。
+        /// Gets all child entities.
         /// </summary>
-        /// <param name="parentEntityId">要获取所有子实体的父实体的实体编号。</param>
-        /// <param name="results">所有子实体。</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to get all child entities.</param>
+        /// <param name="results">All child entities.</param>
         void GetChildEntities(int parentEntityId, List<IEntity> results);
 
         /// <summary>
-        /// 获取所有子实体。
+        /// Gets all child entities.
         /// </summary>
-        /// <param name="parentEntity">要获取所有子实体的父实体。</param>
-        /// <returns>所有子实体。</returns>
+        /// <param name="parentEntity">The parent entity to get all child entities.</param>
+        /// <returns>All child entities.</returns>
         IEntity[] GetChildEntities(IEntity parentEntity);
 
         /// <summary>
-        /// 获取所有子实体。
+        /// Gets all child entities.
         /// </summary>
-        /// <param name="parentEntity">要获取所有子实体的父实体。</param>
-        /// <param name="results">所有子实体。</param>
+        /// <param name="parentEntity">The parent entity to get all child entities.</param>
+        /// <param name="results">All child entities.</param>
         void GetChildEntities(IEntity parentEntity, List<IEntity> results);
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要附加的子实体的实体编号。</param>
-        /// <param name="parentEntityId">被附加的父实体的实体编号。</param>
+        /// <param name="childEntityId">The entity id of the child entity to attach.</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to attach to.</param>
         void AttachEntity(int childEntityId, int parentEntityId);
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要附加的子实体的实体编号。</param>
-        /// <param name="parentEntityId">被附加的父实体的实体编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntityId">The entity id of the child entity to attach.</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to attach to.</param>
+        /// <param name="userData">The user-defined data.</param>
         void AttachEntity(int childEntityId, int parentEntityId, object userData);
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要附加的子实体的实体编号。</param>
-        /// <param name="parentEntity">被附加的父实体。</param>
+        /// <param name="childEntityId">The entity id of the child entity to attach.</param>
+        /// <param name="parentEntity">The parent entity to attach to.</param>
         void AttachEntity(int childEntityId, IEntity parentEntity);
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要附加的子实体的实体编号。</param>
-        /// <param name="parentEntity">被附加的父实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntityId">The entity id of the child entity to attach.</param>
+        /// <param name="parentEntity">The parent entity to attach to.</param>
+        /// <param name="userData">The user-defined data.</param>
         void AttachEntity(int childEntityId, IEntity parentEntity, object userData);
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要附加的子实体。</param>
-        /// <param name="parentEntityId">被附加的父实体的实体编号。</param>
+        /// <param name="childEntity">The child entity to attach.</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to attach to.</param>
         void AttachEntity(IEntity childEntity, int parentEntityId);
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要附加的子实体。</param>
-        /// <param name="parentEntityId">被附加的父实体的实体编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntity">The child entity to attach.</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to attach to.</param>
+        /// <param name="userData">The user-defined data.</param>
         void AttachEntity(IEntity childEntity, int parentEntityId, object userData);
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要附加的子实体。</param>
-        /// <param name="parentEntity">被附加的父实体。</param>
+        /// <param name="childEntity">The child entity to attach.</param>
+        /// <param name="parentEntity">The parent entity to attach to.</param>
         void AttachEntity(IEntity childEntity, IEntity parentEntity);
 
         /// <summary>
-        /// 附加子实体。
+        /// Attaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要附加的子实体。</param>
-        /// <param name="parentEntity">被附加的父实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntity">The child entity to attach.</param>
+        /// <param name="parentEntity">The parent entity to attach to.</param>
+        /// <param name="userData">The user-defined data.</param>
         void AttachEntity(IEntity childEntity, IEntity parentEntity, object userData);
 
         /// <summary>
-        /// 解除子实体。
+        /// Detaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要解除的子实体的实体编号。</param>
+        /// <param name="childEntityId">The entity id of the child entity to detach.</param>
         void DetachEntity(int childEntityId);
 
         /// <summary>
-        /// 解除子实体。
+        /// Detaches a child entity.
         /// </summary>
-        /// <param name="childEntityId">要解除的子实体的实体编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntityId">The entity id of the child entity to detach.</param>
+        /// <param name="userData">The user-defined data.</param>
         void DetachEntity(int childEntityId, object userData);
 
         /// <summary>
-        /// 解除子实体。
+        /// Detaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要解除的子实体。</param>
+        /// <param name="childEntity">The child entity to detach.</param>
         void DetachEntity(IEntity childEntity);
 
         /// <summary>
-        /// 解除子实体。
+        /// Detaches a child entity.
         /// </summary>
-        /// <param name="childEntity">要解除的子实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="childEntity">The child entity to detach.</param>
+        /// <param name="userData">The user-defined data.</param>
         void DetachEntity(IEntity childEntity, object userData);
 
         /// <summary>
-        /// 解除所有子实体。
+        /// Detaches all child entities.
         /// </summary>
-        /// <param name="parentEntityId">被解除的父实体的实体编号。</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to detach.</param>
         void DetachChildEntities(int parentEntityId);
 
         /// <summary>
-        /// 解除所有子实体。
+        /// Detaches all child entities.
         /// </summary>
-        /// <param name="parentEntityId">被解除的父实体的实体编号。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="parentEntityId">The entity id of the parent entity to detach.</param>
+        /// <param name="userData">The user-defined data.</param>
         void DetachChildEntities(int parentEntityId, object userData);
 
         /// <summary>
-        /// 解除所有子实体。
+        /// Detaches all child entities.
         /// </summary>
-        /// <param name="parentEntity">被解除的父实体。</param>
+        /// <param name="parentEntity">The parent entity to detach.</param>
         void DetachChildEntities(IEntity parentEntity);
 
         /// <summary>
-        /// 解除所有子实体。
+        /// Detaches all child entities.
         /// </summary>
-        /// <param name="parentEntity">被解除的父实体。</param>
-        /// <param name="userData">用户自定义数据。</param>
+        /// <param name="parentEntity">The parent entity to detach.</param>
+        /// <param name="userData">The user-defined data.</param>
         void DetachChildEntities(IEntity parentEntity, object userData);
     }
 }

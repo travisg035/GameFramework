@@ -8,12 +8,12 @@
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 网络连接关闭事件。
+    /// Network closed event.
     /// </summary>
     public sealed class NetworkClosedEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化网络连接关闭事件的新实例。
+        /// Initializes a new instance of the NetworkClosedEventArgs class.
         /// </summary>
         public NetworkClosedEventArgs()
         {
@@ -21,7 +21,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取网络频道。
+        /// Gets the network channel.
         /// </summary>
         public INetworkChannel NetworkChannel
         {
@@ -30,10 +30,10 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 创建网络连接关闭事件。
+        /// Creates a network closed event.
         /// </summary>
-        /// <param name="networkChannel">网络频道。</param>
-        /// <returns>创建的网络连接关闭事件。</returns>
+        /// <param name="networkChannel">Network channel.</param>
+        /// <returns>The created network closed event.</returns>
         public static NetworkClosedEventArgs Create(INetworkChannel networkChannel)
         {
             NetworkClosedEventArgs networkClosedEventArgs = ReferencePool.Acquire<NetworkClosedEventArgs>();
@@ -42,7 +42,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 清理网络连接关闭事件。
+        /// Clears the network closed event.
         /// </summary>
         public override void Clear()
         {

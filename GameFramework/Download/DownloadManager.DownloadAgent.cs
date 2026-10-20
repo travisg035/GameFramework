@@ -13,7 +13,7 @@ namespace GameFramework.Download
     internal sealed partial class DownloadManager : GameFrameworkModule, IDownloadManager
     {
         /// <summary>
-        /// 下载代理。
+        /// Download agent.
         /// </summary>
         private sealed class DownloadAgent : ITaskAgent<DownloadTask>, IDisposable
         {
@@ -33,9 +33,9 @@ namespace GameFramework.Download
             public GameFrameworkAction<DownloadAgent, string> DownloadAgentFailure;
 
             /// <summary>
-            /// 初始化下载代理的新实例。
+            /// Initializes a new instance of the DownloadAgent class.
             /// </summary>
-            /// <param name="downloadAgentHelper">下载代理辅助器。</param>
+            /// <param name="downloadAgentHelper">Download agent helper.</param>
             public DownloadAgent(IDownloadAgentHelper downloadAgentHelper)
             {
                 if (downloadAgentHelper == null)
@@ -60,7 +60,7 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 获取下载任务。
+            /// Gets the download task.
             /// </summary>
             public DownloadTask Task
             {
@@ -71,7 +71,7 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 获取已经等待时间。
+            /// Gets the waiting time in seconds.
             /// </summary>
             public float WaitTime
             {
@@ -82,7 +82,7 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 获取开始下载时已经存在的大小。
+            /// Gets the length that already existed when the download started.
             /// </summary>
             public long StartLength
             {
@@ -93,7 +93,7 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 获取本次已经下载的大小。
+            /// Gets the downloaded length of this download.
             /// </summary>
             public long DownloadedLength
             {
@@ -104,7 +104,7 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 获取当前的大小。
+            /// Gets the current length.
             /// </summary>
             public long CurrentLength
             {
@@ -115,7 +115,7 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 获取已经存盘的大小。
+            /// Gets the saved length.
             /// </summary>
             public long SavedLength
             {
@@ -126,7 +126,7 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 初始化下载代理。
+            /// Initializes the download agent.
             /// </summary>
             public void Initialize()
             {
@@ -137,10 +137,10 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 下载代理轮询。
+            /// Updates the download agent per frame.
             /// </summary>
-            /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-            /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+            /// <param name="elapseSeconds">Logical elapsed seconds.</param>
+            /// <param name="realElapseSeconds">Real elapsed seconds.</param>
             public void Update(float elapseSeconds, float realElapseSeconds)
             {
                 if (m_Task.Status == DownloadTaskStatus.Doing)
@@ -156,7 +156,7 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 关闭并清理下载代理。
+            /// Shutdowns and cleans up the download agent.
             /// </summary>
             public void Shutdown()
             {
@@ -169,10 +169,10 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 开始处理下载任务。
+            /// Starts processing the download task.
             /// </summary>
-            /// <param name="task">要处理的下载任务。</param>
-            /// <returns>开始处理任务的状态。</returns>
+            /// <param name="task">The download task to process.</param>
+            /// <returns>The start task status.</returns>
             public StartTaskStatus Start(DownloadTask task)
             {
                 if (task == null)
@@ -232,7 +232,7 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 重置下载代理。
+            /// Resets the download agent.
             /// </summary>
             public void Reset()
             {
@@ -253,7 +253,7 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 释放资源。
+            /// Releases all resources used by the DownloadAgent.
             /// </summary>
             public void Dispose()
             {
@@ -262,9 +262,9 @@ namespace GameFramework.Download
             }
 
             /// <summary>
-            /// 释放资源。
+            /// Releases unmanaged and - optionally - managed resources.
             /// </summary>
-            /// <param name="disposing">释放资源标记。</param>
+            /// <param name="disposing">True to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
             private void Dispose(bool disposing)
             {
                 if (m_Disposed)

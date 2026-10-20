@@ -8,7 +8,7 @@
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 卸载场景回调函数集。
+    /// Unload scene callback set.
     /// </summary>
     public sealed class UnloadSceneCallbacks
     {
@@ -16,19 +16,19 @@ namespace GameFramework.Resource
         private readonly UnloadSceneFailureCallback m_UnloadSceneFailureCallback;
 
         /// <summary>
-        /// 初始化卸载场景回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="UnloadSceneCallbacks"/> class.
         /// </summary>
-        /// <param name="unloadSceneSuccessCallback">卸载场景成功回调函数。</param>
+        /// <param name="unloadSceneSuccessCallback">The unload scene success callback method.</param>
         public UnloadSceneCallbacks(UnloadSceneSuccessCallback unloadSceneSuccessCallback)
             : this(unloadSceneSuccessCallback, null)
         {
         }
 
         /// <summary>
-        /// 初始化卸载场景回调函数集的新实例。
+        /// Initializes a new instance of the <see cref="UnloadSceneCallbacks"/> class.
         /// </summary>
-        /// <param name="unloadSceneSuccessCallback">卸载场景成功回调函数。</param>
-        /// <param name="unloadSceneFailureCallback">卸载场景失败回调函数。</param>
+        /// <param name="unloadSceneSuccessCallback">The unload scene success callback method.</param>
+        /// <param name="unloadSceneFailureCallback">The unload scene failure callback method.</param>
         public UnloadSceneCallbacks(UnloadSceneSuccessCallback unloadSceneSuccessCallback, UnloadSceneFailureCallback unloadSceneFailureCallback)
         {
             if (unloadSceneSuccessCallback == null)
@@ -41,7 +41,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取卸载场景成功回调函数。
+        /// Gets the unload scene success callback method.
         /// </summary>
         public UnloadSceneSuccessCallback UnloadSceneSuccessCallback
         {
@@ -52,7 +52,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取卸载场景失败回调函数。
+        /// Gets the unload scene failure callback method.
         /// </summary>
         public UnloadSceneFailureCallback UnloadSceneFailureCallback
         {

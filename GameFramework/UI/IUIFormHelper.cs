@@ -8,31 +8,31 @@
 namespace GameFramework.UI
 {
     /// <summary>
-    /// 界面辅助器接口。
+    /// UI form helper interface.
     /// </summary>
     public interface IUIFormHelper
     {
         /// <summary>
-        /// 实例化界面。
+        /// Instantiates a UI form.
         /// </summary>
-        /// <param name="uiFormAsset">要实例化的界面资源。</param>
-        /// <returns>实例化后的界面。</returns>
+        /// <param name="uiFormAsset">The UI form asset to instantiate.</param>
+        /// <returns>The instantiated UI form.</returns>
         object InstantiateUIForm(object uiFormAsset);
 
         /// <summary>
-        /// 创建界面。
+        /// Creates a UI form.
         /// </summary>
-        /// <param name="uiFormInstance">界面实例。</param>
-        /// <param name="uiGroup">界面所属的界面组。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>界面。</returns>
+        /// <param name="uiFormInstance">The UI form instance.</param>
+        /// <param name="uiGroup">The UI group that the UI form belongs to.</param>
+        /// <param name="userData">The user-defined data.</param>
+        /// <returns>The UI form.</returns>
         IUIForm CreateUIForm(object uiFormInstance, IUIGroup uiGroup, object userData);
 
         /// <summary>
-        /// 释放界面。
+        /// Releases the UI form.
         /// </summary>
-        /// <param name="uiFormAsset">要释放的界面资源。</param>
-        /// <param name="uiFormInstance">要释放的界面实例。</param>
+        /// <param name="uiFormAsset">The UI form asset to release.</param>
+        /// <param name="uiFormInstance">The UI form instance to release.</param>
         void ReleaseUIForm(object uiFormAsset, object uiFormInstance);
     }
 }

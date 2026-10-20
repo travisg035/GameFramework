@@ -8,12 +8,12 @@
 namespace GameFramework
 {
     /// <summary>
-    /// 读取数据成功事件。
+    /// Read data success event.
     /// </summary>
     public sealed class ReadDataSuccessEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化读取数据成功事件的新实例。
+        /// Initializes a new instance of the ReadDataSuccessEventArgs class.
         /// </summary>
         public ReadDataSuccessEventArgs()
         {
@@ -23,7 +23,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取内容资源名称。
+        /// Gets the data asset name.
         /// </summary>
         public string DataAssetName
         {
@@ -32,7 +32,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取加载持续时间。
+        /// Gets the loading duration in seconds.
         /// </summary>
         public float Duration
         {
@@ -41,7 +41,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -50,12 +50,12 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 创建读取数据成功事件。
+        /// Creates a read data success event.
         /// </summary>
-        /// <param name="dataAssetName">内容资源名称。</param>
-        /// <param name="duration">加载持续时间。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的读取数据成功事件。</returns>
+        /// <param name="dataAssetName">Data asset name.</param>
+        /// <param name="duration">Loading duration in seconds.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created read data success event.</returns>
         public static ReadDataSuccessEventArgs Create(string dataAssetName, float duration, object userData)
         {
             ReadDataSuccessEventArgs loadDataSuccessEventArgs = ReferencePool.Acquire<ReadDataSuccessEventArgs>();
@@ -66,7 +66,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 清理读取数据成功事件。
+        /// Clears the read data success event.
         /// </summary>
         public override void Clear()
         {

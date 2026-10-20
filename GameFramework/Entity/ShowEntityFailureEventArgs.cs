@@ -8,12 +8,12 @@
 namespace GameFramework.Entity
 {
     /// <summary>
-    /// 显示实体失败事件。
+    /// Show entity failure event.
     /// </summary>
     public sealed class ShowEntityFailureEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化显示实体失败事件的新实例。
+        /// Initializes a new instance of the ShowEntityFailureEventArgs class.
         /// </summary>
         public ShowEntityFailureEventArgs()
         {
@@ -25,7 +25,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体编号。
+        /// Gets the entity id.
         /// </summary>
         public int EntityId
         {
@@ -34,7 +34,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体资源名称。
+        /// Gets the entity asset name.
         /// </summary>
         public string EntityAssetName
         {
@@ -43,7 +43,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取实体组名称。
+        /// Gets the entity group name.
         /// </summary>
         public string EntityGroupName
         {
@@ -52,7 +52,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取错误信息。
+        /// Gets the error message.
         /// </summary>
         public string ErrorMessage
         {
@@ -61,7 +61,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 获取用户自定义数据。
+        /// Gets the user-defined data.
         /// </summary>
         public object UserData
         {
@@ -70,14 +70,14 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 创建显示实体失败事件。
+        /// Creates a show entity failure event.
         /// </summary>
-        /// <param name="entityId">实体编号。</param>
-        /// <param name="entityAssetName">实体资源名称。</param>
-        /// <param name="entityGroupName">实体组名称。</param>
-        /// <param name="errorMessage">错误信息。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        /// <returns>创建的显示实体失败事件。</returns>
+        /// <param name="entityId">Entity id.</param>
+        /// <param name="entityAssetName">Entity asset name.</param>
+        /// <param name="entityGroupName">Entity group name.</param>
+        /// <param name="errorMessage">Error message.</param>
+        /// <param name="userData">User-defined data.</param>
+        /// <returns>The created show entity failure event.</returns>
         public static ShowEntityFailureEventArgs Create(int entityId, string entityAssetName, string entityGroupName, string errorMessage, object userData)
         {
             ShowEntityFailureEventArgs showEntityFailureEventArgs = ReferencePool.Acquire<ShowEntityFailureEventArgs>();
@@ -90,7 +90,7 @@ namespace GameFramework.Entity
         }
 
         /// <summary>
-        /// 清理显示实体失败事件。
+        /// Clears the show entity failure event.
         /// </summary>
         public override void Clear()
         {

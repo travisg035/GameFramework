@@ -13,16 +13,16 @@ using System.Runtime.InteropServices;
 namespace GameFramework
 {
     /// <summary>
-    /// 游戏框架链表类。
+    /// Game framework linked list.
     /// </summary>
-    /// <typeparam name="T">指定链表的元素类型。</typeparam>
+    /// <typeparam name="T">The type of elements in the linked list.</typeparam>
     public sealed class GameFrameworkLinkedList<T> : ICollection<T>, IEnumerable<T>, ICollection, IEnumerable
     {
         private readonly LinkedList<T> m_LinkedList;
         private readonly Queue<LinkedListNode<T>> m_CachedNodes;
 
         /// <summary>
-        /// 初始化游戏框架链表类的新实例。
+        /// Initializes a new instance of the GameFrameworkLinkedList class.
         /// </summary>
         public GameFrameworkLinkedList()
         {
@@ -31,7 +31,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取链表中实际包含的结点数量。
+        /// Gets the number of nodes actually contained in the linked list.
         /// </summary>
         public int Count
         {
@@ -42,7 +42,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取链表结点缓存数量。
+        /// Gets the number of cached linked list nodes.
         /// </summary>
         public int CachedNodeCount
         {
@@ -53,7 +53,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取链表的第一个结点。
+        /// Gets the first node of the linked list.
         /// </summary>
         public LinkedListNode<T> First
         {
@@ -64,7 +64,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取链表的最后一个结点。
+        /// Gets the last node of the linked list.
         /// </summary>
         public LinkedListNode<T> Last
         {
@@ -75,7 +75,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取一个值，该值指示 ICollection`1 是否为只读。
+        /// Gets a value indicating whether the ICollection`1 is read-only.
         /// </summary>
         public bool IsReadOnly
         {
@@ -86,7 +86,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取可用于同步对 ICollection 的访问的对象。
+        /// Gets an object that can be used to synchronize access to the ICollection.
         /// </summary>
         public object SyncRoot
         {
@@ -97,7 +97,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 获取一个值，该值指示是否同步对 ICollection 的访问（线程安全）。
+        /// Gets a value indicating whether access to the ICollection is synchronized (thread safe).
         /// </summary>
         public bool IsSynchronized
         {
@@ -108,11 +108,11 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 在链表中指定的现有结点后添加包含指定值的新结点。
+        /// Adds a new node containing the specified value after the specified existing node in the linked list.
         /// </summary>
-        /// <param name="node">指定的现有结点。</param>
-        /// <param name="value">指定值。</param>
-        /// <returns>包含指定值的新结点。</returns>
+        /// <param name="node">The specified existing node.</param>
+        /// <param name="value">The specified value.</param>
+        /// <returns>The new node containing the specified value.</returns>
         public LinkedListNode<T> AddAfter(LinkedListNode<T> node, T value)
         {
             LinkedListNode<T> newNode = AcquireNode(value);
@@ -121,21 +121,21 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 在链表中指定的现有结点后添加指定的新结点。
+        /// Adds the specified new node after the specified existing node in the linked list.
         /// </summary>
-        /// <param name="node">指定的现有结点。</param>
-        /// <param name="newNode">指定的新结点。</param>
+        /// <param name="node">The specified existing node.</param>
+        /// <param name="newNode">The specified new node.</param>
         public void AddAfter(LinkedListNode<T> node, LinkedListNode<T> newNode)
         {
             m_LinkedList.AddAfter(node, newNode);
         }
 
         /// <summary>
-        /// 在链表中指定的现有结点前添加包含指定值的新结点。
+        /// Adds a new node containing the specified value before the specified existing node in the linked list.
         /// </summary>
-        /// <param name="node">指定的现有结点。</param>
-        /// <param name="value">指定值。</param>
-        /// <returns>包含指定值的新结点。</returns>
+        /// <param name="node">The specified existing node.</param>
+        /// <param name="value">The specified value.</param>
+        /// <returns>The new node containing the specified value.</returns>
         public LinkedListNode<T> AddBefore(LinkedListNode<T> node, T value)
         {
             LinkedListNode<T> newNode = AcquireNode(value);
@@ -144,20 +144,20 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 在链表中指定的现有结点前添加指定的新结点。
+        /// Adds the specified new node before the specified existing node in the linked list.
         /// </summary>
-        /// <param name="node">指定的现有结点。</param>
-        /// <param name="newNode">指定的新结点。</param>
+        /// <param name="node">The specified existing node.</param>
+        /// <param name="newNode">The specified new node.</param>
         public void AddBefore(LinkedListNode<T> node, LinkedListNode<T> newNode)
         {
             m_LinkedList.AddBefore(node, newNode);
         }
 
         /// <summary>
-        /// 在链表的开头处添加包含指定值的新结点。
+        /// Adds a new node containing the specified value at the start of the linked list.
         /// </summary>
-        /// <param name="value">指定值。</param>
-        /// <returns>包含指定值的新结点。</returns>
+        /// <param name="value">The specified value.</param>
+        /// <returns>The new node containing the specified value.</returns>
         public LinkedListNode<T> AddFirst(T value)
         {
             LinkedListNode<T> node = AcquireNode(value);
@@ -166,19 +166,19 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 在链表的开头处添加指定的新结点。
+        /// Adds the specified new node at the start of the linked list.
         /// </summary>
-        /// <param name="node">指定的新结点。</param>
+        /// <param name="node">The specified new node.</param>
         public void AddFirst(LinkedListNode<T> node)
         {
             m_LinkedList.AddFirst(node);
         }
 
         /// <summary>
-        /// 在链表的结尾处添加包含指定值的新结点。
+        /// Adds a new node containing the specified value at the end of the linked list.
         /// </summary>
-        /// <param name="value">指定值。</param>
-        /// <returns>包含指定值的新结点。</returns>
+        /// <param name="value">The specified value.</param>
+        /// <returns>The new node containing the specified value.</returns>
         public LinkedListNode<T> AddLast(T value)
         {
             LinkedListNode<T> node = AcquireNode(value);
@@ -187,16 +187,16 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 在链表的结尾处添加指定的新结点。
+        /// Adds the specified new node at the end of the linked list.
         /// </summary>
-        /// <param name="node">指定的新结点。</param>
+        /// <param name="node">The specified new node.</param>
         public void AddLast(LinkedListNode<T> node)
         {
             m_LinkedList.AddLast(node);
         }
 
         /// <summary>
-        /// 从链表中移除所有结点。
+        /// Removes all nodes from the linked list.
         /// </summary>
         public void Clear()
         {
@@ -211,7 +211,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 清除链表结点缓存。
+        /// Clears cached linked list nodes.
         /// </summary>
         public void ClearCachedNodes()
         {
@@ -219,60 +219,60 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 确定某值是否在链表中。
+        /// Determines whether a value is in the linked list.
         /// </summary>
-        /// <param name="value">指定值。</param>
-        /// <returns>某值是否在链表中。</returns>
+        /// <param name="value">The specified value.</param>
+        /// <returns>true if the value is in the linked list; otherwise, false.</returns>
         public bool Contains(T value)
         {
             return m_LinkedList.Contains(value);
         }
 
         /// <summary>
-        /// 从目标数组的指定索引处开始将整个链表复制到兼容的一维数组。
+        /// Copies the entire linked list to a compatible one-dimensional array, starting at the specified index of the target array.
         /// </summary>
-        /// <param name="array">一维数组，它是从链表复制的元素的目标。数组必须具有从零开始的索引。</param>
-        /// <param name="index">array 中从零开始的索引，从此处开始复制。</param>
+        /// <param name="array">The one-dimensional array that is the destination of the elements copied from the linked list. The array must have zero-based indexing.</param>
+        /// <param name="index">The zero-based index in array at which copying begins.</param>
         public void CopyTo(T[] array, int index)
         {
             m_LinkedList.CopyTo(array, index);
         }
 
         /// <summary>
-        /// 从特定的 ICollection 索引开始，将数组的元素复制到一个数组中。
+        /// Copies the elements of the ICollection to an array, starting at a particular array index.
         /// </summary>
-        /// <param name="array">一维数组，它是从 ICollection 复制的元素的目标。数组必须具有从零开始的索引。</param>
-        /// <param name="index">array 中从零开始的索引，从此处开始复制。</param>
+        /// <param name="array">The one-dimensional array that is the destination of the elements copied from the ICollection. The array must have zero-based indexing.</param>
+        /// <param name="index">The zero-based index in array at which copying begins.</param>
         public void CopyTo(Array array, int index)
         {
             ((ICollection)m_LinkedList).CopyTo(array, index);
         }
 
         /// <summary>
-        /// 查找包含指定值的第一个结点。
+        /// Finds the first node that contains the specified value.
         /// </summary>
-        /// <param name="value">要查找的指定值。</param>
-        /// <returns>包含指定值的第一个结点。</returns>
+        /// <param name="value">The specified value to locate.</param>
+        /// <returns>The first node that contains the specified value.</returns>
         public LinkedListNode<T> Find(T value)
         {
             return m_LinkedList.Find(value);
         }
 
         /// <summary>
-        /// 查找包含指定值的最后一个结点。
+        /// Finds the last node that contains the specified value.
         /// </summary>
-        /// <param name="value">要查找的指定值。</param>
-        /// <returns>包含指定值的最后一个结点。</returns>
+        /// <param name="value">The specified value to locate.</param>
+        /// <returns>The last node that contains the specified value.</returns>
         public LinkedListNode<T> FindLast(T value)
         {
             return m_LinkedList.FindLast(value);
         }
 
         /// <summary>
-        /// 从链表中移除指定值的第一个匹配项。
+        /// Removes the first occurrence of the specified value from the linked list.
         /// </summary>
-        /// <param name="value">指定值。</param>
-        /// <returns>是否移除成功。</returns>
+        /// <param name="value">The specified value.</param>
+        /// <returns>true if the element is successfully removed; otherwise, false.</returns>
         public bool Remove(T value)
         {
             LinkedListNode<T> node = m_LinkedList.Find(value);
@@ -287,9 +287,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 从链表中移除指定的结点。
+        /// Removes the specified node from the linked list.
         /// </summary>
-        /// <param name="node">指定的结点。</param>
+        /// <param name="node">The specified node.</param>
         public void Remove(LinkedListNode<T> node)
         {
             m_LinkedList.Remove(node);
@@ -297,7 +297,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 移除位于链表开头处的结点。
+        /// Removes the node at the start of the linked list.
         /// </summary>
         public void RemoveFirst()
         {
@@ -312,7 +312,7 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 移除位于链表结尾处的结点。
+        /// Removes the node at the end of the linked list.
         /// </summary>
         public void RemoveLast()
         {
@@ -327,9 +327,9 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 返回循环访问集合的枚举数。
+        /// Returns an enumerator that iterates through the collection.
         /// </summary>
-        /// <returns>循环访问集合的枚举数。</returns>
+        /// <returns>An enumerator that iterates through the collection.</returns>
         public Enumerator GetEnumerator()
         {
             return new Enumerator(m_LinkedList);
@@ -358,34 +358,34 @@ namespace GameFramework
         }
 
         /// <summary>
-        /// 将值添加到 ICollection`1 的结尾处。
+        /// Adds a value to the end of the ICollection`1.
         /// </summary>
-        /// <param name="value">要添加的值。</param>
+        /// <param name="value">The value to add.</param>
         void ICollection<T>.Add(T value)
         {
             AddLast(value);
         }
 
         /// <summary>
-        /// 返回循环访问集合的枚举数。
+        /// Returns an enumerator that iterates through the collection.
         /// </summary>
-        /// <returns>循环访问集合的枚举数。</returns>
+        /// <returns>An enumerator that iterates through the collection.</returns>
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             return GetEnumerator();
         }
 
         /// <summary>
-        /// 返回循环访问集合的枚举数。
+        /// Returns an enumerator that iterates through the collection.
         /// </summary>
-        /// <returns>循环访问集合的枚举数。</returns>
+        /// <returns>An enumerator that iterates through the collection.</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
         /// <summary>
-        /// 循环访问集合的枚举数。
+        /// Enumerates the elements of a linked list.
         /// </summary>
         [StructLayout(LayoutKind.Auto)]
         public struct Enumerator : IEnumerator<T>, IEnumerator
@@ -403,7 +403,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取当前结点。
+            /// Gets the element at the current position of the enumerator.
             /// </summary>
             public T Current
             {
@@ -414,7 +414,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取当前的枚举数。
+            /// Gets the element at the current position of the enumerator.
             /// </summary>
             object IEnumerator.Current
             {
@@ -425,7 +425,7 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 清理枚举数。
+            /// Releases all resources used by the enumerator.
             /// </summary>
             public void Dispose()
             {
@@ -433,16 +433,16 @@ namespace GameFramework
             }
 
             /// <summary>
-            /// 获取下一个结点。
+            /// Advances the enumerator to the next element of the linked list.
             /// </summary>
-            /// <returns>返回下一个结点。</returns>
+            /// <returns>true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.</returns>
             public bool MoveNext()
             {
                 return m_Enumerator.MoveNext();
             }
 
             /// <summary>
-            /// 重置枚举数。
+            /// Sets the enumerator to its initial position, which is before the first element in the collection.
             /// </summary>
             void IEnumerator.Reset()
             {

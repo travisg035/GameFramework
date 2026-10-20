@@ -10,27 +10,27 @@ namespace GameFramework.Download
     internal sealed partial class DownloadManager : GameFrameworkModule, IDownloadManager
     {
         /// <summary>
-        /// 下载任务的状态。
+        /// Download task status.
         /// </summary>
         private enum DownloadTaskStatus : byte
         {
             /// <summary>
-            /// 准备下载。
+            /// Ready to download.
             /// </summary>
             Todo = 0,
 
             /// <summary>
-            /// 下载中。
+            /// Downloading.
             /// </summary>
             Doing,
 
             /// <summary>
-            /// 下载完成。
+            /// Download completed.
             /// </summary>
             Done,
 
             /// <summary>
-            /// 下载错误。
+            /// Download error.
             /// </summary>
             Error
         }

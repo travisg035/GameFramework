@@ -8,7 +8,7 @@
 namespace GameFramework.Sound
 {
     /// <summary>
-    /// 播放声音参数。
+    /// Play sound parameters.
     /// </summary>
     public sealed class PlaySoundParams : IReference
     {
@@ -26,7 +26,7 @@ namespace GameFramework.Sound
         private float m_DopplerLevel;
 
         /// <summary>
-        /// 初始化播放声音参数的新实例。
+        /// Initializes a new instance of the <see cref="PlaySoundParams"/> class.
         /// </summary>
         public PlaySoundParams()
         {
@@ -45,7 +45,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置播放位置。
+        /// Gets or sets the playback time.
         /// </summary>
         public float Time
         {
@@ -60,7 +60,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置在声音组内是否静音。
+        /// Gets or sets whether to mute in the sound group.
         /// </summary>
         public bool MuteInSoundGroup
         {
@@ -75,7 +75,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置是否循环播放。
+        /// Gets or sets whether to loop playback.
         /// </summary>
         public bool Loop
         {
@@ -90,7 +90,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置声音优先级。
+        /// Gets or sets the sound priority.
         /// </summary>
         public int Priority
         {
@@ -105,7 +105,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置在声音组内音量大小。
+        /// Gets or sets the volume in the sound group.
         /// </summary>
         public float VolumeInSoundGroup
         {
@@ -120,7 +120,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置声音淡入时间，以秒为单位。
+        /// Gets or sets the sound fade in time in seconds.
         /// </summary>
         public float FadeInSeconds
         {
@@ -135,7 +135,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置声音音调。
+        /// Gets or sets the sound pitch.
         /// </summary>
         public float Pitch
         {
@@ -150,7 +150,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置声音立体声声相。
+        /// Gets or sets the sound pan stereo.
         /// </summary>
         public float PanStereo
         {
@@ -165,7 +165,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置声音空间混合量。
+        /// Gets or sets the sound spatial blend.
         /// </summary>
         public float SpatialBlend
         {
@@ -180,7 +180,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置声音最大距离。
+        /// Gets or sets the sound max distance.
         /// </summary>
         public float MaxDistance
         {
@@ -195,7 +195,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 获取或设置声音多普勒等级。
+        /// Gets or sets the sound Doppler level.
         /// </summary>
         public float DopplerLevel
         {
@@ -218,9 +218,9 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 创建播放声音参数。
+        /// Creates play sound parameters.
         /// </summary>
-        /// <returns>创建的播放声音参数。</returns>
+        /// <returns>The created play sound parameters.</returns>
         public static PlaySoundParams Create()
         {
             PlaySoundParams playSoundParams = ReferencePool.Acquire<PlaySoundParams>();
@@ -229,7 +229,7 @@ namespace GameFramework.Sound
         }
 
         /// <summary>
-        /// 清理播放声音参数。
+        /// Clears play sound parameters.
         /// </summary>
         public void Clear()
         {

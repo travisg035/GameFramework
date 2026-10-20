@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 namespace GameFramework.Resource
 {
     /// <summary>
-    /// 可更新模式版本资源列表。
+    /// Updatable version list.
     /// </summary>
     [StructLayout(LayoutKind.Auto)]
     public partial struct UpdatableVersionList
@@ -29,14 +29,14 @@ namespace GameFramework.Resource
         private readonly ResourceGroup[] m_ResourceGroups;
 
         /// <summary>
-        /// 初始化可更新模式版本资源列表的新实例。
+        /// Initializes a new instance of the UpdatableVersionList struct.
         /// </summary>
-        /// <param name="applicableGameVersion">适配的游戏版本号。</param>
-        /// <param name="internalResourceVersion">内部资源版本号。</param>
-        /// <param name="assets">包含的资源集合。</param>
-        /// <param name="resources">包含的资源集合。</param>
-        /// <param name="fileSystems">包含的文件系统集合。</param>
-        /// <param name="resourceGroups">包含的资源组集合。</param>
+        /// <param name="applicableGameVersion">Applicable game version.</param>
+        /// <param name="internalResourceVersion">Internal resource version.</param>
+        /// <param name="assets">Included assets.</param>
+        /// <param name="resources">Included resources.</param>
+        /// <param name="fileSystems">Included file systems.</param>
+        /// <param name="resourceGroups">Included resource groups.</param>
         public UpdatableVersionList(string applicableGameVersion, int internalResourceVersion, Asset[] assets, Resource[] resources, FileSystem[] fileSystems, ResourceGroup[] resourceGroups)
         {
             m_IsValid = true;
@@ -49,7 +49,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取可更新模式版本资源列表是否有效。
+        /// Gets whether the updatable version list is valid.
         /// </summary>
         public bool IsValid
         {
@@ -60,7 +60,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取适配的游戏版本号。
+        /// Gets the applicable game version.
         /// </summary>
         public string ApplicableGameVersion
         {
@@ -76,7 +76,7 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取内部资源版本号。
+        /// Gets the internal resource version.
         /// </summary>
         public int InternalResourceVersion
         {
@@ -92,9 +92,9 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取包含的资源集合。
+        /// Gets the included assets.
         /// </summary>
-        /// <returns>包含的资源集合。</returns>
+        /// <returns>Included assets.</returns>
         public Asset[] GetAssets()
         {
             if (!m_IsValid)
@@ -106,9 +106,9 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取包含的资源集合。
+        /// Gets the included resources.
         /// </summary>
-        /// <returns>包含的资源集合。</returns>
+        /// <returns>Included resources.</returns>
         public Resource[] GetResources()
         {
             if (!m_IsValid)
@@ -120,9 +120,9 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取包含的文件系统集合。
+        /// Gets the included file systems.
         /// </summary>
-        /// <returns>包含的文件系统集合。</returns>
+        /// <returns>Included file systems.</returns>
         public FileSystem[] GetFileSystems()
         {
             if (!m_IsValid)
@@ -134,9 +134,9 @@ namespace GameFramework.Resource
         }
 
         /// <summary>
-        /// 获取包含的资源组集合。
+        /// Gets the included resource groups.
         /// </summary>
-        /// <returns>包含的资源组集合。</returns>
+        /// <returns>Included resource groups.</returns>
         public ResourceGroup[] GetResourceGroups()
         {
             if (!m_IsValid)

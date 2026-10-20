@@ -8,12 +8,12 @@
 namespace GameFramework.Network
 {
     /// <summary>
-    /// 用户自定义网络错误事件。
+    /// Network custom error event.
     /// </summary>
     public sealed class NetworkCustomErrorEventArgs : GameFrameworkEventArgs
     {
         /// <summary>
-        /// 初始化用户自定义网络错误事件的新实例。
+        /// Initializes a new instance of the NetworkCustomErrorEventArgs class.
         /// </summary>
         public NetworkCustomErrorEventArgs()
         {
@@ -22,7 +22,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取网络频道。
+        /// Gets the network channel.
         /// </summary>
         public INetworkChannel NetworkChannel
         {
@@ -31,7 +31,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 获取用户自定义错误数据。
+        /// Gets the custom error data.
         /// </summary>
         public object CustomErrorData
         {
@@ -40,11 +40,11 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 创建用户自定义网络错误事件。
+        /// Creates a network custom error event.
         /// </summary>
-        /// <param name="networkChannel">网络频道。</param>
-        /// <param name="customErrorData">用户自定义错误数据。</param>
-        /// <returns>创建的用户自定义网络错误事件。</returns>
+        /// <param name="networkChannel">Network channel.</param>
+        /// <param name="customErrorData">Custom error data.</param>
+        /// <returns>The created network custom error event.</returns>
         public static NetworkCustomErrorEventArgs Create(INetworkChannel networkChannel, object customErrorData)
         {
             NetworkCustomErrorEventArgs networkCustomErrorEventArgs = ReferencePool.Acquire<NetworkCustomErrorEventArgs>();
@@ -54,7 +54,7 @@ namespace GameFramework.Network
         }
 
         /// <summary>
-        /// 清理用户自定义网络错误事件。
+        /// Clears the network custom error event.
         /// </summary>
         public override void Clear()
         {
