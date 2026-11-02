@@ -20,6 +20,16 @@ namespace GameFramework.Network
         /// <summary>
         /// TCP network service with synchronous receive.
         /// </summary>
-        TcpWithSyncReceive
+        TcpWithSyncReceive,
+
+        /// <summary>
+        /// UDP network service (raw datagram).
+        /// </summary>
+        Udp,
+
+        /// <summary>
+        /// KCP network service (reliable UDP via ARQ).
+        /// </summary>
+        Kcp
     }
 }
