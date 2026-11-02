@@ -21,6 +21,9 @@ namespace GameFramework.Fsm
         private Dictionary<string, Variable> m_Datas;
         private FsmState<T> m_CurrentState;
         private float m_CurrentStateTime;
+        private FsmState<T> m_PreviousState;
+        private float m_PreviousStateTime;
+        private bool m_IsPaused;
         private bool m_IsDestroyed;
 
         /// <summary>
@@ -33,6 +36,9 @@ namespace GameFramework.Fsm
             m_Datas = null;
             m_CurrentState = null;
             m_CurrentStateTime = 0f;
+            m_PreviousState = null;
+            m_PreviousStateTime = 0f;
+            m_IsPaused = false;
             m_IsDestroyed = true;
         }
 
@@ -121,6 +127,54 @@ namespace GameFramework.Fsm
             get
             {
                 return m_CurrentStateTime;
+            }
+        }
+
+        /// <summary>
+        /// Gets the previous finite state machine state.
+        /// </summary>
+        public FsmState<T> PreviousState
+        {
+            get
+            {
+                return m_PreviousState;
+            }
+        }
+
+        /// <summary>
+        /// Gets the name of the previous finite state machine state.
+        /// </summary>
+        public override string PreviousStateName
+        {
+            get
+            {
+                return m_PreviousState != null ? m_PreviousState.GetType().FullName : null;
+            }
+        }
+
+        /// <summary>
+        /// Gets the duration of the previous finite state machine state in seconds.
+        /// </summary>
+        public override float PreviousStateTime
+        {
+            get
+            {
+                return m_PreviousStateTime;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets whether the finite state machine is paused.
+        /// </summary>
+        public override bool IsPaused
+        {
+            get
+            {
+                return m_IsPaused;
+            }
+            set
+            {
+                m_IsPaused = value;
             }
         }
 
@@ -246,6 +300,9 @@ namespace GameFramework.Fsm
 
             m_CurrentState = null;
             m_CurrentStateTime = 0f;
+            m_PreviousState = null;
+            m_PreviousStateTime = 0f;
+            m_IsPaused = false;
             m_IsDestroyed = true;
         }
 
@@ -331,6 +388,31 @@ namespace GameFramework.Fsm
             }
 
             return m_States.ContainsKey(stateType);
+        }
+
+        /// <summary>
+        /// Determines whether the finite state machine is currently in the specified state.
+        /// </summary>
+        /// <typeparam name="TState">The type of the finite state machine state to check.</typeparam>
+        /// <returns>Whether the finite state machine is currently in the specified state.</returns>
+        public bool IsInState<TState>() where TState : FsmState<T>
+        {
+            return m_CurrentState is TState;
+        }
+
+        /// <summary>
+        /// Determines whether the finite state machine is currently in the specified state.
+        /// </summary>
+        /// <param name="stateType">The type of the finite state machine state to check.</param>
+        /// <returns>Whether the finite state machine is currently in the specified state.</returns>
+        public override bool IsInState(Type stateType)
+        {
+            if (stateType == null)
+            {
+                throw new GameFrameworkException("State type is invalid.");
+            }
+
+            return m_CurrentState != null && stateType.IsAssignableFrom(m_CurrentState.GetType());
         }
 
         /// <summary>
@@ -530,13 +612,37 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
+        /// Pauses the finite state machine.
+        /// </summary>
+        public override void Pause()
+        {
+            m_IsPaused = true;
+        }
+
+        /// <summary>
+        /// Resumes the finite state machine.
+        /// </summary>
+        public override void Resume()
+        {
+            m_IsPaused = false;
+        }
+
+        /// <summary>
+        /// Resets the duration of the current finite state machine state.
+        /// </summary>
+        public override void ResetCurrentStateTime()
+        {
+            m_CurrentStateTime = 0f;
+        }
+
+        /// <summary>
         /// Updates the finite state machine.
         /// </summary>
         /// <param name="elapseSeconds">Logical elapsed time in seconds.</param>
         /// <param name="realElapseSeconds">Real elapsed time in seconds.</param>
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
-            if (m_CurrentState == null)
+            if (m_CurrentState == null || m_IsPaused)
             {
                 return;
             }
@@ -579,6 +685,8 @@ namespace GameFramework.Fsm
                 throw new GameFrameworkException(Utility.Text.Format("FSM '{0}' can not change state to '{1}' which is not exist.", new TypeNamePair(typeof(T), Name), stateType.FullName));
             }
 
+            m_PreviousState = m_CurrentState;
+            m_PreviousStateTime = m_CurrentStateTime;
             m_CurrentState.OnLeave(this, false);
             m_CurrentStateTime = 0f;
             m_CurrentState = state;

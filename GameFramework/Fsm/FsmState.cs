@@ -106,5 +106,25 @@ namespace GameFramework.Fsm
 
             fsmImplement.ChangeState(stateType);
         }
+
+        /// <summary>
+        /// Rolls back the finite state machine to the previous state.
+        /// </summary>
+        /// <param name="fsm">The finite state machine reference.</param>
+        protected void RollbackState(IFsm<T> fsm)
+        {
+            Fsm<T> fsmImplement = (Fsm<T>)fsm;
+            if (fsmImplement == null)
+            {
+                throw new GameFrameworkException("FSM is invalid.");
+            }
+
+            if (fsmImplement.PreviousState == null)
+            {
+                throw new GameFrameworkException("Previous state is invalid.");
+            }
+
+            fsmImplement.ChangeState(fsmImplement.PreviousState.GetType());
+        }
     }
 }

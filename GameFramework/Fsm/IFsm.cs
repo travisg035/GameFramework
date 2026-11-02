@@ -81,6 +81,46 @@ namespace GameFramework.Fsm
         }
 
         /// <summary>
+        /// Gets the previous finite state machine state.
+        /// </summary>
+        FsmState<T> PreviousState
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets the duration of the previous finite state machine state in seconds.
+        /// </summary>
+        float PreviousStateTime
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets or sets whether the finite state machine is paused.
+        /// </summary>
+        bool IsPaused
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Pauses the finite state machine.
+        /// </summary>
+        void Pause();
+
+        /// <summary>
+        /// Resumes the finite state machine.
+        /// </summary>
+        void Resume();
+
+        /// <summary>
+        /// Resets the duration of the current finite state machine state.
+        /// </summary>
+        void ResetCurrentStateTime();
+
+        /// <summary>
         /// Starts the finite state machine.
         /// </summary>
         /// <typeparam name="TState">The type of the finite state machine state to start.</typeparam>
@@ -105,6 +145,20 @@ namespace GameFramework.Fsm
         /// <param name="stateType">The type of the finite state machine state to check.</param>
         /// <returns>Whether the finite state machine state exists.</returns>
         bool HasState(Type stateType);
+
+        /// <summary>
+        /// Determines whether the finite state machine is currently in the specified state.
+        /// </summary>
+        /// <typeparam name="TState">The type of the finite state machine state to check.</typeparam>
+        /// <returns>Whether the finite state machine is currently in the specified state.</returns>
+        bool IsInState<TState>() where TState : FsmState<T>;
+
+        /// <summary>
+        /// Determines whether the finite state machine is currently in the specified state.
+        /// </summary>
+        /// <param name="stateType">The type of the finite state machine state to check.</param>
+        /// <returns>Whether the finite state machine is currently in the specified state.</returns>
+        bool IsInState(Type stateType);
 
         /// <summary>
         /// Gets a state from the finite state machine.
