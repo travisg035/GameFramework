@@ -164,6 +164,8 @@ namespace GameFramework.Localization
         /// </summary>
         internal override void Shutdown()
         {
+            m_Dictionary.Clear();
+            m_LocalizationHelper = null;
         }
 
         /// <summary>
@@ -1016,6 +1018,167 @@ namespace GameFramework.Localization
 
             return null;
         }
+
+        /// <summary>
+        /// Attempts to get the raw dictionary string corresponding to the dictionary key.
+        /// </summary>
+        /// <param name="key">The dictionary key.</param>
+        /// <param name="value">The raw dictionary string if found; otherwise, null.</param>
+        /// <returns>true if the raw dictionary string was found; otherwise, false.</returns>
+        public bool TryGetRawString(string key, out string value)
+        {
+            if (string.IsNullOrEmpty(key))
+            {
+                value = null;
+                return false;
+            }
+
+            return m_Dictionary.TryGetValue(key, out value);
+        }
+
+        /// <summary>
+        /// Attempts to get the localized string corresponding to the dictionary key.
+        /// </summary>
+        /// <param name="key">The dictionary key.</param>
+        /// <param name="value">The localized string if found; otherwise, null.</param>
+        /// <returns>true if the localized string was found; otherwise, false.</returns>
+        public bool TryGetString(string key, out string value)
+        {
+            return TryGetRawString(key, out value);
+        }
+
+        /// <summary>
+        /// Gets all raw dictionary strings.
+        /// </summary>
+        /// <param name="results">The dictionary to store the results.</param>
+        public void GetAllRawStrings(IDictionary<string, string> results)
+        {
+            if (results == null)
+            {
+                throw new GameFrameworkException("Results is invalid.");
+            }
+
+            results.Clear();
+            foreach (KeyValuePair<string, string> item in m_Dictionary)
+            {
+                results.Add(item.Key, item.Value);
+            }
+        }
+
+        /// <summary>
+        /// Gets all raw dictionary strings.
+        /// </summary>
+        /// <returns>All raw dictionary strings.</returns>
+        public IDictionary<string, string> GetAllRawStrings()
+        {
+            Dictionary<string, string> results = new Dictionary<string, string>(m_Dictionary.Count, StringComparer.Ordinal);
+            foreach (KeyValuePair<string, string> item in m_Dictionary)
+            {
+                results.Add(item.Key, item.Value);
+            }
+
+            return results;
+        }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER
+        /// <summary>
+        /// Determines whether the raw dictionary string exists.
+        /// </summary>
+        /// <param name="key">The dictionary key.</param>
+        /// <returns>Whether the raw dictionary string exists.</returns>
+        public bool HasRawString(ReadOnlySpan<char> key)
+        {
+            if (key.IsEmpty)
+            {
+                throw new GameFrameworkException("Key is invalid.");
+            }
+
+#if NET9_0_OR_GREATER
+            return m_Dictionary.GetAlternateLookup<ReadOnlySpan<char>>().ContainsKey(key);
+#else
+            // ponytail: fallback allocation on .NET Standard 2.1; upgrade to GetAlternateLookup on .NET 9.
+            return m_Dictionary.ContainsKey(key.ToString());
+#endif
+        }
+
+        /// <summary>
+        /// Gets the raw dictionary string corresponding to the dictionary key.
+        /// </summary>
+        /// <param name="key">The dictionary key.</param>
+        /// <returns>The raw dictionary string.</returns>
+        public string GetRawString(ReadOnlySpan<char> key)
+        {
+            if (key.IsEmpty)
+            {
+                throw new GameFrameworkException("Key is invalid.");
+            }
+
+            string value = null;
+#if NET9_0_OR_GREATER
+            if (m_Dictionary.GetAlternateLookup<ReadOnlySpan<char>>().TryGetValue(key, out value))
+            {
+                return value;
+            }
+#else
+            // ponytail: fallback allocation on .NET Standard 2.1; upgrade to GetAlternateLookup on .NET 9.
+            if (m_Dictionary.TryGetValue(key.ToString(), out value))
+            {
+                return value;
+            }
+#endif
+
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the localized string corresponding to the dictionary key.
+        /// </summary>
+        /// <param name="key">The dictionary key.</param>
+        /// <returns>The localized string.</returns>
+        public string GetString(ReadOnlySpan<char> key)
+        {
+            string value = GetRawString(key);
+            if (value == null)
+            {
+                return Utility.Text.Format("<NoKey>{0}", key.ToString());
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Attempts to get the raw dictionary string corresponding to the dictionary key.
+        /// </summary>
+        /// <param name="key">The dictionary key.</param>
+        /// <param name="value">The raw dictionary string if found; otherwise, null.</param>
+        /// <returns>true if the raw dictionary string was found; otherwise, false.</returns>
+        public bool TryGetRawString(ReadOnlySpan<char> key, out string value)
+        {
+            if (key.IsEmpty)
+            {
+                value = null;
+                return false;
+            }
+
+#if NET9_0_OR_GREATER
+            return m_Dictionary.GetAlternateLookup<ReadOnlySpan<char>>().TryGetValue(key, out value);
+#else
+            // ponytail: fallback allocation on .NET Standard 2.1; upgrade to GetAlternateLookup on .NET 9.
+            return m_Dictionary.TryGetValue(key.ToString(), out value);
+#endif
+        }
+
+        /// <summary>
+        /// Attempts to get the localized string corresponding to the dictionary key.
+        /// </summary>
+        /// <param name="key">The dictionary key.</param>
+        /// <param name="value">The localized string if found; otherwise, null.</param>
+        /// <returns>true if the localized string was found; otherwise, false.</returns>
+        public bool TryGetString(ReadOnlySpan<char> key, out string value)
+        {
+            return TryGetRawString(key, out value);
+        }
+#endif
 
         /// <summary>
         /// Adds a raw dictionary string.
