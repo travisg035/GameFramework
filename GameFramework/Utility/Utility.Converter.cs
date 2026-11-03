@@ -143,6 +143,23 @@ namespace GameFramework
                 buffer[startIndex] = value ? (byte)1 : (byte)0;
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the specified boolean value in binary bytes.
+            /// </summary>
+            /// <param name="value">The boolean value to convert.</param>
+            /// <param name="destination">The destination span.</param>
+            public static void GetBytes(bool value, Span<byte> destination)
+            {
+                if (destination.Length < 1)
+                {
+                    throw new GameFrameworkException("Destination is invalid.");
+                }
+
+                destination[0] = value ? (byte)1 : (byte)0;
+            }
+#endif
+
             /// <summary>
             /// Returns a boolean value converted from the first byte in the specified byte array.
             /// </summary>
@@ -163,6 +180,23 @@ namespace GameFramework
             {
                 return BitConverter.ToBoolean(value, startIndex);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a boolean value converted from the first byte in the specified byte span.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>true if the first byte in value is non-zero; otherwise, false.</returns>
+            public static bool GetBoolean(ReadOnlySpan<byte> value)
+            {
+                if (value.Length < 1)
+                {
+                    throw new GameFrameworkException("Value is invalid.");
+                }
+
+                return value[0] != 0;
+            }
+#endif
 
             /// <summary>
             /// Gets the specified Unicode character value in binary bytes.
@@ -197,6 +231,18 @@ namespace GameFramework
                 GetBytes((short)value, buffer, startIndex);
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the specified Unicode character value in binary bytes.
+            /// </summary>
+            /// <param name="value">The character to convert.</param>
+            /// <param name="destination">The destination span.</param>
+            public static void GetBytes(char value, Span<byte> destination)
+            {
+                GetBytes((short)value, destination);
+            }
+#endif
+
             /// <summary>
             /// Returns a Unicode character converted from the first two bytes in the specified byte array.
             /// </summary>
@@ -217,6 +263,26 @@ namespace GameFramework
             {
                 return BitConverter.ToChar(value, startIndex);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a Unicode character converted from the first two bytes in the specified byte span.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>A character formed by two bytes.</returns>
+            public static unsafe char GetChar(ReadOnlySpan<byte> value)
+            {
+                if (value.Length < 2)
+                {
+                    throw new GameFrameworkException("Value is invalid.");
+                }
+
+                fixed (byte* ptr = value)
+                {
+                    return *(char*)ptr;
+                }
+            }
+#endif
 
             /// <summary>
             /// Gets the specified 16-bit signed integer value in binary bytes.
@@ -264,6 +330,26 @@ namespace GameFramework
                 }
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the specified 16-bit signed integer value in binary bytes.
+            /// </summary>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="destination">The destination span.</param>
+            public static unsafe void GetBytes(short value, Span<byte> destination)
+            {
+                if (destination.Length < 2)
+                {
+                    throw new GameFrameworkException("Destination is invalid.");
+                }
+
+                fixed (byte* ptr = destination)
+                {
+                    *(short*)ptr = value;
+                }
+            }
+#endif
+
             /// <summary>
             /// Returns a 16-bit signed integer converted from the first two bytes in the specified byte array.
             /// </summary>
@@ -284,6 +370,26 @@ namespace GameFramework
             {
                 return BitConverter.ToInt16(value, startIndex);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a 16-bit signed integer converted from the first two bytes in the specified byte span.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>A 16-bit signed integer formed by two bytes.</returns>
+            public static unsafe short GetInt16(ReadOnlySpan<byte> value)
+            {
+                if (value.Length < 2)
+                {
+                    throw new GameFrameworkException("Value is invalid.");
+                }
+
+                fixed (byte* ptr = value)
+                {
+                    return *(short*)ptr;
+                }
+            }
+#endif
 
             /// <summary>
             /// Gets the specified 16-bit unsigned integer value in binary bytes.
@@ -318,6 +424,18 @@ namespace GameFramework
                 GetBytes((short)value, buffer, startIndex);
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the specified 16-bit unsigned integer value in binary bytes.
+            /// </summary>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="destination">The destination span.</param>
+            public static unsafe void GetBytes(ushort value, Span<byte> destination)
+            {
+                GetBytes((short)value, destination);
+            }
+#endif
+
             /// <summary>
             /// Returns a 16-bit unsigned integer converted from the first two bytes in the specified byte array.
             /// </summary>
@@ -338,6 +456,26 @@ namespace GameFramework
             {
                 return BitConverter.ToUInt16(value, startIndex);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a 16-bit unsigned integer converted from the first two bytes in the specified byte span.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>A 16-bit unsigned integer formed by two bytes.</returns>
+            public static unsafe ushort GetUInt16(ReadOnlySpan<byte> value)
+            {
+                if (value.Length < 2)
+                {
+                    throw new GameFrameworkException("Value is invalid.");
+                }
+
+                fixed (byte* ptr = value)
+                {
+                    return *(ushort*)ptr;
+                }
+            }
+#endif
 
             /// <summary>
             /// Gets the specified 32-bit signed integer value in binary bytes.
@@ -385,6 +523,26 @@ namespace GameFramework
                 }
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the specified 32-bit signed integer value in binary bytes.
+            /// </summary>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="destination">The destination span.</param>
+            public static unsafe void GetBytes(int value, Span<byte> destination)
+            {
+                if (destination.Length < 4)
+                {
+                    throw new GameFrameworkException("Destination is invalid.");
+                }
+
+                fixed (byte* ptr = destination)
+                {
+                    *(int*)ptr = value;
+                }
+            }
+#endif
+
             /// <summary>
             /// Returns a 32-bit signed integer converted from the first four bytes in the specified byte array.
             /// </summary>
@@ -405,6 +563,26 @@ namespace GameFramework
             {
                 return BitConverter.ToInt32(value, startIndex);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a 32-bit signed integer converted from the first four bytes in the specified byte span.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>A 32-bit signed integer formed by four bytes.</returns>
+            public static unsafe int GetInt32(ReadOnlySpan<byte> value)
+            {
+                if (value.Length < 4)
+                {
+                    throw new GameFrameworkException("Value is invalid.");
+                }
+
+                fixed (byte* ptr = value)
+                {
+                    return *(int*)ptr;
+                }
+            }
+#endif
 
             /// <summary>
             /// Gets the specified 32-bit unsigned integer value in binary bytes.
@@ -439,6 +617,18 @@ namespace GameFramework
                 GetBytes((int)value, buffer, startIndex);
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the specified 32-bit unsigned integer value in binary bytes.
+            /// </summary>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="destination">The destination span.</param>
+            public static unsafe void GetBytes(uint value, Span<byte> destination)
+            {
+                GetBytes((int)value, destination);
+            }
+#endif
+
             /// <summary>
             /// Returns a 32-bit unsigned integer converted from the first four bytes in the specified byte array.
             /// </summary>
@@ -459,6 +649,26 @@ namespace GameFramework
             {
                 return BitConverter.ToUInt32(value, startIndex);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a 32-bit unsigned integer converted from the first four bytes in the specified byte span.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>A 32-bit unsigned integer formed by four bytes.</returns>
+            public static unsafe uint GetUInt32(ReadOnlySpan<byte> value)
+            {
+                if (value.Length < 4)
+                {
+                    throw new GameFrameworkException("Value is invalid.");
+                }
+
+                fixed (byte* ptr = value)
+                {
+                    return *(uint*)ptr;
+                }
+            }
+#endif
 
             /// <summary>
             /// Gets the specified 64-bit signed integer value in binary bytes.
@@ -506,6 +716,26 @@ namespace GameFramework
                 }
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the specified 64-bit signed integer value in binary bytes.
+            /// </summary>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="destination">The destination span.</param>
+            public static unsafe void GetBytes(long value, Span<byte> destination)
+            {
+                if (destination.Length < 8)
+                {
+                    throw new GameFrameworkException("Destination is invalid.");
+                }
+
+                fixed (byte* ptr = destination)
+                {
+                    *(long*)ptr = value;
+                }
+            }
+#endif
+
             /// <summary>
             /// Returns a 64-bit signed integer converted from the first eight bytes in the specified byte array.
             /// </summary>
@@ -526,6 +756,26 @@ namespace GameFramework
             {
                 return BitConverter.ToInt64(value, startIndex);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a 64-bit signed integer converted from the first eight bytes in the specified byte span.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>A 64-bit signed integer formed by eight bytes.</returns>
+            public static unsafe long GetInt64(ReadOnlySpan<byte> value)
+            {
+                if (value.Length < 8)
+                {
+                    throw new GameFrameworkException("Value is invalid.");
+                }
+
+                fixed (byte* ptr = value)
+                {
+                    return *(long*)ptr;
+                }
+            }
+#endif
 
             /// <summary>
             /// Gets the specified 64-bit unsigned integer value in binary bytes.
@@ -560,6 +810,18 @@ namespace GameFramework
                 GetBytes((long)value, buffer, startIndex);
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the specified 64-bit unsigned integer value in binary bytes.
+            /// </summary>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="destination">The destination span.</param>
+            public static unsafe void GetBytes(ulong value, Span<byte> destination)
+            {
+                GetBytes((long)value, destination);
+            }
+#endif
+
             /// <summary>
             /// Returns a 64-bit unsigned integer converted from the first eight bytes in the specified byte array.
             /// </summary>
@@ -580,6 +842,26 @@ namespace GameFramework
             {
                 return BitConverter.ToUInt64(value, startIndex);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a 64-bit unsigned integer converted from the first eight bytes in the specified byte span.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>A 64-bit unsigned integer formed by eight bytes.</returns>
+            public static unsafe ulong GetUInt64(ReadOnlySpan<byte> value)
+            {
+                if (value.Length < 8)
+                {
+                    throw new GameFrameworkException("Value is invalid.");
+                }
+
+                fixed (byte* ptr = value)
+                {
+                    return *(ulong*)ptr;
+                }
+            }
+#endif
 
             /// <summary>
             /// Gets the specified single-precision floating-point value in binary bytes.
@@ -614,6 +896,18 @@ namespace GameFramework
                 GetBytes(*(int*)&value, buffer, startIndex);
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the specified single-precision floating-point value in binary bytes.
+            /// </summary>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="destination">The destination span.</param>
+            public static unsafe void GetBytes(float value, Span<byte> destination)
+            {
+                GetBytes(*(int*)&value, destination);
+            }
+#endif
+
             /// <summary>
             /// Returns a single-precision floating-point number converted from the first four bytes in the specified byte array.
             /// </summary>
@@ -634,6 +928,26 @@ namespace GameFramework
             {
                 return BitConverter.ToSingle(value, startIndex);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a single-precision floating-point number converted from the first four bytes in the specified byte span.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>A single-precision floating-point number formed by four bytes.</returns>
+            public static unsafe float GetSingle(ReadOnlySpan<byte> value)
+            {
+                if (value.Length < 4)
+                {
+                    throw new GameFrameworkException("Value is invalid.");
+                }
+
+                fixed (byte* ptr = value)
+                {
+                    return *(float*)ptr;
+                }
+            }
+#endif
 
             /// <summary>
             /// Gets the specified double-precision floating-point value in binary bytes.
@@ -668,6 +982,18 @@ namespace GameFramework
                 GetBytes(*(long*)&value, buffer, startIndex);
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the specified double-precision floating-point value in binary bytes.
+            /// </summary>
+            /// <param name="value">The number to convert.</param>
+            /// <param name="destination">The destination span.</param>
+            public static unsafe void GetBytes(double value, Span<byte> destination)
+            {
+                GetBytes(*(long*)&value, destination);
+            }
+#endif
+
             /// <summary>
             /// Returns a double-precision floating-point number converted from the first eight bytes in the specified byte array.
             /// </summary>
@@ -688,6 +1014,26 @@ namespace GameFramework
             {
                 return BitConverter.ToDouble(value, startIndex);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a double-precision floating-point number converted from the first eight bytes in the specified byte span.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>A double-precision floating-point number formed by eight bytes.</returns>
+            public static unsafe double GetDouble(ReadOnlySpan<byte> value)
+            {
+                if (value.Length < 8)
+                {
+                    throw new GameFrameworkException("Value is invalid.");
+                }
+
+                fixed (byte* ptr = value)
+                {
+                    return *(double*)ptr;
+                }
+            }
+#endif
 
             /// <summary>
             /// Gets the UTF-8 encoded string in binary bytes.
@@ -778,6 +1124,36 @@ namespace GameFramework
                 return encoding.GetBytes(value, 0, value.Length, buffer, startIndex);
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the UTF-8 encoded string in binary bytes into destination span.
+            /// </summary>
+            /// <param name="value">The character span to convert.</param>
+            /// <param name="destination">The destination byte span.</param>
+            /// <returns>The actual number of bytes written into destination.</returns>
+            public static int GetBytes(ReadOnlySpan<char> value, Span<byte> destination)
+            {
+                return GetBytes(value, Encoding.UTF8, destination);
+            }
+
+            /// <summary>
+            /// Gets the string in binary bytes using the specified encoding into destination span.
+            /// </summary>
+            /// <param name="value">The character span to convert.</param>
+            /// <param name="encoding">The encoding to use.</param>
+            /// <param name="destination">The destination byte span.</param>
+            /// <returns>The actual number of bytes written into destination.</returns>
+            public static int GetBytes(ReadOnlySpan<char> value, Encoding encoding, Span<byte> destination)
+            {
+                if (encoding == null)
+                {
+                    throw new GameFrameworkException("Encoding is invalid.");
+                }
+
+                return encoding.GetBytes(value, destination);
+            }
+#endif
+
             /// <summary>
             /// Returns a string converted from the byte array using UTF-8 encoding.
             /// </summary>
@@ -843,6 +1219,34 @@ namespace GameFramework
 
                 return encoding.GetString(value, startIndex, length);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Returns a string converted from the byte span using UTF-8 encoding.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <returns>The converted string.</returns>
+            public static string GetString(ReadOnlySpan<byte> value)
+            {
+                return GetString(value, Encoding.UTF8);
+            }
+
+            /// <summary>
+            /// Returns a string converted from the byte span using the specified encoding.
+            /// </summary>
+            /// <param name="value">The byte span.</param>
+            /// <param name="encoding">The encoding to use.</param>
+            /// <returns>The converted string.</returns>
+            public static string GetString(ReadOnlySpan<byte> value, Encoding encoding)
+            {
+                if (encoding == null)
+                {
+                    throw new GameFrameworkException("Encoding is invalid.");
+                }
+
+                return encoding.GetString(value);
+            }
+#endif
         }
     }
 }

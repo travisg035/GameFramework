@@ -28,8 +28,36 @@ namespace GameFramework
                     return null;
                 }
 
+                if (path.IndexOf('\\') < 0)
+                {
+                    return path;
+                }
+
                 return path.Replace('\\', '/');
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Normalizes the path into destination span by replacing backslashes with slashes.
+            /// </summary>
+            /// <param name="path">The path to normalize.</param>
+            /// <param name="destination">The destination span.</param>
+            /// <returns>The number of characters written into destination.</returns>
+            public static int GetRegularPath(ReadOnlySpan<char> path, Span<char> destination)
+            {
+                if (destination.Length < path.Length)
+                {
+                    throw new GameFrameworkException("Destination is invalid.");
+                }
+
+                for (int i = 0; i < path.Length; i++)
+                {
+                    destination[i] = path[i] == '\\' ? '/' : path[i];
+                }
+
+                return path.Length;
+            }
+#endif
 
             /// <summary>
             /// Gets the remote path (prefixed with file:// or http://).

@@ -129,6 +129,75 @@ namespace GameFramework
                     codeIndex %= codeLength;
                 }
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Performs XOR operation on bytes using code in-place.
+            /// </summary>
+            /// <param name="bytes">The original and XORed binary bytes.</param>
+            /// <param name="code">The XOR key binary bytes.</param>
+            public static void GetSelfXorBytes(Span<byte> bytes, ReadOnlySpan<byte> code)
+            {
+                if (code.IsEmpty)
+                {
+                    throw new GameFrameworkException("Code length is invalid.");
+                }
+
+                int codeLength = code.Length;
+                int codeIndex = 0;
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    bytes[i] ^= code[codeIndex++];
+                    codeIndex %= codeLength;
+                }
+            }
+
+            /// <summary>
+            /// Fast version of performing XOR operation on bytes using code in-place.
+            /// </summary>
+            /// <param name="bytes">The original and XORed binary bytes.</param>
+            /// <param name="code">The XOR key binary bytes.</param>
+            public static void GetQuickSelfXorBytes(Span<byte> bytes, ReadOnlySpan<byte> code)
+            {
+                int length = bytes.Length < QuickEncryptLength ? bytes.Length : QuickEncryptLength;
+                GetSelfXorBytes(bytes.Slice(0, length), code);
+            }
+
+            /// <summary>
+            /// Performs XOR operation on bytes using code into destination span.
+            /// </summary>
+            /// <param name="bytes">The original binary bytes.</param>
+            /// <param name="destination">The destination binary bytes.</param>
+            /// <param name="code">The XOR key binary bytes.</param>
+            public static void GetXorBytes(ReadOnlySpan<byte> bytes, Span<byte> destination, ReadOnlySpan<byte> code)
+            {
+                if (destination.Length < bytes.Length)
+                {
+                    throw new GameFrameworkException("Destination is invalid.");
+                }
+
+                bytes.CopyTo(destination);
+                GetSelfXorBytes(destination.Slice(0, bytes.Length), code);
+            }
+
+            /// <summary>
+            /// Fast version of performing XOR operation on bytes using code into destination span.
+            /// </summary>
+            /// <param name="bytes">The original binary bytes.</param>
+            /// <param name="destination">The destination binary bytes.</param>
+            /// <param name="code">The XOR key binary bytes.</param>
+            public static void GetQuickXorBytes(ReadOnlySpan<byte> bytes, Span<byte> destination, ReadOnlySpan<byte> code)
+            {
+                int length = bytes.Length < QuickEncryptLength ? bytes.Length : QuickEncryptLength;
+                if (destination.Length < length)
+                {
+                    throw new GameFrameworkException("Destination is invalid.");
+                }
+
+                bytes.Slice(0, length).CopyTo(destination);
+                GetQuickSelfXorBytes(destination.Slice(0, length), code);
+            }
+#endif
         }
     }
 }

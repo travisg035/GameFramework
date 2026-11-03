@@ -61,6 +61,24 @@ namespace GameFramework
                 return result;
             }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Calculates the CRC32 of the binary bytes.
+            /// </summary>
+            /// <param name="bytes">The specified binary bytes.</param>
+            /// <returns>The calculated CRC32.</returns>
+            public static int GetCrc32(ReadOnlySpan<byte> bytes)
+            {
+                lock (s_Algorithm)
+                {
+                    s_Algorithm.HashCore(bytes);
+                    int result = (int)s_Algorithm.HashFinal();
+                    s_Algorithm.Initialize();
+                    return result;
+                }
+            }
+#endif
+
             /// <summary>
             /// Calculates the CRC32 of the stream.
             /// </summary>
@@ -135,6 +153,26 @@ namespace GameFramework
                 bytes[offset + 2] = (byte)((crc32 >> 8) & 0xff);
                 bytes[offset + 3] = (byte)(crc32 & 0xff);
             }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            /// <summary>
+            /// Gets the CRC32 bytes into destination span.
+            /// </summary>
+            /// <param name="crc32">The CRC32 value.</param>
+            /// <param name="destination">The destination span.</param>
+            public static void GetCrc32Bytes(int crc32, Span<byte> destination)
+            {
+                if (destination.Length < 4)
+                {
+                    throw new GameFrameworkException("Destination is invalid.");
+                }
+
+                destination[0] = (byte)((crc32 >> 24) & 0xff);
+                destination[1] = (byte)((crc32 >> 16) & 0xff);
+                destination[2] = (byte)((crc32 >> 8) & 0xff);
+                destination[3] = (byte)(crc32 & 0xff);
+            }
+#endif
 
             internal static int GetCrc32(Stream stream, byte[] code, int length)
             {

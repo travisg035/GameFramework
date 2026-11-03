@@ -46,10 +46,32 @@ namespace GameFramework
                     m_Hash = CalculateHash(m_Table, m_Hash, bytes, offset, length);
                 }
 
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+                public void HashCore(ReadOnlySpan<byte> bytes)
+                {
+                    m_Hash = CalculateHash(m_Table, m_Hash, bytes);
+                }
+#endif
+
                 public uint HashFinal()
                 {
                     return ~m_Hash;
                 }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+                private static uint CalculateHash(uint[] table, uint value, ReadOnlySpan<byte> bytes)
+                {
+                    for (int i = 0; i < bytes.Length; i++)
+                    {
+                        unchecked
+                        {
+                            value = (value >> 8) ^ table[bytes[i] ^ value & 0xff];
+                        }
+                    }
+
+                    return value;
+                }
+#endif
 
                 private static uint CalculateHash(uint[] table, uint value, byte[] bytes, int offset, int length)
                 {
