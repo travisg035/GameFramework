@@ -65,6 +65,14 @@ namespace GameFramework
                 throw new GameFrameworkException(Utility.Text.Format("You must get a Game Framework module, but '{0}' is not.", interfaceType.FullName));
             }
 
+            foreach (GameFrameworkModule module in s_GameFrameworkModules)
+            {
+                if (module is T targetModule)
+                {
+                    return targetModule;
+                }
+            }
+
             string moduleName = Utility.Text.Format("{0}.{1}", interfaceType.Namespace, interfaceType.Name.Substring(1));
             Type moduleType = Type.GetType(moduleName);
             if (moduleType == null)
@@ -73,6 +81,59 @@ namespace GameFramework
             }
 
             return GetModule(moduleType) as T;
+        }
+
+        /// <summary>
+        /// Registers a game framework module explicitly.
+        /// </summary>
+        /// <typeparam name="T">The interface type of the game framework module.</typeparam>
+        /// <param name="module">The game framework module instance to register.</param>
+        public static void RegisterModule<T>(T module) where T : class
+        {
+            if (module == null)
+            {
+                throw new GameFrameworkException("Module is invalid.");
+            }
+
+            Type interfaceType = typeof(T);
+            if (!interfaceType.IsInterface)
+            {
+                throw new GameFrameworkException(Utility.Text.Format("You must register module by interface, but '{0}' is not.", interfaceType.FullName));
+            }
+
+            if (!(module is GameFrameworkModule frameworkModule))
+            {
+                throw new GameFrameworkException(Utility.Text.Format("Module '{0}' is not a GameFrameworkModule.", module.GetType().FullName));
+            }
+
+            Type moduleType = frameworkModule.GetType();
+            foreach (GameFrameworkModule existingModule in s_GameFrameworkModules)
+            {
+                if (existingModule.GetType() == moduleType)
+                {
+                    throw new GameFrameworkException(Utility.Text.Format("Game Framework module type '{0}' is already registered.", moduleType.FullName));
+                }
+            }
+
+            LinkedListNode<GameFrameworkModule> current = s_GameFrameworkModules.First;
+            while (current != null)
+            {
+                if (frameworkModule.Priority > current.Value.Priority)
+                {
+                    break;
+                }
+
+                current = current.Next;
+            }
+
+            if (current != null)
+            {
+                s_GameFrameworkModules.AddBefore(current, frameworkModule);
+            }
+            else
+            {
+                s_GameFrameworkModules.AddLast(frameworkModule);
+            }
         }
 
         /// <summary>
