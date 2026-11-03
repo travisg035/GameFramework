@@ -88,7 +88,7 @@ namespace GameFramework
         /// <returns>The reference.</returns>
         public static T Acquire<T>() where T : class, IReference, new()
         {
-            return GetReferenceCollection(typeof(T)).Acquire<T>();
+            return ReferenceCollectionCache<T>.Collection.Acquire<T>();
         }
 
         /// <summary>
@@ -100,6 +100,21 @@ namespace GameFramework
         {
             InternalCheckReferenceType(referenceType);
             return GetReferenceCollection(referenceType).Acquire();
+        }
+
+        /// <summary>
+        /// Releases a reference back to the reference pool.
+        /// </summary>
+        /// <typeparam name="T">Reference type.</typeparam>
+        /// <param name="reference">The reference to release.</param>
+        public static void Release<T>(T reference) where T : class, IReference, new()
+        {
+            if (reference == null)
+            {
+                throw new GameFrameworkException("Reference is invalid.");
+            }
+
+            ReferenceCollectionCache<T>.Collection.Release(reference);
         }
 
         /// <summary>
@@ -220,6 +235,25 @@ namespace GameFramework
             }
 
             return referenceCollection;
+        }
+
+        private static class ReferenceCollectionCache<T> where T : class, IReference, new()
+        {
+            private static ReferenceCollection s_ReferenceCollection = null;
+
+            public static ReferenceCollection Collection
+            {
+                get
+                {
+                    if (s_ReferenceCollection != null && s_ReferenceCollections.Count > 0)
+                    {
+                        return s_ReferenceCollection;
+                    }
+
+                    s_ReferenceCollection = GetReferenceCollection(typeof(T));
+                    return s_ReferenceCollection;
+                }
+            }
         }
     }
 }
